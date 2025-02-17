@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Catálogo | Gypsy Joyas</title>
+    <meta name="description"
+        content="Explorá el catálogo y descubrí piezas originales de joyería artesanal hechas en cobre, bronce y alpaca. Elegí tu preferida y encargala a través de Instagram.">
+    <link rel="shortcut icon" href="img/icono.svg">
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="loader.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+
+<body>
+    <section id="loader">
+        <div class="loader-o">
+            <div class="wrapper">
+                <div class="squares">
+                    <span class="load-square"></span>
+                    <span class="load-square"></span>
+                </div>
+                <p class="loading">CARGANDO</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- JS: Ocultar loader cuando esté cargado -->
+    <script>
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loader');
+            loader.style.display = 'none';
+        });
+    </script>
+
+    <section id="fondo"></section>
+
+    <nav class="navbar">
+        <div id="nav">
+            <img src="img/icono.svg" alt="Logo de Gypsy Joyas" id="icono">
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="linealarga"></span>
+                <span id="lineacorta"></span>
+                <span class="linealarga"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link scroll-link" href="#top-content">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link scroll-link" href="#btnseccion">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link scroll-link" href="#encargos">Como<span>f</span>encargar?</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link scroll-link" href="#contacto">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const menuItems = document.querySelectorAll(".navbar-nav .nav-item");
+
+            menuItems.forEach(item => {
+                item.addEventListener("click", function () {
+                    menuItems.forEach(item => {
+                        item.style.display = "none";
+                    });
+                });
+            });
+        });
+    </script>
+
+    <p id="blank"></p>
+
+    <div class="contenedor">
+        <div id="cajatitulo">
+            <div id="bordetitulo">
+                <header>
+                    <div>
+                        <h1>Obras de Arte para Llevar Puestas</h1>
+                        <h6>Joyería artesanal en bronce, cobre y alpaca</h6>
+                    </div>
+                </header>
+            </div>
+        </div>
+    </div>
+
+    <p id="blank2"></p>
+
+    <section>
+        <div class="caja">
+            <img src="img/titulo.webp" alt="Fondo del título 'Productos'">
+            <div class="txttitulo">
+                <h2>Prod<span>uctos</span></h2>
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <div class="seccion">
+            <button id="btnseccion">
+                <h4>Aros</h4>
+                <p id="flecha">ᐯ</p>
+                <p class="linea"></p>
+            </button>
+        </div>
+
+        <p class="pseccion">Bronce</p>
+
+        <div class="productos" class="seccionprod">
+            <div class="producto">
+                <img class="imgprod" src="img/arcoiris.webp" alt="Producto">
+                <h5>Arcoíris</h5>
+            </div>
+
+            <div class="producto">
+                <img class="imgprod" src="img/argollascaladas.webp" alt="Producto">
+                <h5>Argollas caladas</h5>
+            </div>
+
+            <div class="producto">
+                <img class="imgprod" src="img/argollascaladasgrandes.webp" alt="Producto">
+                <h5>Argollas caladas grandes</h5>
+            </div>
+
+            <div class="producto">
+                <img class="imgprod" src="img/caracolesdemar.webp" alt="Producto" style="rotate: 90deg;">
+                <h5>Caracoles de mar</h5>
+            </div>
+
+            <div class="producto">
+                <img class="imgprod" src="img/arosbronceargollasondas.webp" alt="Producto">
+                <h5>Argollas ondas</h5>
+            </div>
+
+            <div class="producto">
+                <img class="imgprod" src="img/arosbroncecolgantes(piedra).webp" alt="Producto">
+                <h5>Colgantes (piedra)</h5>
+            </div>
+
+            <div class="producto">
+                <img class="imgprod" src="img/arosbroncesol(piedra).webp" alt="Producto">
+                <h5>Sol (piedra)</h5>
+            </div>
+
+            <div class="producto">
+                <img class="imgprod" src="img/arosbroncecolgantescurvados.webp" alt="Producto" style="rotate: 180deg;">
+                <h5>Colgantes curvados</h5>
+            </div>
+
+            <div class="producto">
+                <img class="imgprod" src="img/arosbronceFunghi.webp" alt="Producto">
+                <h5>Funghi</h5>
+            </div>
+
+            <div class="producto">
+                <img class="imgprod" src="img/arosbroncecolgantesgypsy.webp" alt="Producto">
+                <h5>Colgantes Gypsy</h5>
+            </div>
+
+            <div class="producto">
+                <img class="imgprod" src="img/arosbroncegypsycalados.webp" alt="Producto">
+                <h5>Colgantes Gypsy calados</h5>
+            </div>
+
+            <div class="producto">
+                <img class="imgprod" src="img/arosbronceearcuffs.webp" alt="Producto">
+                <h5>Earcuffs</h5>
+            </div>
+        </div>
+
+        <p class="pseccion">Alpaca</p>
+
+        <div class="productos" class="seccionprod">
+            <div class="producto">
+                <img class="imgprod" src="img/argollascaladasalpaca.webp" alt="Producto">
+                <h5>Argollas caladas</h5>
+            </div>
+
+            <div class="producto">
+                <img class="imgprod" src="img/argollasondasalpaca.webp" alt="Producto">
+                <h5>Argollas ondas</h5>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let desplegar = document.getElementById("btnseccion");
+            let secciones = document.getElementsByClassName("productos");
+            let textos = document.getElementsByClassName("pseccion");
+            let flecha = document.getElementById("flecha");
+
+            desplegar.addEventListener("click", function () {
+                flecha.classList.toggle("animar");
+                for (let seccion of secciones) {
+                    seccion.classList.toggle("oculto");
+                }
+                for (let texto of textos) {
+                    texto.classList.toggle("oculto");
+                }
+            });
+        });
+    </script>
+
+    <section>
+        <div class="caja">
+            <img src="img/titulo2.webp" id="encargos" alt="Fondo del título 'Cómo encargar'">
+            <div class="txttitulo1">
+                <h3><span>¿Como e</span>ncargar?</h3>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

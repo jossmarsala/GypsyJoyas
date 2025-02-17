@@ -1,0 +1,323 @@
+@font-face {
+    font-family: 'Segoe Ui';
+    src: url("fonts/Segoe.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Segoe Ui';
+    src: url("fonts/SegoeBold.woff2") format("woff2");
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Segoe Ui';
+    src: url("fonts/SegoeBoldItalic.woff2") format("woff2");
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Segoe Ui';
+    src: url("fonts/SegoeItalic.woff2") format("woff2");
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'S Serif';
+    src: url("fonts/SilkSerifExtraLight.woff2") format("woff2");
+    font-weight: lighter;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'S Serif';
+    src: url("fonts/SilkSerifLight.woff2") format("woff2");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'S Serif';
+    src: url("fonts/SilkSerifRegular.woff2") format("woff2");
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'S Serif';
+    src: url("fonts/SilkSerifBold.woff2") format("woff2");
+    font-weight: bolder;
+}
+
+:root {
+    --crema: #d9b9a0;
+    --fondo: #fffaf1;
+    --texto: #3c2415;
+    --ocre: #cfa358;
+    --verde: #4a5631;
+    --contenedores: #fffff1;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-y: hidden;
+}
+
+body {
+    margin: 0;
+    background-color: var(--fondo) !important;
+    font-family: 'S Serif' !important;
+    font-weight: normal;
+}
+
+.oculto {
+    display: none !important;
+}
+
+#nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 3vh 5.5vw 0 7vw;
+    width: 100vw;
+}
+
+#navbarNav {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 100px 100vw 100vh 40px;
+    background-color: var(--fondo);
+    z-index: 1;
+    font-weight: bold;
+    font-size: clamp(23px, 5vw, 50px);
+}
+
+.nav-link span {
+    color: var(--fondo);
+}
+
+.linealarga {
+    width: 25px;
+    height: 1.5px;
+}
+
+#lineacorta {
+    width: 20px;
+    height: 1.5px;
+}
+
+#icono {
+    width: clamp(25px, 10vw, 70px);
+    height: auto;
+    z-index: 2;
+}
+
+.navbar-toggler {
+    border: none !important;
+    box-shadow: none !important;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    position: relative;
+    z-index: 2;
+}
+
+.navbar-toggler span {
+    display: block;
+    background: var(--texto);
+    transition: ease 0.3s;
+}
+
+.navbar-toggler[aria-expanded="true"] span:first-of-type {
+    transform: rotate(45deg) translate(5px, 7px);
+}
+
+.navbar-toggler[aria-expanded="true"] span:nth-of-type(2) {
+    opacity: 0;
+}
+
+.navbar-toggler[aria-expanded="true"] span:last-of-type {
+    transform: rotate(-45deg) translate(5px, -7px);
+}
+
+.navbar-toggler[aria-expanded="false"] span {
+    transform: none;
+    opacity: 1;
+}
+
+#fondo {
+    position: absolute;
+    width: 100%;
+    height: 300%;
+    background: url(img/fondo.webp);
+    background-size: 100%;
+    background-position: top;
+    background-repeat: no-repeat;
+    z-index: -1000;
+}
+
+#blank {
+    height: 37vw;
+}
+
+header {
+    display: flex;
+    text-align: center;
+}
+
+.contenedor {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+#cajatitulo {
+    background-color: var(--contenedores);
+    border: 1px lightgrey solid;
+    padding: 2%;
+    width: 80vw !important;
+}
+
+#bordetitulo {
+    border: 1px var(--ocre) solid;
+    padding: 15px 0 5px 0;
+    width: 75vw;
+
+}
+
+h1 {
+    font-size: clamp(23px, 7vw, 40px) !important;
+    font-family: 'S Serif' !important;
+    font-weight: bold !important;
+    color: var(--ocre) !important;
+    padding: 0 8px;
+}
+
+h6 {
+    font-size: clamp(10px, 3.2vw, 20px) !important;
+    font-family: 'Segoe Ui' !important;
+    font-weight: normal !important;
+    color: var(--dark) !important;
+    padding: 5px 5px !important;
+}
+
+.caja {
+    position: relative;
+    display: block;
+}
+
+.caja img {
+    width: 100%;
+    height: auto;
+    background-size: 100%;
+    background-position: top;
+    background-repeat: no-repeat;
+    z-index: -1;
+}
+
+.txttitulo {
+    position: absolute;
+    top: 24%;
+    left: 20%;
+}
+
+.txttitulo h2 {
+    font-weight: lighter;
+    font-size: clamp(35px, 15vw, 130px) !important;
+    color: var(--texto);
+}
+
+#blank2 {
+    height: 75vh;
+}
+
+#btnseccion {
+    background: none;
+    border: none;
+    padding: 7vw  0 0 5vw;
+    width: 38vw;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    font-family: 'Segoe Ui';
+}
+
+h4 {
+    font-size: clamp(15px, 5.7vw, 25px) !important;
+}
+
+#flecha {
+    margin: 0 15px 7px 10px;
+    transition: transform 0.3s ease-in-out !important;
+}
+
+#flecha.animar {
+    transform: rotate(-90deg) !important;
+}
+
+.linea {
+    flex-grow: 1;
+    height: 0.75px;
+    margin-top: 10px;
+    background-color: var(--texto);
+}
+
+.productos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 5px;
+    padding: 25px 15px;
+}
+
+.producto {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start !important;
+    align-items: center !important;
+}
+
+.pseccion {
+    color: var(--ocre);
+    font-weight: bolder !important;
+    font-size: clamp(10px, 4.7vw, 20px) !important;
+    margin: 5px 0 -15px 3vw;
+}
+
+h5 {
+    font-family: 'Segoe Ui';
+    padding: 10px 0 10px 0;
+    font-size: 3vw !important;
+    text-align: center;
+    color: var(--texto);
+    font-weight: normal !important;
+}
+
+.imgprod {
+    width: clamp(70px, 25vw, 120px);
+    height: clamp(70px, 25vw, 120px);
+    outline: 1.2px solid var(--fondo);
+    outline-offset: -7px; 
+    object-fit: cover;
+}
+
+.txttitulo h2 span,
+.txttitulo1 h3 span {
+    font-weight: bold;
+    color: var(--fondo);
+}
+
+.txttitulo1 h3 {
+    font-weight: lighter;
+    font-size: clamp(30px, 11vw, 115px) !important;
+    color: var(--texto);
+}
+
+.txttitulo1 {
+    position: absolute;
+    top: 31%;
+    left: 8%;
+}
