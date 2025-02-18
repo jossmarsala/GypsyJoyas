@@ -56,8 +56,9 @@
     --fondo: #fffaf1;
     --texto: #3c2415;
     --ocre: #cfa358;
-    --verde: #4a5631;
+    --verde: #4b6f39;
     --contenedores: #fffff1;
+    --aros: #b15f0c;
 }
 
 html {
@@ -93,6 +94,13 @@ body {
     z-index: 1;
     font-weight: bold;
     font-size: clamp(23px, 5vw, 50px);
+    overflow: hidden;
+    transition: ease-in-out 0.5s;
+    opacity: 0;
+}
+
+#navbarNav.open {
+    opacity: 1;
 }
 
 .nav-link span {
@@ -231,19 +239,27 @@ h6 {
 }
 
 #blank2 {
-    height: 57vh;
+    height: 50vh;
+}
+
+@media screen and (min-width: 375px) {
+    #blank2 {
+        height: 70vh;
+    }
 }
 
 #btnseccion {
     background: none;
+    outline: none;
     border: none;
-    padding: 7vw  0 0 5vw;
+    padding: 7vw 0 0 5vw;
     width: 38vw;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     width: 100%;
     font-family: 'Segoe Ui';
+    color: var(--aros);
 }
 
 h4 {
@@ -263,7 +279,7 @@ h4 {
     flex-grow: 1;
     height: 0.75px;
     margin-top: 10px;
-    background-color: var(--texto);
+    background-color: var(--aros);
 }
 
 .productos {
@@ -271,6 +287,10 @@ h4 {
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 5px;
     padding: 25px 15px;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
 }
 
 .producto {
@@ -281,11 +301,26 @@ h4 {
 }
 
 .pseccion {
-    color: var(--ocre);
+    color: var(--verde);
     font-weight: bolder !important;
     font-size: clamp(10px, 4.7vw, 20px) !important;
     margin: 5px 0 -15px 3vw;
 }
+
+.productos,
+.pseccion {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.productos.mostrar,
+.pseccion.mostrar {
+    max-height: 500px;
+    opacity: 1;
+}
+
 
 h5 {
     font-family: 'Segoe Ui';
@@ -300,7 +335,7 @@ h5 {
     width: clamp(70px, 25vw, 120px);
     height: clamp(70px, 25vw, 120px);
     outline: 1.2px solid var(--fondo);
-    outline-offset: -7px; 
+    outline-offset: -7px;
     object-fit: cover;
 }
 
@@ -320,4 +355,169 @@ h5 {
     position: absolute;
     top: 31%;
     left: 8%;
+}
+
+.encargosinfo {
+    display: flex;
+    padding: 0 4vw;
+}
+
+#contenedorencargos {
+    padding: 7vh 4vw 5vh 4vw;
+}
+
+#contenedorencargos p {
+    text-align: center;
+    padding: 0 8vw;
+    font-family: "Segoe Ui";
+    color: var(--texto);
+    font-size: clamp(11px, 3.5vw, 28.5px);
+}
+
+.pencargos {
+    text-align: left !important;
+    font-size: clamp(9px, 3.2vw, 25px) !important;
+    margin: 15px 0 !important;
+    padding: 0 !important;
+}
+
+.tituloencargos {
+    font-family: 'Silk S' !important;
+    font-size: clamp(14px, 6vw, 39px) !important;
+}
+
+#soydemza {
+    color: var(--verde) !important;
+    border-left: 1.4px solid #4b6f39;
+}
+
+#mzap {
+    color: #3c582f !important;
+    margin-left: 3vw !important;
+}
+
+#soydeotraprov {
+    color: var(--ocre) !important;
+    border-right: 1.5px solid var(--ocre);
+    text-align: right;
+}
+
+#provp {
+    color: #826738 !important;
+    margin-right: 3vw !important;
+}
+
+#blank3 {
+    height: 5vh;
+}
+
+#btnencargar {
+    border: none;
+    background-color: var(--contenedores);
+    padding: 2.5vh 11vw;
+    border: 1px lightgrey solid;
+    font-size: clamp(15px, 4.9vw, 35px);
+    position: relative;
+}
+
+#btnencargar:hover {
+    background-color: #e2e2d8;
+    transition: ease-in-out 0.1s;
+}
+
+#btnencargar::after {
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    right: 6px;
+    bottom: 6px;
+    border: 0.7px solid var(--ocre);
+}
+
+a {
+    text-decoration: none !important;
+    color: var(--ocre) !important;
+}
+
+#fondo2 {
+    position: absolute;
+    width: 100%;
+    height: 240px;
+    background: url(img/fondo2.webp);
+    background-size: 100%;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    z-index: -1000;
+}
+
+@media screen and (min-width: 321px) {
+    #fondo2 {
+        height: 285px;
+    }
+
+    #blank3 {
+        height: 7vh;
+    }
+}
+
+@media screen and (min-width: 375px) {
+    #fondo2 {
+        height: 320px;
+    }
+
+    #blank3 {
+        height: 10vh;
+    }
+}
+
+@media screen and (min-width: 420px) {
+    #fondo2 {
+        height: 320px;
+    }
+
+    #blank3 {
+        height: 8vh;
+    }
+}
+
+@media screen and (min-width: 520px) {
+    #fondo2 {
+        height: 590px;
+    }
+
+    #blank3 {
+        height: 4vh;
+    }
+}
+
+footer {
+    padding-top: 30vw;
+    justify-content: center;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+}
+
+#footermarca {
+    font-family: 'Silk S' !important;
+    font-size: clamp(15px, 6vw, 40px) !important;
+}
+
+#footertxt {
+    margin: -10px 0 3px 0 !important;
+    padding-top: 0 !important;
+}
+
+#contacto {
+    justify-content: space-between;
+    width: 50vw;
+    color: var(--texto);
+}
+
+#contacto i {
+    margin: 0 3px 50px 3px;
+    transform: scale(1.11);
+
 }

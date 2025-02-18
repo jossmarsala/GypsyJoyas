@@ -20,13 +20,15 @@
 }
 
 .wrapper p {
-	position: absolute;
-	left: 0;
-	right: 0;
-	bottom: -15px;
-	color: var(--light-color);
-	letter-spacing: 6px;
-	font-family: 'S Serif' !important;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -15px;
+    color: var(--light-color);
+    letter-spacing: 6px;
+    font-family: 'S Serif' !important;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
 }
 
 .loader-o {
