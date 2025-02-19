@@ -26,15 +26,7 @@
         </div>
     </section>
 
-    <!-- JS: Ocultar loader cuando esté cargado -->
-    <script>
-        window.addEventListener('load', () => {
-            const loader = document.getElementById('loader');
-            loader.style.display = 'none';
-        });
-    </script>
-
-    <section id="fondo" class="txtanimacion"></section>
+    <section id="fondo" class="animacion"></section>
 
     <nav class="navbar">
         <div id="nav">
@@ -53,7 +45,7 @@
                         <a class="nav-link scroll-link" href="#btnseccion">Productos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link scroll-link" href="#encargos">¿Como<span>f</span>encargar?</a>
+                        <a class="nav-link scroll-link" href="#contenedorencargos">¿Como<span>f</span>encargar?</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link scroll-link" href="#contacto">Contacto</a>
@@ -61,35 +53,7 @@
                 </ul>
             </div>
         </div>
-    </nav>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const toggler = document.querySelector(".navbar-toggler");
-            const navMenu = document.querySelector("#navbarNav");
-            const navLinks = document.querySelectorAll(".nav-link");
-
-            function toggleMenu() {
-                if (navMenu.classList.contains("open")) {
-                    navMenu.style.maxHeight = "0";
-                    setTimeout(() => navMenu.classList.remove("open"), 400);
-                } else {
-                    navMenu.classList.add("open");
-                    navMenu.style.maxHeight = navMenu.scrollHeight + "px";
-                }
-            }
-
-            toggler.addEventListener("click", toggleMenu);
-            navLinks.forEach(link => {
-                link.addEventListener("click", () => {
-                    if (navMenu.classList.contains("open")) {
-                        toggleMenu();
-                    }
-                });
-            });
-        });
-
-    </script>
+    </nav>    
 
     <p id="blank"></p>
 
@@ -98,8 +62,8 @@
             <div id="bordetitulo">
                 <header>
                     <div>
-                        <h1 class="txtanimacion">Obras de Arte para Llevar Puestas</h1>
-                        <h6 class="txtanimacion">Joyería artesanal en bronce, cobre y alpaca</h6>
+                        <h1>Obras de Arte para Llevar Puestas</h1>
+                        <h6>Joyería artesanal en bronce, cobre y alpaca</h6>
                     </div>
                 </header>
             </div>
@@ -110,7 +74,7 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             anime({
-                targets: '.txtanimacion',
+                targets: '.animacion',
                 easing: 'easeInQuad',
                 opacity: 1,
                 duration: 700,
@@ -218,43 +182,6 @@
         </div>
     </main>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            let desplegar = document.getElementById("btnseccion");
-            let secciones = document.getElementsByClassName("productos");
-            let textos = document.getElementsByClassName("pseccion");
-            let flecha = document.getElementById("flecha");
-
-            desplegar.addEventListener("click", function () {
-                flecha.classList.toggle("animar");
-
-                for (let seccion of secciones) {
-                    if (seccion.classList.contains("mostrar")) {
-                        seccion.style.maxHeight = "0";
-                        seccion.style.opacity = "0";
-                        setTimeout(() => seccion.classList.remove("mostrar"), 500); // Espera la animación para ocultar
-                    } else {
-                        seccion.classList.add("mostrar");
-                        seccion.style.maxHeight = seccion.scrollHeight + "px"; // Expandir según contenido
-                        seccion.style.opacity = "1";
-                    }
-                }
-
-                for (let texto of textos) {
-                    if (texto.classList.contains("mostrar")) {
-                        texto.style.maxHeight = "0";
-                        texto.style.opacity = "0";
-                        setTimeout(() => texto.classList.remove("mostrar"), 500);
-                    } else {
-                        texto.classList.add("mostrar");
-                        texto.style.maxHeight = texto.scrollHeight + "px";
-                        texto.style.opacity = "1";
-                    }
-                }
-            });
-        });
-    </script>
-
     <section>
         <div class="caja">
             <img src="img/titulo2.webp" alt="Fondo del título 'Cómo encargar'">
@@ -265,7 +192,7 @@
     </section>
 
     <div id="contenedorencargos">
-        <p>Esta página es un catálogo para que explores los productos. Cuando encuentres lo que quieras encargar</p>
+        <p>Esta página es un catálogo para que explores los productos. Cuando encuentres lo que quieras encargar, enviame un mensaje privado por Instagram <a href="https://www.instagram.com/gypsy.joyas/" style="text-decoration: underline !important;">(@gypsy.joyas)</a>.</p>
 
         <div class="encargosinfo">
             <h6 class="tituloencargos" id="soydemza">Soy de Mendoza</h6>
@@ -303,7 +230,9 @@
     </footer>
 
     <script src="https://kit.fontawesome.com/b66c474644.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>    
 </body>
 
 </html>

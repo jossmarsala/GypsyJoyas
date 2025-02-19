@@ -95,12 +95,14 @@ body {
     font-weight: bold;
     font-size: clamp(23px, 5vw, 50px);
     overflow: hidden;
-    transition: ease-in-out 0.5s;
+    transition: transform 0.5s ease-in-out;
     opacity: 0;
+    transform: translateY(-100%); 
 }
 
 #navbarNav.open {
     opacity: 1;
+    transform: translateY(0); 
 }
 
 .nav-link {
@@ -243,7 +245,7 @@ h6 {
 }
 
 #blank2 {
-    height: 40vh;
+    height: 35vh;
 }
 
 @media screen and (min-width: 375px) {
@@ -347,6 +349,12 @@ h5 {
     outline: 1.2px solid var(--fondo);
     outline-offset: -7px;
     object-fit: cover;
+    transition: ease-in 0.2s;
+}
+
+.imgprod:hover {
+    outline: 1.8px solid var(--fondo);
+    outline-offset: -5px;
 }
 
 .txttitulo h2 span,
@@ -400,7 +408,7 @@ h5 {
     color: var(--verde) !important;
     font-family: 'S Serif', 'Times New Roman', Times, serif !important;
     border-left: 1.4px solid #4b6f39;
-    padding-left: 15px !important; 
+    padding-left: 15px !important;
 }
 
 #mzap {
@@ -451,7 +459,8 @@ a {
     color: var(--ocre) !important;
 }
 
-html, body {
+html,
+body {
     margin: 0;
     padding: 0;
     height: 100%;
@@ -524,5 +533,5 @@ i {
 }
 
 .txtanimacion {
-    opacity: 0.01;   
+    opacity: 0.01;
 }
