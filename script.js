@@ -45,9 +45,9 @@ document.addEventListener("DOMContentLoaded", function () {
   function actualizarPosicion() {
       for (let seccion of secciones) {
           if (seccion.classList.contains("mostrar")) {
-              seccion.style.position = "static";
+              seccion.style.display = "grid";
           } else {
-              seccion.style.position = "absolute";
+              seccion.style.display = "none";
           }
       }
   }
@@ -97,9 +97,9 @@ document.addEventListener("DOMContentLoaded", function () {
   function actualizarPosicion() {
       for (let seccion of secciones) {
           if (seccion.classList.contains("mostrar")) {
-              seccion.style.position = "static";
+              seccion.style.display = "grid";
           } else {
-              seccion.style.position = "absolute";
+              seccion.style.display = "none";
           }
       }
   }
@@ -149,9 +149,9 @@ document.addEventListener("DOMContentLoaded", function () {
   function actualizarPosicion() {
       for (let seccion of secciones) {
           if (seccion.classList.contains("mostrar")) {
-              seccion.style.position = "static";
+              seccion.style.display = "grid";
           } else {
-              seccion.style.position = "absolute";
+              seccion.style.display = "none";
           }
       }
   }
@@ -201,9 +201,9 @@ document.addEventListener("DOMContentLoaded", function () {
   function actualizarPosicion() {
       for (let seccion of secciones) {
           if (seccion.classList.contains("mostrar")) {
-              seccion.style.position = "static";
+              seccion.style.display = "grid";
           } else {
-              seccion.style.position = "absolute";
+              seccion.style.display = "none";
           }
       }
   }
