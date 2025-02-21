@@ -11,71 +11,236 @@ document.addEventListener('DOMContentLoaded', () => {
     const navbarToggler = document.querySelector('.navbar-toggler');
     const navLinks = navbarNav.querySelectorAll('.nav-link');
     
-    let hasClosedOnce = false; // Bandera para saber si se cerró una vez
+    let hasClosedOnce = false; 
   
-    // Cuando se clickea el botón de hamburguesa
     navbarToggler.addEventListener('click', () => {
       if (navbarNav.classList.contains('open') && !hasClosedOnce) {
-        // Si está abierto pero no se cerró antes, cerramos el menú
         navbarNav.classList.remove('open');
         navbarToggler.setAttribute('aria-expanded', 'false');
       } else {
-        // Si está cerrado, lo abrimos y mantenemos abierto después
         navbarNav.classList.add('open');
         navbarToggler.setAttribute('aria-expanded', 'true');
-        navbarNav.style.opacity = 1; // Aseguramos que la opacidad esté al 100%
+        navbarNav.style.opacity = 1;
       }
     });
   
-    // Cuando se clickea cualquiera de los links del menú
     navLinks.forEach(link => {
       link.addEventListener('click', () => {
         if (navbarNav.classList.contains('open')) {
-          // Cuando se clickea un link, cerramos el menú
           navbarNav.classList.remove('open');
           navbarToggler.setAttribute('aria-expanded', 'false');
-          hasClosedOnce = true; // Marcamos que ya se cerró el menú
+          hasClosedOnce = true;
         }
       });
     });
   });
-  
-  
-  
-// Desplegar sección productos
+
+// Desplegar sección aros
 document.addEventListener("DOMContentLoaded", function () {
-    let desplegar = document.getElementById("btnseccion");
-    let secciones = document.getElementsByClassName("productos");
-    let textos = document.getElementsByClassName("pseccion");
-    let flecha = document.getElementById("flecha");
+  let desplegar = document.getElementById("btnseccionaros");
+  let secciones = document.getElementsByClassName("productosaros");
+  let textos = document.getElementsByClassName("pseccionaros");
+  let flecha = document.getElementById("flechaaros");
 
-    desplegar.addEventListener("click", function () {
-        flecha.classList.toggle("animar");
+  function actualizarPosicion() {
+      for (let seccion of secciones) {
+          if (seccion.classList.contains("mostrar")) {
+              seccion.style.position = "static";
+          } else {
+              seccion.style.position = "absolute";
+          }
+      }
+  }
 
-        for (let seccion of secciones) {
-            if (seccion.classList.contains("mostrar")) {
-                seccion.style.maxHeight = "0";
-                seccion.style.opacity = "0";
-                setTimeout(() => seccion.classList.remove("mostrar"), 500);
-            } else {
-                seccion.classList.add("mostrar");
-                seccion.style.maxHeight = seccion.scrollHeight + "px";
-                seccion.style.opacity = "1";
-            }
-        }
+  desplegar.addEventListener("click", function () {
+      flecha.classList.toggle("animar");
 
-        for (let texto of textos) {
-            if (texto.classList.contains("mostrar")) {
-                texto.style.maxHeight = "0";
-                texto.style.opacity = "0";
-                setTimeout(() => texto.classList.remove("mostrar"), 500);
-            } else {
-                texto.classList.add("mostrar");
-                texto.style.maxHeight = texto.scrollHeight + "px";
-                texto.style.opacity = "1";
-            }
-        }
-    });
+      for (let seccion of secciones) {
+          if (seccion.classList.contains("mostrar")) {
+              seccion.style.maxHeight = "0";
+              seccion.style.opacity = "0";
+              setTimeout(() => {
+                  seccion.classList.remove("mostrar");
+                  actualizarPosicion();
+              }, 500);
+          } else {
+              seccion.classList.add("mostrar");
+              actualizarPosicion();
+              seccion.style.maxHeight = seccion.scrollHeight + "px";
+              seccion.style.opacity = "1";
+          }
+      }
+
+      for (let texto of textos) {
+          if (texto.classList.contains("mostrar")) {
+              texto.style.maxHeight = "0";
+              texto.style.opacity = "0";
+              setTimeout(() => texto.classList.remove("mostrar"), 500);
+          } else {
+              texto.classList.add("mostrar");
+              texto.style.maxHeight = texto.scrollHeight + "px";
+              texto.style.opacity = "1";
+          }
+      }
+  });
+
+  actualizarPosicion();
+});
+
+// Desplegar sección collares
+document.addEventListener("DOMContentLoaded", function () {
+  let desplegar = document.getElementById("btnseccioncollares");
+  let secciones = document.getElementsByClassName("productoscollares");
+  let textos = document.getElementsByClassName("pseccioncollares");
+  let flecha = document.getElementById("flechacollares");
+
+  function actualizarPosicion() {
+      for (let seccion of secciones) {
+          if (seccion.classList.contains("mostrar")) {
+              seccion.style.position = "static";
+          } else {
+              seccion.style.position = "absolute";
+          }
+      }
+  }
+
+  desplegar.addEventListener("click", function () {
+      flecha.classList.toggle("animar");
+
+      for (let seccion of secciones) {
+          if (seccion.classList.contains("mostrar")) {
+              seccion.style.maxHeight = "0";
+              seccion.style.opacity = "0";
+              setTimeout(() => {
+                  seccion.classList.remove("mostrar");
+                  actualizarPosicion();
+              }, 500);
+          } else {
+              seccion.classList.add("mostrar");
+              actualizarPosicion();
+              seccion.style.maxHeight = seccion.scrollHeight + "px";
+              seccion.style.opacity = "1";
+          }
+      }
+
+      for (let texto of textos) {
+          if (texto.classList.contains("mostrar")) {
+              texto.style.maxHeight = "0";
+              texto.style.opacity = "0";
+              setTimeout(() => texto.classList.remove("mostrar"), 500);
+          } else {
+              texto.classList.add("mostrar");
+              texto.style.maxHeight = texto.scrollHeight + "px";
+              texto.style.opacity = "1";
+          }
+      }
+  });
+
+  actualizarPosicion();
+});
+
+// Desplegar sección anillos
+document.addEventListener("DOMContentLoaded", function () {
+  let desplegar = document.getElementById("btnseccionanillos");
+  let secciones = document.getElementsByClassName("productosanillos");
+  let textos = document.getElementsByClassName("pseccionanillos");
+  let flecha = document.getElementById("flechaanillos");
+
+  function actualizarPosicion() {
+      for (let seccion of secciones) {
+          if (seccion.classList.contains("mostrar")) {
+              seccion.style.position = "static";
+          } else {
+              seccion.style.position = "absolute";
+          }
+      }
+  }
+
+  desplegar.addEventListener("click", function () {
+      flecha.classList.toggle("animar");
+
+      for (let seccion of secciones) {
+          if (seccion.classList.contains("mostrar")) {
+              seccion.style.maxHeight = "0";
+              seccion.style.opacity = "0";
+              setTimeout(() => {
+                  seccion.classList.remove("mostrar");
+                  actualizarPosicion();
+              }, 500);
+          } else {
+              seccion.classList.add("mostrar");
+              actualizarPosicion();
+              seccion.style.maxHeight = seccion.scrollHeight + "px";
+              seccion.style.opacity = "1";
+          }
+      }
+
+      for (let texto of textos) {
+          if (texto.classList.contains("mostrar")) {
+              texto.style.maxHeight = "0";
+              texto.style.opacity = "0";
+              setTimeout(() => texto.classList.remove("mostrar"), 500);
+          } else {
+              texto.classList.add("mostrar");
+              texto.style.maxHeight = texto.scrollHeight + "px";
+              texto.style.opacity = "1";
+          }
+      }
+  });
+
+  actualizarPosicion();
+});
+
+// Desplegar sección pulseras
+document.addEventListener("DOMContentLoaded", function () {
+  let desplegar = document.getElementById("btnseccionpulseras");
+  let secciones = document.getElementsByClassName("productospulseras");
+  let textos = document.getElementsByClassName("pseccionpulseras");
+  let flecha = document.getElementById("flechapulseras");
+
+  function actualizarPosicion() {
+      for (let seccion of secciones) {
+          if (seccion.classList.contains("mostrar")) {
+              seccion.style.position = "static";
+          } else {
+              seccion.style.position = "absolute";
+          }
+      }
+  }
+
+  desplegar.addEventListener("click", function () {
+      flecha.classList.toggle("animar");
+
+      for (let seccion of secciones) {
+          if (seccion.classList.contains("mostrar")) {
+              seccion.style.maxHeight = "0";
+              seccion.style.opacity = "0";
+              setTimeout(() => {
+                  seccion.classList.remove("mostrar");
+                  actualizarPosicion();
+              }, 500);
+          } else {
+              seccion.classList.add("mostrar");
+              actualizarPosicion();
+              seccion.style.maxHeight = seccion.scrollHeight + "px";
+              seccion.style.opacity = "1";
+          }
+      }
+
+      for (let texto of textos) {
+          if (texto.classList.contains("mostrar")) {
+              texto.style.maxHeight = "0";
+              texto.style.opacity = "0";
+              setTimeout(() => texto.classList.remove("mostrar"), 500);
+          } else {
+              texto.classList.add("mostrar");
+              texto.style.maxHeight = texto.scrollHeight + "px";
+              texto.style.opacity = "1";
+          }
+      }
+  });
+
+  actualizarPosicion();
 });
 
 // Lightbox, ver imagen

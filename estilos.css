@@ -59,6 +59,7 @@
     --verde: #4b6f39;
     --contenedores: #fffff1;
     --aros: #b15f0c;
+    --collares: #327140;
 }
 
 html {
@@ -260,11 +261,11 @@ h6 {
     }
 }
 
-#btnseccion {
+.btnseccion {
     background: none;
     outline: none;
     border: none;
-    padding: 7vw 0 0 5vw;
+    padding: 7vw 0 0 0;
     width: 38vw;
     display: inline-flex;
     align-items: center;
@@ -274,16 +275,27 @@ h6 {
     color: var(--aros);
 }
 
+#btnseccioncollares, #btnseccionpulseras {
+    color: var(--collares) !important;
+}
+
+.lineacolor {
+    flex-grow: 1;
+    height: 0.75px;
+    margin-top: 10px;
+    background-color: var(--collares);
+}
+
 h4 {
     font-size: clamp(15px, 5.7vw, 40px) !important;
 }
 
-#flecha {
-    margin: 0 15px 7px 10px;
+.flecha {
+    margin: 0 10px 7px 10px;
     transition: transform 0.3s ease-in-out !important;
 }
 
-#flecha.animar {
+.flecha.animar {
     transform: rotate(-90deg) !important;
 }
 
@@ -336,16 +348,23 @@ h4 {
 
 h5 {
     font-family: 'Segoe Ui', Tahoma, Geneva, Verdana, sans-serif;
-    padding: 10px 0 10px 0;
+    margin-top: 10px !important;
+    margin-bottom: 2px;
     font-size: 3vw !important;
     text-align: center;
     color: var(--texto);
     font-weight: normal !important;
 }
 
+.precio {
+    font-size: 2.2vw !important;
+    margin: -4px 0 10px 0 !important;
+    color: var(--aros);
+}
+
 .imgprod {
-    width: clamp(70px, 30vw, 140px);
-    height: clamp(70px, 30vw, 140px);
+    width: clamp(70px, 29vw, 140px);
+    height: clamp(70px, 29vw, 140px);
     outline: 1.2px solid var(--fondo);
     outline-offset: -7px;
     object-fit: cover;
@@ -355,6 +374,10 @@ h5 {
 .imgprod:hover {
     outline: 1.8px solid var(--fondo);
     outline-offset: -5px;
+}
+
+#blank1 {
+    height: 4vh;
 }
 
 .txttitulo h2 span,
@@ -374,7 +397,6 @@ h5 {
     top: 31%;
     left: 8%;
 }
-
 .encargosinfo {
     display: flex;
     padding: 0 4vw;
