@@ -10,10 +10,10 @@
 
 ## 🛠️ ¿Qué hace este proyecto?
 
-- 📖 **Catálogo Interactivo:** Muestra una variedad de productos de orfebrería artesanal.
-- 💻 **Interfaz Responsiva:** Adaptada para dispositivos móviles.
-- 🔍 **Navegación Intuitiva:** Permite a los usuarios explorar fácilmente las categorías y piezas.
-- 🛒 **Sección de Contacto y Pedidos Personalizados:** Para quienes buscan una pieza única.
+- **Catálogo interactivo:** Muestra una variedad de productos de orfebrería artesanal.
+- **Interfaz responsiva:** Adaptada para dispositivos móviles y tablets.
+- **Navegación:** Paea que los usuarios puedan explorar fácilmente las categorías y piezas.
+- **Sección de contacto y encargos:** Para quienes quieran adquirir una pieza única.
 
 ---
 
@@ -21,6 +21,7 @@
 
 - **HTML5**
 - **CSS3** (con **Bootstrap**)
+- **JavaScript**
 
 
 
