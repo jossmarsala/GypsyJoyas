@@ -2,7 +2,7 @@
 
 ¡Bienvenido/a al repositorio del catálogo web de **Gypsy**! 🌸
 
-<img src="presentacion.png" style="border-radius: 20px;"></img>
+<img src="presentacion.png" style="border-radius: 200px;"></img>
 
 **Gypsy Joyas** es un emprendimiento de joyería artesanal, cuya plataforma web funciona como un catálogo para exhibir sus creaciones originales.
 
