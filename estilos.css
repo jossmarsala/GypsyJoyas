@@ -98,12 +98,12 @@ body {
     overflow: hidden;
     transition: transform 0.5s ease-in-out;
     opacity: 0;
-    transform: translateY(-100%); 
+    transform: translateY(-100%);
 }
 
 #navbarNav.open {
     opacity: 1;
-    transform: translateY(0); 
+    transform: translateY(0);
 }
 
 .nav-link {
@@ -275,7 +275,8 @@ h6 {
     color: var(--aros);
 }
 
-#btnseccioncollares, #btnseccionpulseras {
+#btnseccioncollares,
+#btnseccionpulseras {
     color: var(--collares) !important;
 }
 
@@ -397,6 +398,7 @@ h5 {
     top: 31%;
     left: 8%;
 }
+
 .encargosinfo {
     display: flex;
     padding: 0 4vw;
