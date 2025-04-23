@@ -10,237 +10,289 @@ document.addEventListener('DOMContentLoaded', () => {
     const navbarNav = document.getElementById('navbarNav');
     const navbarToggler = document.querySelector('.navbar-toggler');
     const navLinks = navbarNav.querySelectorAll('.nav-link');
-    
-    let hasClosedOnce = false; 
-  
+
+    let hasClosedOnce = false;
+
     navbarToggler.addEventListener('click', () => {
-      if (navbarNav.classList.contains('open') && !hasClosedOnce) {
-        navbarNav.classList.remove('open');
-        navbarToggler.setAttribute('aria-expanded', 'false');
-      } else {
-        navbarNav.classList.add('open');
-        navbarToggler.setAttribute('aria-expanded', 'true');
-        navbarNav.style.opacity = 1;
-      }
-    });
-  
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        if (navbarNav.classList.contains('open')) {
-          navbarNav.classList.remove('open');
-          navbarToggler.setAttribute('aria-expanded', 'false');
-          hasClosedOnce = true;
+        if (navbarNav.classList.contains('open') && !hasClosedOnce) {
+            navbarNav.classList.remove('open');
+            navbarToggler.setAttribute('aria-expanded', 'false');
+        } else {
+            navbarNav.classList.add('open');
+            navbarToggler.setAttribute('aria-expanded', 'true');
+            navbarNav.style.opacity = 1;
         }
-      });
     });
-  });
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (navbarNav.classList.contains('open')) {
+                navbarNav.classList.remove('open');
+                navbarToggler.setAttribute('aria-expanded', 'false');
+                hasClosedOnce = true;
+            }
+        });
+    });
+});
 
 // Desplegar sección aros
 document.addEventListener("DOMContentLoaded", function () {
-  let desplegar = document.getElementById("btnseccionaros");
-  let secciones = document.getElementsByClassName("productosaros");
-  let textos = document.getElementsByClassName("pseccionaros");
-  let flecha = document.getElementById("flechaaros");
+    let desplegar = document.getElementById("btnseccionaros");
+    let secciones = document.getElementsByClassName("productosaros");
+    let textos = document.getElementsByClassName("pseccionaros");
+    let flecha = document.getElementById("flechaaros");
 
-  function actualizarPosicion() {
-      for (let seccion of secciones) {
-          if (seccion.classList.contains("mostrar")) {
-              seccion.style.display = "grid";
-          } else {
-              seccion.style.display = "none";
-          }
-      }
-  }
+    function actualizarPosicion() {
+        for (let seccion of secciones) {
+            if (seccion.classList.contains("mostrar")) {
+                seccion.style.display = "grid";
+            } else {
+                seccion.style.display = "none";
+            }
+        }
+    }
 
-  desplegar.addEventListener("click", function () {
-      flecha.classList.toggle("animar");
+    desplegar.addEventListener("click", function () {
+        flecha.classList.toggle("animar");
 
-      for (let seccion of secciones) {
-          if (seccion.classList.contains("mostrar")) {
-              seccion.style.maxHeight = "0";
-              seccion.style.opacity = "0";
-              setTimeout(() => {
-                  seccion.classList.remove("mostrar");
-                  actualizarPosicion();
-              }, 500);
-          } else {
-              seccion.classList.add("mostrar");
-              actualizarPosicion();
-              seccion.style.maxHeight = seccion.scrollHeight + "px";
-              seccion.style.opacity = "1";
-          }
-      }
+        for (let seccion of secciones) {
+            if (seccion.classList.contains("mostrar")) {
+                seccion.style.maxHeight = "0";
+                seccion.style.opacity = "0";
+                setTimeout(() => {
+                    seccion.classList.remove("mostrar");
+                    actualizarPosicion();
+                }, 500);
+            } else {
+                seccion.classList.add("mostrar");
+                actualizarPosicion();
+                seccion.style.maxHeight = seccion.scrollHeight + "px";
+                seccion.style.opacity = "1";
+            }
+        }
 
-      for (let texto of textos) {
-          if (texto.classList.contains("mostrar")) {
-              texto.style.maxHeight = "0";
-              texto.style.opacity = "0";
-              setTimeout(() => texto.classList.remove("mostrar"), 500);
-          } else {
-              texto.classList.add("mostrar");
-              texto.style.maxHeight = texto.scrollHeight + "px";
-              texto.style.opacity = "1";
-          }
-      }
-  });
+        for (let texto of textos) {
+            if (texto.classList.contains("mostrar")) {
+                texto.style.maxHeight = "0";
+                texto.style.opacity = "0";
+                setTimeout(() => texto.classList.remove("mostrar"), 500);
+            } else {
+                texto.classList.add("mostrar");
+                texto.style.maxHeight = texto.scrollHeight + "px";
+                texto.style.opacity = "1";
+            }
+        }
+    });
 
-  actualizarPosicion();
+    actualizarPosicion();
 });
 
 // Desplegar sección collares
 document.addEventListener("DOMContentLoaded", function () {
-  let desplegar = document.getElementById("btnseccioncollares");
-  let secciones = document.getElementsByClassName("productoscollares");
-  let textos = document.getElementsByClassName("pseccioncollares");
-  let flecha = document.getElementById("flechacollares");
+    let desplegar = document.getElementById("btnseccioncollares");
+    let secciones = document.getElementsByClassName("productoscollares");
+    let textos = document.getElementsByClassName("pseccioncollares");
+    let flecha = document.getElementById("flechacollares");
 
-  function actualizarPosicion() {
-      for (let seccion of secciones) {
-          if (seccion.classList.contains("mostrar")) {
-              seccion.style.display = "grid";
-          } else {
-              seccion.style.display = "none";
-          }
-      }
-  }
+    function actualizarPosicion() {
+        for (let seccion of secciones) {
+            if (seccion.classList.contains("mostrar")) {
+                seccion.style.display = "grid";
+            } else {
+                seccion.style.display = "none";
+            }
+        }
+    }
 
-  desplegar.addEventListener("click", function () {
-      flecha.classList.toggle("animar");
+    desplegar.addEventListener("click", function () {
+        flecha.classList.toggle("animar");
 
-      for (let seccion of secciones) {
-          if (seccion.classList.contains("mostrar")) {
-              seccion.style.maxHeight = "0";
-              seccion.style.opacity = "0";
-              setTimeout(() => {
-                  seccion.classList.remove("mostrar");
-                  actualizarPosicion();
-              }, 500);
-          } else {
-              seccion.classList.add("mostrar");
-              actualizarPosicion();
-              seccion.style.maxHeight = seccion.scrollHeight + "px";
-              seccion.style.opacity = "1";
-          }
-      }
+        for (let seccion of secciones) {
+            if (seccion.classList.contains("mostrar")) {
+                seccion.style.maxHeight = "0";
+                seccion.style.opacity = "0";
+                setTimeout(() => {
+                    seccion.classList.remove("mostrar");
+                    actualizarPosicion();
+                }, 500);
+            } else {
+                seccion.classList.add("mostrar");
+                actualizarPosicion();
+                seccion.style.maxHeight = seccion.scrollHeight + "px";
+                seccion.style.opacity = "1";
+            }
+        }
 
-      for (let texto of textos) {
-          if (texto.classList.contains("mostrar")) {
-              texto.style.maxHeight = "0";
-              texto.style.opacity = "0";
-              setTimeout(() => texto.classList.remove("mostrar"), 500);
-          } else {
-              texto.classList.add("mostrar");
-              texto.style.maxHeight = texto.scrollHeight + "px";
-              texto.style.opacity = "1";
-          }
-      }
-  });
+        for (let texto of textos) {
+            if (texto.classList.contains("mostrar")) {
+                texto.style.maxHeight = "0";
+                texto.style.opacity = "0";
+                setTimeout(() => texto.classList.remove("mostrar"), 500);
+            } else {
+                texto.classList.add("mostrar");
+                texto.style.maxHeight = texto.scrollHeight + "px";
+                texto.style.opacity = "1";
+            }
+        }
+    });
 
-  actualizarPosicion();
+    actualizarPosicion();
 });
 
 // Desplegar sección anillos
 document.addEventListener("DOMContentLoaded", function () {
-  let desplegar = document.getElementById("btnseccionanillos");
-  let secciones = document.getElementsByClassName("productosanillos");
-  let textos = document.getElementsByClassName("pseccionanillos");
-  let flecha = document.getElementById("flechaanillos");
+    let desplegar = document.getElementById("btnseccionanillos");
+    let secciones = document.getElementsByClassName("productosanillos");
+    let textos = document.getElementsByClassName("pseccionanillos");
+    let flecha = document.getElementById("flechaanillos");
 
-  function actualizarPosicion() {
-      for (let seccion of secciones) {
-          if (seccion.classList.contains("mostrar")) {
-              seccion.style.display = "grid";
-          } else {
-              seccion.style.display = "none";
-          }
-      }
-  }
+    function actualizarPosicion() {
+        for (let seccion of secciones) {
+            if (seccion.classList.contains("mostrar")) {
+                seccion.style.display = "grid";
+            } else {
+                seccion.style.display = "none";
+            }
+        }
+    }
 
-  desplegar.addEventListener("click", function () {
-      flecha.classList.toggle("animar");
+    desplegar.addEventListener("click", function () {
+        flecha.classList.toggle("animar");
 
-      for (let seccion of secciones) {
-          if (seccion.classList.contains("mostrar")) {
-              seccion.style.maxHeight = "0";
-              seccion.style.opacity = "0";
-              setTimeout(() => {
-                  seccion.classList.remove("mostrar");
-                  actualizarPosicion();
-              }, 500);
-          } else {
-              seccion.classList.add("mostrar");
-              actualizarPosicion();
-              seccion.style.maxHeight = seccion.scrollHeight + "px";
-              seccion.style.opacity = "1";
-          }
-      }
+        for (let seccion of secciones) {
+            if (seccion.classList.contains("mostrar")) {
+                seccion.style.maxHeight = "0";
+                seccion.style.opacity = "0";
+                setTimeout(() => {
+                    seccion.classList.remove("mostrar");
+                    actualizarPosicion();
+                }, 500);
+            } else {
+                seccion.classList.add("mostrar");
+                actualizarPosicion();
+                seccion.style.maxHeight = seccion.scrollHeight + "px";
+                seccion.style.opacity = "1";
+            }
+        }
 
-      for (let texto of textos) {
-          if (texto.classList.contains("mostrar")) {
-              texto.style.maxHeight = "0";
-              texto.style.opacity = "0";
-              setTimeout(() => texto.classList.remove("mostrar"), 500);
-          } else {
-              texto.classList.add("mostrar");
-              texto.style.maxHeight = texto.scrollHeight + "px";
-              texto.style.opacity = "1";
-          }
-      }
-  });
+        for (let texto of textos) {
+            if (texto.classList.contains("mostrar")) {
+                texto.style.maxHeight = "0";
+                texto.style.opacity = "0";
+                setTimeout(() => texto.classList.remove("mostrar"), 500);
+            } else {
+                texto.classList.add("mostrar");
+                texto.style.maxHeight = texto.scrollHeight + "px";
+                texto.style.opacity = "1";
+            }
+        }
+    });
 
-  actualizarPosicion();
+    actualizarPosicion();
 });
 
 // Desplegar sección pulseras
 document.addEventListener("DOMContentLoaded", function () {
-  let desplegar = document.getElementById("btnseccionpulseras");
-  let secciones = document.getElementsByClassName("productospulseras");
-  let textos = document.getElementsByClassName("pseccionpulseras");
-  let flecha = document.getElementById("flechapulseras");
+    let desplegar = document.getElementById("btnseccionpulseras");
+    let secciones = document.getElementsByClassName("productospulseras");
+    let textos = document.getElementsByClassName("pseccionpulseras");
+    let flecha = document.getElementById("flechapulseras");
 
-  function actualizarPosicion() {
-      for (let seccion of secciones) {
-          if (seccion.classList.contains("mostrar")) {
-              seccion.style.display = "grid";
-          } else {
-              seccion.style.display = "none";
-          }
-      }
-  }
+    function actualizarPosicion() {
+        for (let seccion of secciones) {
+            if (seccion.classList.contains("mostrar")) {
+                seccion.style.display = "grid";
+            } else {
+                seccion.style.display = "none";
+            }
+        }
+    }
 
-  desplegar.addEventListener("click", function () {
-      flecha.classList.toggle("animar");
+    desplegar.addEventListener("click", function () {
+        flecha.classList.toggle("animar");
 
-      for (let seccion of secciones) {
-          if (seccion.classList.contains("mostrar")) {
-              seccion.style.maxHeight = "0";
-              seccion.style.opacity = "0";
-              setTimeout(() => {
-                  seccion.classList.remove("mostrar");
-                  actualizarPosicion();
-              }, 500);
-          } else {
-              seccion.classList.add("mostrar");
-              actualizarPosicion();
-              seccion.style.maxHeight = seccion.scrollHeight + "px";
-              seccion.style.opacity = "1";
-          }
-      }
+        for (let seccion of secciones) {
+            if (seccion.classList.contains("mostrar")) {
+                seccion.style.maxHeight = "0";
+                seccion.style.opacity = "0";
+                setTimeout(() => {
+                    seccion.classList.remove("mostrar");
+                    actualizarPosicion();
+                }, 500);
+            } else {
+                seccion.classList.add("mostrar");
+                actualizarPosicion();
+                seccion.style.maxHeight = seccion.scrollHeight + "px";
+                seccion.style.opacity = "1";
+            }
+        }
 
-      for (let texto of textos) {
-          if (texto.classList.contains("mostrar")) {
-              texto.style.maxHeight = "0";
-              texto.style.opacity = "0";
-              setTimeout(() => texto.classList.remove("mostrar"), 500);
-          } else {
-              texto.classList.add("mostrar");
-              texto.style.maxHeight = texto.scrollHeight + "px";
-              texto.style.opacity = "1";
-          }
-      }
-  });
+        for (let texto of textos) {
+            if (texto.classList.contains("mostrar")) {
+                texto.style.maxHeight = "0";
+                texto.style.opacity = "0";
+                setTimeout(() => texto.classList.remove("mostrar"), 500);
+            } else {
+                texto.classList.add("mostrar");
+                texto.style.maxHeight = texto.scrollHeight + "px";
+                texto.style.opacity = "1";
+            }
+        }
+    });
 
-  actualizarPosicion();
+    actualizarPosicion();
+});
+
+// Desplegar sección accesorios
+document.addEventListener("DOMContentLoaded", function () {
+    let desplegar = document.getElementById("btnseccionaccesorios");
+    let secciones = document.getElementsByClassName("productosaccesorios");
+    let textos = document.getElementsByClassName("pseccionaccesorios");
+    let flecha = document.getElementById("flechaaccesorios");
+
+    function actualizarPosicion() {
+        for (let seccion of secciones) {
+            if (seccion.classList.contains("mostrar")) {
+                seccion.style.display = "grid";
+            } else {
+                seccion.style.display = "none";
+            }
+        }
+    }
+
+    desplegar.addEventListener("click", function () {
+        flecha.classList.toggle("animar");
+
+        for (let seccion of secciones) {
+            if (seccion.classList.contains("mostrar")) {
+                seccion.style.maxHeight = "0";
+                seccion.style.opacity = "0";
+                setTimeout(() => {
+                    seccion.classList.remove("mostrar");
+                    actualizarPosicion();
+                }, 500);
+            } else {
+                seccion.classList.add("mostrar");
+                actualizarPosicion();
+                seccion.style.maxHeight = seccion.scrollHeight + "px";
+                seccion.style.opacity = "1";
+            }
+        }
+
+        for (let texto of textos) {
+            if (texto.classList.contains("mostrar")) {
+                texto.style.maxHeight = "0";
+                texto.style.opacity = "0";
+                setTimeout(() => texto.classList.remove("mostrar"), 500);
+            } else {
+                texto.classList.add("mostrar");
+                texto.style.maxHeight = texto.scrollHeight + "px";
+                texto.style.opacity = "1";
+            }
+        }
+    });
+
+    actualizarPosicion();
 });
 
 // Lightbox, ver imagen
