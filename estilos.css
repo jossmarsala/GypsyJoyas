@@ -90,7 +90,7 @@ body {
     position: absolute;
     left: 0;
     top: 0;
-    padding: 100px 100vw 100vh 40px;
+    padding: 200px 100vw 100vh 40px;
     background-color: var(--fondo);
     z-index: 1;
     font-weight: bold;
@@ -115,13 +115,25 @@ body {
 }
 
 .linealarga {
-    width: 25px;
-    height: 1.5px;
+    width: 10vw;
+    height: 3px;
+    margin: 1.8vw 0 1.8vw 0;
 }
 
 #lineacorta {
-    width: 20px;
-    height: 1.5px;
+    width: 8vw;
+    height: 3px;
+}
+
+@media screen and (max-width: 550px) {
+    .linealarga {
+        width: 8vw;
+        margin: 1.3vw 0 1.3vw 0;
+    }
+
+    #lineacorta {
+        width: 6vw;
+    }
 }
 
 #icono {
@@ -249,15 +261,33 @@ h6 {
     height: 35vh;
 }
 
-@media screen and (min-width: 375px) {
+@media screen and (min-width: 300px) {
     #blank2 {
-        height: 50vh;
+        height: 20vh;
     }
 }
 
 @media screen and (min-width: 400px) {
     #blank2 {
-        height: 70vh;
+        height: 35vh;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    #blank2 {
+        height: 50vh;
+    }
+}
+
+@media screen and (min-width: 600px) {
+    #blank2 {
+        height: 65vh;
+    }
+}
+
+@media screen and (min-width: 700px) {
+    #blank2 {
+        height: 90vh;
     }
 }
 
@@ -351,21 +381,21 @@ h5 {
     font-family: 'Segoe Ui', Tahoma, Geneva, Verdana, sans-serif;
     margin-top: 10px !important;
     margin-bottom: 2px;
-    font-size: 3vw !important;
+    font-size: 2.5vw !important;
     text-align: center;
     color: var(--texto);
     font-weight: normal !important;
 }
 
 .precio {
-    font-size: 2.2vw !important;
+    font-size: 2vw !important;
     margin: -4px 0 10px 0 !important;
     color: var(--aros);
 }
 
 .imgprod {
-    width: clamp(70px, 29vw, 140px);
-    height: clamp(70px, 29vw, 140px);
+    width: clamp(70px, 30vw, 180px);
+    height: clamp(70px, 30vh, 180px);
     outline: 1.2px solid var(--fondo);
     outline-offset: -7px;
     object-fit: cover;
