@@ -243,58 +243,6 @@ document.addEventListener("DOMContentLoaded", function () {
     actualizarPosicion();
 });
 
-// Desplegar sección accesorios
-document.addEventListener("DOMContentLoaded", function () {
-    let desplegar = document.getElementById("btnseccionaccesorios");
-    let secciones = document.getElementsByClassName("productosaccesorios");
-    let textos = document.getElementsByClassName("pseccionaccesorios");
-    let flecha = document.getElementById("flechaaccesorios");
-
-    function actualizarPosicion() {
-        for (let seccion of secciones) {
-            if (seccion.classList.contains("mostrar")) {
-                seccion.style.display = "grid";
-            } else {
-                seccion.style.display = "none";
-            }
-        }
-    }
-
-    desplegar.addEventListener("click", function () {
-        flecha.classList.toggle("animar");
-
-        for (let seccion of secciones) {
-            if (seccion.classList.contains("mostrar")) {
-                seccion.style.maxHeight = "0";
-                seccion.style.opacity = "0";
-                setTimeout(() => {
-                    seccion.classList.remove("mostrar");
-                    actualizarPosicion();
-                }, 500);
-            } else {
-                seccion.classList.add("mostrar");
-                actualizarPosicion();
-                seccion.style.maxHeight = seccion.scrollHeight + "px";
-                seccion.style.opacity = "1";
-            }
-        }
-
-        for (let texto of textos) {
-            if (texto.classList.contains("mostrar")) {
-                texto.style.maxHeight = "0";
-                texto.style.opacity = "0";
-                setTimeout(() => texto.classList.remove("mostrar"), 500);
-            } else {
-                texto.classList.add("mostrar");
-                texto.style.maxHeight = texto.scrollHeight + "px";
-                texto.style.opacity = "1";
-            }
-        }
-    });
-
-    actualizarPosicion();
-});
-
 // Lightbox, ver imagen
 document.addEventListener("DOMContentLoaded", function () {
     const modal = document.createElement("div");
@@ -384,4 +332,38 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     `;
     document.head.appendChild(style);
+});
+
+// Permitir página web sólo para celulares y tablets
+
+document.addEventListener("DOMContentLoaded", function () {
+    const isDesktop = window.innerWidth >= 1024;
+
+    if (isDesktop) {
+        document.body.innerHTML = '';
+
+        const overlay = document.createElement("div");
+        overlay.style.position = "fixed";
+        overlay.style.top = "0";
+        overlay.style.left = "0";
+        overlay.style.width = "100vw";
+        overlay.style.height = "100vh";
+        overlay.style.backgroundColor = "#fffaf1";
+        overlay.style.display = "flex";
+        overlay.style.justifyContent = "center";
+        overlay.style.alignItems = "center";
+        overlay.style.zIndex = "9999";
+        overlay.style.textAlign = "center";
+        overlay.style.padding = "20px";
+
+        const message = document.createElement("div");
+        message.innerHTML = `
+            <h2 style="font-family: 'Segoe UI', sans-serif; color:rgb(163, 54, 54); font-size: 1.8rem;">
+                ¡Lo sentimos! No fue posible acceder <br> al catálogo desde este dispositivo.<br>
+                <span style="font-size: 1.1rem; color: #444;">Prueba ingresando desde un celular o tablet.</span>
+            </h2>
+        `;
+        overlay.appendChild(message);
+        document.body.appendChild(overlay);
+    }
 });
