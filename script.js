@@ -335,3 +335,35 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // Permitir página web sólo para celulares y tablets
+document.addEventListener("DOMContentLoaded", function () {
+    const isDesktop = window.innerWidth >= 1024;
+
+    if (isDesktop) {
+        document.body.innerHTML = '';
+
+        const overlay = document.createElement("div");
+        overlay.style.position = "fixed";
+        overlay.style.top = "0";
+        overlay.style.left = "0";
+        overlay.style.width = "100vw";
+        overlay.style.height = "100vh";
+        overlay.style.backgroundColor = "#fffaf1";
+        overlay.style.display = "flex";
+        overlay.style.justifyContent = "center";
+        overlay.style.alignItems = "center";
+        overlay.style.zIndex = "9999";
+        overlay.style.textAlign = "center";
+        overlay.style.padding = "20px";
+
+        const message = document.createElement("div");
+        message.innerHTML = `
+            <h2 style="font-family: 'Segoe UI', sans-serif; color:rgb(163, 54, 54); font-size: 1.8rem;">
+                ¡Lo sentimos! No fue posible acceder <br> al catálogo desde este dispositivo.<br>
+                <span style="font-size: 1.1rem; color: #444;">Prueba ingresando desde un celular o tablet.</span>
+            </h2>
+        `;
+        overlay.appendChild(message);
+        document.body.appendChild(overlay);
+    }
+});
+
