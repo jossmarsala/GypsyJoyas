@@ -5,6 +5,33 @@ window.addEventListener('load', () => {
     loader.style.display = 'none';
 });
 
+// Aumentar precios según porcentaje
+const incremento = 0.10;
+
+document.addEventListener("DOMContentLoaded", function () {
+const precios = document.querySelectorAll(".precio");
+
+precios.forEach(el => {
+  let precioTexto = el.textContent.replace(/[^\d]/g, "");
+  let precioNumero = parseInt(precioTexto, 10);
+
+  let nuevoPrecio = Math.round(precioNumero * (1 + incremento));
+
+  let centenas = nuevoPrecio % 1000;
+  if (![0, 500, 800].includes(centenas)) {
+    if (centenas < 500) {
+      nuevoPrecio = nuevoPrecio - centenas + 500;
+    } else if (centenas < 800) {
+      nuevoPrecio = nuevoPrecio - centenas + 800;
+    } else {
+      nuevoPrecio = nuevoPrecio - centenas + 1000;
+    }
+  }
+
+  el.textContent = `$${nuevoPrecio.toLocaleString("es-AR")}`;
+});
+});
+
 // Volver a cerrar menú
 document.addEventListener('DOMContentLoaded', () => {
     const navbarNav = document.getElementById('navbarNav');
@@ -366,5 +393,6 @@ document.addEventListener("DOMContentLoaded", function () {
         document.body.appendChild(overlay);
     }
 });
+
 
 
