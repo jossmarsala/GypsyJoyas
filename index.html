@@ -520,6 +520,25 @@
     <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+    <script>
+      // Cambiar este valor para ajustar el porcentaje de aumento
+      const aumentoPorcentaje = 0.25;  
+    
+      document.addEventListener("DOMContentLoaded", () => {
+        const precios = document.querySelectorAll(".precio");
+    
+        precios.forEach(precioEl => {
+          const texto = precioEl.textContent.trim();
+          const numero = parseFloat(texto.replace("$", "").replace(".", "").replace(",", "."));
+    
+          if (!isNaN(numero)) {
+            const nuevoPrecio = Math.round(numero * (1 + aumentoPorcentaje));
+            precioEl.textContent = `$${nuevoPrecio.toLocaleString("es-AR")}`;
+          }
+        });
+      });
+    </script>
+
 </body>
 
 </html>
