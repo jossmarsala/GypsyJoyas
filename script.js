@@ -6,7 +6,7 @@ window.addEventListener('load', () => {
 });
 
 // Aumentar precios según porcentaje
-const incremento = 0.05;
+const incremento = 0.06;
 
 document.addEventListener("DOMContentLoaded", function () {
 const precios = document.querySelectorAll(".precio");
@@ -393,6 +393,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.body.appendChild(overlay);
     }
 });
+
 
 
 
