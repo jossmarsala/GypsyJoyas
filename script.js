@@ -18,8 +18,10 @@ precios.forEach(el => {
   let nuevoPrecio = Math.round(precioNumero * (1 + incremento));
 
   let centenas = nuevoPrecio % 1000;
-  if (![0, 500, 800].includes(centenas)) {
-    if (centenas < 500) {
+  if (![0, 200, 500, 800].includes(centenas)) {
+    if (centenas < 200) {
+      nuevoPrecio = nuevoPrecio - centenas + 200;
+    } else if (centenas < 500) {
       nuevoPrecio = nuevoPrecio - centenas + 500;
     } else if (centenas < 800) {
       nuevoPrecio = nuevoPrecio - centenas + 800;
@@ -393,6 +395,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.body.appendChild(overlay);
     }
 });
+
 
 
 
