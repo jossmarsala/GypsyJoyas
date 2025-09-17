@@ -363,6 +363,10 @@ h5 {
     color: var(--aros);
 }
 
+.tachado {
+    text-decoration: line-through red wavy;
+}
+
 .imgprod {
     width: clamp(70px, 30vw, 180px);
     height: clamp(70px, 37vw, 180px);
@@ -558,4 +562,5 @@ i {
 
 .txtanimacion {
     opacity: 0.01;
+
 }
