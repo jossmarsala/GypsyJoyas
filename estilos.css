@@ -364,7 +364,9 @@ h5 {
 }
 
 .tachado {
-    text-decoration: line-through red wavy;
+      text-decoration: line-through;
+      text-decoration-color: #7a1f2b;
+      text-underline-offset: -4px;
 }
 
 .imgprod {
@@ -564,3 +566,4 @@ i {
     opacity: 0.01;
 
 }
+
