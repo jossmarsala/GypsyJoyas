@@ -364,6 +364,9 @@ h5 {
 }
 
 .tachado {
+      font-size: 2vw !important;
+      margin: -4px 0 3px 0 !important;
+      color: #7a1f2b;
       text-decoration: line-through;
       text-decoration-color: #7a1f2b;
       text-underline-offset: -4px;
@@ -566,4 +569,5 @@ i {
     opacity: 0.01;
 
 }
+
 
