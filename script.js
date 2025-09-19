@@ -272,6 +272,59 @@ document.addEventListener("DOMContentLoaded", function () {
     actualizarPosicion();
 });
 
+
+// Desplegar sección accesorios
+document.addEventListener("DOMContentLoaded", function () {
+    let desplegar = document.getElementById("btnseccionaccesorios");
+    let secciones = document.getElementsByClassName("productosaccesorios");
+    let textos = document.getElementsByClassName("pseccionaccesorios");
+    let flecha = document.getElementById("flechaaccesorios");
+
+    function actualizarPosicion() {
+        for (let seccion of secciones) {
+            if (seccion.classList.contains("mostrar")) {
+                seccion.style.display = "grid";
+            } else {
+                seccion.style.display = "none";
+            }
+        }
+    }
+
+    desplegar.addEventListener("click", function () {
+        flecha.classList.toggle("animar");
+
+        for (let seccion of secciones) {
+            if (seccion.classList.contains("mostrar")) {
+                seccion.style.maxHeight = "0";
+                seccion.style.opacity = "0";
+                setTimeout(() => {
+                    seccion.classList.remove("mostrar");
+                    actualizarPosicion();
+                }, 500);
+            } else {
+                seccion.classList.add("mostrar");
+                actualizarPosicion();
+                seccion.style.maxHeight = seccion.scrollHeight + "px";
+                seccion.style.opacity = "1";
+            }
+        }
+
+        for (let texto of textos) {
+            if (texto.classList.contains("mostrar")) {
+                texto.style.maxHeight = "0";
+                texto.style.opacity = "0";
+                setTimeout(() => texto.classList.remove("mostrar"), 500);
+            } else {
+                texto.classList.add("mostrar");
+                texto.style.maxHeight = texto.scrollHeight + "px";
+                texto.style.opacity = "1";
+            }
+        }
+    });
+
+    actualizarPosicion();
+});
+
 // Lightbox, ver imagen
 document.addEventListener("DOMContentLoaded", function () {
     const modal = document.createElement("div");
@@ -395,6 +448,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.body.appendChild(overlay);
     }
 });
+
 
 
 
