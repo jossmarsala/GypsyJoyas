@@ -1,0 +1,12 @@
+:root {
+    --crema: #d9b9a0;
+    --fondo: #fffaf1;
+    --fondo-blur: rgba(255, 250, 241, 0.75);
+    /* Semi-transparent for glass effect */
+    --texto: #3c2415;
+    --ocre: #cfa358;
+    --verde: #4b6f39;
+    --contenedores: #fffff1;
+    --aros: #b15f0c;
+    --collares: #327140;
+}
