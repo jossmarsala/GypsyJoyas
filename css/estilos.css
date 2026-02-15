@@ -780,21 +780,17 @@ body {
     height: 100%;
 }
 
-/* Old fondo2 class removed */
-
-
 /* New Footer Design */
 .site-footer {
     border-top: 1px solid rgba(207, 163, 88, 0.3);
-    /* Subtle ocre border */
-    padding: 60px 20px 40px;
+    padding: 100px 20px 40px;
     background-color: var(--fondo);
-    background-image: url('../assets/img/ui/fondo2.webp');
-    /* Added background image */
-    background-size: cover;
+    /* Added overlay for better contrast */
+    background-image: linear-gradient(rgba(255, 246, 240, 0.7), rgba(255, 246, 240, 0.7)), url('../assets/img/ui/background-footer.webp');
+    background-size: contain;
     background-position: bottom center;
-    background-repeat: no-repeat;
-    margin-top: 80px;
+    background-repeat: repeat;
+    margin-top: 50px;
 }
 
 .footer-container {
@@ -1013,4 +1009,6 @@ article.producto .product-card-title {
 
 .text-underline {
     text-decoration: underline !important;
+    text-decoration-thickness: 1px !important;
+    text-underline-offset: 2px !important;
 }
