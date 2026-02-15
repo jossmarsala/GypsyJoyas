@@ -9,29 +9,29 @@ window.addEventListener('load', () => {
 const incremento = 0.07;
 
 document.addEventListener("DOMContentLoaded", function () {
-const precios = document.querySelectorAll(".precio");
+    const precios = document.querySelectorAll(".precio");
 
-precios.forEach(el => {
-  let precioTexto = el.textContent.replace(/[^\d]/g, "");
-  let precioNumero = parseInt(precioTexto, 10);
+    precios.forEach(el => {
+        let precioTexto = el.textContent.replace(/[^\d]/g, "");
+        let precioNumero = parseInt(precioTexto, 10);
 
-  let nuevoPrecio = Math.round(precioNumero * (1 + incremento));
+        let nuevoPrecio = Math.round(precioNumero * (1 + incremento));
 
-  let centenas = nuevoPrecio % 1000;
-  if (![0, 200, 500, 800].includes(centenas)) {
-    if (centenas < 200) {
-      nuevoPrecio = nuevoPrecio - centenas + 200;
-    } else if (centenas < 500) {
-      nuevoPrecio = nuevoPrecio - centenas + 500;
-    } else if (centenas < 800) {
-      nuevoPrecio = nuevoPrecio - centenas + 800;
-    } else {
-      nuevoPrecio = nuevoPrecio - centenas + 1000;
-    }
-  }
+        let centenas = nuevoPrecio % 1000;
+        if (![0, 200, 500, 800].includes(centenas)) {
+            if (centenas < 200) {
+                nuevoPrecio = nuevoPrecio - centenas + 200;
+            } else if (centenas < 500) {
+                nuevoPrecio = nuevoPrecio - centenas + 500;
+            } else if (centenas < 800) {
+                nuevoPrecio = nuevoPrecio - centenas + 800;
+            } else {
+                nuevoPrecio = nuevoPrecio - centenas + 1000;
+            }
+        }
 
-  el.textContent = `$${nuevoPrecio.toLocaleString("es-AR")}`;
-});
+        el.textContent = `$${nuevoPrecio.toLocaleString("es-AR")}`;
+    });
 });
 
 // Volver a cerrar menú
@@ -40,26 +40,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const navbarToggler = document.querySelector('.navbar-toggler');
     const navLinks = navbarNav.querySelectorAll('.nav-link');
 
-    let hasClosedOnce = false;
-
+    // Navbar logical simplified
     navbarToggler.addEventListener('click', () => {
-        if (navbarNav.classList.contains('open') && !hasClosedOnce) {
-            navbarNav.classList.remove('open');
-            navbarToggler.setAttribute('aria-expanded', 'false');
-        } else {
-            navbarNav.classList.add('open');
-            navbarToggler.setAttribute('aria-expanded', 'true');
-            navbarNav.style.opacity = 1;
-        }
+        navbarNav.classList.toggle('open');
+        const isOpen = navbarNav.classList.contains('open');
+        navbarToggler.setAttribute('aria-expanded', isOpen);
     });
 
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
-            if (navbarNav.classList.contains('open')) {
-                navbarNav.classList.remove('open');
-                navbarToggler.setAttribute('aria-expanded', 'false');
-                hasClosedOnce = true;
-            }
+            navbarNav.classList.remove('open');
+            navbarToggler.setAttribute('aria-expanded', 'false');
         });
     });
 });
@@ -374,80 +365,43 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     closeButton.addEventListener("click", closeModal);
-    modal.addEventListener("click", function (event) {
+    document.addEventListener("click", function (event) {
         if (event.target === modal) {
             closeModal();
         }
     });
 
-    const style = document.createElement("style");
-    style.innerHTML = `
-      .modal {
-        visibility: hidden;
-        opacity: 0;
-        transition: opacity 0.25s linear;
-        position: fixed;
-        z-index: 9999;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(229, 226, 204, 0.7);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .modal-content {
-        max-width: 90%;
-        max-height: 90vh;
-        border-radius: 5px;
-      }
-      .close {
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        font-size: 30px;
-        color: #3c2415;
-        background: none;
-        border: none;
-        cursor: pointer;
-      }
-    `;
-    document.head.appendChild(style);
+    // CSS injection removed (moved to estilos.css)
 });
 
-// Permitir página web sólo para celulares y tablets
+// Instagram & Android Detection
+(function () {
+    const ua = navigator.userAgent || navigator.vendor || window.opera;
+    const isInstagram = ua.includes('Instagram');
+    const isAndroid = /android/i.test(ua);
+
+    if (isInstagram && isAndroid) {
+        setTimeout(() => {
+            window.location.href = "intent://gypsy-joyas.vercel.app#Intent;scheme=https;package=com.android.chrome;end;";
+        }, 500);
+    }
+})();
+
+// Anime.js Initialization
 document.addEventListener("DOMContentLoaded", function () {
-    const isDesktop = window.innerWidth >= 1024;
-
-    if (isDesktop) {
-        document.body.innerHTML = '';
-
-        const overlay = document.createElement("div");
-        overlay.style.position = "fixed";
-        overlay.style.top = "0";
-        overlay.style.left = "0";
-        overlay.style.width = "100vw";
-        overlay.style.height = "100vh";
-        overlay.style.backgroundColor = "#fffaf1";
-        overlay.style.display = "flex";
-        overlay.style.justifyContent = "center";
-        overlay.style.alignItems = "center";
-        overlay.style.zIndex = "9999";
-        overlay.style.textAlign = "center";
-        overlay.style.padding = "20px";
-
-        const message = document.createElement("div");
-        message.innerHTML = `
-            <h2 style="font-family: 'Segoe UI', sans-serif; color:rgb(163, 54, 54); font-size: 1.8rem;">
-                ¡Lo sentimos! No fue posible acceder <br> al catálogo desde este dispositivo.<br>
-                <span style="font-size: 1.1rem; color: #444;">Prueba ingresando desde un celular o tablet.</span>
-            </h2>
-        `;
-        overlay.appendChild(message);
-        document.body.appendChild(overlay);
+    // Check if anime is defined (loaded via CDN in HTML)
+    if (typeof anime !== 'undefined') {
+        anime({
+            targets: '.animacion',
+            easing: 'easeInQuad',
+            opacity: 1,
+            duration: 700,
+            delay: 500
+        });
     }
 });
+
+// Desktop blocker removed
 
 
 
