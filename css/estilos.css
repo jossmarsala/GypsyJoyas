@@ -1,4 +1,4 @@
-@font-face {
+﻿@font-face {
     font-family: 'Segoe Ui';
     src: url("../assets/fonts/Segoe.woff2") format("woff2");
     font-weight: normal;
@@ -59,7 +59,9 @@
     font-display: swap;
 }
 
-
+/* =========================================
+   1. Global Reset & Base Styles
+   ========================================= */
 
 * {
     box-sizing: border-box;
@@ -70,48 +72,124 @@ html {
     overflow-x: hidden !important;
 }
 
+html,
 body {
     margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
     background-color: var(--fondo) !important;
     font-family: 'S Serif', 'Times New Roman', Times, serif !important;
     font-weight: normal;
 }
 
+a {
+    text-decoration: none !important;
+    color: var(--ocre) !important;
+}
+
+/* =========================================
+   2. Utility Classes
+   ========================================= */
+
 .oculto {
     display: none !important;
 }
 
-/* Navbar Container Fixed */
+.spacer-large {
+    height: clamp(50px, 8vw, 120px);
+    display: block;
+}
+
+.spacer-medium {
+    height: 4vh;
+    display: block;
+}
+
+.blank1 {
+    height: 4vh;
+}
+
+.blank2 {
+    height: 12vw;
+}
+
+.filter-contrast {
+    filter: contrast(1.2) brightness(0.93);
+}
+
+.filter-contrast-low {
+    filter: contrast(0.9);
+}
+
+.text-underline {
+    text-decoration: underline !important;
+    text-decoration-thickness: 1px !important;
+    text-underline-offset: 2px !important;
+}
+
+/* =========================================
+   3. Header & Navigation
+   ========================================= */
+
 .navbar-wrapper {
     position: fixed !important;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
-    /* Standard fixed header */
     background-color: var(--fondo-blur);
     backdrop-filter: blur(10px);
-    /* Glassmorphism effect */
     -webkit-backdrop-filter: blur(10px);
-    /* Safari support */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s ease;
 }
 
+header {
+    display: flex;
+    text-align: center;
+}
+
 .navbar {
     width: 100%;
-    /* Remove fixed positioning as parent handles it */
     position: relative;
 }
 
-/* ... */
-
-/* Mobile Menu Overlay */
 .nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 5%;
+}
+
+.icono {
+    width: clamp(25px, 10vw, 70px);
+    height: auto;
+    position: relative;
+    z-index: 1050;
+}
+
+/* Mobile Menu Overlay */
+
+.mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--fondo);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 1040;
+}
+
+.mobile-menu-overlay.open {
+    transform: translateX(0);
 }
 
 .navbar-nav {
@@ -120,14 +198,12 @@ body {
     margin: 0;
     display: flex;
     flex-direction: column;
-    /* Mobile first: stacked */
     align-items: center;
     gap: 20px;
 }
 
 .nav-link {
     display: inline-block;
-    /* Required for transform to work */
     text-decoration: none;
     color: var(--texto);
     font-size: 1.1rem;
@@ -143,66 +219,14 @@ body {
     transform: translateY(-2px);
 }
 
-.mobile-menu-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: var(--fondo);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transform: translateX(100%);
-    /* Hidden by default */
-    transition: transform 0.3s ease-in-out;
-    z-index: 1040;
-}
-
-.mobile-menu-overlay.open {
-    transform: translateX(0);
-}
-
-/* Desktop Styles */
-@media (min-width: 992px) {
-    .navbar-toggler {
-        display: none;
-    }
-
-    .mobile-menu-overlay {
-        position: static;
-        width: auto;
-        height: auto;
-        background-color: transparent;
-        transform: none;
-        display: block;
-    }
-
-    .navbar-nav {
-        flex-direction: row;
-        /* Desktop: inline */
-        gap: 30px;
-    }
-}
-
-.icono {
-    width: clamp(25px, 10vw, 70px);
-    height: auto;
-    position: relative;
-    z-index: 1050;
-    /* Above overlay */
-}
+/* Hamburger Menu */
 
 .navbar-toggler {
     z-index: 1050;
-    /* Above overlay */
     cursor: pointer;
     border: none;
     background: transparent;
     padding: 5px;
-    /* Add slight touch area padding without visual box */
-    /* outline: none; Removed to preserve accessibility */
-    /* Remove default focus outline */
 }
 
 .navbar-toggler:focus-visible {
@@ -215,21 +239,16 @@ body {
     background: var(--texto);
     transition: ease 0.3s;
     height: 2px;
-    /* Set a default height */
     width: 30px;
-    /* Set a default width */
     margin: 6px 0;
-    /* Add spacing */
 }
 
-/* Specific styling for the lines if needed, or rely on the generic span above */
 .linealarga {
     width: 30px;
 }
 
 .lineacorta {
     width: 20px;
-    /* Make the middle line shorter for the design effect */
 }
 
 .navbar-toggler[aria-expanded="true"] span:first-of-type {
@@ -249,6 +268,10 @@ body {
     opacity: 1;
 }
 
+/* =========================================
+   4. Hero Section
+   ========================================= */
+
 .fondo-style {
     position: absolute;
     width: 100%;
@@ -260,18 +283,9 @@ body {
     z-index: -1000;
 }
 
-@media (min-width: 992px) {
-    .fondo-style {
-        background-image: url(../assets/img/ui/background-hero-desktop.webp);
-        background-position: center;
-    }
-}
-
-
-
-header {
-    display: flex;
-    text-align: center;
+.hero-spacer {
+    min-height: 100vh;
+    align-items: center;
 }
 
 .contenedor {
@@ -282,22 +296,16 @@ header {
 
 .cajatitulo {
     background-color: rgba(255, 250, 241, 0.85);
-    /* Semi-transparent cream */
     backdrop-filter: blur(10px);
-    /* Glass effect */
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(207, 163, 88, 0.3);
-    /* Subtle border */
     padding: 20px;
     width: 90%;
     max-width: 600px;
     text-align: center;
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
-    /* Soft shadow */
     animation: fadeInUp 1s ease-out forwards;
-    /* Entry animation */
     opacity: 0;
-    /* Star invisible for animation */
 }
 
 .bordetitulo {
@@ -311,29 +319,81 @@ header {
     font-size: clamp(22px, 5vw, 45px);
     font-family: 'S Serif', 'Times New Roman', Times, serif;
     font-weight: 300;
-    /* Lighter weight */
     color: var(--ocre);
+}
+
+.subtitle {
+    font-family: 'Segoe Ui', sans-serif;
+    color: var(--texto);
 }
 
 .text-subtitle {
     font-size: clamp(10px, 2vw, 14px);
-    /* Slightly smaller for elegance */
-    font-family: 'Segoe Ui', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe Ui', sans-serif;
     font-weight: normal;
     color: var(--texto);
     padding: 7px 5px;
     text-transform: uppercase;
-    /* Modern look */
     letter-spacing: 2px;
-    /* Spacing for elegance */
     margin-bottom: 5px;
 }
 
-/* Unified Section Title Class */
+/* =========================================
+   5. Section Titles & Dividers
+   ========================================= */
+
+.caja {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    height: clamp(150px, 20vh, 300px);
+    overflow: hidden;
+}
+
+.caja img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.6) contrast(1.2);
+}
+
+.titulo-bg-2 {
+    background-image: url(../assets/img/ui/title2.webp);
+    background-size: cover;
+    background-position: center;
+}
+
+.txttitulo,
+.txttitulo1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    text-align: center;
+    z-index: 10;
+    mix-blend-mode: difference;
+    pointer-events: none;
+}
+
+.txttitulo h2,
+.txttitulo1 h3 {
+    font-weight: lighter;
+    color: #fff !important;
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+}
+
+.section-heading {
+    font-size: clamp(24px, 7vw, 70px);
+}
+
 .section-title {
     font-family: 'S Serif', 'Times New Roman', Times, serif;
     font-size: clamp(18px, 4vw, 40px);
-    /* Reduced from 24px, 5vw, 60px */
     font-weight: 300;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -343,94 +403,23 @@ header {
     display: inline-block;
 }
 
-.caja {
-    display: flex;
-    /* Center content */
-    justify-content: center;
-    align-items: center;
+/* =========================================
+   6. Products Section
+   ========================================= */
+
+.categoria-section {
+    padding: 10px 5%;
+    margin-bottom: 10px;
+    display: block;
     width: 100%;
-    position: relative;
-    /* Fixed: container for absolute children */
-    height: clamp(150px, 20vh, 300px);
-    /* Height for background */
-    overflow: hidden;
 }
 
-.titulo-bg-2 {
-    background-image: url(../assets/img/ui/titulo2.webp);
-    background-size: cover;
-    background-position: center;
+.first-category {
+    margin-top: 100px !important;
 }
 
-/* Removed .caja img rule as images are now backgrounds */
-/* Specific rule for the image in the first title box */
-.caja img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: brightness(0.6) contrast(1.2);
-}
-
-.txttitulo,
-.txttitulo1 {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    /* Optimized centering */
-    width: 100%;
-    text-align: center;
-    z-index: 10;
-    /* Above image */
-    mix-blend-mode: difference;
-    /* The magic effect */
-    pointer-events: none;
-}
-
-.txttitulo h2,
-.txttitulo1 h3 {
-    font-weight: lighter;
-    color: #fff !important;
-    /* White needed for difference mode */
-    margin: 0;
-    padding: 0;
-    white-space: nowrap;
-}
-
-/* Main Section Titles */
-/* Main Section Titles */
-.section-heading {
-    font-size: clamp(24px, 7vw, 70px);
-    /* Reduced from 28px, 8vw, 90px */
-}
-
-/* Consolidated under .section-title */
-/* Cleaned up old rules */
-.txttitulo1 h3 {
-    color: #fff !important;
-    /* Essential for difference mode */
-    margin: 0;
-    padding: 0;
-    white-space: nowrap;
-}
-
-/* Remove old specific positioning/styles */
-.txttitulo h2 span,
-.txttitulo1 h3 span {
-    font-weight: inherit;
-    color: inherit;
-}
-
-/* Restored Product Styles */
-.blank2 {
-    height: 12vw;
-}
-
-/* Category buttons */
-/* Category buttons & Headers */
 .btnseccion {
     background: none;
-    /* outline: none; Removed */
     border: none;
     padding: 10px 0;
     width: 100%;
@@ -448,74 +437,7 @@ header {
     color: var(--collares) !important;
 }
 
-/* Removed .lineacolor specific rule to use shared rule below */
-
-
-.product-card-title {
-    font-size: clamp(14px, 4vw, 24px) !important;
-}
-
-.flecha {
-    margin: 0 10px 7px 10px;
-    transition: transform 0.3s ease-in-out !important;
-}
-
-.flecha.animar {
-    transform: rotate(-90deg) !important;
-}
-
-.linea {
-    flex-grow: 1;
-    height: 1px;
-    background-color: currentColor;
-    opacity: 0.3;
-}
-
-/* Added spacing for product sections */
-.categoria-section {
-    padding: 10px 5%;
-    /* Reduced padding */
-    margin-bottom: 10px;
-}
-
-/* Add margin to the first category section after the title */
-.first-category {
-    margin-top: 100px !important;
-}
-
-.productos {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    /* auto-fill keeps item size consistent */
-    grid-gap: 30px;
-    /* More air */
-    padding: 10px 0;
-    /* Changed 5% to 0 since parent has it */
-    max-height: 0;
-    opacity: 0;
-    overflow: hidden;
-    transition: max-height 0.6s ease, opacity 0.4s ease;
-}
-
-.producto {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 15px;
-    background: rgba(255, 255, 255, 0.2);
-    /* Subtle glass card */
-    border-radius: 8px;
-    transition: transform 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease;
-}
-
-.producto:hover {
-    background: rgba(255, 255, 255, 0.6);
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03);
-}
-
-/* Intercalated Category Titles */
+/* Intercalated Category Layout */
 .categoria-section:nth-of-type(odd) .btnseccion {
     flex-direction: row-reverse;
 }
@@ -529,14 +451,39 @@ header {
     text-align: center;
     margin: 15px 0 5px 0 !important;
     opacity: 0.7;
-}
-
-.productos,
-.pseccion {
+    /* Restored hidden state */
     max-height: 0;
     opacity: 0;
     overflow: hidden;
-    transition: max-height 0.5s ease-in-out, opacity 0.3s ease-in-out;
+    transition: max-height 0.6s ease, opacity 0.4s ease;
+}
+
+.linea {
+    flex-grow: 1;
+    height: 1px;
+    background-color: currentColor;
+    opacity: 0.3;
+}
+
+.flecha {
+    margin: 0 10px 7px 10px;
+    transition: transform 0.3s ease-in-out !important;
+}
+
+.flecha.animar {
+    transform: rotate(-90deg) !important;
+}
+
+/* Product Grid */
+.productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    grid-gap: 30px;
+    padding: 10px 0;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.6s ease, opacity 0.4s ease;
 }
 
 .productos.mostrar,
@@ -545,35 +492,24 @@ header {
     opacity: 1;
 }
 
+/* Product Card */
 
-h5 {
-    font-family: 'Segoe Ui', Tahoma, Geneva, Verdana, sans-serif;
-    margin-top: 10px !important;
-    margin-bottom: 2px;
-    font-size: 2.5vw !important;
+article.producto {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start !important;
+    align-items: center !important;
     text-align: center;
-    color: var(--texto);
-    font-weight: normal !important;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease;
 }
 
-/* Restored Product Styles */
-.precio {
-    font-size: clamp(16px, 1.2rem, 18px) !important;
-    /* Increased slightly for emphasis */
-    margin: -4px 0 10px 0 !important;
-    color: var(--aros);
-    font-weight: bold;
-}
-
-.tachado {
-    font-size: clamp(12px, 0.9rem, 14px) !important;
-    /* Reduced significantly from 2vw */
-    margin: -4px 0 3px 0 !important;
-    color: #7a1f2b;
-    text-decoration: line-through;
-    text-decoration-color: #7a1f2b;
-    text-underline-offset: -2px;
-    opacity: 0.8;
+.producto:hover {
+    background: rgba(255, 255, 255, 0.6);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03);
 }
 
 .imgprod {
@@ -590,11 +526,47 @@ h5 {
     outline-offset: -5px;
 }
 
-.blank1 {
-    height: 4vh;
+article.producto .product-card-title {
+    font-family: 'Segoe Ui', Tahoma, Geneva, Verdana, sans-serif;
+    margin-top: 10px !important;
+    margin-bottom: 2px;
+    font-size: clamp(14px, 1.2rem, 18px) !important;
+    text-align: center;
+    color: var(--texto);
+    font-weight: normal !important;
 }
 
-/* Encargos Redesign Premium */
+h5 {
+    font-family: 'Segoe Ui', Tahoma, Geneva, Verdana, sans-serif;
+    margin-top: 10px !important;
+    margin-bottom: 2px;
+    font-size: 2.5vw !important;
+    text-align: center;
+    color: var(--texto);
+    font-weight: normal !important;
+}
+
+.precio {
+    font-size: clamp(16px, 1.2rem, 18px) !important;
+    margin: -4px 0 10px 0 !important;
+    color: var(--aros);
+    font-weight: bold;
+}
+
+.tachado {
+    font-size: clamp(12px, 0.9rem, 14px) !important;
+    margin: -4px 0 3px 0 !important;
+    color: #7a1f2b;
+    text-decoration: line-through;
+    text-decoration-color: #7a1f2b;
+    text-underline-offset: -2px;
+    opacity: 0.8;
+}
+
+/* =========================================
+   7. Encargos Section ("How to order")
+   ========================================= */
+
 .encargos-intro {
     text-align: center;
     max-width: 700px;
@@ -609,7 +581,6 @@ h5 {
 .contenedorencargos {
     padding: 80px 20px;
     max-width: 1000px;
-    /* Increased width */
     margin: 0 auto;
     width: 100%;
 }
@@ -618,7 +589,6 @@ h5 {
     display: flex;
     flex-direction: column;
     gap: 60px;
-    /* More space between cards */
     max-width: 900px;
     margin: 0 auto;
 }
@@ -641,7 +611,6 @@ h5 {
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border-radius: 2px;
-    /* Sharper corners for elegance */
     border: 1px solid rgba(207, 163, 88, 0.2);
     box-shadow: 0 10px 40px -10px rgba(60, 36, 21, 0.05);
     transition: transform 0.4s ease;
@@ -656,7 +625,6 @@ h5 {
 
 .card-encargo.reverse .card-content {
     flex-direction: row-reverse;
-    /* Swap text and title */
 }
 
 .titulo-main {
@@ -673,7 +641,6 @@ h5 {
 .titulo-main .highlight {
     font-family: 'S Serif', serif;
     font-weight: lighter;
-    /* Use lighter weight for contrast */
     color: var(--texto);
     display: block;
     margin-top: 5px;
@@ -705,34 +672,6 @@ h5 {
     text-align: right;
 }
 
-/* Mobile Responsiveness */
-@media (max-width: 768px) {
-    .card-content {
-        flex-direction: column !important;
-        text-align: center;
-        gap: 20px;
-        padding: 30px 20px;
-    }
-
-    .divider-vertical {
-        width: 60px;
-        height: 1px;
-        background: linear-gradient(to right, transparent, var(--ocre), transparent);
-        margin: 10px 0;
-    }
-
-    .titulo-main,
-    .texto-desc,
-    .align-right {
-        text-align: center;
-    }
-
-    .titulo-main {
-        font-size: 2.5rem;
-    }
-}
-
-/* New Button Style */
 .encargos-action {
     text-align: center;
     margin-top: 40px;
@@ -742,7 +681,6 @@ h5 {
     display: inline-block;
     padding: 15px 40px;
     background: rgba(255, 255, 255, 0.1);
-    /* Glass background */
     backdrop-filter: blur(5px);
     border: 1px solid var(--ocre);
     color: var(--texto);
@@ -758,34 +696,20 @@ h5 {
 
 .btn-encargar-styled:hover {
     background: var(--contenedores);
-    /* Solid background on hover */
     color: var(--collares);
-    /* Accent color */
     transform: translateY(-2px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     border-color: var(--collares);
 }
 
-/* Old button styles removed */
+/* =========================================
+   8. Footer
+   ========================================= */
 
-a {
-    text-decoration: none !important;
-    color: var(--ocre) !important;
-}
-
-html,
-body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-}
-
-/* New Footer Design */
 .site-footer {
     border-top: 1px solid rgba(207, 163, 88, 0.3);
     padding: 100px 20px 40px;
     background-color: var(--fondo);
-    /* Added overlay for better contrast */
     background-image: linear-gradient(rgba(255, 246, 240, 0.7), rgba(255, 246, 240, 0.7)), url('../assets/img/ui/background-footer.webp');
     background-size: contain;
     background-position: bottom center;
@@ -806,7 +730,6 @@ body {
 .footer-brand {
     font-family: 'S Serif', serif;
     font-size: 3rem;
-    /* Added !important to override global h6 rules */
     color: var(--texto);
     margin: 0;
     letter-spacing: 2px;
@@ -853,116 +776,16 @@ body {
 
 .copyright {
     font-family: 'Segoe Ui', sans-serif;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     color: var(--texto);
     opacity: 0.6;
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
-i {
-    color: var(--texto);
-}
+/* =========================================
+   9. Modals & Overlays
+   ========================================= */
 
-.txtanimacion {
-    opacity: 0.01;
-
-}
-
-/* Semantic & Accessibility Updates */
-
-/* Utility classes to replace heading tags used for styling */
-.h4-style {
-    font-size: clamp(15px, 5.7vw, 40px);
-    font-weight: bold;
-    display: inline-block;
-    /* Ensure proper spacing */
-}
-
-.h6-style,
-.subtitle,
-.sub-header {
-    font-size: clamp(12px, 2.5vw, 18px);
-    font-family: 'Segoe Ui', Tahoma, Geneva, Verdana, sans-serif;
-    font-weight: normal;
-    color: var(--texto);
-    /* Fixed undefined --dark */
-    padding: 7px 5px;
-    margin: 0;
-}
-
-/* Spacing utilities to replace empty <p> tags */
-.hero-spacer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    /* Offset for fixed header */
-    box-sizing: border-box;
-}
-
-.spacer-large {
-    height: clamp(50px, 8vw, 120px);
-    display: block;
-}
-
-.spacer-medium {
-    height: 4vh;
-    display: block;
-}
-
-/* Ensure header interaction works with new structure */
-/* Removed redundant rule for .navbar-wrapper as it is now the primary fixed container */
-
-/* Adjustments for Article/Section structure */
-.categoria-section {
-    display: block;
-    width: 100%;
-}
-
-article.producto {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start !important;
-    align-items: center !important;
-}
-
-article.producto .product-card-title {
-    /* Product titles were h5 previously, but usually styled by h5 rule. 
-       Wait, in my HTML replacement I used h4 for product titles 
-       (e.g. <h4>Argollas Labradas</h4>).
-       The previous HTML had <h5>. 
-       CSS for h5: 
-       font-family: 'Segoe Ui'... 
-       font-size: 2.5vw !important;
-       
-       I need to make sure article.producto h4 looks like the old h5.
-    */
-    font-family: 'Segoe Ui', Tahoma, Geneva, Verdana, sans-serif;
-    margin-top: 10px !important;
-    margin-bottom: 2px;
-    font-size: clamp(14px, 1.2rem, 18px) !important;
-    text-align: center;
-    color: var(--texto);
-    font-weight: normal !important;
-}
-
-/* Fix for Accordion Buttons that now contain spans instead of h4 */
-
-/* Keyframes for animations */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translate3d(0, 40px, 0);
-    }
-
-    to {
-        opacity: 1;
-        transform: translate3d(0, 0, 0);
-    }
-}
-
-/* Lightbox Modal Styles */
 .modal {
     visibility: hidden;
     opacity: 0;
@@ -998,17 +821,76 @@ article.producto .product-card-title {
     z-index: 10000;
 }
 
-/* Utility Classes */
-.filter-contrast {
-    filter: contrast(1.2) brightness(0.93);
+/* =========================================
+   10. Animations
+   ========================================= */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 40px, 0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
 }
 
-.filter-contrast-low {
-    filter: contrast(0.9);
+/* =========================================
+   11. Media Queries
+   ========================================= */
+
+@media (min-width: 992px) {
+    .navbar-toggler {
+        display: none;
+    }
+
+    .mobile-menu-overlay {
+        position: static;
+        width: auto;
+        height: auto;
+        background-color: transparent;
+        transform: none;
+        display: block;
+    }
+
+    .navbar-nav {
+        flex-direction: row;
+        gap: 30px;
+    }
+
+    .fondo-style {
+        background-color: var(--fondo);
+        background-image: linear-gradient(rgba(255, 246, 240, 0.7), rgba(255, 246, 240, 0.7)), url('../assets/img/ui/background-hero-desktop.webp');
+        background-size: contain;
+        background-position: bottom center;
+        background-repeat: repeat;
+    }
 }
 
-.text-underline {
-    text-decoration: underline !important;
-    text-decoration-thickness: 1px !important;
-    text-underline-offset: 2px !important;
+@media (max-width: 768px) {
+    .card-content {
+        flex-direction: column !important;
+        text-align: center;
+        gap: 20px;
+        padding: 30px 20px;
+    }
+
+    .divider-vertical {
+        width: 60px;
+        height: 1px;
+        background: linear-gradient(to right, transparent, var(--ocre), transparent);
+        margin: 10px 0;
+    }
+
+    .titulo-main,
+    .texto-desc,
+    .align-right {
+        text-align: center;
+    }
+
+    .titulo-main {
+        font-size: 2.5rem;
+    }
 }
