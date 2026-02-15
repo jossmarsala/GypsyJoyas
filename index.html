@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -9,25 +9,11 @@
     <meta name="description"
         content="Explorá el catálogo y descubrí piezas originales de joyería artesanal hechas en cobre, bronce y alpaca. Elegí tu preferida y encargala a través de Instagram.">
     <link rel="shortcut icon" href="img/icono.svg">
+    <link rel="stylesheet" href="variables.css">
     <link rel="stylesheet" href="estilos.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
 </head>
 
-<script>
-  (function() {
-    const ua = navigator.userAgent || navigator.vendor || window.opera;
-    const isInstagram = ua.includes('Instagram');
-    const isAndroid = /android/i.test(ua);
-
-    if (isInstagram && isAndroid) {
-      setTimeout(() => {
-        window.location.href = "intent://gypsy-joyas.vercel.app#Intent;scheme=https;package=com.android.chrome;end;";
-      }, 500);
-    }
-  })();
-</script>
-
-    
 <body>
     <section id="loader">
         <div class="loader-o">
@@ -41,561 +27,582 @@
         </div>
     </section>
 
-    <section id="fondo" class="animacion"></section>
+    <section id="fondo" class="animacion fondo-style"></section>
 
-    <nav class="navbar">
-        <div id="nav">
-            <img src="img/icono.svg" alt="Logo de Gypsy Joyas" id="icono">
+    <header class="navbar-wrapper">
+        <nav class="navbar">
+            <div id="nav" class="nav-container">
+                <img src="img/icono.svg" alt="Logo de Gypsy Joyas" id="icono" class="icono">
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="linealarga"></span>
-                <span id="lineacorta"></span>
-                <span class="linealarga"></span>
-            </button>
+                <button class="navbar-toggler" type="button" aria-controls="navbarNav" aria-expanded="false"
+                    aria-label="Abrir navegación">
+                    <span class="linealarga"></span>
+                    <span id="lineacorta" class="lineacorta"></span>
+                    <span class="linealarga"></span>
+                </button>
 
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link scroll-link" href="#btnseccion">Productos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link scroll-link" href="#contenedorencargos">¿Como<span>f</span>encargar?</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link scroll-link" href="#contacto">Contacto</a>
-                    </li>
-                </ul>
+                <div class="navbar-collapse mobile-menu-overlay" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link scroll-link" href="#btnseccion">Productos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link scroll-link" href="#contenedorencargos">¿Como encargar?</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link scroll-link" href="#contacto">Contacto</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
-    <p id="blank"></p>
-
-    <div class="contenedor">
-        <div id="cajatitulo">
-            <div id="bordetitulo">
-                <header>
+    <main>
+        <div class="contenedor hero-spacer">
+            <div id="cajatitulo" class="cajatitulo">
+                <div id="bordetitulo" class="bordetitulo">
                     <div>
-                        <h1>Obras de Arte para Llevar Puestas</h1>
-                        <h6>Joyería artesanal en bronce, cobre y alpaca</h6>
+                        <h1 class="hero-title">Obras de Arte para Llevar Puestas</h1>
+                        <p class="h6-style subtitle">Joyería artesanal en bronce, cobre y alpaca</p>
                     </div>
-                </header>
+                </div>
             </div>
         </div>
-    </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            anime({
-                targets: '.animacion',
-                easing: 'easeInQuad',
-                opacity: 1,
-                duration: 700,
-                delay: 500
-            });
-        });
-    </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
 
-    <p class="blank2"></p>
-    <p class="blank2"></p>
-    <p class="blank2"></p>
-    <p class="blank2"></p>
-    <p class="blank2"></p>
-    <p class="blank2"></p>
 
-    <section>
-        <div class="caja">
-            <img src="img/titulo.webp" alt="Fondo del título 'Productos'">
-            <div class="txttitulo">
-                <h2>Prod<span>uctos</span></h2>
+        <div class="spacer-large"></div>
+
+        <section>
+            <div class="caja">
+                <img src="img/titulo.webp" alt="" aria-hidden="true">
+                <div class="txttitulo">
+                    <h2 class="section-heading">Productos</h2>
+                </div>
+            </div>
+        </section>
+
+        <!-- Restoring Catalog -->
+        <section class="categoria-section first-category" aria-labelledby="cat-aros">
+            <div class="seccion">
+                <h3 class="category-heading">
+                    <button class="btnseccion" id="btnseccionaros" aria-expanded="false" aria-controls="productos-aros">
+                        <span class="section-title">Aros</span>
+                        <span class="flecha" id="flechaaros" aria-hidden="true">ᐯ</span>
+                        <span class="linea"></span>
+                    </button>
+                </h3>
+            </div>
+
+            <p class="pseccion pseccionaros">Bronce</p>
+            <div id="productos-aros" class="productos productosaros">
+                <article class="producto">
+                    <img class="imgprod" src="img/argollas-labradas-bronce-10.000.webp"
+                        alt="Argollas Labradas de Bronce">
+                    <h4 class="product-card-title">Argollas Labradas</h4>
+                    <p class="precio">$10,900</p>
+                </article>
+                <article class="producto">
+                    <img class="imgprod" src="img/argollas-labradas-bronce-mini-8.000.webp"
+                        alt="Argollas Labradas Mini de Bronce">
+                    <h4 class="product-card-title">Argollas Labradas Mini</h4>
+                    <p class="tachado">$8,800</p>
+                    <p class="precio">$7,068</p>
+                </article>
+                <article class="producto">
+                    <img class="imgprod" src="img/aros-abril-bronce-15.000.webp" alt="Aros Abril de Bronce">
+                    <h4 class="product-card-title">Abril</h4>
+                    <p class="precio">$16,500</p>
+                </article>
+                <article class="producto">
+                    <img class="imgprod" src="img/aros-burbujas-bronce-11.500.webp"
+                        style="filter: contrast(1.2); filter:brightness(0.93);" alt="Aros Burbujas de Bronce">
+                    <h4 class="product-card-title">Burbujas</h4>
+                    <p class="precio">$12,700</p>
+                </article>
+                <article class="producto">
+                    <img class="imgprod" src="img/aros-calados-hojitas-bronce-17.000.webp"
+                        alt="Aros Calados Hojitas de Bronce">
+                    <h4 class="product-card-title">Calados Hojitas</h4>
+                    <p class="precio">$18,700</p>
+                </article>
+                <article class="producto">
+                    <img class="imgprod" src="img/aros-destello-bronce-10.500.webp" alt="Aros Destello de Bronce">
+                    <h4 class="product-card-title">Destello</h4>
+                    <p class="precio">$11,600</p>
+                </article>
+                <article class="producto">
+                    <img class="imgprod" src="img/aros-estrella-bronce.webp" alt="Aros Estrella de Bronce">
+                    <h4 class="product-card-title">Estrella</h4>
+                    <p class="precio">$14,300</p>
+                </article>
+                <article class="producto">
+                    <img class="imgprod" src="img/aros-francisca-bronce-14.100.webp" alt="Aros Francisca de Bronce">
+                    <h4 class="product-card-title">Francisca</h4>
+                    <p class="precio">$14,100</p>
+                </article>
+                <article class="producto">
+                    <img class="imgprod" src="img/aros-fungi-13.600.webp" alt="Aros Fungi">
+                    <h4 class="product-card-title">Fungi</h4>
+                    <p class="precio">$13,600</p>
+                </article>
+                <article class="producto">
+                    <img class="imgprod" src="img/aros-josefina-bronce.webp" alt="Aros Josefina de Bronce">
+                    <h4 class="product-card-title">Josefina</h4>
+                    <p class="precio">$12,800</p>
+                </article>
+                <article class="producto">
+                    <img class="imgprod" src="img/aros-matisse.webp" alt="Aros Matisse">
+                    <h4 class="product-card-title">Matisse</h4>
+                    <p class="precio">$17,100</p>
+                </article>
+                <article class="producto">
+                    <img class="imgprod" src="img/aros-mini-amatistas-bronce-9.000-con-frasquito.webp"
+                        alt="Mini Piedras con frasquito">
+                    <h4 class="product-card-title">Mini Piedras (con frasquito)</h4>
+                    <p class="tachado">$10,900</p>
+                    <p class="precio">$8,370</p>
+                </article>
+
+                <article class="producto">
+                    <img class="imgprod" src="img/aros-montaa-bronce-14.000.webp" alt="Aros Montaña de Bronce">
+                    <h4 class="product-card-title">Montaña</h4>
+                    <p class="precio">$15,400</p>
+                </article>
+                <article class="producto">
+                    <img class="imgprod" src="img/aros-ondas-bronce.webp" alt="Aros Ondas de Bronce">
+                    <h4 class="product-card-title">Ondas</h4>
+                    <p class="precio">$14,900</p>
+                </article>
+            </div>
+
+            <p class="pseccion pseccionaros">Alpaca</p>
+            <div class="productos productosaros">
+                <article class="producto">
+                    <img class="imgprod" src="img/argollas-labradas-alpaca-10.000.webp"
+                        alt="Argollas Labradas de Alpaca">
+                    <h4 class="product-card-title">Argollas Labradas</h4>
+                    <p class="precio">$10,900</p>
+                </article>
+                <article class="producto">
+                    <img class="imgprod" src="img/aros-montaa-alpaca.webp" alt="Aros Montaña de Alpaca">
+                    <h4 class="product-card-title">Montaña</h4>
+                    <p class="precio">$15,400</p>
+                </article>
+                <article class="producto">
+                    <img class="imgprod" src="img/aros-ondas-alpaca.webp" alt="Aros Ondas de Alpaca">
+                    <h4 class="product-card-title">Ondas</h4>
+                    <p class="precio">$14,900</p>
+                </article>
+            </div>
+        </section>
+
+
+        <section class="categoria-section" aria-labelledby="cat-collares">
+            <div class="seccion">
+                <h3 class="category-heading">
+                    <button class="btnseccion btn-collares" id="btnseccioncollares" aria-expanded="false"
+                        aria-controls="productos-collares">
+                        <span class="section-title">Collares</span>
+                        <span class="flecha" id="flechacollares" aria-hidden="true">ᐯ</span>
+                        <span class="linea"></span>
+                    </button>
+                </h3>
+            </div>
+
+            <p class="pseccion pseccioncollares">Bronce</p>
+            <div id="productos-collares" class="productos productoscollares">
+                <article class="producto">
+                    <img class="imgprod" src="img/choker-piedras.webp" alt="Choker Piedras Ovalado">
+                    <h4 class="product-card-title">Choker Piedras Ovalado</h4>
+                    <p class="tachado">$18,200</p>
+                    <p class="precio">$16,554</p>
+                </article>
+                <article class="producto">
+                    <img class="imgprod" src="img/collar-arcoris-bronce.webp" alt="Collar Arcoíris de Bronce">
+                    <h4 class="product-card-title">Arcoíris</h4>
+                    <p class="precio">$13,200</p>
+                </article>
+                <article class="producto">
+                    <img class="imgprod" src="img/collar-gabinete-bronce.webp" alt="Collar Gabinete de Bronce">
+                    <h4 class="product-card-title">Collar Gabinete Bronce</h4>
+                    <p class="precio">$26.970</p>
+                </article>
+                <article class="producto">
+                    <img class="imgprod" src="img/collar-bordado-vendimia-bronce-20.000.webp"
+                        alt="Collar Bordado Vendimia">
+                    <h4 class="product-card-title">Bordado Vendimia</h4>
+                    <p class="precio">$22,000</p>
+                </article>
+                <article class="producto">
+                    <img class="imgprod" src="img/collar-esmaltado-girasol.webp" alt="Collar Esmaltado Girasol">
+                    <h4 class="product-card-title">Collar Esmaltado Girasol</h4>
+                    <p class="precio">$18.600</p>
+                </article>
+                <article class="producto">
+                    <img class="imgprod" src="img/collar-estrella-ajustable-bronce-15.200.webp"
+                        alt="Collar Estrella Ajustable de Bronce">
+                    <h4 class="product-card-title">Estrella Ajustable</h4>
+                    <p class="precio">$16,700</p>
+                </article>
+                <article class="producto">
+                    <img class="imgprod" src="img/collar-estrella-fugaz-bronce.webp" alt="Collar Estrella Fugaz">
+                    <h4 class="product-card-title">Estrella Fugaz</h4>
+                    <p class="precio">$17,900</p>
+                </article>
+                <article class="producto">
+                    <img class="imgprod" src="img/collar-luna-ajustable-bronce-15.200.webp"
+                        alt="Collar Luna Ajustable de Bronce">
+                    <h4 class="product-card-title">Luna Ajustable</h4>
+                    <p class="precio">$16,700</p>
+                </article>
+                <article class="producto">
+                    <img class="imgprod" src="img/collares-bordados-bronce-20.000.webp" alt="Collares Bordados">
+                    <h4 class="product-card-title">Bordados</h4>
+                    <p class="precio">$22,000</p>
+                </article>
+                <article class="producto">
+                    <img class="imgprod" src="img/collar-bordado-especial.webp" alt="Collar Bordado Especial">
+                    <h4 class="product-card-title">Bordado Especial</h4>
+                    <p class="precio">$25,000</p>
+                </article>
+                <article class="producto">
+                    <img class="imgprod" src="img/collar-enredados.webp" alt="Collar Enredados">
+                    <h4 class="product-card-title">Enredados</h4>
+                    <p class="precio">$16,500</p>
+                </article>
+                <article class="producto">
+                    <img class="imgprod" src="img/collar-estampillas-13.000.webp" alt="Collar Estampillas">
+                    <h4 class="product-card-title">Estampillas</h4>
+                    <p class="precio">$14,300</p>
+                </article>
+                <article class="producto">
+                    <img class="imgprod" src="img/collar-dije-piedra-y-ceramica-bronce.webp"
+                        alt="Dijes Piedras Y Cerámica Bronce">
+                    <h4 class="product-card-title">Dijes Piedras Y Cerámica</h4>
+                    <p class="precio">$15,624</p>
+                </article>
+                <article class="producto">
+                    <img class="imgprod" src="img/collar-dije-ceramica-bronce.webp" alt="Dijes Cerámica Bronce">
+                    <h4 class="product-card-title">Dijes Cerámica</h4>
+                    <p class="precio">$15,624</p>
+                </article>
+                <article class="producto">
+                    <img class="imgprod" src="img/collar-honguito-esmaltado.webp" alt="Collar Honguito Esmaltado">
+                    <h4 class="product-card-title">Honguito Esmaltado</h4>
+                    <p class="precio">$19,200</p>
+                </article>
+                <article class="producto">
+                    <img class="imgprod" src="img/choker-sol-de-mayo.webp" alt="Choker Sol De Mayo">
+                    <h4 class="product-card-title">Choker Sol De Mayo</h4>
+                    <p class="precio">$12,090</p>
+                </article>
+                <article class="producto">
+                    <img class="imgprod" src="img/collar-vid-obras-de-arte.webp" alt="Collar Vid Obras De Arte">
+                    <h4 class="product-card-title">Vid Obras De Arte</h4>
+                    <p class="precio">$32,550</p>
+                </article>
+                <article class="producto">
+                    <img class="imgprod" src="img/banderines-bordados.webp" alt="Banderines Bordados">
+                    <h4 class="product-card-title">Banderines Bordados</h4>
+                    <p class="tachado"> <s>$17,600</s> </p>
+                    <p class="precio">$9,114</p>
+                </article>
+            </div>
+
+            <p class="pseccion pseccioncollares">Alpaca</p>
+            <div class="productos productoscollares">
+                <article class="producto">
+                    <img class="imgprod" src="img/collares-bordados-alpaca-20.png" alt="Collares Bordados Alpaca">
+                    <h4 class="product-card-title">Bordados</h4>
+                    <p class="precio">$22,000</p>
+                </article>
+                <article class="producto">
+                    <img class="imgprod" src="img/collar-luna-alpaca.webp" alt="Collar Luna Destello Alpaca">
+                    <h4 class="product-card-title">Luna Destello</h4>
+                    <p class="precio">$16,500</p>
+                </article>
+                <article class="producto">
+                    <img class="imgprod" src="img/collar-nombre-alpaca.webp" alt="Collar Nombre Alpaca">
+                    <h4 class="product-card-title">Collar Nombre Alpaca</h4>
+                    <p class="precio">$15.066</p>
+                </article>
+                <article class="producto">
+                    <img class="imgprod" src="img/collarcadenadije.webp" alt="Dijes Piedras y Cerámica Alpaca">
+                    <h4 class="product-card-title">Dijes Piedras y Cerámica</h4>
+                    <p class="precio">$15,624</p>
+                </article>
+                <article class="producto">
+                    <img class="imgprod" src="img/chocker-piedras-alpaca-redondo-16.500.webp"
+                        alt="Choker Piedras Redondo Alpaca">
+                    <h4 class="product-card-title">Choker Piedras Redondo</h4>
+                    <p class="tachado">$18,200</p>
+                    <p class="precio">$16,554</p>
+                </article>
+                <article class="producto">
+                    <img class="imgprod" src="img/collar-estrella-ajustable-alpaca-15.200.webp"
+                        alt="Collar Estrella Ajustable Alpaca">
+                    <h4 class="product-card-title">Estrella Ajustable</h4>
+                    <p class="precio">$16,700</p>
+                </article>
+                <article class="producto">
+                    <img class="imgprod" src="img/collar-grabado-ajustable-alpaca-14.300.webp"
+                        alt="Collar Grabado Ajustable Alpaca">
+                    <h4 class="product-card-title">Grabado Ajustable</h4>
+                    <p class="precio">$15,700</p>
+                </article>
+                <article class="producto">
+                    <img class="imgprod" src="img/collar-jarrn-alpaca-24.000.webp" alt="Collar Jarrón Alpaca">
+                    <h4 class="product-card-title">Jarrón</h4>
+                    <p class="precio">$26,400</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="categoria-section" aria-labelledby="cat-anillos">
+            <div class="seccion">
+                <h3 class="category-heading">
+                    <button class="btnseccion" id="btnseccionanillos" aria-expanded="false"
+                        aria-controls="productos-anillos">
+                        <span class="section-title">Anillos</span>
+                        <span class="flecha" id="flechaanillos" aria-hidden="true">ᐯ</span>
+                        <span class="linea"></span>
+                    </button>
+                </h3>
+            </div>
+
+            <p class="pseccion pseccionanillos">Bronce</p>
+            <div id="productos-anillos" class="productos productosanillos">
+                <article class="producto">
+                    <img class="imgprod" src="img/anillo-batea-mahuida.webp" alt="Anillo Batea Mahuida">
+                    <h4 class="product-card-title">Batea Mahuida</h4>
+                    <p class="precio">$16,500</p>
+                </article>
+                <article class="producto">
+                    <img class="imgprod" src="img/anillo-calado-regulable-bronce-12.000.webp"
+                        alt="Anillo Calado Regulable Bronce">
+                    <h4 class="product-card-title">Calado Regulable</h4>
+                    <p class="precio">$13,200</p>
+                </article>
+                <article class="producto">
+                    <img class="imgprod" src="img/anillo-embutido-redondo.webp" alt="Anillo Embutido Redondo Bronce">
+                    <h4 class="product-card-title">Embutido Redondo</h4>
+                    <p class="precio">$14,200</p>
+                </article>
+                <article class="producto">
+                    <img class="imgprod" src="img/anillo-embutido-simple-bronce.webp"
+                        alt="Anillo Embutido Simple Bronce">
+                    <h4 class="product-card-title">Embutido Simple</h4>
+                    <p class="precio">$12,200</p>
+                </article>
+                <article class="producto">
+                    <img class="imgprod" src="img/anillo-sello-bronce-20.000.webp" alt="Anillo Sello Bronce">
+                    <h4 class="product-card-title">Sello</h4>
+                    <p class="precio">$24,645</p>
+                </article>
+                <article class="producto">
+                    <img class="imgprod" src="img/img-20250503-wa0018.webp" alt="Anillo Sello Sol de Mayo">
+                    <h4 class="product-card-title">Sello Sol de Mayo</h4>
+                    <p class="precio">$23,250</p>
+                </article>
+                <article class="producto">
+                    <img class="imgprod" src="img/anillo-triple-bronce.webp" alt="Anillo Triple Bronce">
+                    <h4 class="product-card-title">Triple</h4>
+                    <p class="precio">$12,100</p>
+                </article>
+                <article class="producto">
+                    <img class="imgprod" src="img/anillo-vintage-bronce.webp" alt="Anillo Vintage Bronce">
+                    <h4 class="product-card-title">Vintage</h4>
+                    <p class="precio">$12,800</p>
+                </article>
+            </div>
+
+            <p class="pseccion pseccionanillos">Alpaca</p>
+            <div class="productos productosanillos">
+                <article class="producto">
+                    <img class="imgprod" src="img/anillo-embutido-redondo-alpaca-12.900.webp"
+                        alt="Anillo Embutido Redondo Alpaca">
+                    <h4 class="product-card-title">Embutido Redondo</h4>
+                    <p class="precio">$14,200</p>
+                </article>
+                <article class="producto">
+                    <img class="imgprod" src="img/anillo-escher-alpaca.webp" alt="Anillo Escher Alpaca">
+                    <h4 class="product-card-title">Escher Alpaca</h4>
+                    <p class="precio">$16.740</p>
+                </article>
+                <article class="producto">
+                    <img class="imgprod" src="img/anillo-sello-sol-de-mayo-alpaca.webp"
+                        alt="Anillo Sello Sol De Mayo Alpaca">
+                    <h4 class="product-card-title">Sello Sol De Mayo</h4>
+                    <p class="precio">$24.645</p>
+                </article>
+                <article class="producto">
+                    <img class="imgprod" src="img/anillo-recto-alpaca.webp" alt="Anillo Recto Alpaca">
+                    <h4 class="product-card-title">Recto</h4>
+                    <p class="precio">$9,900</p>
+                </article>
+            </div>
+        </section>
+
+
+        <section class="categoria-section" aria-labelledby="cat-pulseras">
+            <div class="seccion">
+                <h3 class="category-heading">
+                    <button class="btnseccion btn-pulseras" id="btnseccionpulseras" aria-expanded="false"
+                        aria-controls="productos-pulseras">
+                        <span class="section-title">Brazaletes y Pulseras</span>
+                        <span class="flecha" id="flechapulseras" aria-hidden="true">ᐯ</span>
+                        <span class="linea"></span>
+                    </button>
+                </h3>
+            </div>
+
+            <p class="pseccion pseccionpulseras">Bronce</p>
+            <div id="productos-pulseras" class="productos productospulseras">
+                <article class="producto">
+                    <img class="imgprod" src="img/brazaletes-labrados.webp" alt="Brazalete labrado">
+                    <h4 class="product-card-title">Brazalete labrado</h4>
+                    <p class="precio">$9,900</p>
+                </article>
+                <article class="producto">
+                    <img class="imgprod" src="img/pulsera-calada-bronce.webp" alt="Pulsera calada Bronce">
+                    <h4 class="product-card-title">Pulsera calada</h4>
+                    <p class="precio">$9,000</p>
+                </article>
+            </div>
+
+            <p class="pseccion pseccionpulseras">Alpaca</p>
+            <div class="productos productospulseras">
+                <article class="producto">
+                    <img class="imgprod" src="img/pulsera-calada-alpaca-8.200.webp" alt="Pulsera calada Alpaca">
+                    <h4 class="product-card-title">Pulsera calada</h4>
+                    <p class="precio">$9,000</p>
+                </article>
+            </div>
+        </section>
+
+
+        <section class="categoria-section" aria-labelledby="cat-accesorios">
+            <div class="seccion">
+                <h3 class="category-heading">
+                    <button class="btnseccion" id="btnseccionaccesorios" aria-expanded="false"
+                        aria-controls="productos-accesorios">
+                        <span class="section-title">Accesorios</span>
+                        <span class="flecha" id="flechaaccesorios" aria-hidden="true">ᐯ</span>
+                        <span class="linea"></span>
+                    </button>
+                </h3>
+            </div>
+
+            <p class="pseccion pseccionaccesorios">Bronce</p>
+            <div id="productos-accesorios" class="productos productosaccesorios">
+                <article class="producto">
+                    <img class="imgprod" src="img/hebillas-bronce.webp" alt="Hebillas para el Pelo Bronce">
+                    <h4 class="product-card-title">Hebillas para el Pelo</h4>
+                    <p class="precio">$16,500</p>
+                </article>
+                <article class="producto">
+                    <img class="imgprod" src="img/jarroncitos-cermica-10.000-cadenita-includa.webp"
+                        style="filter: contrast(0.9);" alt="Jarroncitos Cerámica">
+                    <h4 class="product-card-title">Jarroncitos Cerámica (cadena incluída)</h4>
+                    <p class="precio">$14,200</p>
+                </article>
+                <article class="producto">
+                    <img class="imgprod" src="img/pasa-panuelos-bronce.webp" alt="Pasa Pañuelos Bronce">
+                    <h4 class="product-card-title">Pasa Pañuelos Bronce</h4>
+                    <p class="precio">$13.950</p>
+                </article>
+            </div>
+
+            <p class="pseccion pseccionaccesorios">Alpaca</p>
+            <div class="productos productosaccesorios">
+                <article class="producto">
+                    <img class="imgprod" src="img/bombilla-alpaca.webp" alt="Bombilla Alpaca">
+                    <h4 class="product-card-title">Bombilla</h4>
+                    <p class="precio">$22,000</p>
+                </article>
+                <article class="producto">
+                    <img class="imgprod" src="img/relicario-amatista-alpaca.webp" alt="Relicario Amatista Alpaca">
+                    <h4 class="product-card-title">Relicario Amatista Alpaca</h4>
+                    <p class="precio">$24.180</p>
+                </article>
+            </div>
+        </section>
+
+        <div class="spacer-medium"></div>
+
+        <section id="margenproductos">
+            <div class="caja">
+                <img src="img/titulo2.webp" alt="" aria-hidden="true">
+                <div class="txttitulo">
+                    <h2 class="section-heading">¿Como encargar?</h2>
+                </div>
+            </div>
+        </section>
+
+        <div id="contenedorencargos" class="contenedorencargos">
+            <div class="encargos-intro">
+                <p>Explora el catálogo y cuando encuentres lo que te gusta, enviame un mensaje por Instagram <a
+                        href="https://www.instagram.com/gypsy.joyas/" target="_blank"
+                        style="text-decoration: underline !important;">(@gypsy.joyas)</a>.</p>
+            </div>
+
+            <div class="encargos-grid">
+                <!-- Card Mendoza -->
+                <div class="card-encargo">
+                    <div class="card-content">
+                        <h4 class="titulo-main">Soy de <br> <span class="highlight">Mendoza</span></h4>
+                        <div class="divider-vertical"></div>
+                        <p class="texto-desc">Si te encontrás en la provincia de Mendoza, podés retirar tu pedido en mi
+                            taller de Godoy Cruz o coordinar otro punto de encuentro.</p>
+                    </div>
+                </div>
+
+                <!-- Card Provincias -->
+                <div class="card-encargo">
+                    <div class="card-content">
+                        <p class="texto-desc">Para quienes están fuera de Mendoza, hago envíos por Correo Argentino a
+                            cualquier provincia. Puede ser a domicilio o a tu sucursal más cercana. Para cotizarlo,
+                            enviame tu código postal por mensaje privado de Instagram.</p>
+                        <div class="divider-vertical"></div>
+                        <h4 class="titulo-main align-right">Soy de <br> <span class="highlight">otra provincia</span>
+                        </h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="encargos-action">
+                <a href="https://ig.me/m/gypsy.joyas" class="btn-encargar-styled" target="_blank">Encargar ahora</a>
             </div>
         </div>
-    </section>
 
-    <div class="seccion">
-        <button class="btnseccion" id="btnseccionaros">
-            <h4><span style="color: #fffaf1 !important;">.....</span>Aros</h4>
-            <p class="flecha" id="flechaaros">ᐯ</p>
-            <p class="linea"></p>
-        </button>
-    </div>
+        <div class="spacer-large"></div>
 
-    <p class="pseccion pseccionaros">Bronce</p>
-    <div class="productos productosaros">
-        <div class="producto">
-            <img class="imgprod" src="img/ARGOLLAS LABRADAS BRONCE $10.000.webp" alt="Producto">
-            <h5>Argollas Labradas</h5>
-            <p class="precio">$10,900</p>
-        </div>
-        <div class="producto">
-            <img class="imgprod" src="img/ARGOLLAS LABRADAS BRONCE MINI $8.000.webp" alt="Producto">
-            <h5>Argollas Labradas Mini</h5>
-            <p class="tachado">$8,800</p>
-            <p class="precio">$7,068</p>
-        </div>
-        <div class="producto">
-            <img class="imgprod" src="img/AROS ABRIL BRONCE $15.000.webp" alt="Producto">
-            <h5>Abril</h5>
-            <p class="precio">$16,500</p>
-        </div>
-        <div class="producto">
-            <img class="imgprod" src="img/AROS BURBUJAS BRONCE $11.500.webp"
-                style="filter: contrast(1.2); filter:brightness(0.93);" alt="Producto">
-            <h5>Burbujas</h5>
-            <p class="precio">$12,700</p>
-        </div>
-        <div class="producto">
-            <img class="imgprod" src="img/AROS CALADOS HOJITAS BRONCE $17.000.webp" alt="Producto">
-            <h5>Calados Hojitas</h5>
-            <p class="precio">$18,700</p>
-        </div>
-        <div class="producto">
-            <img class="imgprod" src="img/AROS DESTELLO BRONCE $10.500.webp" alt="Producto">
-            <h5>Destello</h5>
-            <p class="precio">$11,600</p>
-        </div>
-        <div class="producto">
-            <img class="imgprod" src="img/AROS ESTRELLA BRONCE.webp" alt="Producto">
-            <h5>Estrella</h5>
-            <p class="precio">$14,300</p>
-        </div>
-        <div class="producto">
-            <img class="imgprod" src="img/AROS FRANCISCA BRONCE $14.100.webp" alt="Producto">
-            <h5>Francisca</h5>
-            <p class="precio">$14,100</p>
-        </div>
-        <div class="producto">
-            <img class="imgprod" src="img/AROS FUNGI $13.600.webp" alt="Producto">
-            <h5>Fungi</h5>
-            <p class="precio">$13,600</p>
-        </div>
-        <div class="producto">
-            <img class="imgprod" src="img/AROS JOSEFINA BRONCE.webp" alt="Producto">
-            <h5>Josefina</h5>
-            <p class="precio">$12,800</p>
-        </div>
-        <div class="producto">
-            <img class="imgprod" src="img/AROS MATISSE.webp" alt="Producto">
-            <h5>Matisse</h5>
-            <p class="precio">$17,100</p>
-        </div>
-        <div class="producto">
-            <img class="imgprod" src="img/AROS MINI AMATISTAS BRONCE $9.000 (con frasquito).webp" alt="Producto">
-            <h5>Mini Piedras (con frasquito)</h5>
-            <p class="tachado">$10,900</p>
-            <p class="precio">$8,370</p>
-        </div>
+        <footer class="site-footer">
+            <div class="footer-container">
+                <h6 class="footer-brand">Gypsy Joyas</h6>
+                <p class="footer-tagline">Joyería hecha a mano</p>
 
-        <div class="producto">
-            <img class="imgprod" src="img/AROS MONTAÑA BRONCE  $14.000.webp" alt="Producto">
-            <h5>Montaña</h5>
-            <p class="precio">$15,400</p>
-        </div>
-        <div class="producto">
-            <img class="imgprod" src="img/AROS ONDAS BRONCE.webp" alt="Producto">
-            <h5>Ondas</h5>
-            <p class="precio">$14,900</p>
-        </div>
-    </div>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/gypsy.joyas/" target="_blank"
+                        aria-label="Instagram de Gypsy Joyas">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="mailto:gypsyaccmendoza@gmail.com?subject=%C2%A1Tengo%20una%20consulta!&body=Hola%20%E2%9C%A8%2C%20quisiera%20hacer%20una%20consulta%20sobre%20tus%20productos"
+                        aria-label="Email de Gypsy Joyas">
+                        <i class="fa-solid fa-envelope"></i>
+                    </a>
+                    <!--<i class="fa-brands fa-whatsapp"></i>-->
+                </div>
 
-    <p class="pseccion pseccionaros">Alpaca</p>
-    <div class="productos productosaros">
-        <div class="producto">
-            <img class="imgprod" src="img/ARGOLLAS LABRADAS ALPACA $10.000.webp" alt="Producto">
-            <h5>Argollas Labradas</h5>
-            <p class="precio">$10,900</p>
-        </div>
-        <div class="producto">
-            <img class="imgprod" src="img/AROS MONTAÑA ALPACA.webp" alt="Producto">
-            <h5>Montaña</h5>
-            <p class="precio">$15,400</p>
-        </div>
-        <div class="producto">
-            <img class="imgprod" src="img/AROS ONDAS ALPACA.webp" alt="Producto">
-            <h5>Ondas</h5>
-            <p class="precio">$14,900</p>
-        </div>
-    </div>
-
-
-    <div class="seccion">
-        <button class="btnseccion" id="btnseccioncollares">
-            <p class="lineacolor"></p>
-            <p class="flecha" id="flechacollares">ᐯ</p>
-            <h4>Collares<span style="color: #fffaf1 !important;">.....</span></h4>
-        </button>
-    </div>
-
-    <p class="pseccion pseccioncollares">Bronce</p>
-    <div class="productos productoscollares">
-        <div class="producto">
-            <img class="imgprod" src="img/CHOKER PIEDRAS.webp" alt="Producto">
-            <h5>Choker Piedras Ovalado</h5>
-            <p class="tachado">$18,200</p>
-            <p class="precio">$16,554</p>
-        </div>
-        <div class="producto">
-            <img class="imgprod" src="img/COLLAR ARCOÍRIS BRONCE.webp" alt="Producto">
-            <h5>Arcoíris</h5>
-            <p class="precio">$13,200</p>
-        </div>
-        <div class="producto">
-            <img class="imgprod" src="img/collar-gabinete-bronce.webp" alt="Producto">
-            <h5>Collar Gabinete Bronce</h5>
-            <p class="precio">$26.970</p>
-        </div>
-        <div class="producto">
-            <img class="imgprod" src="img/COLLAR BORDADO VENDIMIA BRONCE $20.000.webp" alt="Producto">
-            <h5>Bordado Vendimia</h5>
-            <p class="precio">$22,000</p>
-        </div>
-        <div class="producto">
-            <img class="imgprod" src="img/collar-esmaltado-girasol.webp" alt="Producto">
-            <h5>Collar Esmaltado Girasol</h5>
-            <p class="precio">$18.600</p>
-        </div>
-        <div class="producto">
-            <img class="imgprod" src="img/COLLAR ESTRELLA AJUSTABLE BRONCE $15.200.webp" alt="Producto">
-            <h5>Estrella Ajustable</h5>
-            <p class="precio">$16,700</p>
-        </div>
-        <div class="producto">
-            <img class="imgprod" src="img/COLLAR ESTRELLA FUGAZ BRONCE.webp" alt="Producto">
-            <h5>Estrella Fugaz</h5>
-            <p class="precio">$17,900</p>
-        </div>
-        <div class="producto">
-            <img class="imgprod" src="img/COLLAR LUNA AJUSTABLE BRONCE $15.200.webp" alt="Producto">
-            <h5>Luna Ajustable</h5>
-            <p class="precio">$16,700</p>
-        </div>
-        <div class="producto">
-            <img class="imgprod" src="img/COLLARES BORDADOS BRONCE $20.000.webp" alt="Producto">
-            <h5>Bordados</h5>
-            <p class="precio">$22,000</p>
-        </div>
-        <div class="producto">
-            <img class="imgprod" src="img/COLLAR BORDADO ESPECIAL.webp" alt="Producto">
-            <h5>Bordado Especial</h5>
-            <p class="precio">$25,000</p>
-        </div>
-        <div class="producto">
-            <img class="imgprod" src="img/COLLAR ENREDADOS.webp" alt="Producto">
-            <h5>Enredados</h5>
-            <p class="precio">$16,500</p>
-        </div>
-        <div class="producto">
-            <img class="imgprod" src="img/COLLAR ESTAMPILLAS $13.000.webp" alt="Producto">
-            <h5>Estampillas</h5>
-            <p class="precio">$14,300</p>
-        </div>
-        <div class="producto">
-            <img class="imgprod" src="img/collar-dije-piedra-y-ceramica-bronce.webp" alt="Producto">
-            <h5>Dijes Piedras Y Cerámica</h5>
-            <p class="precio">$15,624</p>
-        </div>
-        <div class="producto">
-            <img class="imgprod" src="img/collar-dije-ceramica-bronce.webp" alt="Producto">
-            <h5>Dijes Cerámica</h5>
-            <p class="precio">$15,624</p>
-        </div>
-        <div class="producto">
-            <img class="imgprod" src="img/COLLAR HONGUITO ESMALTADO.webp" alt="Producto">
-            <h5>Honguito Esmaltado</h5>
-            <p class="precio">$19,200</p>
-        </div>
-        <div class="producto">
-            <img class="imgprod" src="img/choker-sol-de-mayo.webp" alt="Producto">
-            <h5>Choker Sol De Mayo</h5>
-            <p class="precio">$12,090</p>
-        </div>
-        <div class="producto">
-            <img class="imgprod" src="img/COLLAR VID OBRAS DE ARTE.webp" alt="Producto">
-            <h5>Vid Obras De Arte</h5>
-            <p class="precio">$32,550</p>
-        </div>
-        <div class="producto">
-            <img class="imgprod" src="img/BANDERINES BORDADOS.webp" alt="Producto">
-            <h5>Banderines Bordados</h5>
-            <p class="tachado"> <s>$17,600</s> </p>
-            <p class="precio">$9,114</p>
-        </div>
-    </div>
-
-    <p class="pseccion pseccioncollares">Alpaca</p>
-    <div class="productos productoscollares">
-        <div class="producto">
-            <img class="imgprod" src="img/COLLARES BORDADOS ALPACA $20.png" alt="Producto">
-            <h5>Bordados</h5>
-            <p class="precio">$22,000</p>
-        </div>
-        <div class="producto">
-            <img class="imgprod" src="img/COLLAR LUNA ALPACA.webp" alt="Producto">
-            <h5>Luna Destello</h5>
-            <p class="precio">$16,500</p>
-        </div>
-        <div class="producto">
-            <img class="imgprod" src="img/collar-nombre-alpaca.webp" alt="Producto">
-            <h5>Collar Nombre Alpaca</h5>
-            <p class="precio">$15.066</p>
-        </div>
-        <div class="producto">
-            <img class="imgprod" src="img/COLLARCADENADIJE.webp" alt="Producto">
-            <h5>Dijes Piedras y Cerámica</h5>
-            <p class="precio">$15,624</p>
-        </div>
-        <div class="producto">
-            <img class="imgprod" src="img/CHOCKER PIEDRAS ALPACA REDONDO $16.500.webp" alt="Producto">
-            <h5>Chocker Piedras Redondo</h5>
-            <p class="tachado">$18,200</p>
-            <p class="precio">$16,554</p>
-        </div>
-        <div class="producto">
-            <img class="imgprod" src="img/COLLAR ESTRELLA AJUSTABLE ALPACA $15.200.webp" alt="Producto">
-            <h5>Estrella Ajustable</h5>
-            <p class="precio">$16,700</p>
-        </div>
-        <div class="producto">
-            <img class="imgprod" src="img/COLLAR GRABADO AJUSTABLE ALPACA $14.300.webp" alt="Producto">
-            <h5>Grabado Ajustable</h5>
-            <p class="precio">$15,700</p>
-        </div>
-        <div class="producto">
-            <img class="imgprod" src="img/COLLAR JARRÓN ALPACA $24.000.webp" alt="Producto">
-            <h5>Jarrón</h5>
-            <p class="precio">$26,400</p>
-        </div>
-    </div>
-
-    <div class="seccion">
-        <button class="btnseccion" id="btnseccionanillos">
-            <h4><span style="color: #fffaf1 !important;">.....</span>Anillos</h4>
-            <p class="flecha" id="flechaanillos">ᐯ</p>
-            <p class="linea"></p>
-        </button>
-    </div>
-
-    <p class="pseccion pseccionanillos">Bronce</p>
-    <div class="productos productosanillos">
-        <div class="producto">
-            <img class="imgprod" src="img/ANILLO BATEA MAHUIDA.webp" alt="Producto">
-            <h5>Batea Mahuida</h5>
-            <p class="precio">$16,500</p>
-        </div>
-        <div class="producto">
-            <img class="imgprod" src="img/ANILLO CALADO REGULABLE BRONCE $12.000.webp" alt="Producto">
-            <h5>Calado Regulable</h5>
-            <p class="precio">$13,200</p>
-        </div>
-        <div class="producto">
-            <img class="imgprod" src="img/ANILLO EMBUTIDO REDONDO.webp" alt="Producto">
-            <h5>Embutido Redondo</h5>
-            <p class="precio">$14,200</p>
-        </div>
-        <div class="producto">
-            <img class="imgprod" src="img/ANILLO EMBUTIDO SIMPLE BRONCE.webp" alt="Producto">
-            <h5>Embutido Simple</h5>
-            <p class="precio">$12,200</p>
-        </div>
-        <div class="producto">
-            <img class="imgprod" src="img/ANILLO SELLO BRONCE $20.000.webp" alt="Producto">
-            <h5>Sello</h5>
-            <p class="precio">$24,645</p>
-        </div>
-        <div class="producto">
-            <img class="imgprod" src="img/IMG-20250503-WA0018.webp" alt="Producto">
-            <h5>Sello Sol de Mayo</h5>
-            <p class="precio">$23,250</p>
-        </div>
-        <div class="producto">
-            <img class="imgprod" src="img/ANILLO TRIPLE BRONCE.webp" alt="Producto">
-            <h5>Triple</h5>
-            <p class="precio">$12,100</p>
-        </div>
-        <div class="producto">
-            <img class="imgprod" src="img/ANILLO VINTAGE BRONCE.webp" alt="Producto">
-            <h5>Vintage</h5>
-            <p class="precio">$12,800</p>
-        </div>
-    </div>
-
-    <p class="pseccion pseccionanillos">Alpaca</p>
-    <div class="productos productosanillos">
-        <div class="producto">
-            <img class="imgprod" src="img/ANILLO EMBUTIDO REDONDO ALPACA $12.900.webp" alt="Producto">
-            <h5>Embutido Redondo</h5>
-            <p class="precio">$14,200</p>
-        </div>
-        <div class="producto">
-            <img class="imgprod" src="img/anillo-escher-alpaca.webp" alt="Producto">
-            <h5>Escher Alpaca</h5>
-            <p class="precio">$16.740</p>
-        </div>
-        <div class="producto">
-            <img class="imgprod" src="img/anillo-sello-sol-de-mayo-alpaca.webp" alt="Producto">
-            <h5>Sello Sol De Mayo</h5>
-            <p class="precio">$24.645</p>
-        </div>
-        <div class="producto">
-            <img class="imgprod" src="img/ANILLO RECTO ALPACA.webp" alt="Producto">
-            <h5>Recto</h5>
-            <p class="precio">$9,900</p>
-        </div>
-    </div>
-
-
-    <div class="seccion">
-        <button class="btnseccion" id="btnseccionpulseras">
-            <p class="lineacolor"></p>
-            <p class="flecha" id="flechapulseras">ᐯ</p>
-            <h4>Brazaletes y Pulseras<span style="color: #fffaf1 !important;">.....</span></h4>
-        </button>
-    </div>
-
-    <p class="pseccion pseccionpulseras">Bronce</p>
-    <div class="productos productospulseras">
-        <div class="producto">
-            <img class="imgprod" src="img/BRAZALETES LABRADOS.webp" alt="Producto">
-            <h5>Brazalete labrado</h5>
-            <p class="precio">$9,900</p>
-        </div>
-        <div class="producto">
-            <img class="imgprod" src="img/PULSERA CALADA BRONCE.webp" alt="Producto">
-            <h5>Pulsera calada</h5>
-            <p class="precio">$9,000</p>
-        </div>
-    </div>
-
-    <p class="pseccion pseccionpulseras">Alpaca</p>
-    <div class="productos productospulseras">
-        <div class="producto">
-            <img class="imgprod" src="img/PULSERA CALADA ALPACA $8.200.webp" alt="Producto">
-            <h5>Pulsera calada</h5>
-            <p class="precio">$9,000</p>
-        </div>
-    </div>
-
-
-    <div class="seccion">
-        <button class="btnseccion" id="btnseccionaccesorios">
-            <h4><span style="color: #fffaf1 !important;">.....</span>Accesorios</h4>
-            <p class="flecha" id="flechaaccesorios">ᐯ</p>
-            <p class="linea"></p>
-        </button>
-    </div>
-
-    <p class="pseccion pseccionaccesorios">Bronce</p>
-    <div class="productos productosaccesorios">
-        <div class="producto">
-            <img class="imgprod" src="img/HEBILLAS BRONCE.webp" alt="Producto">
-            <h5>Hebillas para el Pelo</h5>
-            <p class="precio">$16,500</p>
-        </div>
-        <div class="producto">
-            <img class="imgprod" src="img/JARRONCITOS CERÁMICA $10.000 (cadenita incluída).webp"
-                style="filter: contrast(0.9);" alt="Producto">
-            <h5>Jarroncitos Cerámica (cadena incluída)</h5>
-            <p class="precio">$14,200</p>
-        </div>
-        <div class="producto">
-            <img class="imgprod" src="img/pasa-panuelos-bronce.webp" alt="Producto">
-            <h5>Pasa Pañuelos Bronce</h5>
-            <p class="precio">$13.950</p>
-        </div>
-    </div>
-
-    <p class="pseccion pseccionaccesorios">Alpaca</p>
-    <div class="productos productosaccesorios">
-        <div class="producto">
-            <img class="imgprod" src="img/BOMBILLA ALPACA.webp" alt="Producto">
-            <h5>Bombilla</h5>
-            <p class="precio">$22,000</p>
-        </div>        
-        <div class="producto">
-            <img class="imgprod" src="img/relicario-amatista-alpaca.webp" alt="Producto">
-            <h5>Relicario Amatista Alpaca</h5>
-            <p class="precio">$24.180</p>
-        </div>
-    </div>
-
-    <p id="blank1"></p>
-
-    <section id="margenproductos">
-        <div class="caja">
-            <img src="img/titulo2.webp" alt="Fondo del título 'Cómo encargar'">
-            <div class="txttitulo1">
-                <h3><span>¿Como e</span>ncargar?</h3>
+                <p class="copyright">© 2026 Gypsy Joyas. Todos los derechos reservados.</p>
             </div>
-        </div>
-    </section>
+        </footer>
 
-    <div id="contenedorencargos">
-        <p>Esta página es un catálogo para que explores los productos. Cuando encuentres lo que quieras encargar,
-            enviame un mensaje privado por Instagram <a href="https://www.instagram.com/gypsy.joyas/"
-                style="text-decoration: underline !important;">(@gypsy.joyas)</a>.</p>
-
-        <div class="encargosinfo">
-            <h6 class="tituloencargos" id="soydemza">Soy de Mendoza</h6>
-            <p class="pencargos" id="mzap">Si te encontrás en la provincia de Mendoza, podés retirar tu pedido en mi
-                taller de Godoy Cruz o coordinar otro punto de encuentro.</p>
-        </div>
-
-        <div class="encargosinfo">
-            <p class="pencargos" id="provp">Para quienes están fuera de Mendoza, hago envíos por Correo Argentino a
-                cualquier provincia. Puede ser a domicilio o a tu sucursal más cercana. Para cotizarlo, enviame tu código postal
-                por mensaje privado de Instagram.</p>
-            <h6 class="tituloencargos" id="soydeotraprov">Soy de otra provincia</h6>
-        </div>
-    </div>
-
-    <p id="blank3"></p>
-
-    <section id="fondo2"></section>
-
-    <div class="contenedor">
-        <a id="btnencargar" href="https://ig.me/m/gypsy.joyas">Encargar ahora</a>
-    </div>
-
-    <footer>
-        <div id="footer">
-            <h6 id="footermarca">Gypsy Joyas</h6>
-            <h6 id="footertxt">Joyería hecha a mano</h6>
-            <div id="contacto">
-                <a href="https://www.instagram.com/gypsy.joyas/"><i class="fa-brands fa-instagram"></i></i></a>
-                <a
-                    href="mailto:gypsyaccmendoza@gmail.com?subject=%C2%A1Tengo%20una%20consulta!&body=Hola%20%E2%9C%A8%2C%20quisiera%20hacer%20una%20consulta%20sobre%20tus%20productos"><i
-                        class="fa-regular fa-envelope"></i></i></a>
-                <i class="fa-brands fa-whatsapp"></i>
-            </div>
-        </div>
-    </footer>
-
-    <script src="https://kit.fontawesome.com/b66c474644.js" crossorigin="anonymous"></script>
-    <script src="script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
-
+        <script src="https://kit.fontawesome.com/b66c474644.js" crossorigin="anonymous"></script>
+        <script src="script.js"></script>
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
