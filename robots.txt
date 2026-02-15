@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gypsyjoyas.vercel.app/sitemap.xml
