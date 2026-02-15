@@ -253,7 +253,7 @@ body {
     position: absolute;
     width: 100%;
     height: 100vh;
-    background: url(../assets/img/ui/fondo.webp);
+    background: url(../assets/img/ui/background-hero-mobile.webp);
     background-size: cover;
     background-position: top center;
     background-repeat: no-repeat;
@@ -262,7 +262,7 @@ body {
 
 @media (min-width: 992px) {
     .fondo-style {
-        background-image: url(../assets/img/ui/fondo-horizontal.webp);
+        background-image: url(../assets/img/ui/background-hero-desktop.webp);
         background-position: center;
     }
 }
