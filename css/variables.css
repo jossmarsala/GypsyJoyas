@@ -9,4 +9,8 @@
     --contenedores: #fffff1;
     --aros: #b15f0c;
     --collares: #327140;
+
+    /* Typography Sizes */
+    --font-size-hero: clamp(32px, 6vw, 60px);
+    --font-size-title-main: clamp(1.2rem, 4vw, 1.8rem);
 }
