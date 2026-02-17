@@ -1,14 +1,28 @@
 :root {
-    --crema: #d9b9a0;
-    --fondo: #fffaf1;
-    --fondo-blur: rgba(255, 250, 241, 0.75);
-    /* Semi-transparent for glass effect */
-    --texto: #3c2415;
-    --ocre: #cfa358;
-    --verde: #4b6f39;
-    --contenedores: #fffff1;
-    --aros: #b15f0c;
-    --collares: #327140;
+    /* Palette */
+    --color-beige: #d9b9a0;
+    --color-blanco-beige: #fffaf1;
+    --color-blanco-marfil: #fffff1;
+
+    --color-cafe-profundo: #3c2415;
+    --color-dorado-ocre: #cfa358;
+    --color-terracota: #b15f0c;
+    --color-verde-oliva: #4b6f39;
+    --color-verde-bosque: #327140;
+    --color-bordo: #7a1f2b;
+
+    /* Transparencies */
+    --bg-glass-blanco-beige: rgba(255, 250, 241, 0.75);
+    --bg-glass-blanco-beige-fuerte: rgba(255, 250, 241, 0.85);
+    --bg-glass-blanco-beige-suave: rgba(255, 250, 241, 0.4);
+    --bg-glass-claro: rgba(255, 255, 255, 0.2);
+    --bg-glass-beige-neutro: rgba(229, 226, 204, 0.7);
+    --bg-dorado-muy-suave: rgba(207, 163, 88, 0.05);
+
+    /* Borders & Shadows */
+    --borde-dorado-suave: rgba(207, 163, 88, 0.3);
+    --borde-dorado-medio: rgba(207, 163, 88, 0.4);
+    --sombra-suave: rgba(0, 0, 0, 0.05);
 
     /* Typography Sizes */
     --font-size-hero: clamp(32px, 6vw, 60px);

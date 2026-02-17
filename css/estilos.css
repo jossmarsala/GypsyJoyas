@@ -87,14 +87,14 @@ body {
 }
 
 body {
-    background-color: var(--fondo);
+    background-color: var(--color-blanco-beige);
     font-family: 'S Serif', 'Times New Roman', Times, serif;
     font-weight: normal;
 }
 
 a {
     text-decoration: none;
-    color: var(--ocre);
+    color: var(--color-dorado-ocre);
 }
 
 /* =========================================
@@ -129,10 +129,10 @@ a {
     left: 0;
     width: 100%;
     z-index: 1000;
-    background-color: var(--fondo-blur);
+    background-color: var(--bg-glass-blanco-beige);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 10px var(--sombra-suave);
     transition: transform 0.3s ease;
     display: flex;
     text-align: center;
@@ -164,7 +164,7 @@ a {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: var(--fondo);
+    background-color: var(--color-blanco-beige);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -190,7 +190,7 @@ a {
 .navbar__link {
     display: inline-block;
     text-decoration: none;
-    color: var(--texto);
+    color: var(--color-cafe-profundo);
     font-size: 1.1rem;
     font-family: 'Segoe Ui', sans-serif;
     text-transform: uppercase;
@@ -200,7 +200,7 @@ a {
 }
 
 .navbar__link:hover {
-    color: var(--ocre);
+    color: var(--color-dorado-ocre);
     transform: translateY(-2px);
 }
 
@@ -214,13 +214,13 @@ a {
 }
 
 .navbar__toggler:focus-visible {
-    outline: 2px solid var(--ocre);
+    outline: 2px solid var(--color-dorado-ocre);
     outline-offset: 2px;
 }
 
 .navbar__toggler-line {
     display: block;
-    background: var(--texto);
+    background: var(--color-texto);
     transition: ease 0.3s;
     height: 2px;
     margin: 6px 0;
@@ -274,15 +274,15 @@ a {
     justify-content: center;
     align-items: center;
     width: 100%;
-    border-bottom: 1px solid rgba(207, 163, 88, 0.3);
+    border-bottom: 1px solid var(--borde-dorado-suave);
     margin-bottom: 60px;
 }
 
 .hero__title-box {
-    background-color: rgba(255, 250, 241, 0.85);
+    background-color: var(--bg-glass-blanco-beige-fuerte);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(207, 163, 88, 0.3);
+    border: 1px solid var(--borde-dorado-suave);
     padding: 20px;
     width: 90%;
     max-width: 600px;
@@ -293,7 +293,7 @@ a {
 }
 
 .hero__title-border {
-    border: 1px var(--ocre) solid;
+    border: 1px var(--color-dorado-ocre) solid;
     padding: 50px 15px;
     width: 100%;
     box-sizing: border-box;
@@ -303,13 +303,13 @@ a {
     font-size: var(--font-size-hero);
     font-family: 'S Serif', 'Times New Roman', Times, serif;
     font-weight: 300;
-    color: var(--ocre);
+    color: var(--color-dorado-ocre);
     margin: 0;
 }
 
 .hero__subtitle {
     font-family: 'Segoe Ui', sans-serif;
-    color: var(--texto);
+    color: var(--color-cafe-profundo);
     font-size: clamp(10px, 2vw, 14px);
     font-weight: normal;
     padding: 7px 5px;
@@ -346,7 +346,7 @@ a {
     font-weight: lighter;
     text-transform: uppercase;
     letter-spacing: 4px;
-    color: var(--ocre);
+    color: var(--color-dorado-ocre);
     margin: 0 0 10px 0;
     position: relative;
     display: inline-block;
@@ -357,7 +357,7 @@ a {
     display: block;
     width: 60px;
     height: 1px;
-    background-color: var(--ocre);
+    background-color: var(--color-dorado-ocre);
     margin: 20px auto 0 auto;
     opacity: 0.6;
 }
@@ -382,20 +382,18 @@ a {
     align-items: center;
     gap: 15px;
     cursor: pointer;
-    color: var(--aros);
+    color: var(--color-terracota);
     transition: color 0.3s ease;
 }
 
-/* Modifiers for colors based on category logic could be refactored too, keeping legacy vars for now */
 .catalog__toggle--collares {
-    color: var(--collares) !important;
+    color: var(--color-verde-bosque) !important;
 }
 
 .catalog__toggle--pulseras {
-    color: var(--collares) !important;
+    color: var(--color-verde-bosque) !important;
 }
 
-/* Alternating layout logic */
 .catalog:nth-of-type(odd) .catalog__toggle {
     flex-direction: row-reverse;
 }
@@ -413,7 +411,7 @@ a {
 }
 
 .catalog__subtitle {
-    color: var(--texto);
+    color: var(--color-cafe-profundo);
     font-family: 'S Serif', serif;
     font-size: 0.9rem !important;
     text-transform: uppercase;
@@ -474,7 +472,6 @@ a {
     margin: 15px 0 5px 0;
 }
 
-
 /* =========================================
    7. Product Card (.product-card)
    ========================================= */
@@ -486,7 +483,7 @@ a {
     align-items: center !important;
     text-align: center;
     padding: 15px;
-    background: rgba(255, 255, 255, 0.2);
+    background: var(--bg-glass-claro);
     border-radius: 8px;
     transition: transform 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease;
 }
@@ -500,14 +497,14 @@ a {
 .product-card__image {
     width: clamp(70px, 30vw, 180px);
     height: clamp(70px, 37vw, 180px);
-    outline: 1.2px solid var(--fondo);
+    outline: 1.2px solid var(--color-blanco-beige);
     outline-offset: -7px;
     object-fit: cover;
     transition: ease-in 0.2s;
 }
 
 .product-card__image:hover {
-    outline: 1.8px solid var(--fondo);
+    outline: 1.8px solid var(--color-blanco-beige);
     outline-offset: -5px;
 }
 
@@ -517,23 +514,23 @@ a {
     margin-bottom: 2px;
     font-size: clamp(14px, 1.2rem, 18px) !important;
     text-align: center;
-    color: var(--texto);
+    color: var(--color-cafe-profundo);
     font-weight: normal !important;
 }
 
 .product-card__price {
     font-size: clamp(16px, 1.2rem, 18px) !important;
     margin: -4px 0 10px 0 !important;
-    color: var(--aros);
+    color: var(--color-terracota);
     font-weight: bold;
 }
 
 .product-card__price--old {
     font-size: clamp(12px, 0.9rem, 14px) !important;
     margin: -4px 0 3px 0 !important;
-    color: #7a1f2b;
+    color: var(--color-bordo);
     text-decoration: line-through;
-    text-decoration-color: #7a1f2b;
+    text-decoration-color: var(--color-bordo);
     text-underline-offset: -2px;
     opacity: 0.8;
 }
@@ -555,7 +552,7 @@ a {
     margin: 0 auto 60px auto;
     font-family: 'S Serif', serif;
     font-style: normal;
-    color: var(--texto);
+    color: var(--color-cafe-profundo);
     font-size: clamp(16px, 4vw, 20px);
     line-height: 1.6;
 }
@@ -582,7 +579,7 @@ a {
     align-items: center;
     gap: 40px;
     padding: 40px;
-    background: rgba(255, 250, 241, 0.4);
+    background: var(--bg-glass-blanco-beige-suave);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border-radius: 2px;
@@ -595,15 +592,14 @@ a {
 .encargos__card:hover .encargos__content {
     transform: translateY(-5px);
     background: rgba(255, 250, 241, 0.6);
-    border-color: rgba(207, 163, 88, 0.4);
+    border-color: var(--borde-dorado-medio);
 }
 
-/* Modifiers for reversibility are handled by content structure in new HTML but kept here if needed */
 .encargos__title {
     font-family: 'S Serif', serif;
     font-size: var(--font-size-title-main);
     line-height: 1.2;
-    color: var(--ocre);
+    color: var(--color-dorado-ocre);
     margin: 0;
     white-space: nowrap;
     text-align: left;
@@ -617,7 +613,7 @@ a {
 .encargos__highlight {
     font-family: 'S Serif', serif;
     font-weight: lighter;
-    color: var(--texto);
+    color: var(--color-cafe-profundo);
     display: block;
     margin-top: 5px;
 }
@@ -625,7 +621,7 @@ a {
 .encargos__description {
     font-family: 'Segoe Ui', sans-serif;
     font-size: 1.1rem;
-    color: var(--texto);
+    color: var(--color-cafe-profundo);
     line-height: 1.7;
     margin: 0;
     text-align: left;
@@ -635,7 +631,7 @@ a {
 .encargos__divider {
     width: 1px;
     height: 120px;
-    background: linear-gradient(to bottom, transparent, var(--ocre), transparent);
+    background: linear-gradient(to bottom, transparent, var(--color-dorado-ocre), transparent);
     opacity: 0.5;
     flex-shrink: 0;
 }
@@ -650,8 +646,8 @@ a {
     padding: 15px 40px;
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(5px);
-    border: 1px solid var(--ocre);
-    color: var(--ocre);
+    border: 1px solid var(--color-dorado-ocre);
+    color: var(--color-dorado-ocre);
     font-family: 'S Serif', serif;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -659,26 +655,25 @@ a {
     text-decoration: none;
     transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 15px var(--sombra-suave);
 }
 
 .btn--primary:hover {
-    background: var(--contenedores);
-    color: var(--collares);
+    background: var(--color-blanco-marfil);
+    color: var(--color-verde-bosque);
     transform: translateY(-2px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    border-color: var(--collares);
+    border-color: var(--color-verde-bosque);
 }
-
 
 /* =========================================
    9. Footer (.footer)
    ========================================= */
 
 .footer {
-    border-top: 1px solid rgba(207, 163, 88, 0.3);
+    border-top: 1px solid var(--borde-dorado-suave);
     padding: 100px 20px 40px;
-    background-color: var(--fondo);
+    background-color: var(--color-blanco-beige);
     background-image: linear-gradient(rgba(255, 246, 240, 0.7), rgba(255, 246, 240, 0.7)), url('../assets/img/ui/background-footer.webp');
     background-size: contain;
     background-position: bottom center;
@@ -699,7 +694,7 @@ a {
 .footer__brand {
     font-family: 'S Serif', serif;
     font-size: 3rem;
-    color: var(--texto);
+    color: var(--color-cafe-profundo);
     margin: 0;
     letter-spacing: 2px;
 }
@@ -708,7 +703,7 @@ a {
     font-family: 'Segoe Ui', sans-serif;
     font-size: clamp(10px, 2vw, 14px);
     text-transform: uppercase;
-    color: var(--texto);
+    color: var(--color-cafe-profundo);
     margin: -10px 0 10px 0;
     opacity: 0.8;
 }
@@ -726,9 +721,9 @@ a {
     justify-content: center;
     width: 42px;
     height: 42px;
-    border: 0.5px solid rgba(207, 163, 88, 0.4);
+    border: 0.5px solid var(--borde-dorado-medio);
     border-radius: 50%;
-    color: var(--ocre);
+    color: var(--color-dorado-ocre);
     font-size: 1.1rem;
     transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
     text-decoration: none;
@@ -736,9 +731,9 @@ a {
 }
 
 .social-icons__link:hover {
-    border-color: var(--ocre);
-    background: rgba(207, 163, 88, 0.05);
-    color: var(--ocre);
+    border-color: var(--color-dorado-ocre);
+    background: var(--bg-dorado-muy-suave);
+    color: var(--color-dorado-ocre);
     transform: translateY(-3px);
     box-shadow: 0 4px 10px rgba(207, 163, 88, 0.1);
 }
@@ -746,13 +741,13 @@ a {
 .footer__copyright {
     font-family: 'Segoe Ui', sans-serif;
     font-size: 0.8rem;
-    color: var(--texto);
+    color: var(--color-cafe-profundo);
     opacity: 0.6;
     margin-top: 30px;
 }
 
 /* =========================================
-   10. Modals & Overlays (Unchanged BEM-ish already? Cleaned up)
+   10. Modals & Overlays
    ========================================= */
 
 .modal {
@@ -765,7 +760,7 @@ a {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(229, 226, 204, 0.7);
+    background-color: var(--bg-glass-beige-neutro);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -783,7 +778,7 @@ a {
     top: 20px;
     right: 20px;
     font-size: 30px;
-    color: #3c2415;
+    color: var(--color-cafe-profundo);
     background: none;
     border: none;
     cursor: pointer;
@@ -830,7 +825,7 @@ a {
     }
 
     .hero__background {
-        background-color: var(--fondo);
+        background-color: var(--color-blanco-beige);
         background-image: linear-gradient(rgba(255, 246, 240, 0.7), rgba(255, 246, 240, 0.7)), url('../assets/img/ui/background-hero-desktop.webp');
         background-size: contain;
         background-position: bottom center;
@@ -900,7 +895,7 @@ a {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: var(--fondo);
+    background-color: var(--color-blanco-beige);
     z-index: 10000;
     display: flex;
     justify-content: center;
@@ -913,10 +908,10 @@ a {
     background: rgba(255, 250, 241, 0.85);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(207, 163, 88, 0.3);
+    border: 1px solid var(--borde-dorado-suave);
     padding: 40px;
     border-radius: 8px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 40px var(--sombra-suave);
     max-width: 600px;
     width: 100%;
     display: flex;
@@ -934,7 +929,7 @@ a {
 .maintenance-title {
     font-family: 'S Serif', serif;
     font-size: clamp(24px, 5vw, 40px);
-    color: var(--ocre);
+    color: var(--color-dorado-ocre);
     margin: 0;
     line-height: 1.2;
 }
@@ -942,7 +937,7 @@ a {
 .maintenance-subtitle {
     font-family: 'Segoe Ui', sans-serif;
     font-size: clamp(16px, 1.2rem, 18px);
-    color: var(--texto);
+    color: var(--color-cafe-profundo);
     line-height: 1.6;
     margin: 0;
     opacity: 0.8;
@@ -951,7 +946,7 @@ a {
 .maintenance-divider {
     width: 60px;
     height: 2px;
-    background-color: var(--ocre);
+    background-color: var(--color-dorado-ocre);
     opacity: 0.3;
     margin: 10px 0;
 }

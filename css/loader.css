@@ -1,8 +1,3 @@
-:root {
-	--main-color: #cfa358;
-	--light-color: #fffaf1;
-}
-
 #loader {
 	position: fixed;
 	z-index: 10000;
@@ -10,18 +5,18 @@
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background-color: var(--main-color);
+	background-color: var(--color-dorado-ocre);
 }
 
 .wrapper p {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: -15px;
-    color: var(--light-color);
-    letter-spacing: 6px;
-    opacity: 1;
-    transition: opacity 0.3s ease-in-out;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	bottom: -15px;
+	color: var(--color-blanco-beige);
+	letter-spacing: 6px;
+	opacity: 1;
+	transition: opacity 0.3s ease-in-out;
 }
 
 .loader-o {
@@ -47,7 +42,7 @@
 	width: 80px;
 	height: 80px;
 	margin: 0 auto;
-	border: 1.5px solid rgba(255, 255, 255, 0.2);
+	border: 1.5px solid var(--bg-glass-claro);
 }
 
 .load-square {
@@ -55,8 +50,8 @@
 	width: 39px;
 	height: 39px;
 	position: absolute;
-	background-color: var(--light-color);
-	clip-path: polygon(0% 0%, 12% 3%, 24% 8%, 34% 14%, 42% 22%, 48% 31%, 50% 38%, 52% 31%, 58% 21%, 66% 13%, 75% 6%, 88% 2%, 100% 0%, 96% 12%, 89% 24%, 81% 35%, 72% 44%, 63% 49%, 56% 50%, 63% 53%, 71% 59%, 79% 65%, 86% 72%, 92% 80%, 97% 90%, 100% 100%, 87% 98%, 78% 95%, 69% 90%, 62% 84%, 55% 76%, 50% 66%, 45% 76%, 36% 86%, 24% 94%, 12% 98%, 0% 100%, 4% 89%, 9% 79%, 17% 68%, 26% 59%, 37% 52%, 44% 50%, 35% 47%, 26% 42%, 17% 34%, 10% 25%, 4% 12%);	  
+	background-color: var(--color-blanco-beige);
+	clip-path: polygon(0% 0%, 12% 3%, 24% 8%, 34% 14%, 42% 22%, 48% 31%, 50% 38%, 52% 31%, 58% 21%, 66% 13%, 75% 6%, 88% 2%, 100% 0%, 96% 12%, 89% 24%, 81% 35%, 72% 44%, 63% 49%, 56% 50%, 63% 53%, 71% 59%, 79% 65%, 86% 72%, 92% 80%, 97% 90%, 100% 100%, 87% 98%, 78% 95%, 69% 90%, 62% 84%, 55% 76%, 50% 66%, 45% 76%, 36% 86%, 24% 94%, 12% 98%, 0% 100%, 4% 89%, 9% 79%, 17% 68%, 26% 59%, 37% 52%, 44% 50%, 35% 47%, 26% 42%, 17% 34%, 10% 25%, 4% 12%);
 }
 
 .load-square:first-of-type {
