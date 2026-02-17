@@ -1,0 +1,156 @@
+[
+    {
+        "nombre": "Argollas Labradas",
+        "precio": 10900,
+        "precioAnterior": null,
+        "imagen": "assets/img/aros/argollas-labradas-bronce.webp",
+        "alt": "Argollas Labradas de Bronce",
+        "material": "Bronce",
+        "categoria": "aros"
+    },
+    {
+        "nombre": "Argollas Labradas Mini",
+        "precio": 7068,
+        "precioAnterior": 8800,
+        "imagen": "assets/img/aros/argollas-labradas-bronce-mini.webp",
+        "alt": "Argollas Labradas Mini de Bronce",
+        "material": "Bronce",
+        "categoria": "aros"
+    },
+    {
+        "nombre": "Abril",
+        "precio": 16500,
+        "precioAnterior": null,
+        "imagen": "assets/img/aros/aros-abril-bronce.webp",
+        "alt": "Aros Abril de Bronce",
+        "material": "Bronce",
+        "categoria": "aros"
+    },
+    {
+        "nombre": "Burbujas",
+        "precio": 12700,
+        "precioAnterior": null,
+        "imagen": "assets/img/aros/aros-burbujas-bronce.webp",
+        "alt": "Aros Burbujas de Bronce",
+        "material": "Bronce",
+        "categoria": "aros",
+        "claseImagen": "filter-contrast"
+    },
+    {
+        "nombre": "Calados Hojitas",
+        "precio": 18700,
+        "precioAnterior": null,
+        "imagen": "assets/img/aros/aros-calados-hojitas-bronce.webp",
+        "alt": "Aros Calados Hojitas de Bronce",
+        "material": "Bronce",
+        "categoria": "aros"
+    },
+    {
+        "nombre": "Destello",
+        "precio": 11600,
+        "precioAnterior": null,
+        "imagen": "assets/img/aros/aros-destello-bronce.webp",
+        "alt": "Aros Destello de Bronce",
+        "material": "Bronce",
+        "categoria": "aros"
+    },
+    {
+        "nombre": "Estrella",
+        "precio": 14300,
+        "precioAnterior": null,
+        "imagen": "assets/img/aros/aros-estrella-bronce.webp",
+        "alt": "Aros Estrella de Bronce",
+        "material": "Bronce",
+        "categoria": "aros"
+    },
+    {
+        "nombre": "Francisca",
+        "precio": 14100,
+        "precioAnterior": null,
+        "imagen": "assets/img/aros/aros-francisca-bronce.webp",
+        "alt": "Aros Francisca de Bronce",
+        "material": "Bronce",
+        "categoria": "aros"
+    },
+    {
+        "nombre": "Fungi",
+        "precio": 13600,
+        "precioAnterior": null,
+        "imagen": "assets/img/aros/aros-fungi.webp",
+        "alt": "Aros Fungi",
+        "material": "Bronce",
+        "categoria": "aros"
+    },
+    {
+        "nombre": "Josefina",
+        "precio": 12800,
+        "precioAnterior": null,
+        "imagen": "assets/img/aros/aros-josefina-bronce.webp",
+        "alt": "Aros Josefina de Bronce",
+        "material": "Bronce",
+        "categoria": "aros"
+    },
+    {
+        "nombre": "Matisse",
+        "precio": 17100,
+        "precioAnterior": null,
+        "imagen": "assets/img/aros/aros-matisse-bronce.webp",
+        "alt": "Aros Matisse",
+        "material": "Bronce",
+        "categoria": "aros"
+    },
+    {
+        "nombre": "Mini Piedras (con frasquito)",
+        "precio": 8370,
+        "precioAnterior": 10900,
+        "imagen": "assets/img/aros/aros-mini-amatistas-bronce-con-frasquito.webp",
+        "alt": "Mini Piedras con frasquito",
+        "material": "Bronce",
+        "categoria": "aros"
+    },
+    {
+        "nombre": "Montaña",
+        "precio": 15400,
+        "precioAnterior": null,
+        "imagen": "assets/img/aros/aros-montana-bronce.webp",
+        "alt": "Aros Montaña de Bronce",
+        "material": "Bronce",
+        "categoria": "aros"
+    },
+    {
+        "nombre": "Ondas",
+        "precio": 14900,
+        "precioAnterior": null,
+        "imagen": "assets/img/aros/aros-ondas-bronce.webp",
+        "alt": "Aros Ondas de Bronce",
+        "material": "Bronce",
+        "categoria": "aros"
+    },
+    {
+        "nombre": "Argollas Labradas",
+        "precio": 10900,
+        "precioAnterior": null,
+        "imagen": "assets/img/aros/argollas-labradas-alpaca.webp",
+        "alt": "Argollas Labradas de Alpaca",
+        "material": "Alpaca",
+        "categoria": "aros"
+    },
+    {
+        "nombre": "Montaña",
+        "precio": 15400,
+        "precioAnterior": null,
+        "imagen": "assets/img/aros/aros-montaa-alpaca.webp",
+        "alt": "Aros Montaña de Alpaca",
+        "material": "Alpaca",
+        "categoria": "aros"
+    },
+    {
+        "nombre": "Ondas",
+        "precio": 14900,
+        "precioAnterior": null,
+        "imagen": "assets/img/aros/aros-ondas-alpaca.webp",
+        "alt": "Aros Ondas de Alpaca",
+        "material": "Alpaca",
+        "categoria": "aros"
+    }
+]

@@ -1,0 +1,236 @@
+[
+    {
+        "nombre": "Choker Piedras Ovalado",
+        "precio": 16554,
+        "precioAnterior": 18200,
+        "imagen": "assets/img/collares/choker-piedras.webp",
+        "alt": "Choker Piedras Ovalado",
+        "material": "Bronce",
+        "categoria": "collares"
+    },
+    {
+        "nombre": "Arcoíris",
+        "precio": 13200,
+        "precioAnterior": null,
+        "imagen": "assets/img/collares/collar-arcoris-bronce.webp",
+        "alt": "Collar Arcoíris de Bronce",
+        "material": "Bronce",
+        "categoria": "collares"
+    },
+    {
+        "nombre": "Collar Gabinete Bronce",
+        "precio": 26970,
+        "precioAnterior": null,
+        "imagen": "assets/img/collares/collar-gabinete-bronce.webp",
+        "alt": "Collar Gabinete de Bronce",
+        "material": "Bronce",
+        "categoria": "collares"
+    },
+    {
+        "nombre": "Bordado Vendimia",
+        "precio": 22000,
+        "precioAnterior": null,
+        "imagen": "assets/img/collares/collar-bordado-vendimia-bronce.webp",
+        "alt": "Collar Bordado Vendimia",
+        "material": "Bronce",
+        "categoria": "collares"
+    },
+    {
+        "nombre": "Collar Esmaltado Girasol",
+        "precio": 18600,
+        "precioAnterior": null,
+        "imagen": "assets/img/collares/collar-esmaltado-girasol.webp",
+        "alt": "Collar Esmaltado Girasol",
+        "material": "Bronce",
+        "categoria": "collares"
+    },
+    {
+        "nombre": "Estrella Ajustable",
+        "precio": 16700,
+        "precioAnterior": null,
+        "imagen": "assets/img/collares/collar-estrella-ajustable-bronce.webp",
+        "alt": "Collar Estrella Ajustable de Bronce",
+        "material": "Bronce",
+        "categoria": "collares"
+    },
+    {
+        "nombre": "Estrella Fugaz",
+        "precio": 17900,
+        "precioAnterior": null,
+        "imagen": "assets/img/collares/collar-estrella-fugaz-bronce.webp",
+        "alt": "Collar Estrella Fugaz",
+        "material": "Bronce",
+        "categoria": "collares"
+    },
+    {
+        "nombre": "Luna Ajustable",
+        "precio": 16700,
+        "precioAnterior": null,
+        "imagen": "assets/img/collares/collar-luna-ajustable-bronce.webp",
+        "alt": "Collar Luna Ajustable de Bronce",
+        "material": "Bronce",
+        "categoria": "collares"
+    },
+    {
+        "nombre": "Bordados",
+        "precio": 22000,
+        "precioAnterior": null,
+        "imagen": "assets/img/collares/collares-bordados-bronce.webp",
+        "alt": "Collares Bordados",
+        "material": "Bronce",
+        "categoria": "collares"
+    },
+    {
+        "nombre": "Bordado Especial",
+        "precio": 25000,
+        "precioAnterior": null,
+        "imagen": "assets/img/collares/collar-bordado-especial.webp",
+        "alt": "Collar Bordado Especial",
+        "material": "Bronce",
+        "categoria": "collares"
+    },
+    {
+        "nombre": "Enredados",
+        "precio": 16500,
+        "precioAnterior": null,
+        "imagen": "assets/img/collares/collar-enredados-bronce.webp",
+        "alt": "Collar Enredados",
+        "material": "Bronce",
+        "categoria": "collares"
+    },
+    {
+        "nombre": "Estampillas",
+        "precio": 14300,
+        "precioAnterior": null,
+        "imagen": "assets/img/collares/collar-estampillas.webp",
+        "alt": "Collar Estampillas",
+        "material": "Bronce",
+        "categoria": "collares"
+    },
+    {
+        "nombre": "Dijes Piedras Y Cerámica",
+        "precio": 15624,
+        "precioAnterior": null,
+        "imagen": "assets/img/collares/collar-dije-piedra-y-ceramica-bronce.webp",
+        "alt": "Dijes Piedras Y Cerámica Bronce",
+        "material": "Bronce",
+        "categoria": "collares"
+    },
+    {
+        "nombre": "Dijes Cerámica",
+        "precio": 15624,
+        "precioAnterior": null,
+        "imagen": "assets/img/collares/collar-dije-ceramica-bronce.webp",
+        "alt": "Dijes Cerámica Bronce",
+        "material": "Bronce",
+        "categoria": "collares"
+    },
+    {
+        "nombre": "Honguito Esmaltado",
+        "precio": 19200,
+        "precioAnterior": null,
+        "imagen": "assets/img/collares/collar-honguito-esmaltado.webp",
+        "alt": "Collar Honguito Esmaltado",
+        "material": "Bronce",
+        "categoria": "collares"
+    },
+    {
+        "nombre": "Choker Sol De Mayo",
+        "precio": 12090,
+        "precioAnterior": null,
+        "imagen": "assets/img/collares/choker-sol-de-mayo.webp",
+        "alt": "Choker Sol De Mayo",
+        "material": "Bronce",
+        "categoria": "collares"
+    },
+    {
+        "nombre": "Vid Obras De Arte",
+        "precio": 32550,
+        "precioAnterior": null,
+        "imagen": "assets/img/collares/collar-vid-obras-de-arte.webp",
+        "alt": "Collar Vid Obras De Arte",
+        "material": "Bronce",
+        "categoria": "collares"
+    },
+    {
+        "nombre": "Banderines Bordados",
+        "precio": 9114,
+        "precioAnterior": 17600,
+        "imagen": "assets/img/accesorios/banderines-bordados.webp",
+        "alt": "Banderines Bordados",
+        "material": "Bronce",
+        "categoria": "collares"
+    },
+    {
+        "nombre": "Bordados",
+        "precio": 22000,
+        "precioAnterior": null,
+        "imagen": "assets/img/collares/collares-bordados-alpaca-20.png",
+        "alt": "Collares Bordados Alpaca",
+        "material": "Alpaca",
+        "categoria": "collares"
+    },
+    {
+        "nombre": "Luna Destello",
+        "precio": 16500,
+        "precioAnterior": null,
+        "imagen": "assets/img/collares/collar-luna-alpaca.webp",
+        "alt": "Collar Luna Destello Alpaca",
+        "material": "Alpaca",
+        "categoria": "collares"
+    },
+    {
+        "nombre": "Collar Nombre Alpaca",
+        "precio": 15066,
+        "precioAnterior": null,
+        "imagen": "assets/img/collares/collar-nombre-alpaca.webp",
+        "alt": "Collar Nombre Alpaca",
+        "material": "Alpaca",
+        "categoria": "collares"
+    },
+    {
+        "nombre": "Dijes Piedras y Cerámica",
+        "precio": 15624,
+        "precioAnterior": null,
+        "imagen": "assets/img/collares/collarcadenadije.webp",
+        "alt": "Dijes Piedras y Cerámica Alpaca",
+        "material": "Alpaca",
+        "categoria": "collares"
+    },
+    {
+        "nombre": "Choker Piedras Redondo",
+        "precio": 16554,
+        "precioAnterior": 18200,
+        "imagen": "assets/img/collares/chocker-piedras-alpaca-redondo.webp",
+        "alt": "Choker Piedras Redondo Alpaca",
+        "material": "Alpaca",
+        "categoria": "collares"
+    },
+    {
+        "nombre": "Estrella Ajustable",
+        "precio": 16700,
+        "precioAnterior": null,
+        "imagen": "assets/img/collares/collar-estrella-ajustable-alpaca.webp",
+        "alt": "Collar Estrella Ajustable Alpaca",
+        "material": "Alpaca",
+        "categoria": "collares"
+    },
+    {
+        "nombre": "Grabado Ajustable",
+        "precio": 15700,
+        "precioAnterior": null,
+        "imagen": "assets/img/collares/collar-grabado-ajustable-alpaca.webp",
+        "alt": "Collar Grabado Ajustable Alpaca",
+        "material": "Alpaca",
+        "categoria": "collares"
+    },
+    {
+        "nombre": "Jarrón",
+        "precio": 26400,
+        "precioAnterior": null,
+        "imagen": "assets/img/collares/collar-jarrn-alpaca.webp",
+        "alt": "Collar Jarrón Alpaca",
+        "material": "Alpaca",
+        "categoria": "collares"
+    }
+]

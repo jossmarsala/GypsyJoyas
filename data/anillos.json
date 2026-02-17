@@ -1,0 +1,110 @@
+[
+    {
+        "nombre": "Batea Mahuida",
+        "precio": 16500,
+        "precioAnterior": null,
+        "imagen": "assets/img/anillos/anillo-batea-mahuida.webp",
+        "alt": "Anillo Batea Mahuida",
+        "material": "Bronce",
+        "categoria": "anillos"
+    },
+    {
+        "nombre": "Calado Regulable",
+        "precio": 13200,
+        "precioAnterior": null,
+        "imagen": "assets/img/anillos/anillo-calado-regulable-bronce.webp",
+        "alt": "Anillo Calado Regulable Bronce",
+        "material": "Bronce",
+        "categoria": "anillos"
+    },
+    {
+        "nombre": "Embutido Redondo",
+        "precio": 14200,
+        "precioAnterior": null,
+        "imagen": "assets/img/anillos/anillo-embutido-redondo.webp",
+        "alt": "Anillo Embutido Redondo Bronce",
+        "material": "Bronce",
+        "categoria": "anillos"
+    },
+    {
+        "nombre": "Embutido Simple",
+        "precio": 12200,
+        "precioAnterior": null,
+        "imagen": "assets/img/anillos/anillo-embutido-simple-bronce.webp",
+        "alt": "Anillo Embutido Simple Bronce",
+        "material": "Bronce",
+        "categoria": "anillos"
+    },
+    {
+        "nombre": "Sello",
+        "precio": 24645,
+        "precioAnterior": null,
+        "imagen": "assets/img/anillos/anillo-sello-bronce.webp",
+        "alt": "Anillo Sello Bronce",
+        "material": "Bronce",
+        "categoria": "anillos"
+    },
+    {
+        "nombre": "Sello Sol de Mayo",
+        "precio": 23250,
+        "precioAnterior": null,
+        "imagen": "assets/img/anillos/img-20250503-wa0018.webp",
+        "alt": "Anillo Sello Sol de Mayo",
+        "material": "Bronce",
+        "categoria": "anillos"
+    },
+    {
+        "nombre": "Triple",
+        "precio": 12100,
+        "precioAnterior": null,
+        "imagen": "assets/img/anillos/anillo-triple-bronce.webp",
+        "alt": "Anillo Triple Bronce",
+        "material": "Bronce",
+        "categoria": "anillos"
+    },
+    {
+        "nombre": "Vintage",
+        "precio": 12800,
+        "precioAnterior": null,
+        "imagen": "assets/img/anillos/anillo-vintage-bronce.webp",
+        "alt": "Anillo Vintage Bronce",
+        "material": "Bronce",
+        "categoria": "anillos"
+    },
+    {
+        "nombre": "Embutido Redondo",
+        "precio": 14200,
+        "precioAnterior": null,
+        "imagen": "assets/img/anillos/anillo-embutido-redondo-alpaca.webp",
+        "alt": "Anillo Embutido Redondo Alpaca",
+        "material": "Alpaca",
+        "categoria": "anillos"
+    },
+    {
+        "nombre": "Escher Alpaca",
+        "precio": 16740,
+        "precioAnterior": null,
+        "imagen": "assets/img/anillos/anillo-escher-alpaca.webp",
+        "alt": "Anillo Escher Alpaca",
+        "material": "Alpaca",
+        "categoria": "anillos"
+    },
+    {
+        "nombre": "Sello Sol De Mayo",
+        "precio": 24645,
+        "precioAnterior": null,
+        "imagen": "assets/img/anillos/anillo-sello-sol-de-mayo-alpaca.webp",
+        "alt": "Anillo Sello Sol De Mayo Alpaca",
+        "material": "Alpaca",
+        "categoria": "anillos"
+    },
+    {
+        "nombre": "Recto",
+        "precio": 9900,
+        "precioAnterior": null,
+        "imagen": "assets/img/anillos/anillo-recto-alpaca.webp",
+        "alt": "Anillo Recto Alpaca",
+        "material": "Alpaca",
+        "categoria": "anillos"
+    }
+]

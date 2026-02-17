@@ -1,0 +1,29 @@
+[
+    {
+        "nombre": "Brazalete labrado",
+        "precio": 9900,
+        "precioAnterior": null,
+        "imagen": "assets/img/pulseras/brazaletes-labrados.webp",
+        "alt": "Brazalete labrado",
+        "material": "Bronce",
+        "categoria": "pulseras"
+    },
+    {
+        "nombre": "Pulsera calada",
+        "precio": 9000,
+        "precioAnterior": null,
+        "imagen": "assets/img/pulseras/pulsera-calada-bronce.webp",
+        "alt": "Pulsera calada Bronce",
+        "material": "Bronce",
+        "categoria": "pulseras"
+    },
+    {
+        "nombre": "Pulsera calada",
+        "precio": 9000,
+        "precioAnterior": null,
+        "imagen": "assets/img/pulseras/pulsera-calada-alpaca.webp",
+        "alt": "Pulsera calada Alpaca",
+        "material": "Alpaca",
+        "categoria": "pulseras"
+    }
+]
