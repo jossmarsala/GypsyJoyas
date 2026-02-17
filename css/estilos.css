@@ -69,7 +69,7 @@
 
 html {
     scroll-behavior: smooth;
-    overflow-x: hidden !important;
+    overflow-x: hidden;
 }
 
 html,
@@ -80,14 +80,14 @@ body {
 }
 
 body {
-    background-color: var(--fondo) !important;
-    font-family: 'S Serif', 'Times New Roman', Times, serif !important;
+    background-color: var(--fondo);
+    font-family: 'S Serif', 'Times New Roman', Times, serif;
     font-weight: normal;
 }
 
 a {
-    text-decoration: none !important;
-    color: var(--ocre) !important;
+    text-decoration: none;
+    color: var(--ocre);
 }
 
 /* =========================================
@@ -125,9 +125,9 @@ a {
 }
 
 .text-underline {
-    text-decoration: underline !important;
-    text-decoration-thickness: 1px !important;
-    text-underline-offset: 2px !important;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
 }
 
 /* =========================================
@@ -135,7 +135,7 @@ a {
    ========================================= */
 
 .navbar-wrapper {
-    position: fixed !important;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -276,7 +276,7 @@ header {
     position: absolute;
     width: 100%;
     height: 100vh;
-    background: url(../assets/img/ui/background-hero-mobile.webp);
+    background: linear-gradient(rgba(255, 246, 240, 0.7), rgba(255, 246, 240, 0.7)), url(../assets/img/ui/background-hero-mobile.webp);
     background-size: cover;
     background-position: top center;
     background-repeat: no-repeat;
@@ -316,7 +316,7 @@ header {
 }
 
 .hero-title {
-    font-size: clamp(22px, 5vw, 45px);
+    font-size: var(--font-size-hero);
     font-family: 'S Serif', 'Times New Roman', Times, serif;
     font-weight: 300;
     color: var(--ocre);
@@ -348,47 +348,59 @@ header {
     align-items: center;
     width: 100%;
     position: relative;
-    height: clamp(150px, 20vh, 300px);
-    overflow: hidden;
+    padding: 60px 40px !important;
+    height: auto;
+    background-color: transparent;
 }
 
-.caja img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: brightness(0.6) contrast(1.2);
-}
 
-.titulo-bg-2 {
-    background-image: url(../assets/img/ui/title2.webp);
-    background-size: cover;
-    background-position: center;
-}
+
+
 
 .txttitulo,
 .txttitulo1 {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
     width: 100%;
     text-align: center;
     z-index: 10;
-    mix-blend-mode: difference;
-    pointer-events: none;
+    mix-blend-mode: normal;
+    pointer-events: auto;
 }
 
 .txttitulo h2,
 .txttitulo1 h3 {
     font-weight: lighter;
-    color: #fff !important;
+    color: var(--ocre) !important;
     margin: 0;
     padding: 0;
-    white-space: nowrap;
+    white-space: normal;
+    /* Allow wrapping if needed */
 }
 
 .section-heading {
-    font-size: clamp(24px, 7vw, 70px);
+    font-family: 'S Serif', serif;
+    font-size: clamp(30px, 6vw, 50px);
+    font-weight: lighter;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: var(--ocre);
+    text-shadow: none;
+    margin-bottom: 10px;
+    position: relative;
+    display: inline-block;
+}
+
+.section-heading::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 1px;
+    background-color: var(--ocre);
+    margin: 20px auto 0 auto;
+    opacity: 0.6;
 }
 
 .section-title {
@@ -408,14 +420,10 @@ header {
    ========================================= */
 
 .categoria-section {
-    padding: 10px 5%;
-    margin-bottom: 10px;
+    padding: 0 5%;
+    margin-bottom: 0;
     display: block;
     width: 100%;
-}
-
-.first-category {
-    margin-top: 100px !important;
 }
 
 .btnseccion {
@@ -454,8 +462,9 @@ header {
     /* Restored hidden state */
     max-height: 0;
     opacity: 0;
+    margin: 0;
     overflow: hidden;
-    transition: max-height 0.6s ease, opacity 0.4s ease;
+    transition: max-height 0.6s ease, opacity 0.4s ease, margin 0.6s ease;
 }
 
 .linea {
@@ -479,17 +488,27 @@ header {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     grid-gap: 30px;
-    padding: 10px 0;
+    grid-gap: 30px;
+    padding: 0;
     max-height: 0;
     opacity: 0;
     overflow: hidden;
-    transition: max-height 0.6s ease, opacity 0.4s ease;
+    transition: max-height 0.6s ease, opacity 0.4s ease, padding 0.6s ease;
 }
 
 .productos.mostrar,
 .pseccion.mostrar {
-    max-height: 500px;
+    max-height: 1000px;
+    /* Increased to ensure fits */
     opacity: 1;
+}
+
+.productos.mostrar {
+    padding: 10px 0;
+}
+
+.pseccion.mostrar {
+    margin: 15px 0 5px 0;
 }
 
 /* Product Card */
@@ -629,7 +648,7 @@ h5 {
 
 .titulo-main {
     font-family: 'S Serif', serif;
-    font-size: clamp(14px, 4vw, 2rem);
+    font-size: var(--font-size-title-main);
     line-height: 1.2;
     color: var(--ocre);
     margin: 0;
@@ -871,7 +890,7 @@ h5 {
 
 @media (max-width: 768px) {
     .card-content {
-        flex-direction: column !important;
+        flex-direction: column;
         text-align: center;
         gap: 20px;
         padding: 30px 20px;
@@ -886,11 +905,29 @@ h5 {
 
     .titulo-main,
     .texto-desc,
-    .align-right {
+    .align-right,
+    .align-right .highlight {
         text-align: center;
     }
 
     .titulo-main {
-        font-size: 2.5rem;
+        font-size: 1.8rem;
+        /* Reduced from 2.5rem */
+        padding: 0;
+        width: 100%;
+        min-width: unset;
+    }
+
+    .caja {
+        padding: 40px 20px 20px 20px;
+    }
+
+    .section-heading {
+        font-size: clamp(24px, 6vw, 40px);
+        margin-bottom: 5px;
+    }
+
+    .section-heading::after {
+        margin-top: 10px;
     }
 }
