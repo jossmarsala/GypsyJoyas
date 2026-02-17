@@ -12,7 +12,7 @@
 
 - **Catálogo interactivo:** Muestra una variedad de productos de orfebrería artesanal.
 - **Interfaz responsiva:** Adaptada para dispositivos móviles y tablets.
-- **Navegación:** Paea que los usuarios puedan explorar fácilmente las categorías y piezas.
+- **Navegación:** Para que los usuarios puedan explorar fácilmente las categorías y piezas.
 - **Sección de contacto y encargos:** Para quienes quieran adquirir una pieza única.
 
 ---
@@ -20,8 +20,5 @@
 ## 🧩 Tecnologías Usadas
 
 - **HTML5**
-- **CSS3** (con **Bootstrap**)
+- **CSS3**
 - **JavaScript**
-
-
-
