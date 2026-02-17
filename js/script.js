@@ -1,412 +1,237 @@
+/**
+ * Gypsy Joyas Main Script
+ * Refactored for performance, maintainability, and accessibility.
+ * @version 2.0.0
+ */
 
-// Ocultar loader cuanto esté cargado
-window.addEventListener('load', () => {
-    const loader = document.getElementById('loader');
-    loader.style.display = 'none';
-});
+'use strict';
 
-// Aumentar precios según porcentaje
-const incremento = 0.07;
-
-document.addEventListener("DOMContentLoaded", function () {
-    const precios = document.querySelectorAll(".precio");
-
-    precios.forEach(el => {
-        let precioTexto = el.textContent.replace(/[^\d]/g, "");
-        let precioNumero = parseInt(precioTexto, 10);
-
-        let nuevoPrecio = Math.round(precioNumero * (1 + incremento));
-
-        let centenas = nuevoPrecio % 1000;
-        if (![0, 200, 500, 800].includes(centenas)) {
-            if (centenas < 200) {
-                nuevoPrecio = nuevoPrecio - centenas + 200;
-            } else if (centenas < 500) {
-                nuevoPrecio = nuevoPrecio - centenas + 500;
-            } else if (centenas < 800) {
-                nuevoPrecio = nuevoPrecio - centenas + 800;
-            } else {
-                nuevoPrecio = nuevoPrecio - centenas + 1000;
-            }
-        }
-
-        el.textContent = `$${nuevoPrecio.toLocaleString("es-AR")}`;
-    });
-});
-
-// Volver a cerrar menú
-document.addEventListener('DOMContentLoaded', () => {
-    const navbarNav = document.getElementById('navbarNav');
-    const navbarToggler = document.querySelector('.navbar-toggler');
-    const navLinks = navbarNav.querySelectorAll('.nav-link');
-
-    // Navbar logical simplified
-    navbarToggler.addEventListener('click', () => {
-        navbarNav.classList.toggle('open');
-        const isOpen = navbarNav.classList.contains('open');
-        navbarToggler.setAttribute('aria-expanded', isOpen);
-    });
-
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            navbarNav.classList.remove('open');
-            navbarToggler.setAttribute('aria-expanded', 'false');
-        });
-    });
-});
-
-// Desplegar sección aros
-document.addEventListener("DOMContentLoaded", function () {
-    let desplegar = document.getElementById("btnseccionaros");
-    let secciones = document.getElementsByClassName("productosaros");
-    let textos = document.getElementsByClassName("pseccionaros");
-    let flecha = document.getElementById("flechaaros");
-
-    function actualizarPosicion() {
-        for (let seccion of secciones) {
-            if (seccion.classList.contains("mostrar")) {
-                seccion.style.display = "grid";
-            } else {
-                seccion.style.display = "none";
-            }
-        }
-    }
-
-    desplegar.addEventListener("click", function () {
-        flecha.classList.toggle("animar");
-
-        for (let seccion of secciones) {
-            if (seccion.classList.contains("mostrar")) {
-                seccion.style.maxHeight = "0";
-                seccion.style.opacity = "0";
-                setTimeout(() => {
-                    seccion.classList.remove("mostrar");
-                    actualizarPosicion();
-                }, 600);
-            } else {
-                seccion.classList.add("mostrar");
-                actualizarPosicion();
-                seccion.style.maxHeight = seccion.scrollHeight + "px";
-                seccion.style.opacity = "1";
-            }
-        }
-
-        for (let texto of textos) {
-            if (texto.classList.contains("mostrar")) {
-                texto.style.maxHeight = "0";
-                texto.style.opacity = "0";
-                setTimeout(() => texto.classList.remove("mostrar"), 600);
-            } else {
-                texto.classList.add("mostrar");
-                texto.style.maxHeight = texto.scrollHeight + "px";
-                texto.style.opacity = "1";
-            }
-        }
-    });
-
-    actualizarPosicion();
-});
-
-// Desplegar sección collares
-document.addEventListener("DOMContentLoaded", function () {
-    let desplegar = document.getElementById("btnseccioncollares");
-    let secciones = document.getElementsByClassName("productoscollares");
-    let textos = document.getElementsByClassName("pseccioncollares");
-    let flecha = document.getElementById("flechacollares");
-
-    function actualizarPosicion() {
-        for (let seccion of secciones) {
-            if (seccion.classList.contains("mostrar")) {
-                seccion.style.display = "grid";
-            } else {
-                seccion.style.display = "none";
-            }
-        }
-    }
-
-    desplegar.addEventListener("click", function () {
-        flecha.classList.toggle("animar");
-
-        for (let seccion of secciones) {
-            if (seccion.classList.contains("mostrar")) {
-                seccion.style.maxHeight = "0";
-                seccion.style.opacity = "0";
-                setTimeout(() => {
-                    seccion.classList.remove("mostrar");
-                    actualizarPosicion();
-                }, 600);
-            } else {
-                seccion.classList.add("mostrar");
-                actualizarPosicion();
-                seccion.style.maxHeight = seccion.scrollHeight + "px";
-                seccion.style.opacity = "1";
-            }
-        }
-
-        for (let texto of textos) {
-            if (texto.classList.contains("mostrar")) {
-                texto.style.maxHeight = "0";
-                texto.style.opacity = "0";
-                setTimeout(() => texto.classList.remove("mostrar"), 600);
-            } else {
-                texto.classList.add("mostrar");
-                texto.style.maxHeight = texto.scrollHeight + "px";
-                texto.style.opacity = "1";
-            }
-        }
-    });
-
-    actualizarPosicion();
-});
-
-// Desplegar sección anillos
-document.addEventListener("DOMContentLoaded", function () {
-    let desplegar = document.getElementById("btnseccionanillos");
-    let secciones = document.getElementsByClassName("productosanillos");
-    let textos = document.getElementsByClassName("pseccionanillos");
-    let flecha = document.getElementById("flechaanillos");
-
-    function actualizarPosicion() {
-        for (let seccion of secciones) {
-            if (seccion.classList.contains("mostrar")) {
-                seccion.style.display = "grid";
-            } else {
-                seccion.style.display = "none";
-            }
-        }
-    }
-
-    desplegar.addEventListener("click", function () {
-        flecha.classList.toggle("animar");
-
-        for (let seccion of secciones) {
-            if (seccion.classList.contains("mostrar")) {
-                seccion.style.maxHeight = "0";
-                seccion.style.opacity = "0";
-                setTimeout(() => {
-                    seccion.classList.remove("mostrar");
-                    actualizarPosicion();
-                }, 600);
-            } else {
-                seccion.classList.add("mostrar");
-                actualizarPosicion();
-                seccion.style.maxHeight = seccion.scrollHeight + "px";
-                seccion.style.opacity = "1";
-            }
-        }
-
-        for (let texto of textos) {
-            if (texto.classList.contains("mostrar")) {
-                texto.style.maxHeight = "0";
-                texto.style.opacity = "0";
-                setTimeout(() => texto.classList.remove("mostrar"), 600);
-            } else {
-                texto.classList.add("mostrar");
-                texto.style.maxHeight = texto.scrollHeight + "px";
-                texto.style.opacity = "1";
-            }
-        }
-    });
-
-    actualizarPosicion();
-});
-
-// Desplegar sección pulseras
-document.addEventListener("DOMContentLoaded", function () {
-    let desplegar = document.getElementById("btnseccionpulseras");
-    let secciones = document.getElementsByClassName("productospulseras");
-    let textos = document.getElementsByClassName("pseccionpulseras");
-    let flecha = document.getElementById("flechapulseras");
-
-    function actualizarPosicion() {
-        for (let seccion of secciones) {
-            if (seccion.classList.contains("mostrar")) {
-                seccion.style.display = "grid";
-            } else {
-                seccion.style.display = "none";
-            }
-        }
-    }
-
-    desplegar.addEventListener("click", function () {
-        flecha.classList.toggle("animar");
-
-        for (let seccion of secciones) {
-            if (seccion.classList.contains("mostrar")) {
-                seccion.style.maxHeight = "0";
-                seccion.style.opacity = "0";
-                setTimeout(() => {
-                    seccion.classList.remove("mostrar");
-                    actualizarPosicion();
-                }, 600);
-            } else {
-                seccion.classList.add("mostrar");
-                actualizarPosicion();
-                seccion.style.maxHeight = seccion.scrollHeight + "px";
-                seccion.style.opacity = "1";
-            }
-        }
-
-        for (let texto of textos) {
-            if (texto.classList.contains("mostrar")) {
-                texto.style.maxHeight = "0";
-                texto.style.opacity = "0";
-                setTimeout(() => texto.classList.remove("mostrar"), 600);
-            } else {
-                texto.classList.add("mostrar");
-                texto.style.maxHeight = texto.scrollHeight + "px";
-                texto.style.opacity = "1";
-            }
-        }
-    });
-
-    actualizarPosicion();
-});
-
-
-// Desplegar sección accesorios
-document.addEventListener("DOMContentLoaded", function () {
-    let desplegar = document.getElementById("btnseccionaccesorios");
-    let secciones = document.getElementsByClassName("productosaccesorios");
-    let textos = document.getElementsByClassName("pseccionaccesorios");
-    let flecha = document.getElementById("flechaaccesorios");
-
-    function actualizarPosicion() {
-        for (let seccion of secciones) {
-            if (seccion.classList.contains("mostrar")) {
-                seccion.style.display = "grid";
-            } else {
-                seccion.style.display = "none";
-            }
-        }
-    }
-
-    desplegar.addEventListener("click", function () {
-        flecha.classList.toggle("animar");
-
-        for (let seccion of secciones) {
-            if (seccion.classList.contains("mostrar")) {
-                seccion.style.maxHeight = "0";
-                seccion.style.opacity = "0";
-                setTimeout(() => {
-                    seccion.classList.remove("mostrar");
-                    actualizarPosicion();
-                }, 600);
-            } else {
-                seccion.classList.add("mostrar");
-                actualizarPosicion();
-                seccion.style.maxHeight = seccion.scrollHeight + "px";
-                seccion.style.opacity = "1";
-            }
-        }
-
-        for (let texto of textos) {
-            if (texto.classList.contains("mostrar")) {
-                texto.style.maxHeight = "0";
-                texto.style.opacity = "0";
-                setTimeout(() => texto.classList.remove("mostrar"), 600);
-            } else {
-                texto.classList.add("mostrar");
-                texto.style.maxHeight = texto.scrollHeight + "px";
-                texto.style.opacity = "1";
-            }
-        }
-    });
-
-    actualizarPosicion();
-});
-
-// Lightbox, ver imagen
-document.addEventListener("DOMContentLoaded", function () {
-    const modal = document.createElement("div");
-    modal.id = "imageModal";
-    modal.classList.add("modal");
-    modal.innerHTML = `
-      <button class="close" aria-label="Close">&times;</button>
-      <img class="modal-content" id="fullImage">
-    `;
-    document.body.appendChild(modal);
-
-    const modalImg = modal.querySelector("#fullImage");
-    const closeButton = modal.querySelector(".close");
-
-    document.addEventListener("click", function (event) {
-        const target = event.target;
-        if (target.classList.contains("imgprod")) {
-            showModal(target);
-        }
-    });
-
-    function showModal(img) {
-        modal.style.visibility = "visible";
-        requestAnimationFrame(() => {
-            modal.style.opacity = "1";
-        });
-        modalImg.src = img.src;
-        document.addEventListener("keydown", handleEscape, false);
-    }
-
-    function closeModal() {
-        modal.style.opacity = "0";
-        modal.addEventListener(
-            "transitionend",
-            () => {
-                modal.style.visibility = "hidden";
-            },
-            { once: true }
-        );
-        document.removeEventListener("keydown", handleEscape, false);
-    }
-
-    function handleEscape(event) {
-        if (event.key === "Escape" || event.key === "Esc") {
-            closeModal();
-        }
-    }
-
-    closeButton.addEventListener("click", closeModal);
-    document.addEventListener("click", function (event) {
-        if (event.target === modal) {
-            closeModal();
-        }
-    });
-
-    // CSS injection removed (moved to estilos.css)
-});
-
-// Instagram & Android Detection
 (function () {
-    const ua = navigator.userAgent || navigator.vendor || window.opera;
-    const isInstagram = ua.includes('Instagram');
-    const isAndroid = /android/i.test(ua);
+    // =========================================
+    // Constants & Config
+    // =========================================
+    const CONFIG = {
+        categories: ['aros', 'collares', 'anillos', 'pulseras', 'accesorios'],
+        animationDuration: 600, // Fallback, we prefer transitionend
+        selectors: {
+            loader: 'loader',
+            navbar: 'navbarNav',
+            navToggler: '.navbar-toggler',
+            navLinks: '.nav-link',
+            modal: 'imageModal',
+            modalImg: 'fullImage',
+            closeBtn: '.close'
+        }
+    };
 
-    if (isInstagram && isAndroid) {
-        setTimeout(() => {
-            window.location.href = "intent://gypsy-joyas.vercel.app#Intent;scheme=https;package=com.android.chrome;end;";
-        }, 500);
+    // =========================================
+    // Core Modules
+    // =========================================
+
+    const Loader = {
+        init() {
+            window.addEventListener('load', () => {
+                const loader = document.getElementById(CONFIG.selectors.loader);
+                if (loader) {
+                    loader.style.opacity = '0';
+                    setTimeout(() => loader.style.display = 'none', 300); // Smooth fade out
+                }
+            });
+        }
+    };
+
+    const Navbar = {
+        init() {
+            const navbarNav = document.getElementById(CONFIG.selectors.navbar);
+            const navbarToggler = document.querySelector(CONFIG.selectors.navToggler);
+            const navLinks = document.querySelectorAll(CONFIG.selectors.navLinks);
+
+            if (!navbarNav || !navbarToggler) return;
+
+            const toggleMenu = () => {
+                const isOpen = navbarNav.classList.toggle('open');
+                navbarToggler.setAttribute('aria-expanded', isOpen);
+            };
+
+            const closeMenu = () => {
+                if (navbarNav.classList.contains('open')) {
+                    navbarNav.classList.remove('open');
+                    navbarToggler.setAttribute('aria-expanded', 'false');
+                }
+            };
+
+            navbarToggler.addEventListener('click', toggleMenu);
+            navLinks.forEach(link => link.addEventListener('click', closeMenu));
+        }
+    };
+
+    const ProductsAccordion = {
+        init() {
+            CONFIG.categories.forEach(cat => this.setupCategory(cat));
+        },
+
+        setupCategory(category) {
+            const btn = document.getElementById(`btnseccion${category}`);
+            const arrow = document.getElementById(`flecha${category}`);
+            const sections = Array.from(document.getElementsByClassName(`productos${category}`));
+            const titles = Array.from(document.getElementsByClassName(`pseccion${category}`));
+            const allElements = [...sections, ...titles];
+
+            if (!btn || !arrow) return;
+
+            // Initial State: Ensure hidden elements are display:none
+            this.updateDisplay(allElements, false);
+
+            btn.addEventListener('click', () => {
+                const isExpanding = !arrow.classList.contains('animar');
+
+                // Toggle Arrow & Aria
+                arrow.classList.toggle('animar', isExpanding);
+                btn.setAttribute('aria-expanded', isExpanding);
+
+                if (isExpanding) {
+                    this.expand(allElements);
+                } else {
+                    this.collapse(allElements);
+                }
+            });
+        },
+
+        expand(elements) {
+            elements.forEach(el => {
+                el.classList.add('mostrar');
+                el.style.display = 'grid'; // Or block/flex based on CSS, but logic says grid/block
+
+                // Force Clean DOM Read for reflow
+                const height = el.scrollHeight;
+
+                el.style.maxHeight = `${height}px`;
+                el.style.opacity = '1';
+
+                // After transition, clear max-height so it can grow if content changes (responsiveness)
+                const onTransitionEnd = () => {
+                    if (el.classList.contains('mostrar')) {
+                        el.style.maxHeight = 'none'; // Allow flexible height
+                    }
+                    el.removeEventListener('transitionend', onTransitionEnd);
+                };
+                el.addEventListener('transitionend', onTransitionEnd);
+            });
+        },
+
+        collapse(elements) {
+            elements.forEach(el => {
+                // To animate TO 0, we must first set it back to a fixed pixel value
+                // because you can't transition from "none" or "auto" to 0.
+                el.style.maxHeight = `${el.scrollHeight}px`;
+
+                // Force reflow
+                void el.offsetWidth;
+
+                el.classList.remove('mostrar');
+                el.style.maxHeight = '0';
+                el.style.opacity = '0';
+
+                const onTransitionEnd = () => {
+                    if (!el.classList.contains('mostrar')) {
+                        el.style.display = 'none';
+                    }
+                    el.removeEventListener('transitionend', onTransitionEnd);
+                };
+                el.addEventListener('transitionend', onTransitionEnd);
+            });
+        },
+
+        updateDisplay(elements, show) {
+            elements.forEach(el => {
+                el.style.display = show ? 'grid' : 'none';
+            });
+        }
+    };
+
+    const Lightbox = {
+        init() {
+            this.createModal();
+            document.addEventListener('click', (e) => {
+                if (e.target.classList.contains('imgprod')) {
+                    this.open(e.target.src, e.target.alt);
+                }
+            });
+        },
+
+        createModal() {
+            const modal = document.createElement('div');
+            modal.id = CONFIG.selectors.modal;
+            modal.className = 'modal';
+            modal.innerHTML = `
+                <button class="close" aria-label="Cerrar imagen">&times;</button>
+                <img class="modal-content" id="${CONFIG.selectors.modalImg}" alt="Zoom producto">
+            `;
+
+            // Close logic
+            modal.querySelector('.close').addEventListener('click', () => this.close());
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) this.close();
+            });
+
+            document.body.appendChild(modal);
+            this.modal = modal;
+            this.modalImg = modal.querySelector(`#${CONFIG.selectors.modalImg}`);
+        },
+
+        open(src, alt) {
+            this.modalImg.src = src;
+            this.modalImg.alt = alt || '';
+            this.modal.style.visibility = 'visible';
+            requestAnimationFrame(() => this.modal.style.opacity = '1');
+
+            // Bind Escape key
+            this.escapeHandler = (e) => {
+                if (e.key === 'Escape') this.close();
+            };
+            document.addEventListener('keydown', this.escapeHandler);
+        },
+
+        close() {
+            this.modal.style.opacity = '0';
+            this.modal.addEventListener('transitionend', () => {
+                this.modal.style.visibility = 'hidden';
+                this.modalImg.src = ''; // Clear memory
+            }, { once: true });
+
+            if (this.escapeHandler) {
+                document.removeEventListener('keydown', this.escapeHandler);
+            }
+        }
+    };
+
+    const AppUtils = {
+        checkDeepLink() {
+            const ua = navigator.userAgent || navigator.vendor || window.opera;
+            if (ua.includes('Instagram') && /android/i.test(ua)) {
+                setTimeout(() => {
+                    window.location.href = "intent://gypsy-joyas.vercel.app#Intent;scheme=https;package=com.android.chrome;end;";
+                }, 500);
+            }
+        }
+    };
+
+    // =========================================
+    // Initialization
+    // =========================================
+
+    function initApp() {
+        Loader.init();
+        Navbar.init();
+        ProductsAccordion.init();
+        Lightbox.init();
+        AppUtils.checkDeepLink();
     }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initApp);
+    } else {
+        initApp();
+    }
+
 })();
-
-// Anime.js Initialization
-document.addEventListener("DOMContentLoaded", function () {
-    // Check if anime is defined (loaded via CDN in HTML)
-    if (typeof anime !== 'undefined') {
-        anime({
-            targets: '.animacion',
-            easing: 'easeInQuad',
-            opacity: 1,
-            duration: 700,
-            delay: 500
-        });
-    }
-});
-
-// Desktop blocker removed
-
-
-
-
-
-
-
-
