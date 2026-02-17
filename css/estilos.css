@@ -286,6 +286,7 @@ header {
 .hero-spacer {
     min-height: 100vh;
     align-items: center;
+    border-bottom: 1px solid rgba(207, 163, 88, 0.3);
 }
 
 .contenedor {
@@ -353,10 +354,6 @@ header {
     background-color: transparent;
 }
 
-
-
-
-
 .txttitulo,
 .txttitulo1 {
     position: relative;
@@ -377,7 +374,6 @@ header {
     margin: 0;
     padding: 0;
     white-space: normal;
-    /* Allow wrapping if needed */
 }
 
 .section-heading {
@@ -421,7 +417,7 @@ header {
 
 .categoria-section {
     padding: 0 5%;
-    margin-bottom: 0;
+    margin-bottom: 50px;
     display: block;
     width: 100%;
 }
@@ -445,7 +441,6 @@ header {
     color: var(--collares) !important;
 }
 
-/* Intercalated Category Layout */
 .categoria-section:nth-of-type(odd) .btnseccion {
     flex-direction: row-reverse;
 }
@@ -459,7 +454,6 @@ header {
     text-align: center;
     margin: 15px 0 5px 0 !important;
     opacity: 0.7;
-    /* Restored hidden state */
     max-height: 0;
     opacity: 0;
     margin: 0;
@@ -512,7 +506,6 @@ header {
 }
 
 /* Product Card */
-
 article.producto {
     display: flex;
     flex-direction: column;
@@ -702,7 +695,7 @@ h5 {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(5px);
     border: 1px solid var(--ocre);
-    color: var(--texto);
+    color: var(--ocre);
     font-family: 'S Serif', serif;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -778,7 +771,7 @@ h5 {
     height: 42px;
     border: 0.5px solid rgba(207, 163, 88, 0.4);
     border-radius: 50%;
-    color: var(--texto);
+    color: var(--ocre);
     font-size: 1.1rem;
     transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
     text-decoration: none;
@@ -886,6 +879,14 @@ h5 {
         background-position: bottom center;
         background-repeat: repeat;
     }
+
+    .nav-container,
+    .categoria-section,
+    .caja {
+        max-width: 1400px;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 @media (max-width: 768px) {
@@ -931,6 +932,7 @@ h5 {
         margin-top: 10px;
     }
 }
+
 /* =========================================
    10. Maintenance Overlay
    ========================================= */
