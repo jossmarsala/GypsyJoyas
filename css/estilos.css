@@ -413,7 +413,7 @@ a {
 .catalog__subtitle {
     color: var(--color-cafe-profundo);
     font-family: 'S Serif', serif;
-    font-size: 0.9rem !important;
+    font-size: clamp(1rem, 2vw, 1.2rem);
     text-transform: uppercase;
     letter-spacing: 3px;
     text-align: center;
@@ -439,8 +439,14 @@ a {
     transition: transform 0.3s ease-in-out !important;
 }
 
+/* Arrow Rotation (Left Aligned) */
 .catalog__arrow.animar {
     transform: rotate(-90deg) !important;
+}
+
+/* Arrow Rotation (Right Aligned) */
+.catalog:nth-of-type(odd) .catalog__arrow.animar {
+    transform: rotate(90deg) !important;
 }
 
 /* Grid Logic */
@@ -509,20 +515,23 @@ a {
 }
 
 .product-card__title {
-    font-family: 'Segoe Ui', Tahoma, Geneva, Verdana, sans-serif;
-    margin-top: 10px !important;
-    margin-bottom: 2px;
-    font-size: clamp(14px, 1.2rem, 18px) !important;
+    font-family: 'S Serif', serif;
+    margin-top: 15px !important;
+    margin-bottom: 5px;
+    font-size: clamp(16px, 1.3rem, 20px) !important;
     text-align: center;
     color: var(--color-cafe-profundo);
-    font-weight: normal !important;
+    font-weight: 300 !important;
+    line-height: 1.2;
 }
 
 .product-card__price {
-    font-size: clamp(16px, 1.2rem, 18px) !important;
-    margin: -4px 0 10px 0 !important;
-    color: var(--color-terracota);
-    font-weight: bold;
+    font-family: 'S Serif', serif;
+    font-size: clamp(16px, 1.2rem, 19px) !important;
+    margin: 0 0 10px 0 !important;
+    color: var(--color-dorado-ocre);
+    font-weight: normal;
+    letter-spacing: 0.5px;
 }
 
 .product-card__price--old {
