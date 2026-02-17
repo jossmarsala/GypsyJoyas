@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 setTimeout(() => {
                     seccion.classList.remove("mostrar");
                     actualizarPosicion();
-                }, 500);
+                }, 600);
             } else {
                 seccion.classList.add("mostrar");
                 actualizarPosicion();
@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (texto.classList.contains("mostrar")) {
                 texto.style.maxHeight = "0";
                 texto.style.opacity = "0";
-                setTimeout(() => texto.classList.remove("mostrar"), 500);
+                setTimeout(() => texto.classList.remove("mostrar"), 600);
             } else {
                 texto.classList.add("mostrar");
                 texto.style.maxHeight = texto.scrollHeight + "px";
@@ -134,7 +134,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 setTimeout(() => {
                     seccion.classList.remove("mostrar");
                     actualizarPosicion();
-                }, 500);
+                }, 600);
             } else {
                 seccion.classList.add("mostrar");
                 actualizarPosicion();
@@ -147,7 +147,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (texto.classList.contains("mostrar")) {
                 texto.style.maxHeight = "0";
                 texto.style.opacity = "0";
-                setTimeout(() => texto.classList.remove("mostrar"), 500);
+                setTimeout(() => texto.classList.remove("mostrar"), 600);
             } else {
                 texto.classList.add("mostrar");
                 texto.style.maxHeight = texto.scrollHeight + "px";
@@ -186,7 +186,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 setTimeout(() => {
                     seccion.classList.remove("mostrar");
                     actualizarPosicion();
-                }, 500);
+                }, 600);
             } else {
                 seccion.classList.add("mostrar");
                 actualizarPosicion();
@@ -199,7 +199,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (texto.classList.contains("mostrar")) {
                 texto.style.maxHeight = "0";
                 texto.style.opacity = "0";
-                setTimeout(() => texto.classList.remove("mostrar"), 500);
+                setTimeout(() => texto.classList.remove("mostrar"), 600);
             } else {
                 texto.classList.add("mostrar");
                 texto.style.maxHeight = texto.scrollHeight + "px";
@@ -238,7 +238,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 setTimeout(() => {
                     seccion.classList.remove("mostrar");
                     actualizarPosicion();
-                }, 500);
+                }, 600);
             } else {
                 seccion.classList.add("mostrar");
                 actualizarPosicion();
@@ -251,7 +251,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (texto.classList.contains("mostrar")) {
                 texto.style.maxHeight = "0";
                 texto.style.opacity = "0";
-                setTimeout(() => texto.classList.remove("mostrar"), 500);
+                setTimeout(() => texto.classList.remove("mostrar"), 600);
             } else {
                 texto.classList.add("mostrar");
                 texto.style.maxHeight = texto.scrollHeight + "px";
@@ -291,7 +291,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 setTimeout(() => {
                     seccion.classList.remove("mostrar");
                     actualizarPosicion();
-                }, 500);
+                }, 600);
             } else {
                 seccion.classList.add("mostrar");
                 actualizarPosicion();
@@ -304,7 +304,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (texto.classList.contains("mostrar")) {
                 texto.style.maxHeight = "0";
                 texto.style.opacity = "0";
-                setTimeout(() => texto.classList.remove("mostrar"), 500);
+                setTimeout(() => texto.classList.remove("mostrar"), 600);
             } else {
                 texto.classList.add("mostrar");
                 texto.style.maxHeight = texto.scrollHeight + "px";
