@@ -72,6 +72,13 @@ html {
     overflow-x: hidden;
 }
 
+/* Scroll Offset for Fixed Header */
+#productos,
+#encargos,
+#contacto {
+    scroll-margin-top: 130px;
+}
+
 html,
 body {
     margin: 0;
@@ -94,26 +101,8 @@ a {
    2. Utility Classes
    ========================================= */
 
-.oculto {
+.u-hidden {
     display: none !important;
-}
-
-.spacer-large {
-    height: clamp(50px, 8vw, 120px);
-    display: block;
-}
-
-.spacer-medium {
-    height: 4vh;
-    display: block;
-}
-
-.blank1 {
-    height: 4vh;
-}
-
-.blank2 {
-    height: 12vw;
 }
 
 .filter-contrast {
@@ -131,10 +120,10 @@ a {
 }
 
 /* =========================================
-   3. Header & Navigation
+   3. Header & Navigation (.header, .navbar)
    ========================================= */
 
-.navbar-wrapper {
+.header {
     position: fixed;
     top: 0;
     left: 0;
@@ -145,9 +134,6 @@ a {
     -webkit-backdrop-filter: blur(10px);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s ease;
-}
-
-header {
     display: flex;
     text-align: center;
 }
@@ -157,14 +143,14 @@ header {
     position: relative;
 }
 
-.nav-container {
+.navbar__container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 5%;
 }
 
-.icono {
+.navbar__logo {
     width: clamp(25px, 10vw, 70px);
     height: auto;
     position: relative;
@@ -172,8 +158,7 @@ header {
 }
 
 /* Mobile Menu Overlay */
-
-.mobile-menu-overlay {
+.navbar__collapse {
     position: fixed;
     top: 0;
     left: 0;
@@ -188,11 +173,11 @@ header {
     z-index: 1040;
 }
 
-.mobile-menu-overlay.open {
+.navbar__collapse.open {
     transform: translateX(0);
 }
 
-.navbar-nav {
+.navbar__nav {
     list-style: none;
     padding: 0;
     margin: 0;
@@ -202,7 +187,7 @@ header {
     gap: 20px;
 }
 
-.nav-link {
+.navbar__link {
     display: inline-block;
     text-decoration: none;
     color: var(--texto);
@@ -214,14 +199,13 @@ header {
     padding: 5px 10px;
 }
 
-.nav-link:hover {
+.navbar__link:hover {
     color: var(--ocre);
     transform: translateY(-2px);
 }
 
-/* Hamburger Menu */
-
-.navbar-toggler {
+/* Hamburger Menu (.navbar__toggler) */
+.navbar__toggler {
     z-index: 1050;
     cursor: pointer;
     border: none;
@@ -229,50 +213,51 @@ header {
     padding: 5px;
 }
 
-.navbar-toggler:focus-visible {
+.navbar__toggler:focus-visible {
     outline: 2px solid var(--ocre);
     outline-offset: 2px;
 }
 
-.navbar-toggler span {
+.navbar__toggler-line {
     display: block;
     background: var(--texto);
     transition: ease 0.3s;
     height: 2px;
-    width: 30px;
     margin: 6px 0;
 }
 
-.linealarga {
+.navbar__toggler-line--long {
     width: 30px;
 }
 
-.lineacorta {
+.navbar__toggler-line--short {
     width: 20px;
 }
 
-.navbar-toggler[aria-expanded="true"] span:first-of-type {
+/* Toggler Animations (Keep legacy support via aria check or specific class logic) */
+.navbar__toggler[aria-expanded="true"] .navbar__toggler-line:first-of-type {
     transform: translateY(8px) rotate(45deg);
 }
 
-.navbar-toggler[aria-expanded="true"] span:nth-of-type(2) {
+.navbar__toggler[aria-expanded="true"] .navbar__toggler-line:nth-of-type(2) {
     opacity: 0;
 }
 
-.navbar-toggler[aria-expanded="true"] span:last-of-type {
+.navbar__toggler[aria-expanded="true"] .navbar__toggler-line:last-of-type {
     transform: translateY(-8px) rotate(-45deg);
 }
 
-.navbar-toggler[aria-expanded="false"] span {
+.navbar__toggler[aria-expanded="false"] .navbar__toggler-line {
     transform: none;
     opacity: 1;
 }
 
+
 /* =========================================
-   4. Hero Section
+   4. Hero Section (.hero)
    ========================================= */
 
-.fondo-style {
+.hero__background {
     position: absolute;
     width: 100%;
     height: 100vh;
@@ -283,19 +268,17 @@ header {
     z-index: -1000;
 }
 
-.hero-spacer {
+.hero__spacer {
     min-height: 100vh;
-    align-items: center;
-    border-bottom: 1px solid rgba(207, 163, 88, 0.3);
-}
-
-.contenedor {
     display: flex;
-    width: 100%;
     justify-content: center;
+    align-items: center;
+    width: 100%;
+    border-bottom: 1px solid rgba(207, 163, 88, 0.3);
+    margin-bottom: 60px;
 }
 
-.cajatitulo {
+.hero__title-box {
     background-color: rgba(255, 250, 241, 0.85);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -309,41 +292,37 @@ header {
     opacity: 0;
 }
 
-.bordetitulo {
+.hero__title-border {
     border: 1px var(--ocre) solid;
-    padding: 15px 10px;
+    padding: 50px 15px;
     width: 100%;
     box-sizing: border-box;
 }
 
-.hero-title {
+.hero__title {
     font-size: var(--font-size-hero);
     font-family: 'S Serif', 'Times New Roman', Times, serif;
     font-weight: 300;
     color: var(--ocre);
+    margin: 0;
 }
 
-.subtitle {
+.hero__subtitle {
     font-family: 'Segoe Ui', sans-serif;
     color: var(--texto);
-}
-
-.text-subtitle {
     font-size: clamp(10px, 2vw, 14px);
-    font-family: 'Segoe Ui', sans-serif;
     font-weight: normal;
-    color: var(--texto);
     padding: 7px 5px;
     text-transform: uppercase;
     letter-spacing: 2px;
-    margin-bottom: 5px;
+    margin: 5px 0 0 0;
 }
 
 /* =========================================
-   5. Section Titles & Dividers
+   5. Section Headers (.section-header)
    ========================================= */
 
-.caja {
+.section-header {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -354,42 +333,26 @@ header {
     background-color: transparent;
 }
 
-.txttitulo,
-.txttitulo1 {
+.section-header__inner {
     position: relative;
-    top: auto;
-    left: auto;
-    transform: none;
     width: 100%;
     text-align: center;
     z-index: 10;
-    mix-blend-mode: normal;
-    pointer-events: auto;
 }
 
-.txttitulo h2,
-.txttitulo1 h3 {
-    font-weight: lighter;
-    color: var(--ocre) !important;
-    margin: 0;
-    padding: 0;
-    white-space: normal;
-}
-
-.section-heading {
+.section-header__title {
     font-family: 'S Serif', serif;
     font-size: clamp(30px, 6vw, 50px);
     font-weight: lighter;
     text-transform: uppercase;
     letter-spacing: 4px;
     color: var(--ocre);
-    text-shadow: none;
-    margin-bottom: 10px;
+    margin: 0 0 10px 0;
     position: relative;
     display: inline-block;
 }
 
-.section-heading::after {
+.section-header__title::after {
     content: '';
     display: block;
     width: 60px;
@@ -399,30 +362,18 @@ header {
     opacity: 0.6;
 }
 
-.section-title {
-    font-family: 'S Serif', 'Times New Roman', Times, serif;
-    font-size: clamp(18px, 4vw, 40px);
-    font-weight: 300;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin: 0;
-    line-height: 1.2;
-    color: inherit;
-    display: inline-block;
-}
-
 /* =========================================
-   6. Products Section
+   6. Catalog / Category (.catalog)
    ========================================= */
 
-.categoria-section {
+.catalog {
     padding: 0 5%;
     margin-bottom: 50px;
     display: block;
     width: 100%;
 }
 
-.btnseccion {
+.catalog__toggle {
     background: none;
     border: none;
     padding: 10px 0;
@@ -435,78 +386,100 @@ header {
     transition: color 0.3s ease;
 }
 
-.btn-collares,
-.btn-pulseras,
-.btn-anillos {
+/* Modifiers for colors based on category logic could be refactored too, keeping legacy vars for now */
+.catalog__toggle--collares {
     color: var(--collares) !important;
 }
 
-.categoria-section:nth-of-type(odd) .btnseccion {
+.catalog__toggle--pulseras {
+    color: var(--collares) !important;
+}
+
+/* Alternating layout logic */
+.catalog:nth-of-type(odd) .catalog__toggle {
     flex-direction: row-reverse;
 }
 
-.pseccion {
+.catalog__category-title {
+    font-family: 'S Serif', 'Times New Roman', Times, serif;
+    font-size: clamp(18px, 4vw, 40px);
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0;
+    line-height: 1.2;
+    color: inherit;
+    display: inline-block;
+}
+
+.catalog__subtitle {
     color: var(--texto);
     font-family: 'S Serif', serif;
     font-size: 0.9rem !important;
     text-transform: uppercase;
     letter-spacing: 3px;
     text-align: center;
-    margin: 15px 0 5px 0 !important;
     opacity: 0.7;
+    overflow: hidden;
+    transition: max-height 0.6s ease, opacity 0.4s ease, margin 0.6s ease;
+
+    /* Collapsed State */
     max-height: 0;
     opacity: 0;
     margin: 0;
-    overflow: hidden;
-    transition: max-height 0.6s ease, opacity 0.4s ease, margin 0.6s ease;
 }
 
-.linea {
+.catalog__line {
     flex-grow: 1;
     height: 1px;
     background-color: currentColor;
     opacity: 0.3;
 }
 
-.flecha {
+.catalog__arrow {
     margin: 0 10px 7px 10px;
     transition: transform 0.3s ease-in-out !important;
 }
 
-.flecha.animar {
+.catalog__arrow.animar {
     transform: rotate(-90deg) !important;
 }
 
-/* Product Grid */
-.productos {
+/* Grid Logic */
+.catalog__grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     grid-gap: 30px;
-    grid-gap: 30px;
     padding: 0;
-    max-height: 0;
-    opacity: 0;
     overflow: hidden;
     transition: max-height 0.6s ease, opacity 0.4s ease, padding 0.6s ease;
+
+    /* Collapsed State */
+    max-height: 0;
+    opacity: 0;
 }
 
-.productos.mostrar,
-.pseccion.mostrar {
+/* Active States */
+.catalog__grid.mostrar,
+.catalog__subtitle.mostrar {
     max-height: 1000px;
-    /* Increased to ensure fits */
     opacity: 1;
 }
 
-.productos.mostrar {
+.catalog__grid.mostrar {
     padding: 10px 0;
 }
 
-.pseccion.mostrar {
+.catalog__subtitle.mostrar {
     margin: 15px 0 5px 0;
 }
 
-/* Product Card */
-article.producto {
+
+/* =========================================
+   7. Product Card (.product-card)
+   ========================================= */
+
+.product-card {
     display: flex;
     flex-direction: column;
     justify-content: flex-start !important;
@@ -518,13 +491,13 @@ article.producto {
     transition: transform 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease;
 }
 
-.producto:hover {
+.product-card:hover {
     background: rgba(255, 255, 255, 0.6);
     transform: translateY(-5px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03);
 }
 
-.imgprod {
+.product-card__image {
     width: clamp(70px, 30vw, 180px);
     height: clamp(70px, 37vw, 180px);
     outline: 1.2px solid var(--fondo);
@@ -533,12 +506,12 @@ article.producto {
     transition: ease-in 0.2s;
 }
 
-.imgprod:hover {
+.product-card__image:hover {
     outline: 1.8px solid var(--fondo);
     outline-offset: -5px;
 }
 
-article.producto .product-card-title {
+.product-card__title {
     font-family: 'Segoe Ui', Tahoma, Geneva, Verdana, sans-serif;
     margin-top: 10px !important;
     margin-bottom: 2px;
@@ -548,24 +521,14 @@ article.producto .product-card-title {
     font-weight: normal !important;
 }
 
-h5 {
-    font-family: 'Segoe Ui', Tahoma, Geneva, Verdana, sans-serif;
-    margin-top: 10px !important;
-    margin-bottom: 2px;
-    font-size: 2.5vw !important;
-    text-align: center;
-    color: var(--texto);
-    font-weight: normal !important;
-}
-
-.precio {
+.product-card__price {
     font-size: clamp(16px, 1.2rem, 18px) !important;
     margin: -4px 0 10px 0 !important;
     color: var(--aros);
     font-weight: bold;
 }
 
-.tachado {
+.product-card__price--old {
     font-size: clamp(12px, 0.9rem, 14px) !important;
     margin: -4px 0 3px 0 !important;
     color: #7a1f2b;
@@ -576,10 +539,17 @@ h5 {
 }
 
 /* =========================================
-   7. Encargos Section ("How to order")
+   8. Order Section (.encargos)
    ========================================= */
 
-.encargos-intro {
+.encargos {
+    padding: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.encargos__intro {
     text-align: center;
     max-width: 700px;
     margin: 0 auto 60px auto;
@@ -590,14 +560,7 @@ h5 {
     line-height: 1.6;
 }
 
-.contenedorencargos {
-    padding: 80px 20px;
-    max-width: 1000px;
-    margin: 0 auto;
-    width: 100%;
-}
-
-.encargos-grid {
+.encargos__grid {
     display: flex;
     flex-direction: column;
     gap: 60px;
@@ -605,7 +568,7 @@ h5 {
     margin: 0 auto;
 }
 
-.card-encargo {
+.encargos__card {
     background: transparent;
     padding: 0;
     border: none;
@@ -614,7 +577,7 @@ h5 {
     justify-content: center;
 }
 
-.card-content {
+.encargos__content {
     display: flex;
     align-items: center;
     gap: 40px;
@@ -629,17 +592,14 @@ h5 {
     width: 100%;
 }
 
-.card-encargo:hover .card-content {
+.encargos__card:hover .encargos__content {
     transform: translateY(-5px);
     background: rgba(255, 250, 241, 0.6);
     border-color: rgba(207, 163, 88, 0.4);
 }
 
-.card-encargo.reverse .card-content {
-    flex-direction: row-reverse;
-}
-
-.titulo-main {
+/* Modifiers for reversibility are handled by content structure in new HTML but kept here if needed */
+.encargos__title {
     font-family: 'S Serif', serif;
     font-size: var(--font-size-title-main);
     line-height: 1.2;
@@ -650,7 +610,11 @@ h5 {
     min-width: 200px;
 }
 
-.titulo-main .highlight {
+.encargos__title--right {
+    text-align: right;
+}
+
+.encargos__highlight {
     font-family: 'S Serif', serif;
     font-weight: lighter;
     color: var(--texto);
@@ -658,15 +622,7 @@ h5 {
     margin-top: 5px;
 }
 
-.divider-vertical {
-    width: 1px;
-    height: 120px;
-    background: linear-gradient(to bottom, transparent, var(--ocre), transparent);
-    opacity: 0.5;
-    flex-shrink: 0;
-}
-
-.texto-desc {
+.encargos__description {
     font-family: 'Segoe Ui', sans-serif;
     font-size: 1.1rem;
     color: var(--texto);
@@ -676,20 +632,20 @@ h5 {
     font-weight: normal;
 }
 
-.align-right {
-    text-align: right;
+.encargos__divider {
+    width: 1px;
+    height: 120px;
+    background: linear-gradient(to bottom, transparent, var(--ocre), transparent);
+    opacity: 0.5;
+    flex-shrink: 0;
 }
 
-.align-right .highlight {
-    text-align: right;
-}
-
-.encargos-action {
+.encargos__action {
     text-align: center;
     margin-top: 40px;
 }
 
-.btn-encargar-styled {
+.btn--primary {
     display: inline-block;
     padding: 15px 40px;
     background: rgba(255, 255, 255, 0.1);
@@ -706,7 +662,7 @@ h5 {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
-.btn-encargar-styled:hover {
+.btn--primary:hover {
     background: var(--contenedores);
     color: var(--collares);
     transform: translateY(-2px);
@@ -714,11 +670,12 @@ h5 {
     border-color: var(--collares);
 }
 
+
 /* =========================================
-   8. Footer
+   9. Footer (.footer)
    ========================================= */
 
-.site-footer {
+.footer {
     border-top: 1px solid rgba(207, 163, 88, 0.3);
     padding: 100px 20px 40px;
     background-color: var(--fondo);
@@ -726,10 +683,10 @@ h5 {
     background-size: contain;
     background-position: bottom center;
     background-repeat: repeat;
-    margin-top: 50px;
+    margin-top: 150px;
 }
 
-.footer-container {
+.footer__container {
     max-width: 1200px;
     margin: 0 auto;
     text-align: center;
@@ -739,7 +696,7 @@ h5 {
     gap: 20px;
 }
 
-.footer-brand {
+.footer__brand {
     font-family: 'S Serif', serif;
     font-size: 3rem;
     color: var(--texto);
@@ -747,9 +704,10 @@ h5 {
     letter-spacing: 2px;
 }
 
-.footer-tagline {
+.footer__tagline {
     font-family: 'Segoe Ui', sans-serif;
-    font-size: 1rem;
+    font-size: clamp(10px, 2vw, 14px);
+    text-transform: uppercase;
     color: var(--texto);
     margin: -10px 0 10px 0;
     opacity: 0.8;
@@ -762,8 +720,7 @@ h5 {
     margin: 10px 0;
 }
 
-.social-icons a,
-.social-icons>i {
+.social-icons__link {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -778,7 +735,7 @@ h5 {
     background: transparent;
 }
 
-.social-icons a:hover {
+.social-icons__link:hover {
     border-color: var(--ocre);
     background: rgba(207, 163, 88, 0.05);
     color: var(--ocre);
@@ -786,7 +743,7 @@ h5 {
     box-shadow: 0 4px 10px rgba(207, 163, 88, 0.1);
 }
 
-.copyright {
+.footer__copyright {
     font-family: 'Segoe Ui', sans-serif;
     font-size: 0.8rem;
     color: var(--texto);
@@ -795,7 +752,7 @@ h5 {
 }
 
 /* =========================================
-   9. Modals & Overlays
+   10. Modals & Overlays (Unchanged BEM-ish already? Cleaned up)
    ========================================= */
 
 .modal {
@@ -834,7 +791,7 @@ h5 {
 }
 
 /* =========================================
-   10. Animations
+   11. Animations
    ========================================= */
 
 @keyframes fadeInUp {
@@ -850,15 +807,15 @@ h5 {
 }
 
 /* =========================================
-   11. Media Queries
+   12. Media Queries
    ========================================= */
 
 @media (min-width: 992px) {
-    .navbar-toggler {
+    .navbar__toggler {
         display: none;
     }
 
-    .mobile-menu-overlay {
+    .navbar__collapse {
         position: static;
         width: auto;
         height: auto;
@@ -867,12 +824,12 @@ h5 {
         display: block;
     }
 
-    .navbar-nav {
+    .navbar__nav {
         flex-direction: row;
         gap: 30px;
     }
 
-    .fondo-style {
+    .hero__background {
         background-color: var(--fondo);
         background-image: linear-gradient(rgba(255, 246, 240, 0.7), rgba(255, 246, 240, 0.7)), url('../assets/img/ui/background-hero-desktop.webp');
         background-size: contain;
@@ -880,9 +837,10 @@ h5 {
         background-repeat: repeat;
     }
 
-    .nav-container,
-    .categoria-section,
-    .caja {
+    /* Constraints */
+    .navbar__container,
+    .catalog,
+    .section-header {
         max-width: 1400px;
         margin-left: auto;
         margin-right: auto;
@@ -890,45 +848,44 @@ h5 {
 }
 
 @media (max-width: 768px) {
-    .card-content {
+    .encargos__content {
         flex-direction: column;
         text-align: center;
         gap: 20px;
         padding: 30px 20px;
     }
 
-    .divider-vertical {
+    .encargos__divider {
         width: 60px;
         height: 1px;
         background: linear-gradient(to right, transparent, var(--ocre), transparent);
         margin: 10px 0;
     }
 
-    .titulo-main,
-    .texto-desc,
-    .align-right,
-    .align-right .highlight {
+    .encargos__title,
+    .encargos__description,
+    .encargos__title--right,
+    .encargos__highlight {
         text-align: center;
     }
 
-    .titulo-main {
+    .encargos__title {
         font-size: 1.8rem;
-        /* Reduced from 2.5rem */
         padding: 0;
         width: 100%;
         min-width: unset;
     }
 
-    .caja {
+    .section-header {
         padding: 40px 20px 20px 20px;
     }
 
-    .section-heading {
+    .section-header__title {
         font-size: clamp(24px, 6vw, 40px);
         margin-bottom: 5px;
     }
 
-    .section-heading::after {
+    .section-header__title::after {
         margin-top: 10px;
     }
 }

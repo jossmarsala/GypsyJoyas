@@ -16,8 +16,8 @@
         selectors: {
             loader: 'loader',
             navbar: 'navbarNav',
-            navToggler: '.navbar-toggler',
-            navLinks: '.nav-link',
+            navToggler: '.navbar__toggler',
+            navLinks: '.navbar__link',
             modal: 'imageModal',
             modalImg: 'fullImage',
             closeBtn: '.close'
@@ -153,7 +153,7 @@
         init() {
             this.createModal();
             document.addEventListener('click', (e) => {
-                if (e.target.classList.contains('imgprod')) {
+                if (e.target.classList.contains('product-card__image')) {
                     this.open(e.target.src, e.target.alt);
                 }
             });

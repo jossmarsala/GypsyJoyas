@@ -70,22 +70,22 @@ function renderizarProductos(listaProductos, contenedorId) {
             // Voy a dejar el tachado tal cual viene del JSON por ahora, o formatearlo si es número.
             const precioAnt = typeof producto.precioAnterior === 'number' ?
                 formatearPrecio(producto.precioAnterior) : producto.precioAnterior;
-            precioAnteriorHtml = `<p class="tachado">${precioAnt}</p>`;
+            precioAnteriorHtml = `<p class="product-card__price--old">${precioAnt}</p>`;
         }
 
         const article = document.createElement('article');
-        article.classList.add('producto');
+        article.classList.add('product-card');
 
         // Lazy loading para imagen
         // Clase extra para imagen si existe (ej. filter-contrast)
         const claseImagen = producto.claseImagen ? ` ${producto.claseImagen}` : '';
 
         article.innerHTML = `
-            <img class="imgprod${claseImagen}" loading="lazy" width="300" height="300"
+            <img class="product-card__image${claseImagen}" loading="lazy" width="300" height="300"
                 src="${producto.imagen}" alt="${producto.alt}">
-            <h4 class="product-card-title">${producto.nombre}</h4>
+            <h4 class="product-card__title">${producto.nombre}</h4>
             ${precioAnteriorHtml}
-            <p class="precio">${formatearPrecio(precioFinal)}</p>
+            <p class="product-card__price">${formatearPrecio(precioFinal)}</p>
         `;
 
         fragment.appendChild(article);

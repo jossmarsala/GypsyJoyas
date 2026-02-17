@@ -69,30 +69,30 @@
     </div>
     -->
 
-    <section id="fondo" class="animacion fondo-style"></section>
+    <section id="fondo" class="animacion hero__background"></section>
 
-    <header class="navbar-wrapper">
+    <header class="header">
         <nav class="navbar">
-            <div id="nav" class="nav-container">
-                <img src="assets/img/ui/icono.svg" alt="Logo de Gypsy Joyas" id="icono" class="icono">
+            <div id="nav" class="navbar__container">
+                <img src="assets/img/ui/icono.svg" alt="Logo de Gypsy Joyas" id="icono" class="navbar__logo">
 
-                <button class="navbar-toggler" type="button" aria-controls="navbarNav" aria-expanded="false"
+                <button class="navbar__toggler" type="button" aria-controls="navbarNav" aria-expanded="false"
                     aria-label="Abrir navegación">
-                    <span class="linealarga"></span>
-                    <span id="lineacorta" class="lineacorta"></span>
-                    <span class="linealarga"></span>
+                    <span class="navbar__toggler-line navbar__toggler-line--long"></span>
+                    <span id="lineacorta" class="navbar__toggler-line navbar__toggler-line--short"></span>
+                    <span class="navbar__toggler-line navbar__toggler-line--long"></span>
                 </button>
 
-                <div class="navbar-collapse mobile-menu-overlay" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link scroll-link" href="#btnseccion">Productos</a>
+                <div class="navbar__collapse mobile-menu-overlay" id="navbarNav">
+                    <ul class="navbar__nav">
+                        <li class="navbar__item">
+                            <a class="navbar__link scroll-link" href="#productos">Productos</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link scroll-link" href="#contenedorencargos">¿Como encargar?</a>
+                        <li class="navbar__item">
+                            <a class="navbar__link scroll-link" href="#encargos">¿Cómo encargar?</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link scroll-link" href="#contacto">Contacto</a>
+                        <li class="navbar__item">
+                            <a class="navbar__link scroll-link" href="#contacto">Contacto</a>
                         </li>
                     </ul>
                 </div>
@@ -101,188 +101,187 @@
     </header>
 
     <main>
-        <div class="contenedor hero-spacer">
-            <div id="cajatitulo" class="cajatitulo">
-                <div id="bordetitulo" class="bordetitulo">
+        <div class="container hero__spacer">
+            <div id="cajatitulo" class="hero__title-box">
+                <div id="bordetitulo" class="hero__title-border">
                     <div>
-                        <h1 class="hero-title">Obras de Arte para Llevar Puestas</h1>
-                        <p class="h6-style subtitle">Joyería artesanal en bronce, cobre y alpaca</p>
+                        <h1 class="hero__title">Obras de Arte para Llevar Puestas</h1>
+                        <p class="hero__subtitle">Joyería artesanal en bronce, cobre y alpaca</p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="spacer-large"></div>
-
         <section>
-            <div class="caja">
-                <div class="txttitulo">
-                    <h2 class="section-heading">Productos</h2>
+            <div class="section-header">
+                <div class="section-header__inner">
+                    <h2 id="productos" class="section-header__title">Productos</h2>
                 </div>
             </div>
         </section>
 
-        <section class="categoria-section" aria-labelledby="cat-aros">
-            <div class="seccion">
-                <h3 class="category-heading">
-                    <button class="btnseccion" id="btnseccionaros" aria-expanded="false" aria-controls="productos-aros">
-                        <span class="section-title" id="cat-aros">Aros</span>
-                        <span class="flecha" id="flechaaros" aria-hidden="true">ᐯ</span>
-                        <span class="linea"></span>
+        <!-- Catalog Sections -->
+        <section class="catalog" aria-labelledby="cat-aros">
+            <div class="catalog__header">
+                <h3 class="catalog__heading">
+                    <button class="catalog__toggle" id="btnseccionaros" aria-expanded="false"
+                        aria-controls="productos-aros">
+                        <span class="catalog__category-title" id="cat-aros">Aros</span>
+                        <span class="catalog__arrow" id="flechaaros" aria-hidden="true">ᐯ</span>
+                        <span class="catalog__line"></span>
                     </button>
                 </h3>
             </div>
 
-            <p class="pseccion pseccionaros">Bronce</p>
-            <div id="aros-bronce" class="productos productosaros"></div>
+            <p class="catalog__subtitle pseccionaros">Bronce</p>
+            <div id="aros-bronce" class="catalog__grid productosaros"></div>
 
-            <p class="pseccion pseccionaros">Alpaca</p>
-            <div id="aros-alpaca" class="productos productosaros"></div>
+            <p class="catalog__subtitle pseccionaros">Alpaca</p>
+            <div id="aros-alpaca" class="catalog__grid productosaros"></div>
         </section>
 
-        <section class="categoria-section" aria-labelledby="cat-collares">
-            <div class="seccion">
-                <h3 class="category-heading">
-                    <button class="btnseccion btn-collares" id="btnseccioncollares" aria-expanded="false"
-                        aria-controls="productos-collares">
-                        <span class="section-title" id="cat-collares">Collares</span>
-                        <span class="flecha" id="flechacollares" aria-hidden="true">ᐯ</span>
-                        <span class="linea"></span>
+        <section class="catalog" aria-labelledby="cat-collares">
+            <div class="catalog__header">
+                <h3 class="catalog__heading">
+                    <button class="catalog__toggle catalog__toggle--collares" id="btnseccioncollares"
+                        aria-expanded="false" aria-controls="productos-collares">
+                        <span class="catalog__category-title" id="cat-collares">Collares</span>
+                        <span class="catalog__arrow" id="flechacollares" aria-hidden="true">ᐯ</span>
+                        <span class="catalog__line"></span>
                     </button>
                 </h3>
             </div>
 
-            <p class="pseccion pseccioncollares">Bronce</p>
-            <div id="collares-bronce" class="productos productoscollares"></div>
+            <p class="catalog__subtitle pseccioncollares">Bronce</p>
+            <div id="collares-bronce" class="catalog__grid productoscollares"></div>
 
-            <p class="pseccion pseccioncollares">Alpaca</p>
-            <div id="collares-alpaca" class="productos productoscollares"></div>
+            <p class="catalog__subtitle pseccioncollares">Alpaca</p>
+            <div id="collares-alpaca" class="catalog__grid productoscollares"></div>
         </section>
 
-        <section class="categoria-section" aria-labelledby="cat-anillos">
-            <div class="seccion">
-                <h3 class="category-heading">
-                    <button class="btnseccion" id="btnseccionanillos" aria-expanded="false"
+        <section class="catalog" aria-labelledby="cat-anillos">
+            <div class="catalog__header">
+                <h3 class="catalog__heading">
+                    <button class="catalog__toggle" id="btnseccionanillos" aria-expanded="false"
                         aria-controls="productos-anillos">
-                        <span class="section-title" id="cat-anillos">Anillos</span>
-                        <span class="flecha" id="flechaanillos" aria-hidden="true">ᐯ</span>
-                        <span class="linea"></span>
+                        <span class="catalog__category-title" id="cat-anillos">Anillos</span>
+                        <span class="catalog__arrow" id="flechaanillos" aria-hidden="true">ᐯ</span>
+                        <span class="catalog__line"></span>
                     </button>
                 </h3>
             </div>
 
-            <p class="pseccion pseccionanillos">Bronce</p>
-            <div id="anillos-bronce" class="productos productosanillos"></div>
+            <p class="catalog__subtitle pseccionanillos">Bronce</p>
+            <div id="anillos-bronce" class="catalog__grid productosanillos"></div>
 
-            <p class="pseccion pseccionanillos">Alpaca</p>
-            <div id="anillos-alpaca" class="productos productosanillos"></div>
+            <p class="catalog__subtitle pseccionanillos">Alpaca</p>
+            <div id="anillos-alpaca" class="catalog__grid productosanillos"></div>
         </section>
 
-        <section class="categoria-section" aria-labelledby="cat-pulseras">
-            <div class="seccion">
-                <h3 class="category-heading">
-                    <button class="btnseccion btn-pulseras" id="btnseccionpulseras" aria-expanded="false"
-                        aria-controls="productos-pulseras">
-                        <span class="section-title" id="cat-pulseras">Brazaletes y Pulseras</span>
-                        <span class="flecha" id="flechapulseras" aria-hidden="true">ᐯ</span>
-                        <span class="linea"></span>
+        <section class="catalog" aria-labelledby="cat-pulseras">
+            <div class="catalog__header">
+                <h3 class="catalog__heading">
+                    <button class="catalog__toggle catalog__toggle--pulseras" id="btnseccionpulseras"
+                        aria-expanded="false" aria-controls="productos-pulseras">
+                        <span class="catalog__category-title" id="cat-pulseras">Brazaletes y Pulseras</span>
+                        <span class="catalog__arrow" id="flechapulseras" aria-hidden="true">ᐯ</span>
+                        <span class="catalog__line"></span>
                     </button>
                 </h3>
             </div>
 
-            <p class="pseccion pseccionpulseras">Bronce</p>
-            <div id="pulseras-bronce" class="productos productospulseras"></div>
+            <p class="catalog__subtitle pseccionpulseras">Bronce</p>
+            <div id="pulseras-bronce" class="catalog__grid productospulseras"></div>
 
-            <p class="pseccion pseccionpulseras">Alpaca</p>
-            <div id="pulseras-alpaca" class="productos productospulseras"></div>
+            <p class="catalog__subtitle pseccionpulseras">Alpaca</p>
+            <div id="pulseras-alpaca" class="catalog__grid productospulseras"></div>
         </section>
 
-        <section class="categoria-section" aria-labelledby="cat-accesorios">
-            <div class="seccion">
-                <h3 class="category-heading">
-                    <button class="btnseccion" id="btnseccionaccesorios" aria-expanded="false"
+        <section class="catalog" aria-labelledby="cat-accesorios">
+            <div class="catalog__header">
+                <h3 class="catalog__heading">
+                    <button class="catalog__toggle" id="btnseccionaccesorios" aria-expanded="false"
                         aria-controls="productos-accesorios">
-                        <span class="section-title" id="cat-accesorios">Accesorios</span>
-                        <span class="flecha" id="flechaaccesorios" aria-hidden="true">ᐯ</span>
-                        <span class="linea"></span>
+                        <span class="catalog__category-title" id="cat-accesorios">Accesorios</span>
+                        <span class="catalog__arrow" id="flechaaccesorios" aria-hidden="true">ᐯ</span>
+                        <span class="catalog__line"></span>
                     </button>
                 </h3>
             </div>
 
-            <p class="pseccion pseccionaccesorios">Bronce</p>
-            <div id="accesorios-bronce" class="productos productosaccesorios"></div>
+            <p class="catalog__subtitle pseccionaccesorios">Bronce</p>
+            <div id="accesorios-bronce" class="catalog__grid productosaccesorios"></div>
 
-            <p class="pseccion pseccionaccesorios">Alpaca</p>
-            <div id="accesorios-alpaca" class="productos productosaccesorios"></div>
+            <p class="catalog__subtitle pseccionaccesorios">Alpaca</p>
+            <div id="accesorios-alpaca" class="catalog__grid productosaccesorios"></div>
         </section>
-
-        <div class="spacer-medium"></div>
 
         <section id="margenproductos">
-            <div class="caja">
-                <div class="txttitulo">
-                    <h2 class="section-heading">¿Como encargar?</h2>
+            <div class="section-header">
+                <div class="section-header__inner">
+                    <h2 id="encargos" class="section-header__title">¿Cómo encargar?</h2>
                 </div>
             </div>
         </section>
 
-        <div id="contenedorencargos" class="contenedorencargos">
-            <div class="encargos-intro">
+        <div class="encargos">
+            <div class="encargos__intro">
                 <p>Explora el catálogo y cuando encuentres lo que te gusta, enviame un mensaje por Instagram <a
                         href="https://www.instagram.com/gypsy.joyas/" target="_blank" rel="noopener noreferrer"
                         class="text-underline">(@gypsy.joyas)</a>.</p>
             </div>
 
-            <div class="encargos-grid">
+            <div class="encargos__grid">
 
-                <div class="card-encargo">
-                    <div class="card-content">
-                        <h3 class="titulo-main">Soy de <br> <span class="highlight">Mendoza</span></h3>
-                        <div class="divider-vertical"></div>
-                        <p class="texto-desc">Si te encontrás en la provincia de Mendoza, podés retirar tu pedido en mi
+                <div class="encargos__card">
+                    <div class="encargos__content">
+                        <h3 class="encargos__title">Soy de <br> <span class="encargos__highlight">Mendoza</span></h3>
+                        <div class="encargos__divider"></div>
+                        <p class="encargos__description">Si te encontrás en la provincia de Mendoza, podés retirar tu
+                            pedido en mi
                             taller de Godoy Cruz o coordinar otro punto de encuentro.</p>
                     </div>
                 </div>
 
 
-                <div class="card-encargo">
-                    <div class="card-content">
-                        <p class="texto-desc">Para quienes están fuera de Mendoza, hago envíos por Correo Argentino a
+                <div class="encargos__card">
+                    <div class="encargos__content">
+                        <p class="encargos__description">Para quienes están fuera de Mendoza, hago envíos por Correo
+                            Argentino a
                             cualquier provincia. Puede ser a domicilio o a tu sucursal más cercana. Para cotizarlo,
                             enviame tu código postal por mensaje privado de Instagram.</p>
-                        <div class="divider-vertical"></div>
-                        <h3 class="titulo-main align-right">Soy de <br> <span class="highlight">otra provincia</span>
+                        <div class="encargos__divider"></div>
+                        <h3 class="encargos__title encargos__title--right">Soy de <br> <span
+                                class="encargos__highlight">otra provincia</span>
                         </h3>
                     </div>
                 </div>
             </div>
 
-            <div class="encargos-action">
-                <a href="https://ig.me/m/gypsy.joyas" class="btn-encargar-styled" target="_blank"
+            <div class="encargos__action">
+                <a href="https://ig.me/m/gypsy.joyas" class="btn--primary" target="_blank"
                     rel="noopener noreferrer">Encargar ahora</a>
             </div>
         </div>
 
-        <div class="spacer-large"></div>
-
-        <footer class="site-footer">
-            <div class="footer-container">
-                <p class="footer-brand">Gypsy Joyas</p>
-                <p class="footer-tagline">Joyería hecha a mano</p>
+        <footer id="contacto" class="footer">
+            <div class="footer__container">
+                <p class="footer__brand">Gypsy Joyas</p>
+                <p class="footer__tagline">Joyería hecha a mano</p>
 
                 <div class="social-icons">
                     <a href="https://www.instagram.com/gypsy.joyas/" target="_blank" rel="noopener noreferrer"
-                        aria-label="Instagram de Gypsy Joyas">
+                        aria-label="Instagram de Gypsy Joyas" class="social-icons__link">
                         <i class="fa-brands fa-instagram"></i>
                     </a>
                     <a href="mailto:gypsyaccmendoza@gmail.com?subject=%C2%A1Tengo%20una%20consulta!&body=Hola%20%E2%9C%A8%2C%20quisiera%20hacer%20una%20consulta%20sobre%20tus%20productos"
-                        aria-label="Email de Gypsy Joyas">
+                        aria-label="Email de Gypsy Joyas" class="social-icons__link">
                         <i class="fa-solid fa-envelope"></i>
                     </a>
 
                 </div>
 
-                <p class="copyright">© 2026 Gypsy Joyas. Todos los derechos reservados.</p>
+                <p class="footer__copyright">© 2026 Gypsy Joyas. Todos los derechos reservados.</p>
             </div>
         </footer>
 
