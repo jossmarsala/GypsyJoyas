@@ -306,16 +306,41 @@ select:focus {
   background-color: #fff;
 }
 
-/* Table Styles */
-.table-responsive {
+/* Product List Structure Phase 1 & 2 */
+.inventory-main-container {
   width: 100%;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
+  max-width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  position: relative;
 }
 
+.product-list-content-area {
+  flex: 1;
+  overflow-y: scroll;
+  width: 100%;
+  max-width: 100%;
+  padding-bottom: 1rem;
+}
+
+.inventory-list-wrapper {
+  overflow-x: auto;
+  width: 100%;
+  max-width: 100%;
+  padding-bottom: 15px;
+  /* Extra padding so the scrollbar doesn't eat content */
+  -webkit-overflow-scrolling: touch;
+  scrollbar-gutter: stable;
+  /* Phase 5 UX */
+}
+
+/* Table Styles Phase 3 */
 .data-table {
   width: 100%;
-  min-width: 600px;
+  min-width: 850px;
   table-layout: fixed;
   border-collapse: separate;
   border-spacing: 0 0.5rem;
