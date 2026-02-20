@@ -194,7 +194,7 @@ select:hover {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 140px;
+  min-height: 100px;
 }
 
 .metric-card h3 {
