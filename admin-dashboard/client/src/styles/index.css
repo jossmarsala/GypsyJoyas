@@ -66,6 +66,7 @@ body {
   flex-direction: column;
   gap: 1.5rem;
   overflow-y: auto;
+  overflow-x: hidden;
   min-width: 0;
   max-width: 100%;
 }
@@ -686,6 +687,10 @@ select:focus {
 
   .dashboard-main-card {
     grid-column: span 1;
+  }
+
+  .inventory-main-container {
+    min-height: 700px;
   }
 }
 
