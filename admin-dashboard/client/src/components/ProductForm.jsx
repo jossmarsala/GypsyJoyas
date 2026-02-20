@@ -62,8 +62,8 @@ const ProductForm = ({ product, onClose, onSave }) => {
             }
             onSave();
         } catch (error) {
-            console.error("Failed to save product:", error);
-            const message = error.response?.data?.error || error.message || "Error saving product";
+            console.error("Error al guardar producto:", error);
+            const message = error.response?.data?.error || error.message || "Error al procesar la solicitud.";
             alert(`Error: ${message}`);
         }
     };
@@ -71,28 +71,37 @@ const ProductForm = ({ product, onClose, onSave }) => {
     return (
         <div style={{
             position: 'fixed', top: 0, left: 0, right: 0, bottom: 0,
-            backgroundColor: 'rgba(0,0,0,0.5)', display: 'flex', justifyContent: 'center', alignItems: 'center', zIndex: 1000
+            backgroundColor: 'rgba(0,0,0,0.4)',
+            backdropFilter: 'blur(4px)',
+            display: 'flex', justifyContent: 'center', alignItems: 'center', zIndex: 1000,
+            padding: '1rem'
         }}>
             <div style={{
-                backgroundColor: 'white', padding: '2rem', borderRadius: '16px',
-                width: '500px', maxHeight: '90vh', overflowY: 'auto'
+                backgroundColor: 'var(--card-bg)',
+                padding: '2rem',
+                borderRadius: 'var(--border-radius-lg)',
+                width: '100%',
+                maxWidth: '500px',
+                maxHeight: '90vh',
+                overflowY: 'auto',
+                boxShadow: 'var(--shadow-md)'
             }}>
-                <h2 className="card-title">{product ? 'Edit Product' : 'Add New Product'}</h2>
-                <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                <h2 className="card-title">{product ? 'Editar Producto' : 'Añadir Nuevo Producto'}</h2>
+                <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
 
-                    <label>
-                        Name:
+                    <label style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem', fontWeight: 500 }}>
+                        <span style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>Nombre del producto</span>
                         <input name="nombre" value={formData.nombre} onChange={handleChange} required />
                     </label>
 
-                    <label>
-                        Price:
+                    <label style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem', fontWeight: 500 }}>
+                        <span style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>Precio ($)</span>
                         <input type="number" name="precio" value={formData.precio} onChange={handleChange} required min="1" />
                     </label>
 
                     <div style={{ display: 'flex', gap: '1rem' }}>
-                        <label style={{ flex: 1 }}>
-                            Category:
+                        <label style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '0.25rem', fontWeight: 500 }}>
+                            <span style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>Categoría</span>
                             <select name="category" value={formData.category} onChange={handleChange}>
                                 <option value="aros">Aros</option>
                                 <option value="collares">Collares</option>
@@ -101,8 +110,8 @@ const ProductForm = ({ product, onClose, onSave }) => {
                                 <option value="accesorios">Accesorios</option>
                             </select>
                         </label>
-                        <label style={{ flex: 1 }}>
-                            Material:
+                        <label style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '0.25rem', fontWeight: 500 }}>
+                            <span style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>Material</span>
                             <select name="material" value={formData.material} onChange={handleChange}>
                                 <option value="Bronce">Bronce</option>
                                 <option value="Alpaca">Alpaca</option>
@@ -110,27 +119,27 @@ const ProductForm = ({ product, onClose, onSave }) => {
                         </label>
                     </div>
 
-                    <label>
-                        Image:
-                        <input type="file" onChange={handleImageChange} accept="image/*" />
+                    <label style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem', fontWeight: 500 }}>
+                        <span style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>Imagen</span>
+                        <input type="file" onChange={handleImageChange} accept="image/*" style={{ padding: '0.5rem', border: '1px dashed #d1d5db', background: 'transparent' }} />
                         {preview && (
-                            <img src={preview} alt="Preview" style={{ marginTop: '0.5rem', maxHeight: '100px', objectFit: 'contain' }} />
+                            <img src={preview} alt="Vista previa" style={{ marginTop: '0.5rem', maxHeight: '120px', objectFit: 'contain', borderRadius: '8px' }} />
                         )}
                     </label>
 
-                    <label>
-                        Alt Text:
+                    <label style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem', fontWeight: 500 }}>
+                        <span style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>Texto Alternativo (SEO)</span>
                         <input name="alt" value={formData.alt} onChange={handleChange} required />
                     </label>
 
-                    <label>
-                        CSS Class (Optional):
-                        <input name="claseImagen" value={formData.claseImagen} onChange={handleChange} placeholder="e.g. filter-contrast-low" />
+                    <label style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem', fontWeight: 500 }}>
+                        <span style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>Clase CSS (Opcional)</span>
+                        <input name="claseImagen" value={formData.claseImagen} onChange={handleChange} placeholder="ej. filter-contrast-low" />
                     </label>
 
                     <div style={{ display: 'flex', gap: '1rem', marginTop: '1rem' }}>
-                        <button type="submit" className="btn btn-primary" style={{ flex: 1 }}>Save</button>
-                        <button type="button" className="btn btn-secondary" onClick={onClose} style={{ flex: 1, backgroundColor: '#9ca3af' }}>Cancel</button>
+                        <button type="submit" className="btn btn-primary" style={{ flex: 1 }}>Guardar</button>
+                        <button type="button" className="btn btn-secondary" onClick={onClose} style={{ flex: 1 }}>Cancelar</button>
                     </div>
                 </form>
             </div>

@@ -3,13 +3,18 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Dashboard from './pages/Dashboard';
 import './styles/index.css';
 
+import Sidebar from './components/Sidebar';
+
 function App() {
   return (
     <Router basename="/admin">
       <div className="app-container">
-        <Routes>
-          <Route path="/" element={<Dashboard />} />
-        </Routes>
+        <Sidebar />
+        <main className="main-content">
+          <Routes>
+            <Route path="/" element={<Dashboard />} />
+          </Routes>
+        </main>
       </div>
     </Router>
   );

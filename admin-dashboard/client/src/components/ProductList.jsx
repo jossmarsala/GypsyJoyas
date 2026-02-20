@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { deleteProduct } from '../services/api';
+import { FiEdit2, FiTrash2 } from 'react-icons/fi';
 
 const ProductList = ({ products, onEdit, onDelete }) => {
     const [filterCategory, setFilterCategory] = useState('');
@@ -12,22 +13,22 @@ const ProductList = ({ products, onEdit, onDelete }) => {
     });
 
     const handleDelete = async (id) => {
-        if (window.confirm('Are you sure you want to delete this product?')) {
+        if (window.confirm('¿Seguro que deseas eliminar este producto?')) {
             try {
                 await deleteProduct(id);
                 onDelete(); // Refresh list
             } catch (error) {
-                console.error("Failed to delete product:", error);
+                console.error("Error al eliminar producto:", error);
             }
         }
     };
 
     return (
         <div style={{ height: 'calc(100% - 60px)', display: 'flex', flexDirection: 'column' }}>
-            <div style={{ display: 'flex', gap: '1rem', marginBottom: '1rem' }}>
+            <div style={{ display: 'flex', gap: '1rem', marginBottom: '1.5rem' }}>
                 <input
                     type="text"
-                    placeholder="Search products..."
+                    placeholder="Buscar producto..."
                     value={filterSearch}
                     onChange={(e) => setFilterSearch(e.target.value)}
                     style={{ flex: 1 }}
@@ -37,7 +38,7 @@ const ProductList = ({ products, onEdit, onDelete }) => {
                     onChange={(e) => setFilterCategory(e.target.value)}
                     style={{ flex: 0.5 }}
                 >
-                    <option value="">All Categories</option>
+                    <option value="">Todas las categorías</option>
                     <option value="aros">Aros</option>
                     <option value="collares">Collares</option>
                     <option value="anillos">Anillos</option>
@@ -46,57 +47,65 @@ const ProductList = ({ products, onEdit, onDelete }) => {
                 </select>
             </div>
 
-            <div style={{ flex: 1, overflowY: 'auto' }}>
-                <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+            <div style={{ flex: 1, overflowY: 'auto', paddingRight: '0.5rem' }}>
+                <table className="data-table">
                     <thead>
-                        <tr style={{ borderBottom: '2px solid #eee', textAlign: 'left' }}>
-                            <th style={{ padding: '0.5rem' }}>Image</th>
-                            <th style={{ padding: '0.5rem' }}>Name</th>
-                            <th style={{ padding: '0.5rem' }}>Price</th>
-                            <th style={{ padding: '0.5rem' }}>Category</th>
-                            <th style={{ padding: '0.5rem' }}>Material</th>
-                            <th style={{ padding: '0.5rem' }}>Actions</th>
+                        <tr>
+                            <th>Imagen</th>
+                            <th>Producto</th>
+                            <th>Precio</th>
+                            <th>Categoría</th>
+                            <th>Material</th>
+                            <th style={{ textAlign: 'right' }}>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
                         {filteredProducts.map(product => (
-                            <tr key={product.id} style={{ borderBottom: '1px solid #eee' }}>
-                                <td style={{ padding: '0.5rem' }}>
+                            <tr key={product.id}>
+                                <td>
                                     <img
                                         src={`http://localhost:3001/${product.imagen}`}
                                         alt={product.alt}
-                                        style={{ width: '40px', height: '40px', objectFit: 'cover', borderRadius: '4px' }}
+                                        style={{ width: '40px', height: '40px', objectFit: 'cover', borderRadius: '8px' }}
                                         onError={(e) => { e.target.src = 'https://via.placeholder.com/40'; }}
                                     />
                                 </td>
-                                <td style={{ padding: '0.5rem' }}>{product.nombre}</td>
-                                <td style={{ padding: '0.5rem' }}>${product.precio}</td>
-                                <td style={{ padding: '0.5rem' }}>{product.categoria}</td>
-                                <td style={{ padding: '0.5rem' }}>
-                                    <span style={{
-                                        padding: '2px 8px',
-                                        borderRadius: '12px',
-                                        fontSize: '0.8rem',
-                                        backgroundColor: product.material === 'Bronce' ? '#fcd34d' : '#e5e7eb',
-                                        color: '#333'
-                                    }}>
+                                <td style={{ fontWeight: 500 }}>{product.nombre}</td>
+                                <td>${product.precio}</td>
+                                <td style={{ textTransform: 'capitalize' }}>{product.categoria}</td>
+                                <td>
+                                    <span
+                                        className="badge"
+                                        style={{
+                                            backgroundColor: product.material === 'Bronce' ? 'var(--bento-yellow)' : 'var(--secondary-color)',
+                                            color: product.material === 'Bronce' ? '#b45309' : 'var(--text-main)'
+                                        }}
+                                    >
                                         {product.material}
                                     </span>
                                 </td>
-                                <td style={{ padding: '0.5rem' }}>
+                                <td style={{ textAlign: 'right' }}>
                                     <button
-                                        style={{ marginRight: '0.5rem', color: 'blue', background: 'none', border: 'none', cursor: 'pointer' }}
+                                        className="btn-icon"
+                                        title="Editar"
                                         onClick={() => onEdit(product)}
-                                    >Edit</button>
+                                    ><FiEdit2 /></button>
                                     <button
-                                        style={{ color: 'red', background: 'none', border: 'none', cursor: 'pointer' }}
+                                        className="btn-icon"
+                                        style={{ color: '#ef4444' }}
+                                        title="Eliminar"
                                         onClick={() => handleDelete(product.id)}
-                                    >Delete</button>
+                                    ><FiTrash2 /></button>
                                 </td>
                             </tr>
                         ))}
                     </tbody>
                 </table>
+                {filteredProducts.length === 0 && (
+                    <div style={{ textAlign: 'center', padding: '3rem 0', color: 'var(--text-muted)' }}>
+                        No se encontraron productos con esos filtros.
+                    </div>
+                )}
             </div>
         </div>
     );

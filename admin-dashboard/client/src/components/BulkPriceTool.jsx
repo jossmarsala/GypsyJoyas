@@ -9,7 +9,7 @@ const BulkPriceTool = ({ onUpdate }) => {
 
     const handleApply = async () => {
         if (percentage === 0) return;
-        if (!window.confirm(`Are you sure you want to change prices by ${percentage}%?`)) return;
+        if (!window.confirm(`¿Seguro que deseas modificar los precios en un ${percentage}%?`)) return;
 
         try {
             const res = await bulkUpdatePrice({
@@ -22,22 +22,22 @@ const BulkPriceTool = ({ onUpdate }) => {
             setTimeout(() => setMessage(''), 3000);
         } catch (error) {
             console.error(error);
-            setMessage('Error updating prices');
+            setMessage('Error al actualizar precios');
         }
     };
 
     return (
         <div>
-            <h2 className="card-title">Bulk Price Tool</h2>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+            <h2 className="card-title">Actualización masiva de precios</h2>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                 <input
                     type="number"
-                    placeholder="Percentage (e.g. 10 or -5)"
+                    placeholder="Porcentaje (ej. 10 o -5)"
                     value={percentage}
                     onChange={(e) => setPercentage(e.target.value)}
                 />
                 <select value={category} onChange={(e) => setCategory(e.target.value)}>
-                    <option value="">All Categories</option>
+                    <option value="">Todas las categorías</option>
                     <option value="aros">Aros</option>
                     <option value="collares">Collares</option>
                     <option value="anillos">Anillos</option>
@@ -45,14 +45,14 @@ const BulkPriceTool = ({ onUpdate }) => {
                     <option value="accesorios">Accesorios</option>
                 </select>
                 <select value={material} onChange={(e) => setMaterial(e.target.value)}>
-                    <option value="">All Materials</option>
+                    <option value="">Todos los materiales</option>
                     <option value="Bronce">Bronce</option>
                     <option value="Alpaca">Alpaca</option>
                 </select>
                 <button className="btn btn-secondary" onClick={handleApply}>
-                    Apply Change
+                    Aplicar
                 </button>
-                {message && <p style={{ fontSize: '0.8rem', color: 'green' }}>{message}</p>}
+                {message && <p style={{ fontSize: '0.85rem', color: '#16a34a', marginTop: '0.25rem' }}>{message}</p>}
             </div>
         </div>
     );

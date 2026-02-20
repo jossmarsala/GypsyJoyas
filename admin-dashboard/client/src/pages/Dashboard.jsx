@@ -4,7 +4,8 @@ import ProductList from '../components/ProductList';
 import ProductForm from '../components/ProductForm';
 import BulkPriceTool from '../components/BulkPriceTool';
 import SettingsCard from '../components/SettingsCard';
-import StatsCard from '../components/StatsCard';
+import MetricCard from '../components/MetricCard';
+import TopBar from '../components/TopBar';
 
 const Dashboard = () => {
     const [products, setProducts] = useState([]);
@@ -57,29 +58,67 @@ const Dashboard = () => {
         }
     };
 
-    if (loading) return <div style={{ padding: '2rem' }}>Loading Dashboard...</div>;
+    if (loading) return <div style={{ padding: '2rem' }}>Cargando Panel...</div>;
+
+    const totalProducts = products.length;
+    const bronceProducts = products.filter(p => p.material.toLowerCase() === 'bronce').length;
+    const alpacaProducts = products.filter(p => p.material.toLowerCase() === 'alpaca').length;
+    const uniqueCategories = new Set(products.map(p => p.categoria)).size;
 
     return (
-        <div className="bento-grid">
-            <StatsCard products={products} className="col-span-4" />
+        <>
+            <TopBar />
 
-            <div className="bento-card col-span-3 row-span-2" style={{ minHeight: '600px' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
-                    <h2 className="card-title">Product Catalog</h2>
-                    <button className="btn btn-primary" onClick={handleAdd}>+ Add Product</button>
-                </div>
-                <ProductList products={products} onEdit={handleEdit} onDelete={fetchData} />
-            </div>
-
-            <div className="bento-card col-span-1">
-                <SettingsCard
-                    maintenanceMode={maintenanceMode}
-                    onToggle={handleToggleMaintenance}
+            <div className="bento-grid">
+                <MetricCard
+                    title="Total de Productos:"
+                    value={totalProducts}
+                    label="Artículos en catálogo"
+                    bgColor="var(--bento-yellow)"
+                />
+                <MetricCard
+                    title="Bronce:"
+                    value={bronceProducts}
+                    label="Piezas disponibles"
+                    bgColor="var(--bento-pink)"
+                />
+                <MetricCard
+                    title="Alpaca:"
+                    value={alpacaProducts}
+                    label="Piezas disponibles"
+                    bgColor="var(--bento-blue)"
+                />
+                <MetricCard
+                    title="Categorías:"
+                    value={uniqueCategories}
+                    label="Líneas de producto"
+                    bgColor="var(--bento-green)"
                 />
             </div>
 
-            <div className="bento-card col-span-1">
-                <BulkPriceTool onUpdate={fetchData} />
+            <div className="bento-grid" style={{ gridTemplateColumns: 'repeat(3, 1fr)' }}>
+                <div className="bento-card" style={{ gridColumn: 'span 2', minHeight: '500px' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
+                        <h2 className="card-title" style={{ marginBottom: 0 }}>Inventario de Joyas</h2>
+                        <button className="btn btn-primary" onClick={handleAdd}>
+                            + Registrar Producto
+                        </button>
+                    </div>
+                    <ProductList products={products} onEdit={handleEdit} onDelete={fetchData} />
+                </div>
+
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                    <div className="bento-card">
+                        <SettingsCard
+                            maintenanceMode={maintenanceMode}
+                            onToggle={handleToggleMaintenance}
+                        />
+                    </div>
+
+                    <div className="bento-card">
+                        <BulkPriceTool onUpdate={fetchData} />
+                    </div>
+                </div>
             </div>
 
             {isFormOpen && (
@@ -89,7 +128,7 @@ const Dashboard = () => {
                     onSave={handleCloseForm}
                 />
             )}
-        </div>
+        </>
     );
 };
 
