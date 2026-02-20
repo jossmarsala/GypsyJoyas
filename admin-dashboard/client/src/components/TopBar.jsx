@@ -5,24 +5,26 @@ const TopBar = () => {
     return (
         <div className="top-bar">
             <div className="greeting">
-                <h1>Buenos días, Equipo</h1>
-                <p>Aquí tienen el resumen del inventario actual y las opciones de gestión.</p>
+                <h1>¡Hola, Fran!</h1>
+                <p>Aquí podrás ver el resumen de tu inventario actual y las opciones de gestión.</p>
             </div>
 
-            <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center' }}>
+            <div className="top-bar-actions">
                 <div style={{
                     display: 'flex',
                     alignItems: 'center',
                     background: '#fff',
                     padding: '0.5rem 1rem',
                     borderRadius: 'var(--border-radius-lg)',
-                    boxShadow: 'var(--shadow-sm)'
+                    boxShadow: 'var(--shadow-sm)',
+                    flex: '1 1 auto',
+                    minWidth: '50px'
                 }}>
                     <FiSearch color="var(--text-muted)" style={{ marginRight: '0.5rem' }} />
                     <input
                         type="text"
                         placeholder="Buscar..."
-                        style={{ border: 'none', background: 'transparent', padding: 0, width: '150px' }}
+                        style={{ border: 'none', background: 'transparent', padding: 0, width: '100%' }}
                     />
                 </div>
 

@@ -99,7 +99,7 @@ const ProductForm = ({ product, onClose, onSave }) => {
                         <input type="number" name="precio" value={formData.precio} onChange={handleChange} required min="1" />
                     </label>
 
-                    <div style={{ display: 'flex', gap: '1rem' }}>
+                    <div className="form-row">
                         <label style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '0.25rem', fontWeight: 500 }}>
                             <span style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>Categoría</span>
                             <select name="category" value={formData.category} onChange={handleChange}>

@@ -8,7 +8,7 @@ const Sidebar = () => {
     return (
         <aside className="sidebar">
             <div className="sidebar-brand">
-                GypsyJoyas
+                Catálogo de Gypsy Joyas
             </div>
 
             <nav className="sidebar-nav">
@@ -32,7 +32,7 @@ const Sidebar = () => {
                 </div>
             </nav>
 
-            <div style={{ marginTop: 'auto', paddingTop: '1rem', borderTop: '1px solid rgba(255,255,255,0.1)' }}>
+            <div className="sidebar-logout" style={{ marginTop: 'auto', paddingTop: '1rem', borderTop: '1px solid rgba(255,255,255,0.1)' }}>
                 <div className="nav-item">
                     <FiLogOut size={20} />
                     <span>Cerrar sesión</span>

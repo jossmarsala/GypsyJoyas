@@ -96,9 +96,9 @@ const Dashboard = () => {
                 />
             </div>
 
-            <div className="bento-grid" style={{ gridTemplateColumns: 'repeat(3, 1fr)' }}>
-                <div className="bento-card" style={{ gridColumn: 'span 2', minHeight: '500px' }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
+            <div className="bento-grid dashboard-bottom-grid">
+                <div className="bento-card dashboard-main-card" style={{ minHeight: '500px' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', flexWrap: 'wrap', gap: '1rem' }}>
                         <h2 className="card-title" style={{ marginBottom: 0 }}>Inventario de Joyas</h2>
                         <button className="btn btn-primary" onClick={handleAdd}>
                             + Registrar Producto

@@ -306,16 +306,37 @@ select:focus {
   display: inline-block;
 }
 
-/* Responsive */
+/* Responsive Utilities */
+.dashboard-bottom-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.dashboard-main-card {
+  grid-column: span 2;
+}
+
+.top-bar-actions {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.form-row {
+  display: flex;
+  gap: 1rem;
+}
+
 @media (max-width: 1024px) {
   .app-container {
     flex-direction: column;
+    padding: 1rem;
   }
 
   .sidebar {
     width: auto;
     flex-direction: row;
     padding: 1rem;
+    align-items: center;
   }
 
   .sidebar-brand {
@@ -326,15 +347,87 @@ select:focus {
   .sidebar-nav {
     flex-direction: row;
     overflow-x: auto;
+    padding-bottom: 0.5rem;
+    /* For scrollbar breathing room */
+    /* Hide scrollbar for a cleaner look */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .sidebar-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .sidebar-logout {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    border-top: none !important;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    padding-left: 1rem;
+    margin-left: 1rem;
   }
 
   .bento-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dashboard-bottom-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-main-card {
+    grid-column: span 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .top-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .top-bar-actions {
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 1.25rem;
   }
 }
 
 @media (max-width: 640px) {
   .bento-grid {
     grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    flex-wrap: wrap;
+  }
+
+  .sidebar-nav {
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .sidebar-logout {
+    border-left: none;
+    padding-left: 0;
+    margin-left: 0;
+    width: 100%;
+    border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+    padding-top: 1rem !important;
+    margin-top: 0.5rem !important;
+  }
+
+  .top-bar-actions input {
+    width: 100% !important;
+  }
+
+  .top-bar-actions>div {
+    flex: 1;
   }
 }
