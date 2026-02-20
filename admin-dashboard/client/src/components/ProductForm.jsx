@@ -63,7 +63,8 @@ const ProductForm = ({ product, onClose, onSave }) => {
             onSave();
         } catch (error) {
             console.error("Failed to save product:", error);
-            alert("Error saving product");
+            const message = error.response?.data?.error || error.message || "Error saving product";
+            alert(`Error: ${message}`);
         }
     };
 
