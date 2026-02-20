@@ -58,7 +58,7 @@ const ProductList = ({ products, onEdit, onDelete, viewMode = 'grid', sortBy = '
                 </select>
             </div>
 
-            <div className="product-list-container" style={{ flex: 1, overflowY: 'auto', paddingRight: '0.5rem', paddingBottom: '1rem' }}>
+            <div className="product-list-container" style={{ flex: 1, overflowY: 'auto', paddingBottom: '1rem' }}>
                 {finalProducts.length === 0 ? (
                     <div style={{ textAlign: 'center', padding: '3rem 0', color: 'var(--text-muted)' }}>
                         No se encontraron productos con esos filtros.

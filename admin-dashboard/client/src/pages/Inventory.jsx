@@ -35,8 +35,7 @@ const Inventory = ({ products, refetch, loading }) => {
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', flexWrap: 'wrap', gap: '1rem', flexShrink: 0 }}>
                 <h2 className="card-title" style={{ marginBottom: 0 }}>Inventario de Joyas</h2>
 
-                <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap' }}>
-
+                <div className="inventory-controls" style={{ display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap', flex: 1, justifyContent: 'flex-end' }}>
                     <div style={{ display: 'flex', background: 'var(--secondary-color)', borderRadius: '8px', padding: '4px' }}>
                         <button
                             className="btn-icon"
@@ -59,7 +58,7 @@ const Inventory = ({ products, refetch, loading }) => {
                     <select
                         value={sortBy}
                         onChange={(e) => setSortBy(e.target.value)}
-                        style={{ padding: '0.4rem 0.5rem', borderRadius: '8px', border: '1px solid #e5e7eb', outline: 'none', background: 'white' }}
+                        style={{ minWidth: '160px' }}
                     >
                         <option value="recent">Más recientes</option>
                         <option value="name_asc">Nombre (A-Z)</option>
@@ -67,7 +66,7 @@ const Inventory = ({ products, refetch, loading }) => {
                         <option value="price_desc">Mayor precio</option>
                     </select>
 
-                    <button className="btn btn-primary" onClick={handleAdd}>
+                    <button className="btn btn-primary" onClick={handleAdd} style={{ whiteSpace: 'nowrap' }}>
                         + Registrar Producto
                     </button>
                 </div>

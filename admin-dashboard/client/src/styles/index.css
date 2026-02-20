@@ -537,6 +537,7 @@ select:focus {
 
 .product-card-content {
   padding: 1rem;
+  padding-bottom: 0.5rem;
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -566,9 +567,8 @@ select:focus {
 .product-card-actions {
   display: flex;
   gap: 0.5rem;
-  margin-top: 1rem;
-  padding-top: 1rem;
-  border-top: 1px solid var(--secondary-color);
+  margin-top: auto;
+  padding-top: 0.5rem;
   justify-content: flex-end;
 }
 
