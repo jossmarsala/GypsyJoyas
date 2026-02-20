@@ -62,8 +62,8 @@ const TopBar = () => {
                                 <span>Administrador</span>
                             </div>
                             <div className="dropdown-divider"></div>
-                            <Link to="/ajustes" className="dropdown-item" onClick={() => setOpenDropdown(null)}>Mi Perfil</Link>
-                            <button className="dropdown-item text-danger" onClick={() => alert('Cerrar sesión...')}>Cerrar sesión</button>
+                            <div className="dropdown-item disabled-item">Mi Perfil</div>
+                            <button className="dropdown-item text-danger disabled-item">Cerrar sesión</button>
                         </div>
                     )}
                 </div>
@@ -101,11 +101,9 @@ const TopBar = () => {
                     )}
                 </div>
 
-                <Link to="/ajustes">
-                    <button className="btn-icon" style={{ background: 'var(--primary-color)', color: 'white' }}>
-                        <FiSettings size={20} />
-                    </button>
-                </Link>
+                <button className="btn-icon disabled-item" style={{ background: 'var(--primary-color)', color: 'white' }}>
+                    <FiSettings size={20} />
+                </button>
             </div>
         </div>
     );

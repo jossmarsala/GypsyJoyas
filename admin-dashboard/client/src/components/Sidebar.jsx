@@ -8,7 +8,7 @@ const Sidebar = () => {
     return (
         <aside className="sidebar">
             <div className="sidebar-brand">
-                Catálogo Gypsy
+                Catálogo de Gypsy Joyas
             </div>
 
             <nav className="sidebar-nav">
@@ -21,19 +21,23 @@ const Sidebar = () => {
                     <span>Resumen</span>
                 </Link>
 
-                <div className={`nav-item ${location.pathname === '/inventario' ? 'active' : ''}`}>
+                <Link
+                    to="/inventario"
+                    className={`nav-item ${location.pathname === '/inventario' ? 'active' : ''}`}
+                    style={{ textDecoration: 'none' }}
+                >
                     <FiBox size={20} />
                     <span>Inventario</span>
-                </div>
+                </Link>
 
-                <div className={`nav-item ${location.pathname === '/ajustes' ? 'active' : ''}`}>
+                <div className={`nav-item disabled-item ${location.pathname === '/ajustes' ? 'active' : ''}`}>
                     <FiSettings size={20} />
                     <span>Ajustes</span>
                 </div>
             </nav>
 
             <div className="sidebar-logout" style={{ marginTop: 'auto', paddingTop: '1rem', borderTop: '1px solid rgba(255,255,255,0.1)' }}>
-                <div className="nav-item">
+                <div className="nav-item disabled-item">
                     <FiLogOut size={20} />
                     <span>Cerrar sesión</span>
                 </div>
