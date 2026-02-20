@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
 import ProductList from '../components/ProductList';
 import ProductForm from '../components/ProductForm';
+import Loader from '../components/Loader';
 import { FiGrid, FiList } from 'react-icons/fi';
 
-const Inventory = ({ products, refetch }) => {
+const Inventory = ({ products, refetch, loading }) => {
     const [selectedProduct, setSelectedProduct] = useState(null);
     const [isFormOpen, setIsFormOpen] = useState(false);
 
     // View controls
     const [viewMode, setViewMode] = useState('grid');
     const [sortBy, setSortBy] = useState('recent');
+
+    if (loading) return <Loader />;
 
     const handleEdit = (product) => {
         setSelectedProduct(product);
@@ -28,7 +31,7 @@ const Inventory = ({ products, refetch }) => {
     };
 
     return (
-        <div className="bento-card" style={{ height: 'calc(100vh - 120px)', minHeight: '500px', display: 'flex', flexDirection: 'column' }}>
+        <div className="bento-card" style={{ flex: 1, minHeight: 0, display: 'flex', flexDirection: 'column' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', flexWrap: 'wrap', gap: '1rem', flexShrink: 0 }}>
                 <h2 className="card-title" style={{ marginBottom: 0 }}>Inventario de Joyas</h2>
 

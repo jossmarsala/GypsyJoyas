@@ -18,8 +18,8 @@ function DashboardLayout() {
         <TopBar notifications={notifications} />
         <Routes>
           <Route path="/" element={<DashboardOverview products={products} loading={loading} refetch={refetch} maintenanceMode={maintenanceMode} setMaintenanceMode={setMaintenanceMode} addNotification={addNotification} />} />
-          <Route path="/inventario" element={<Inventory products={products} refetch={refetch} />} />
-          <Route path="/ajustes" element={<Settings maintenanceMode={maintenanceMode} setMaintenanceMode={setMaintenanceMode} refetch={refetch} />} />
+          <Route path="/inventario" element={<Inventory products={products} refetch={refetch} loading={loading} />} />
+          <Route path="/ajustes" element={<Settings maintenanceMode={maintenanceMode} setMaintenanceMode={setMaintenanceMode} refetch={refetch} loading={loading} />} />
         </Routes>
       </main>
     </div>

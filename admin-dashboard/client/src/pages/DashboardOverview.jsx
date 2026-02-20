@@ -4,13 +4,14 @@ import ProductList from '../components/ProductList';
 import ProductForm from '../components/ProductForm';
 import SettingsCard from '../components/SettingsCard';
 import BulkPriceTool from '../components/BulkPriceTool';
+import Loader from '../components/Loader';
 import { toggleMaintenanceMode } from '../services/api';
 
 const DashboardOverview = ({ products, loading, refetch, maintenanceMode, setMaintenanceMode, addNotification }) => {
     const [selectedProduct, setSelectedProduct] = useState(null);
     const [isFormOpen, setIsFormOpen] = useState(false);
 
-    if (loading) return <div style={{ padding: '2rem' }}>Cargando Panel...</div>;
+    if (loading) return <Loader />;
 
     const totalProducts = products.length;
     const bronceProducts = products.filter(p => p.material.toLowerCase() === 'bronce').length;
