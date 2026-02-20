@@ -8,7 +8,7 @@ const Sidebar = () => {
     return (
         <aside className="sidebar">
             <div className="sidebar-brand">
-                Catálogo de Gypsy Joyas
+                Catálogo Gypsy
             </div>
 
             <nav className="sidebar-nav">

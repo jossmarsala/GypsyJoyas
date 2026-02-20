@@ -1,7 +1,26 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { FiSearch, FiBell, FiSettings, FiUser } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
 
 const TopBar = () => {
+    const [openDropdown, setOpenDropdown] = useState(null);
+    const dropdownRef = useRef(null);
+
+    // Close dropdown when clicking outside
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+                setOpenDropdown(null);
+            }
+        };
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => document.removeEventListener('mousedown', handleClickOutside);
+    }, []);
+
+    const toggleDropdown = (menu) => {
+        setOpenDropdown(openDropdown === menu ? null : menu);
+    };
+
     return (
         <div className="top-bar">
             <div className="greeting">
@@ -9,7 +28,7 @@ const TopBar = () => {
                 <p>Aquí podrás ver el resumen de tu inventario actual y las opciones de gestión.</p>
             </div>
 
-            <div className="top-bar-actions">
+            <div className="top-bar-actions" ref={dropdownRef}>
                 <div style={{
                     display: 'flex',
                     alignItems: 'center',
@@ -28,15 +47,65 @@ const TopBar = () => {
                     />
                 </div>
 
-                <button className="btn-icon" style={{ background: 'var(--primary-color)', color: 'white' }}>
-                    <FiUser size={20} />
-                </button>
-                <button className="btn-icon" style={{ background: 'var(--primary-color)', color: 'white' }}>
-                    <FiBell size={20} />
-                </button>
-                <button className="btn-icon" style={{ background: 'var(--primary-color)', color: 'white' }}>
-                    <FiSettings size={20} />
-                </button>
+                <div className="dropdown-container">
+                    <button
+                        className={`btn-icon ${openDropdown === 'profile' ? 'active' : ''}`}
+                        style={{ background: 'var(--primary-color)', color: 'white' }}
+                        onClick={() => toggleDropdown('profile')}
+                    >
+                        <FiUser size={20} />
+                    </button>
+                    {openDropdown === 'profile' && (
+                        <div className="dropdown-menu">
+                            <div className="dropdown-header">
+                                <strong>Fran Manager</strong>
+                                <span>Administrador</span>
+                            </div>
+                            <div className="dropdown-divider"></div>
+                            <Link to="/ajustes" className="dropdown-item" onClick={() => setOpenDropdown(null)}>Mi Perfil</Link>
+                            <button className="dropdown-item text-danger" onClick={() => alert('Cerrar sesión...')}>Cerrar sesión</button>
+                        </div>
+                    )}
+                </div>
+
+                <div className="dropdown-container">
+                    <button
+                        className={`btn-icon ${openDropdown === 'notifications' ? 'active' : ''}`}
+                        style={{ background: 'var(--primary-color)', color: 'white' }}
+                        onClick={() => toggleDropdown('notifications')}
+                    >
+                        <FiBell size={20} />
+                        <span className="notification-dot"></span>
+                    </button>
+                    {openDropdown === 'notifications' && (
+                        <div className="dropdown-menu">
+                            <div className="dropdown-header">
+                                <strong>Notificaciones</strong>
+                            </div>
+                            <div className="dropdown-divider"></div>
+                            <div className="dropdown-item notif-item">
+                                <span className="notif-dot bg-green"></span>
+                                <div>
+                                    <p>Catálogo actualizado</p>
+                                    <small>Hace 5 min</small>
+                                </div>
+                            </div>
+                            <div className="dropdown-item notif-item">
+                                <span className="notif-dot bg-red"></span>
+                                <div>
+                                    <p>Mantenimiento desactivado</p>
+                                    <small>Hace 2 horas</small>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+                </div>
+
+                <Link to="/ajustes">
+                    <button className="btn-icon" style={{ background: 'var(--primary-color)', color: 'white' }}>
+                        <FiSettings size={20} />
+                    </button>
+                </Link>
             </div>
         </div>
     );
