@@ -16,6 +16,7 @@ const DashboardOverview = ({ products, loading, refetch, maintenanceMode, setMai
     const totalProducts = products.length;
     const bronceProducts = products.filter(p => p.material.toLowerCase() === 'bronce').length;
     const alpacaProducts = products.filter(p => p.material.toLowerCase() === 'alpaca').length;
+    const cobreProducts = products.filter(p => p.material.toLowerCase() === 'cobre').length;
     const uniqueCategories = new Set(products.map(p => p.categoria)).size;
 
     const handleEdit = (product) => {
@@ -70,6 +71,12 @@ const DashboardOverview = ({ products, loading, refetch, maintenanceMode, setMai
                     value={alpacaProducts}
                     label="Piezas disponibles"
                     bgColor="var(--bento-blue)"
+                />
+                <MetricCard
+                    title="Cobre:"
+                    value={cobreProducts}
+                    label="Piezas disponibles"
+                    bgColor="var(--bento-green)"
                 />
                 <MetricCard
                     title="Categorías:"

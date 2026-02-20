@@ -115,6 +115,7 @@ const ProductForm = ({ product, onClose, onSave }) => {
                             <select name="material" value={formData.material} onChange={handleChange}>
                                 <option value="Bronce">Bronce</option>
                                 <option value="Alpaca">Alpaca</option>
+                                <option value="Cobre">Cobre</option>
                             </select>
                         </label>
                     </div>

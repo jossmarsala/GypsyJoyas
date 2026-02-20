@@ -48,6 +48,7 @@ const BulkPriceTool = ({ onUpdate }) => {
                     <option value="">Todos los materiales</option>
                     <option value="Bronce">Bronce</option>
                     <option value="Alpaca">Alpaca</option>
+                    <option value="Cobre">Cobre</option>
                 </select>
                 <button className="btn btn-secondary" onClick={handleApply}>
                     Aplicar

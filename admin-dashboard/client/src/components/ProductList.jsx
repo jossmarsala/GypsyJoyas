@@ -94,8 +94,8 @@ const ProductList = ({ products, onEdit, onDelete, onAdd, viewMode = 'grid', sor
                                     <span
                                         className="badge product-card-badge"
                                         style={{
-                                            backgroundColor: product.material === 'Bronce' ? 'var(--bento-yellow)' : 'var(--secondary-color)',
-                                            color: product.material === 'Bronce' ? '#b45309' : 'var(--text-main)'
+                                            backgroundColor: product.material === 'Bronce' ? 'var(--bento-yellow)' : product.material === 'Cobre' ? 'var(--bento-pink)' : 'var(--secondary-color)',
+                                            color: product.material === 'Bronce' ? '#b45309' : product.material === 'Cobre' ? '#be185d' : 'var(--text-main)'
                                         }}
                                     >
                                         {product.material}
@@ -149,8 +149,8 @@ const ProductList = ({ products, onEdit, onDelete, onAdd, viewMode = 'grid', sor
                                                 <span
                                                     className="badge"
                                                     style={{
-                                                        backgroundColor: product.material === 'Bronce' ? 'var(--bento-yellow)' : 'var(--secondary-color)',
-                                                        color: product.material === 'Bronce' ? '#b45309' : 'var(--text-main)'
+                                                        backgroundColor: product.material === 'Bronce' ? 'var(--bento-yellow)' : product.material === 'Cobre' ? 'var(--bento-pink)' : 'var(--secondary-color)',
+                                                        color: product.material === 'Bronce' ? '#b45309' : product.material === 'Cobre' ? '#be185d' : 'var(--text-main)'
                                                     }}
                                                 >
                                                     {product.material}
