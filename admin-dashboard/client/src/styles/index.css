@@ -62,6 +62,8 @@ body {
   flex-direction: column;
   gap: 1.5rem;
   overflow-y: auto;
+  min-width: 0;
+  max-width: 100%;
 }
 
 /* Form Controls and Inputs */
