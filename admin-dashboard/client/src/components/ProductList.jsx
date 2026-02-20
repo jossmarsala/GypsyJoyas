@@ -42,12 +42,12 @@ const ProductList = ({ products, onEdit, onDelete, viewMode = 'grid', sortBy = '
                     placeholder="Buscar producto..."
                     value={filterSearch}
                     onChange={(e) => setFilterSearch(e.target.value)}
-                    style={{ flex: 1 }}
+                    style={{ flex: 1, minWidth: '200px' }}
                 />
                 <select
                     value={filterCategory}
                     onChange={(e) => setFilterCategory(e.target.value)}
-                    style={{ flex: 0.5 }}
+                    style={{ flex: 0.5, minWidth: '150px' }}
                 >
                     <option value="">Todas las categorías</option>
                     <option value="aros">Aros</option>
