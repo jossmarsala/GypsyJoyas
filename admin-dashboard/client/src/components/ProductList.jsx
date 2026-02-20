@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { deleteProduct, BASE_URL } from '../services/api';
 import { FiEdit2, FiTrash2 } from 'react-icons/fi';
 
-const ProductList = ({ products, onEdit, onDelete, onAdd, viewMode = 'grid', sortBy = 'recent', setSortBy }) => {
+const ProductList = ({ products, onEdit, onDelete, onAdd, viewMode = 'grid', sortBy = 'recent', setSortBy, isCompact = false }) => {
     const [filterCategory, setFilterCategory] = useState('');
     const [filterSearch, setFilterSearch] = useState('');
 
@@ -37,41 +37,43 @@ const ProductList = ({ products, onEdit, onDelete, onAdd, viewMode = 'grid', sor
     return (
         <div style={{ display: 'flex', flexDirection: 'column', flex: 1, minHeight: 0, position: 'relative', width: '100%' }}>
             {/* Filter and Sort Row */}
-            <div style={{ display: 'flex', gap: '1rem', marginBottom: '1.5rem', flexShrink: 0, flexWrap: 'wrap', alignItems: 'center' }}>
-                <input
-                    type="text"
-                    placeholder="Buscar producto..."
-                    value={filterSearch}
-                    onChange={(e) => setFilterSearch(e.target.value)}
-                    style={{ flex: 1, minWidth: '200px' }}
-                />
+            {!isCompact && (
+                <div style={{ display: 'flex', gap: '1rem', marginBottom: '1.5rem', flexShrink: 0, flexWrap: 'wrap', alignItems: 'center' }}>
+                    <input
+                        type="text"
+                        placeholder="Buscar producto..."
+                        value={filterSearch}
+                        onChange={(e) => setFilterSearch(e.target.value)}
+                        style={{ flex: 1, minWidth: '200px' }}
+                    />
 
-                <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-                    <select
-                        value={filterCategory}
-                        onChange={(e) => setFilterCategory(e.target.value)}
-                        style={{ minWidth: '150px' }}
-                    >
-                        <option value="">Todas las categorías</option>
-                        <option value="aros">Aros</option>
-                        <option value="collares">Collares</option>
-                        <option value="anillos">Anillos</option>
-                        <option value="pulseras">Pulseras</option>
-                        <option value="accesorios">Accesorios</option>
-                    </select>
+                    <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+                        <select
+                            value={filterCategory}
+                            onChange={(e) => setFilterCategory(e.target.value)}
+                            style={{ minWidth: '150px' }}
+                        >
+                            <option value="">Todas las categorías</option>
+                            <option value="aros">Aros</option>
+                            <option value="collares">Collares</option>
+                            <option value="anillos">Anillos</option>
+                            <option value="pulseras">Pulseras</option>
+                            <option value="accesorios">Accesorios</option>
+                        </select>
 
-                    <select
-                        value={sortBy}
-                        onChange={(e) => setSortBy && setSortBy(e.target.value)}
-                        style={{ minWidth: '160px' }}
-                    >
-                        <option value="recent">Más recientes</option>
-                        <option value="name_asc">Nombre (A-Z)</option>
-                        <option value="price_asc">Menor precio</option>
-                        <option value="price_desc">Mayor precio</option>
-                    </select>
+                        <select
+                            value={sortBy}
+                            onChange={(e) => setSortBy && setSortBy(e.target.value)}
+                            style={{ minWidth: '160px' }}
+                        >
+                            <option value="recent">Más recientes</option>
+                            <option value="name_asc">Nombre (A-Z)</option>
+                            <option value="price_asc">Menor precio</option>
+                            <option value="price_desc">Mayor precio</option>
+                        </select>
+                    </div>
                 </div>
-            </div>
+            )}
 
             <div className="product-list-container" style={{ flex: 1, overflowY: 'scroll', paddingBottom: '1rem', width: '100%' }}>
                 {finalProducts.length === 0 ? (
@@ -122,8 +124,8 @@ const ProductList = ({ products, onEdit, onDelete, onAdd, viewMode = 'grid', sor
                                 <th style={{ width: '80px' }}>Imagen</th>
                                 <th>Producto</th>
                                 <th style={{ width: '120px' }}>Precio</th>
-                                <th style={{ width: '150px' }}>Categoría</th>
-                                <th style={{ width: '120px' }}>Material</th>
+                                {!isCompact && <th style={{ width: '150px' }}>Categoría</th>}
+                                {!isCompact && <th style={{ width: '120px' }}>Material</th>}
                                 <th style={{ width: '100px', textAlign: 'right' }}>Acciones</th>
                             </tr>
                         </thead>
@@ -140,18 +142,20 @@ const ProductList = ({ products, onEdit, onDelete, onAdd, viewMode = 'grid', sor
                                     </td>
                                     <td style={{ fontWeight: 500 }}>{product.nombre}</td>
                                     <td>${product.precio}</td>
-                                    <td style={{ textTransform: 'capitalize' }}>{product.categoria}</td>
-                                    <td>
-                                        <span
-                                            className="badge"
-                                            style={{
-                                                backgroundColor: product.material === 'Bronce' ? 'var(--bento-yellow)' : 'var(--secondary-color)',
-                                                color: product.material === 'Bronce' ? '#b45309' : 'var(--text-main)'
-                                            }}
-                                        >
-                                            {product.material}
-                                        </span>
-                                    </td>
+                                    {!isCompact && <td style={{ textTransform: 'capitalize' }}>{product.categoria}</td>}
+                                    {!isCompact && (
+                                        <td>
+                                            <span
+                                                className="badge"
+                                                style={{
+                                                    backgroundColor: product.material === 'Bronce' ? 'var(--bento-yellow)' : 'var(--secondary-color)',
+                                                    color: product.material === 'Bronce' ? '#b45309' : 'var(--text-main)'
+                                                }}
+                                            >
+                                                {product.material}
+                                            </span>
+                                        </td>
+                                    )}
                                     <td style={{ textAlign: 'right' }}>
                                         <button
                                             className="btn-icon"

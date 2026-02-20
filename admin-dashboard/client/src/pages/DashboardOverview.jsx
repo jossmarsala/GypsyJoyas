@@ -93,6 +93,7 @@ const DashboardOverview = ({ products, loading, refetch, maintenanceMode, setMai
                         onEdit={handleEdit}
                         onDelete={refetch}
                         viewMode="list"
+                        isCompact={true}
                     />
                 </div>
 
