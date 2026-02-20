@@ -118,61 +118,63 @@ const ProductList = ({ products, onEdit, onDelete, onAdd, viewMode = 'grid', sor
                         ))}
                     </div>
                 ) : (
-                    <table className="data-table">
-                        <thead>
-                            <tr>
-                                <th style={{ width: '80px' }}>Imagen</th>
-                                <th>Producto</th>
-                                <th style={{ width: '120px' }}>Precio</th>
-                                {!isCompact && <th style={{ width: '150px' }}>Categoría</th>}
-                                {!isCompact && <th style={{ width: '120px' }}>Material</th>}
-                                <th style={{ width: '100px', textAlign: 'right' }}>Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {finalProducts.map(product => (
-                                <tr key={product.id}>
-                                    <td>
-                                        <img
-                                            src={`${BASE_URL}/${product.imagen}`}
-                                            alt={product.nombre}
-                                            style={{ width: '40px', height: '40px', objectFit: 'cover', borderRadius: '8px' }}
-                                            onError={(e) => { e.target.src = 'https://via.placeholder.com/40'; }}
-                                        />
-                                    </td>
-                                    <td style={{ fontWeight: 500 }}>{product.nombre}</td>
-                                    <td>${product.precio}</td>
-                                    {!isCompact && <td style={{ textTransform: 'capitalize' }}>{product.categoria}</td>}
-                                    {!isCompact && (
-                                        <td>
-                                            <span
-                                                className="badge"
-                                                style={{
-                                                    backgroundColor: product.material === 'Bronce' ? 'var(--bento-yellow)' : 'var(--secondary-color)',
-                                                    color: product.material === 'Bronce' ? '#b45309' : 'var(--text-main)'
-                                                }}
-                                            >
-                                                {product.material}
-                                            </span>
-                                        </td>
-                                    )}
-                                    <td style={{ textAlign: 'right' }}>
-                                        <button
-                                            className="btn-icon"
-                                            title="Editar"
-                                            onClick={() => onEdit(product)}
-                                        ><FiEdit2 /></button>
-                                        <button
-                                            className="btn-icon"
-                                            style={{ color: '#ef4444' }}
-                                            title="Eliminar"
-                                            onClick={() => handleDelete(product.id)}
-                                        ><FiTrash2 /></button>
-                                    </td>
+                    <div className="table-responsive">
+                        <table className="data-table">
+                            <thead>
+                                <tr>
+                                    <th style={{ width: '80px' }}>Imagen</th>
+                                    <th>Producto</th>
+                                    <th style={{ width: '120px' }}>Precio</th>
+                                    {!isCompact && <th style={{ width: '150px' }}>Categoría</th>}
+                                    {!isCompact && <th style={{ width: '120px' }}>Material</th>}
+                                    <th style={{ width: '100px', textAlign: 'right' }}>Acciones</th>
                                 </tr>
-                            ))}
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                {finalProducts.map(product => (
+                                    <tr key={product.id}>
+                                        <td>
+                                            <img
+                                                src={`${BASE_URL}/${product.imagen}`}
+                                                alt={product.nombre}
+                                                style={{ width: '40px', height: '40px', objectFit: 'cover', borderRadius: '8px' }}
+                                                onError={(e) => { e.target.src = 'https://via.placeholder.com/40'; }}
+                                            />
+                                        </td>
+                                        <td style={{ fontWeight: 500 }}>{product.nombre}</td>
+                                        <td>${product.precio}</td>
+                                        {!isCompact && <td style={{ textTransform: 'capitalize' }}>{product.categoria}</td>}
+                                        {!isCompact && (
+                                            <td>
+                                                <span
+                                                    className="badge"
+                                                    style={{
+                                                        backgroundColor: product.material === 'Bronce' ? 'var(--bento-yellow)' : 'var(--secondary-color)',
+                                                        color: product.material === 'Bronce' ? '#b45309' : 'var(--text-main)'
+                                                    }}
+                                                >
+                                                    {product.material}
+                                                </span>
+                                            </td>
+                                        )}
+                                        <td style={{ textAlign: 'right' }}>
+                                            <button
+                                                className="btn-icon"
+                                                title="Editar"
+                                                onClick={() => onEdit(product)}
+                                            ><FiEdit2 /></button>
+                                            <button
+                                                className="btn-icon"
+                                                style={{ color: '#ef4444' }}
+                                                title="Eliminar"
+                                                onClick={() => handleDelete(product.id)}
+                                            ><FiTrash2 /></button>
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
                 )}
             </div>
 

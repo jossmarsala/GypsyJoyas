@@ -307,8 +307,15 @@ select:focus {
 }
 
 /* Table Styles */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
 .data-table {
   width: 100%;
+  min-width: 600px;
   table-layout: fixed;
   border-collapse: separate;
   border-spacing: 0 0.5rem;
