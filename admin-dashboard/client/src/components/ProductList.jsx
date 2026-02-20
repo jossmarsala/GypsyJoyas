@@ -2,14 +2,15 @@ import React, { useState } from 'react';
 import { deleteProduct } from '../services/api';
 import { FiEdit2, FiTrash2 } from 'react-icons/fi';
 
-const ProductList = ({ products, onEdit, onDelete, searchQuery = '', setSearchQuery = () => { } }) => {
+const ProductList = ({ products, onEdit, onDelete }) => {
     const [filterCategory, setFilterCategory] = useState('');
+    const [filterSearch, setFilterSearch] = useState('');
 
     const filteredProducts = products.filter(p => {
         const matchesCategory = filterCategory ? p.categoria === filterCategory : true;
-        const matchesSearch = p.nombre.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            p.material.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            p.categoria.toLowerCase().includes(searchQuery.toLowerCase());
+        const matchesSearch = p.nombre.toLowerCase().includes(filterSearch.toLowerCase()) ||
+            p.material.toLowerCase().includes(filterSearch.toLowerCase()) ||
+            p.categoria.toLowerCase().includes(filterSearch.toLowerCase());
         return matchesCategory && matchesSearch;
     });
 
@@ -25,13 +26,13 @@ const ProductList = ({ products, onEdit, onDelete, searchQuery = '', setSearchQu
     };
 
     return (
-        <div style={{ height: 'calc(100% - 60px)', display: 'flex', flexDirection: 'column' }}>
-            <div style={{ display: 'flex', gap: '1rem', marginBottom: '1.5rem' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', flex: 1, minHeight: 0 }}>
+            <div style={{ display: 'flex', gap: '1rem', marginBottom: '1.5rem', flexShrink: 0 }}>
                 <input
                     type="text"
                     placeholder="Buscar producto..."
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
+                    value={filterSearch}
+                    onChange={(e) => setFilterSearch(e.target.value)}
                     style={{ flex: 1 }}
                 />
                 <select

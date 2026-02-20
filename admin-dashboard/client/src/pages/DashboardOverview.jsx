@@ -6,7 +6,7 @@ import SettingsCard from '../components/SettingsCard';
 import BulkPriceTool from '../components/BulkPriceTool';
 import { toggleMaintenanceMode } from '../services/api';
 
-const DashboardOverview = ({ products, loading, refetch, maintenanceMode, setMaintenanceMode, searchQuery, setSearchQuery }) => {
+const DashboardOverview = ({ products, loading, refetch, maintenanceMode, setMaintenanceMode }) => {
     const [selectedProduct, setSelectedProduct] = useState(null);
     const [isFormOpen, setIsFormOpen] = useState(false);
 
@@ -72,8 +72,8 @@ const DashboardOverview = ({ products, loading, refetch, maintenanceMode, setMai
             </div>
 
             <div className="bento-grid dashboard-bottom-grid">
-                <div className="bento-card dashboard-main-card" style={{ minHeight: '500px' }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', flexWrap: 'wrap', gap: '1rem' }}>
+                <div className="bento-card dashboard-main-card" style={{ height: '520px', display: 'flex', flexDirection: 'column' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', flexWrap: 'wrap', gap: '1rem', flexShrink: 0 }}>
                         <h2 className="card-title" style={{ marginBottom: 0 }}>Inventario de Joyas</h2>
                         <button className="btn btn-primary" onClick={handleAdd}>
                             + Registrar Producto
@@ -84,8 +84,6 @@ const DashboardOverview = ({ products, loading, refetch, maintenanceMode, setMai
                         products={products}
                         onEdit={handleEdit}
                         onDelete={refetch}
-                        searchQuery={searchQuery}
-                        setSearchQuery={setSearchQuery}
                     />
                 </div>
 

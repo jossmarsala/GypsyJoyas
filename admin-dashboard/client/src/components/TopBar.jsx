@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { FiSearch, FiBell, FiSettings, FiUser } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 
-const TopBar = ({ searchQuery, setSearchQuery }) => {
+const TopBar = () => {
     const [openDropdown, setOpenDropdown] = useState(null);
     const dropdownRef = useRef(null);
 
@@ -29,25 +29,6 @@ const TopBar = ({ searchQuery, setSearchQuery }) => {
             </div>
 
             <div className="top-bar-actions" ref={dropdownRef}>
-                <div style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    background: '#fff',
-                    padding: '0.5rem 1rem',
-                    borderRadius: 'var(--border-radius-lg)',
-                    boxShadow: 'var(--shadow-sm)',
-                    flex: '1 1 auto',
-                    minWidth: '50px'
-                }}>
-                    <FiSearch color="var(--text-muted)" style={{ marginRight: '0.5rem' }} />
-                    <input
-                        type="text"
-                        placeholder="Buscar..."
-                        value={searchQuery}
-                        onChange={(e) => setSearchQuery(e.target.value)}
-                        style={{ border: 'none', background: 'transparent', padding: 0, width: '100%' }}
-                    />
-                </div>
 
                 <div className="dropdown-container">
                     <button

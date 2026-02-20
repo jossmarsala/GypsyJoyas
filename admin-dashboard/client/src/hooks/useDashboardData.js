@@ -5,7 +5,6 @@ export const useDashboardData = () => {
     const [products, setProducts] = useState([]);
     const [maintenanceMode, setMaintenanceMode] = useState(false);
     const [loading, setLoading] = useState(true);
-    const [searchQuery, setSearchQuery] = useState('');
 
     const fetchData = async () => {
         try {
@@ -27,13 +26,5 @@ export const useDashboardData = () => {
         fetchData();
     }, []);
 
-    return {
-        products,
-        maintenanceMode,
-        setMaintenanceMode,
-        loading,
-        refetch: fetchData,
-        searchQuery,
-        setSearchQuery
-    };
+    return { products, maintenanceMode, setMaintenanceMode, loading, refetch: fetchData };
 };

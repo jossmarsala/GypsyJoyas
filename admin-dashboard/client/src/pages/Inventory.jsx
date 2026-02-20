@@ -23,8 +23,8 @@ const Inventory = ({ products, refetch }) => {
     };
 
     return (
-        <div className="bento-card" style={{ minHeight: '500px' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', flexWrap: 'wrap', gap: '1rem' }}>
+        <div className="bento-card" style={{ height: 'calc(100vh - 120px)', minHeight: '500px', display: 'flex', flexDirection: 'column' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', flexWrap: 'wrap', gap: '1rem', flexShrink: 0 }}>
                 <h2 className="card-title" style={{ marginBottom: 0 }}>Inventario de Joyas</h2>
                 <button className="btn btn-primary" onClick={handleAdd}>
                     + Registrar Producto
@@ -35,8 +35,6 @@ const Inventory = ({ products, refetch }) => {
                 products={products}
                 onEdit={handleEdit}
                 onDelete={refetch}
-                searchQuery={searchQuery}
-                setSearchQuery={setSearchQuery}
             />
 
             {isFormOpen && (
