@@ -1,5 +1,7 @@
 {
     "version": 2,
+    "buildCommand": "bash vercel-build.sh",
+    "outputDirectory": "public",
     "rewrites": [
         {
             "source": "/api/(.*)",
