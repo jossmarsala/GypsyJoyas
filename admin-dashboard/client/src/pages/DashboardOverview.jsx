@@ -6,7 +6,7 @@ import SettingsCard from '../components/SettingsCard';
 import BulkPriceTool from '../components/BulkPriceTool';
 import { toggleMaintenanceMode } from '../services/api';
 
-const DashboardOverview = ({ products, loading, maintenanceMode, setMaintenanceMode, refetch }) => {
+const DashboardOverview = ({ products, loading, refetch, maintenanceMode, setMaintenanceMode }) => {
     const [selectedProduct, setSelectedProduct] = useState(null);
     const [isFormOpen, setIsFormOpen] = useState(false);
 
@@ -30,7 +30,7 @@ const DashboardOverview = ({ products, loading, maintenanceMode, setMaintenanceM
     const handleCloseForm = () => {
         setIsFormOpen(false);
         setSelectedProduct(null);
-        refetch();
+        refetch(); // Refresh list after edit/add
     };
 
     const handleToggleMaintenance = async () => {
@@ -45,13 +45,33 @@ const DashboardOverview = ({ products, loading, maintenanceMode, setMaintenanceM
     return (
         <>
             <div className="bento-grid metrics-grid">
-                <MetricCard title="Total de Productos:" value={totalProducts} label="Artículos en catálogo" bgColor="var(--bento-yellow)" />
-                <MetricCard title="Bronce:" value={bronceProducts} label="Piezas disponibles" bgColor="var(--bento-pink)" />
-                <MetricCard title="Alpaca:" value={alpacaProducts} label="Piezas disponibles" bgColor="var(--bento-blue)" />
-                <MetricCard title="Categorías:" value={uniqueCategories} label="Líneas de producto" bgColor="var(--bento-green)" />
+                <MetricCard
+                    title="Total de Productos:"
+                    value={totalProducts}
+                    label="Artículos en catálogo"
+                    bgColor="var(--bento-yellow)"
+                />
+                <MetricCard
+                    title="Bronce:"
+                    value={bronceProducts}
+                    label="Piezas disponibles"
+                    bgColor="var(--bento-pink)"
+                />
+                <MetricCard
+                    title="Alpaca:"
+                    value={alpacaProducts}
+                    label="Piezas disponibles"
+                    bgColor="var(--bento-blue)"
+                />
+                <MetricCard
+                    title="Categorías:"
+                    value={uniqueCategories}
+                    label="Líneas de producto"
+                    bgColor="var(--bento-green)"
+                />
             </div>
 
-            <div className="bento-grid dashboard-bottom-grid" style={{ marginTop: '1.5rem' }}>
+            <div className="bento-grid dashboard-bottom-grid">
                 <div className="bento-card dashboard-main-card" style={{ minHeight: '500px' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', flexWrap: 'wrap', gap: '1rem' }}>
                         <h2 className="card-title" style={{ marginBottom: 0 }}>Inventario de Joyas</h2>
@@ -59,12 +79,16 @@ const DashboardOverview = ({ products, loading, maintenanceMode, setMaintenanceM
                             + Registrar Producto
                         </button>
                     </div>
+
                     <ProductList products={products} onEdit={handleEdit} onDelete={refetch} />
                 </div>
 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
                     <div className="bento-card">
-                        <SettingsCard maintenanceMode={maintenanceMode} onToggle={handleToggleMaintenance} />
+                        <SettingsCard
+                            maintenanceMode={maintenanceMode}
+                            onToggle={handleToggleMaintenance}
+                        />
                     </div>
                     <div className="bento-card">
                         <BulkPriceTool onUpdate={refetch} />
@@ -73,7 +97,11 @@ const DashboardOverview = ({ products, loading, maintenanceMode, setMaintenanceM
             </div>
 
             {isFormOpen && (
-                <ProductForm product={selectedProduct} onClose={handleCloseForm} onSave={handleCloseForm} />
+                <ProductForm
+                    product={selectedProduct}
+                    onClose={handleCloseForm}
+                    onSave={handleCloseForm}
+                />
             )}
         </>
     );

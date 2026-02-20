@@ -235,6 +235,12 @@ body {
   color: var(--text-main);
 }
 
+.disabled-link {
+  opacity: 0.4;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
 input,
 select {
   padding: 0.75rem 1rem;
@@ -426,17 +432,6 @@ select:focus {
 
 .btn-icon {
   position: relative;
-}
-
-.disabled-item {
-  opacity: 0.4 !important;
-  cursor: not-allowed !important;
-  pointer-events: none !important;
-}
-
-.disabled-item:hover {
-  background-color: transparent !important;
-  color: inherit !important;
 }
 
 .bg-green {

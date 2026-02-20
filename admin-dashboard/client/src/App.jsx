@@ -17,7 +17,7 @@ function DashboardLayout() {
       <main className="main-content">
         <TopBar />
         <Routes>
-          <Route path="/" element={<DashboardOverview products={products} loading={loading} maintenanceMode={maintenanceMode} setMaintenanceMode={setMaintenanceMode} refetch={refetch} />} />
+          <Route path="/" element={<DashboardOverview products={products} loading={loading} refetch={refetch} maintenanceMode={maintenanceMode} setMaintenanceMode={setMaintenanceMode} />} />
           <Route path="/inventario" element={<Inventory products={products} refetch={refetch} />} />
           <Route path="/ajustes" element={<Settings maintenanceMode={maintenanceMode} setMaintenanceMode={setMaintenanceMode} refetch={refetch} />} />
         </Routes>
