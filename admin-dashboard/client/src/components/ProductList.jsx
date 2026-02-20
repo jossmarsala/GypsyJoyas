@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import { deleteProduct } from '../services/api';
 import { FiEdit2, FiTrash2 } from 'react-icons/fi';
 
-const ProductList = ({ products, onEdit, onDelete }) => {
+const ProductList = ({ products, onEdit, onDelete, searchQuery = '', setSearchQuery = () => { } }) => {
     const [filterCategory, setFilterCategory] = useState('');
-    const [filterSearch, setFilterSearch] = useState('');
 
     const filteredProducts = products.filter(p => {
         const matchesCategory = filterCategory ? p.categoria === filterCategory : true;
-        const matchesSearch = p.nombre.toLowerCase().includes(filterSearch.toLowerCase());
+        const matchesSearch = p.nombre.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            p.material.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            p.categoria.toLowerCase().includes(searchQuery.toLowerCase());
         return matchesCategory && matchesSearch;
     });
 
@@ -29,8 +30,8 @@ const ProductList = ({ products, onEdit, onDelete }) => {
                 <input
                     type="text"
                     placeholder="Buscar producto..."
-                    value={filterSearch}
-                    onChange={(e) => setFilterSearch(e.target.value)}
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
                     style={{ flex: 1 }}
                 />
                 <select

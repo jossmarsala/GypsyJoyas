@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { FiSearch, FiBell, FiSettings, FiUser } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 
-const TopBar = () => {
+const TopBar = ({ searchQuery, setSearchQuery }) => {
     const [openDropdown, setOpenDropdown] = useState(null);
     const dropdownRef = useRef(null);
 
@@ -43,6 +43,8 @@ const TopBar = () => {
                     <input
                         type="text"
                         placeholder="Buscar..."
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
                         style={{ border: 'none', background: 'transparent', padding: 0, width: '100%' }}
                     />
                 </div>

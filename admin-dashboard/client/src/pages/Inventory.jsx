@@ -31,7 +31,13 @@ const Inventory = ({ products, refetch }) => {
                 </button>
             </div>
 
-            <ProductList products={products} onEdit={handleEdit} onDelete={refetch} />
+            <ProductList
+                products={products}
+                onEdit={handleEdit}
+                onDelete={refetch}
+                searchQuery={searchQuery}
+                setSearchQuery={setSearchQuery}
+            />
 
             {isFormOpen && (
                 <ProductForm
