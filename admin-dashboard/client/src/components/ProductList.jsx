@@ -35,7 +35,7 @@ const ProductList = ({ products, onEdit, onDelete, onAdd, viewMode = 'grid', sor
     };
 
     return (
-        <div style={{ display: 'flex', flexDirection: 'column', flex: 1, minHeight: 0, position: 'relative' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', flex: 1, minHeight: 0, position: 'relative', width: '100%' }}>
             {/* Filter and Sort Row */}
             <div style={{ display: 'flex', gap: '1rem', marginBottom: '1.5rem', flexShrink: 0, flexWrap: 'wrap', alignItems: 'center' }}>
                 <input
@@ -73,7 +73,7 @@ const ProductList = ({ products, onEdit, onDelete, onAdd, viewMode = 'grid', sor
                 </div>
             </div>
 
-            <div className="product-list-container" style={{ flex: 1, overflowY: 'auto', paddingBottom: '1rem' }}>
+            <div className="product-list-container" style={{ flex: 1, overflowY: 'auto', paddingBottom: '1rem', width: '100%' }}>
                 {finalProducts.length === 0 ? (
                     <div style={{ textAlign: 'center', padding: '3rem 0', color: 'var(--text-muted)' }}>
                         No se encontraron productos con esos filtros.
