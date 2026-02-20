@@ -27,5 +27,6 @@ cp -r dist/* ../../public/admin/
 echo "Installing Server Dependencies..."
 cd ../server
 npm install
+npx prisma generate
 
 echo "Build Complete!"
