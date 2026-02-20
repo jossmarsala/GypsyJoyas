@@ -302,8 +302,7 @@ select:focus {
 /* Table Styles */
 .data-table {
   width: 100%;
-  min-width: 100%;
-  table-layout: auto;
+  table-layout: fixed;
   border-collapse: separate;
   border-spacing: 0 0.5rem;
 }

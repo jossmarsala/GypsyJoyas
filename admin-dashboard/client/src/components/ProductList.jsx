@@ -73,7 +73,7 @@ const ProductList = ({ products, onEdit, onDelete, onAdd, viewMode = 'grid', sor
                 </div>
             </div>
 
-            <div className="product-list-container" style={{ flex: 1, overflowY: 'auto', paddingBottom: '1rem', width: '100%' }}>
+            <div className="product-list-container" style={{ flex: 1, overflowY: 'scroll', paddingBottom: '1rem', width: '100%' }}>
                 {finalProducts.length === 0 ? (
                     <div style={{ textAlign: 'center', padding: '3rem 0', color: 'var(--text-muted)' }}>
                         No se encontraron productos con esos filtros.
@@ -119,12 +119,12 @@ const ProductList = ({ products, onEdit, onDelete, onAdd, viewMode = 'grid', sor
                     <table className="data-table">
                         <thead>
                             <tr>
-                                <th>Imagen</th>
+                                <th style={{ width: '80px' }}>Imagen</th>
                                 <th>Producto</th>
-                                <th>Precio</th>
-                                <th>Categoría</th>
-                                <th>Material</th>
-                                <th style={{ textAlign: 'right' }}>Acciones</th>
+                                <th style={{ width: '120px' }}>Precio</th>
+                                <th style={{ width: '150px' }}>Categoría</th>
+                                <th style={{ width: '120px' }}>Material</th>
+                                <th style={{ width: '100px', textAlign: 'right' }}>Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
