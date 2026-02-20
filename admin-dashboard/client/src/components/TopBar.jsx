@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { FiSearch, FiBell, FiSettings, FiUser } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 
-const TopBar = () => {
+const TopBar = ({ notifications = [] }) => {
     const [openDropdown, setOpenDropdown] = useState(null);
     const dropdownRef = useRef(null);
 
@@ -58,7 +58,7 @@ const TopBar = () => {
                         onClick={() => toggleDropdown('notifications')}
                     >
                         <FiBell size={20} />
-                        <span className="notification-dot"></span>
+                        {notifications.length > 0 && <span className="notification-dot"></span>}
                     </button>
                     {openDropdown === 'notifications' && (
                         <div className="dropdown-menu">
@@ -66,20 +66,21 @@ const TopBar = () => {
                                 <strong>Notificaciones</strong>
                             </div>
                             <div className="dropdown-divider"></div>
-                            <div className="dropdown-item notif-item">
-                                <span className="notif-dot bg-green"></span>
-                                <div>
-                                    <p>Catálogo actualizado</p>
-                                    <small>Hace 5 min</small>
+                            {notifications.length === 0 ? (
+                                <div className="dropdown-item notif-item" style={{ justifyContent: 'center', opacity: 0.7 }}>
+                                    <small>No hay notificaciones</small>
                                 </div>
-                            </div>
-                            <div className="dropdown-item notif-item">
-                                <span className="notif-dot bg-red"></span>
-                                <div>
-                                    <p>Mantenimiento desactivado</p>
-                                    <small>Hace 2 horas</small>
-                                </div>
-                            </div>
+                            ) : (
+                                notifications.map(notif => (
+                                    <div key={notif.id} className="dropdown-item notif-item">
+                                        <span className={`notif-dot bg-${notif.type === 'success' ? 'green' : notif.type === 'warning' ? 'yellow' : notif.type === 'error' ? 'red' : 'blue'}`}></span>
+                                        <div>
+                                            <p>{notif.text}</p>
+                                            <small>{notif.time}</small>
+                                        </div>
+                                    </div>
+                                ))
+                            )}
                         </div>
                     )}
                 </div>

@@ -66,8 +66,8 @@ const ProductList = ({ products, onEdit, onDelete }) => {
                             <tr key={product.id}>
                                 <td>
                                     <img
-                                        src={`http://localhost:3001/${product.imagen}`}
-                                        alt={product.alt}
+                                        src={`http://localhost:3001/uploads/${product.imagen}`}
+                                        alt={product.nombre}
                                         style={{ width: '40px', height: '40px', objectFit: 'cover', borderRadius: '8px' }}
                                         onError={(e) => { e.target.src = 'https://via.placeholder.com/40'; }}
                                     />

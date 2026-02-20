@@ -6,6 +6,20 @@ export const useDashboardData = () => {
     const [maintenanceMode, setMaintenanceMode] = useState(false);
     const [loading, setLoading] = useState(true);
 
+    const [notifications, setNotifications] = useState([
+        { id: 1, type: 'info', text: 'Sistema iniciado', time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) }
+    ]);
+
+    const addNotification = (type, text) => {
+        const newNotif = {
+            id: Date.now(),
+            type,
+            text,
+            time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+        };
+        setNotifications(prev => [newNotif, ...prev].slice(0, 3));
+    };
+
     const fetchData = async () => {
         try {
             setLoading(true);
@@ -26,5 +40,13 @@ export const useDashboardData = () => {
         fetchData();
     }, []);
 
-    return { products, maintenanceMode, setMaintenanceMode, loading, refetch: fetchData };
+    return {
+        products,
+        maintenanceMode,
+        setMaintenanceMode,
+        loading,
+        refetch: fetchData,
+        notifications,
+        addNotification
+    };
 };

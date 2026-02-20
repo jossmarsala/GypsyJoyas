@@ -9,15 +9,15 @@ import { useDashboardData } from './hooks/useDashboardData';
 import './styles/index.css';
 
 function DashboardLayout() {
-  const { products, maintenanceMode, setMaintenanceMode, loading, refetch } = useDashboardData();
+  const { products, maintenanceMode, setMaintenanceMode, loading, refetch, notifications, addNotification } = useDashboardData();
 
   return (
     <div className="app-container">
       <Sidebar />
       <main className="main-content">
-        <TopBar />
+        <TopBar notifications={notifications} />
         <Routes>
-          <Route path="/" element={<DashboardOverview products={products} loading={loading} refetch={refetch} maintenanceMode={maintenanceMode} setMaintenanceMode={setMaintenanceMode} />} />
+          <Route path="/" element={<DashboardOverview products={products} loading={loading} refetch={refetch} maintenanceMode={maintenanceMode} setMaintenanceMode={setMaintenanceMode} addNotification={addNotification} />} />
           <Route path="/inventario" element={<Inventory products={products} refetch={refetch} />} />
           <Route path="/ajustes" element={<Settings maintenanceMode={maintenanceMode} setMaintenanceMode={setMaintenanceMode} refetch={refetch} />} />
         </Routes>

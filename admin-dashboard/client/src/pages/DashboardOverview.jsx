@@ -6,7 +6,7 @@ import SettingsCard from '../components/SettingsCard';
 import BulkPriceTool from '../components/BulkPriceTool';
 import { toggleMaintenanceMode } from '../services/api';
 
-const DashboardOverview = ({ products, loading, refetch, maintenanceMode, setMaintenanceMode }) => {
+const DashboardOverview = ({ products, loading, refetch, maintenanceMode, setMaintenanceMode, addNotification }) => {
     const [selectedProduct, setSelectedProduct] = useState(null);
     const [isFormOpen, setIsFormOpen] = useState(false);
 
@@ -37,8 +37,15 @@ const DashboardOverview = ({ products, loading, refetch, maintenanceMode, setMai
         try {
             const res = await toggleMaintenanceMode();
             setMaintenanceMode(res.maintenanceMode);
+
+            // Trigger Notification
+            const statusText = res.maintenanceMode ? 'Mantenimiento activado' : 'Mantenimiento desactivado';
+            const statusType = res.maintenanceMode ? 'warning' : 'success';
+            addNotification(statusType, statusText);
+
         } catch (error) {
             console.error("Failed to toggle maintenance:", error);
+            addNotification('error', 'Error al cambiar mantenimiento');
         }
     };
 
