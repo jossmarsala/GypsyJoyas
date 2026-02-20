@@ -442,6 +442,14 @@ select:focus {
   background-color: #ef4444;
 }
 
+.bg-blue {
+  background-color: #3b82f6;
+}
+
+.bg-yellow {
+  background-color: #f59e0b;
+}
+
 /* Responsive Utilities */
 .dashboard-bottom-grid {
   grid-template-columns: repeat(3, 1fr);

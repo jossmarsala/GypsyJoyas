@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { deleteProduct } from '../services/api';
+import { deleteProduct, BASE_URL } from '../services/api';
 import { FiEdit2, FiTrash2 } from 'react-icons/fi';
 
 const ProductList = ({ products, onEdit, onDelete }) => {
@@ -66,7 +66,7 @@ const ProductList = ({ products, onEdit, onDelete }) => {
                             <tr key={product.id}>
                                 <td>
                                     <img
-                                        src={`http://localhost:3001/uploads/${product.imagen}`}
+                                        src={`${BASE_URL}/${product.imagen}`}
                                         alt={product.nombre}
                                         style={{ width: '40px', height: '40px', objectFit: 'cover', borderRadius: '8px' }}
                                         onError={(e) => { e.target.src = 'https://via.placeholder.com/40'; }}

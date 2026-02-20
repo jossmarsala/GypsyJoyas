@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { createProduct, updateProduct } from '../services/api';
+import { createProduct, updateProduct, BASE_URL } from '../services/api';
 
 const ProductForm = ({ product, onClose, onSave }) => {
     const [formData, setFormData] = useState({
@@ -23,7 +23,7 @@ const ProductForm = ({ product, onClose, onSave }) => {
                 alt: product.alt,
                 claseImagen: product.claseImagen || ''
             });
-            setPreview(`http://localhost:3001/${product.imagen}`);
+            setPreview(`${BASE_URL}/${product.imagen}`);
         }
     }, [product]);
 
