@@ -400,8 +400,25 @@ select:focus {
 }
 
 @media (max-width: 640px) {
-  .bento-grid {
+  .bento-grid:not(.metrics-grid) {
     grid-template-columns: 1fr;
+  }
+
+  .metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    /* slightly less gap for mobile */
+  }
+
+  .metric-card {
+    padding: 1rem;
+    /* slightly less padding for mobile */
+    min-height: 120px;
+  }
+
+  .metric-value {
+    font-size: 2rem;
+    /* smaller font for mobile */
   }
 
   .sidebar {

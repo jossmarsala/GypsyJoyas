@@ -69,7 +69,7 @@ const Dashboard = () => {
         <>
             <TopBar />
 
-            <div className="bento-grid">
+            <div className="bento-grid metrics-grid">
                 <MetricCard
                     title="Total de Productos:"
                     value={totalProducts}
