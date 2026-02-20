@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { deleteProduct, BASE_URL } from '../services/api';
 import { FiEdit2, FiTrash2 } from 'react-icons/fi';
 
-const ProductList = ({ products, onEdit, onDelete, viewMode = 'grid', sortBy = 'recent' }) => {
+const ProductList = ({ products, onEdit, onDelete, onAdd, viewMode = 'grid', sortBy = 'recent', setSortBy }) => {
     const [filterCategory, setFilterCategory] = useState('');
     const [filterSearch, setFilterSearch] = useState('');
 
@@ -35,8 +35,9 @@ const ProductList = ({ products, onEdit, onDelete, viewMode = 'grid', sortBy = '
     };
 
     return (
-        <div style={{ display: 'flex', flexDirection: 'column', flex: 1, minHeight: 0 }}>
-            <div style={{ display: 'flex', gap: '1rem', marginBottom: '1.5rem', flexShrink: 0 }}>
+        <div style={{ display: 'flex', flexDirection: 'column', flex: 1, minHeight: 0, position: 'relative' }}>
+            {/* Filter and Sort Row */}
+            <div style={{ display: 'flex', gap: '1rem', marginBottom: '1.5rem', flexShrink: 0, flexWrap: 'wrap', alignItems: 'center' }}>
                 <input
                     type="text"
                     placeholder="Buscar producto..."
@@ -44,18 +45,32 @@ const ProductList = ({ products, onEdit, onDelete, viewMode = 'grid', sortBy = '
                     onChange={(e) => setFilterSearch(e.target.value)}
                     style={{ flex: 1, minWidth: '200px' }}
                 />
-                <select
-                    value={filterCategory}
-                    onChange={(e) => setFilterCategory(e.target.value)}
-                    style={{ flex: 0.5, minWidth: '150px' }}
-                >
-                    <option value="">Todas las categorías</option>
-                    <option value="aros">Aros</option>
-                    <option value="collares">Collares</option>
-                    <option value="anillos">Anillos</option>
-                    <option value="pulseras">Pulseras</option>
-                    <option value="accesorios">Accesorios</option>
-                </select>
+
+                <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+                    <select
+                        value={filterCategory}
+                        onChange={(e) => setFilterCategory(e.target.value)}
+                        style={{ minWidth: '150px' }}
+                    >
+                        <option value="">Todas las categorías</option>
+                        <option value="aros">Aros</option>
+                        <option value="collares">Collares</option>
+                        <option value="anillos">Anillos</option>
+                        <option value="pulseras">Pulseras</option>
+                        <option value="accesorios">Accesorios</option>
+                    </select>
+
+                    <select
+                        value={sortBy}
+                        onChange={(e) => setSortBy && setSortBy(e.target.value)}
+                        style={{ minWidth: '160px' }}
+                    >
+                        <option value="recent">Más recientes</option>
+                        <option value="name_asc">Nombre (A-Z)</option>
+                        <option value="price_asc">Menor precio</option>
+                        <option value="price_desc">Mayor precio</option>
+                    </select>
+                </div>
             </div>
 
             <div className="product-list-container" style={{ flex: 1, overflowY: 'auto', paddingBottom: '1rem' }}>
@@ -156,6 +171,26 @@ const ProductList = ({ products, onEdit, onDelete, viewMode = 'grid', sortBy = '
                     </table>
                 )}
             </div>
+
+            {/* Floating Action Button */}
+            {onAdd && (
+                <button
+                    className="btn btn-primary"
+                    onClick={onAdd}
+                    style={{
+                        position: 'absolute',
+                        bottom: '2rem',
+                        right: '0.5rem',
+                        padding: '1rem 1.5rem',
+                        borderRadius: '9999px',
+                        boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+                        zIndex: 10,
+                        fontWeight: 600
+                    }}
+                >
+                    + Registrar Producto
+                </button>
+            )}
         </div>
     );
 };

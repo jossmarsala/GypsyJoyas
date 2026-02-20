@@ -33,41 +33,24 @@ const Inventory = ({ products, refetch, loading }) => {
     return (
         <div className="bento-card" style={{ flex: 1, minHeight: 0, display: 'flex', flexDirection: 'column' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', flexWrap: 'wrap', gap: '1rem', flexShrink: 0 }}>
-                <h2 className="card-title" style={{ marginBottom: 0 }}>Inventario de Joyas</h2>
+                <h2 className="card-title" style={{ marginBottom: 0, fontSize: '1.25rem' }}>Inventario de Joyas</h2>
 
-                <div className="inventory-controls" style={{ display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap', flex: 1, justifyContent: 'flex-end' }}>
-                    <div style={{ display: 'flex', background: 'var(--secondary-color)', borderRadius: '8px', padding: '4px' }}>
-                        <button
-                            className="btn-icon"
-                            style={{ background: viewMode === 'grid' ? 'white' : 'transparent', boxShadow: viewMode === 'grid' ? 'var(--shadow-sm)' : 'none', borderRadius: '4px', padding: '6px' }}
-                            onClick={() => setViewMode('grid')}
-                            title="Vista Cuadrícula"
-                        >
-                            <FiGrid size={18} />
-                        </button>
-                        <button
-                            className="btn-icon"
-                            style={{ background: viewMode === 'list' ? 'white' : 'transparent', boxShadow: viewMode === 'list' ? 'var(--shadow-sm)' : 'none', borderRadius: '4px', padding: '6px' }}
-                            onClick={() => setViewMode('list')}
-                            title="Vista Lista"
-                        >
-                            <FiList size={18} />
-                        </button>
-                    </div>
-
-                    <select
-                        value={sortBy}
-                        onChange={(e) => setSortBy(e.target.value)}
-                        style={{ minWidth: '160px' }}
+                <div className="inventory-controls" style={{ display: 'flex', background: 'var(--secondary-color)', borderRadius: '8px', padding: '4px' }}>
+                    <button
+                        className="btn-icon"
+                        style={{ background: viewMode === 'grid' ? 'white' : 'transparent', boxShadow: viewMode === 'grid' ? 'var(--shadow-sm)' : 'none', borderRadius: '4px', padding: '6px' }}
+                        onClick={() => setViewMode('grid')}
+                        title="Vista Cuadrícula"
                     >
-                        <option value="recent">Más recientes</option>
-                        <option value="name_asc">Nombre (A-Z)</option>
-                        <option value="price_asc">Menor precio</option>
-                        <option value="price_desc">Mayor precio</option>
-                    </select>
-
-                    <button className="btn btn-primary" onClick={handleAdd} style={{ whiteSpace: 'nowrap' }}>
-                        + Registrar Producto
+                        <FiGrid size={18} />
+                    </button>
+                    <button
+                        className="btn-icon"
+                        style={{ background: viewMode === 'list' ? 'white' : 'transparent', boxShadow: viewMode === 'list' ? 'var(--shadow-sm)' : 'none', borderRadius: '4px', padding: '6px' }}
+                        onClick={() => setViewMode('list')}
+                        title="Vista Lista"
+                    >
+                        <FiList size={18} />
                     </button>
                 </div>
             </div>
@@ -76,8 +59,10 @@ const Inventory = ({ products, refetch, loading }) => {
                 products={products}
                 onEdit={handleEdit}
                 onDelete={refetch}
+                onAdd={handleAdd}
                 viewMode={viewMode}
                 sortBy={sortBy}
+                setSortBy={setSortBy}
             />
 
             {isFormOpen && (
