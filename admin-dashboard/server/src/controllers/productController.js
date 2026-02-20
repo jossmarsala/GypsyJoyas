@@ -42,7 +42,7 @@ exports.createProduct = async (req, res) => {
         let imagenPath = '';
         if (req.file) {
             // Upload to Vercel Blob
-            const blob = await put(req.file.originalname, req.file.buffer, { access: 'public' });
+            const blob = await put(req.file.originalname, req.file.buffer, { access: 'public', addRandomSuffix: true });
             imagenPath = blob.url;
         }
 
@@ -79,7 +79,7 @@ exports.updateProduct = async (req, res) => {
         };
 
         if (req.file) {
-            const blob = await put(req.file.originalname, req.file.buffer, { access: 'public' });
+            const blob = await put(req.file.originalname, req.file.buffer, { access: 'public', addRandomSuffix: true });
             data.imagen = blob.url;
         }
 
