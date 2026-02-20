@@ -18,12 +18,11 @@ git push
 ## 3. Configure Project Settings
 In the "Configure Project" screen, scroll down to **Build and Output Settings**:
 
-*   **Framework Preset**: Select `Other` (or None).
-*   **Build Command**: Paste this exact command:
+*   **Build Command**: Paste this command:
     ```bash
-    cd admin-dashboard/client && npm install && npm run build && mkdir -p ../../admin && cp -r dist/* ../../admin/ && cd ../server && npm install
+    bash vercel-build.sh
     ```
-*   **Output Directory**: Leave as `.` (or specifically set to `.` if asked).
+*   **Output Directory**: Enable Override and set to `public`.
 
 Click **Deploy**.
 
