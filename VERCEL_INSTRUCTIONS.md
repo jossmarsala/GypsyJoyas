@@ -36,6 +36,7 @@ Once deployed (it might fail first run due to missing DB), go to the project das
     *   Click **Connect**.
 3.  **Images**: Click **Connect Store** > **Blob** > **Create New**.
     *   Name it `GypsyJoyasImages`.
+    *   **Access**: Select **Public** (Crucial for product images!).
     *   Click **Connect**.
 
 ## 5. Seed the Cloud Database
