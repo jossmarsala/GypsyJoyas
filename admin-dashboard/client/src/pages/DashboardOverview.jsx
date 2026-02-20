@@ -91,6 +91,7 @@ const DashboardOverview = ({ products, loading, refetch, maintenanceMode, setMai
                         products={products}
                         onEdit={handleEdit}
                         onDelete={refetch}
+                        viewMode="list"
                     />
                 </div>
 
