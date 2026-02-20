@@ -21,10 +21,14 @@ const Sidebar = () => {
                     <span>Resumen</span>
                 </Link>
 
-                <div className={`nav-item ${location.pathname === '/inventario' ? 'active' : ''}`}>
+                <Link
+                    to="/inventario"
+                    className={`nav-item ${location.pathname === '/inventario' ? 'active' : ''}`}
+                    style={{ textDecoration: 'none' }}
+                >
                     <FiBox size={20} />
                     <span>Inventario</span>
-                </div>
+                </Link>
 
                 <div className="nav-item disabled-link">
                     <FiSettings size={20} />
