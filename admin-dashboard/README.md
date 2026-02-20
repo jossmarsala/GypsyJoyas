@@ -37,3 +37,7 @@ The dashboard will be available at [http://localhost:5173](http://localhost:5173
 ## Data Migration
 The system has been pre-seeded with data from your existing JSON files.
 The SQLite database file is located at `admin-dashboard/server/database.sqlite`.
+
+## Vercel Deployment
+This project is configured for deployment on Vercel using Vercel Postgres and Vercel Blob.
+Refer to `VERCEL_INSTRUCTIONS.md` in the root directory for details.
