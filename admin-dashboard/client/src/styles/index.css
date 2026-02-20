@@ -44,12 +44,16 @@ body {
   background-color: var(--bg-color);
   color: var(--text-main);
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 /* Base Layout */
 .app-container {
   display: flex;
   height: 100vh;
+  width: 100vw;
+  max-width: 100%;
   overflow: hidden;
   padding: 1.5rem;
   gap: 1.5rem;
