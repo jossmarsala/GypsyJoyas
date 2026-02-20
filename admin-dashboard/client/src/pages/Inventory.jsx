@@ -31,7 +31,19 @@ const Inventory = ({ products, refetch, loading }) => {
     };
 
     return (
-        <div className="bento-card" style={{ flex: 1, minHeight: 0, display: 'flex', flexDirection: 'column', minWidth: 0, maxWidth: '100%', width: '100%' }}>
+        <div
+            className="bento-card"
+            style={{
+                flex: 1,
+                minHeight: 0,
+                display: 'flex',
+                flexDirection: 'column',
+                minWidth: 0,
+                maxWidth: '1600px',
+                width: '96%',
+                margin: '0 auto'
+            }}
+        >
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', flexWrap: 'wrap', gap: '1rem', flexShrink: 0 }}>
                 <h2 className="card-title" style={{ marginBottom: 0, fontSize: '1.25rem' }}>Inventario de Joyas</h2>
 
