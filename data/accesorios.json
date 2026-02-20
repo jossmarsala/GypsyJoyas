@@ -2,7 +2,6 @@
     {
         "nombre": "Hebillas para el Pelo",
         "precio": 16500,
-        "precioAnterior": null,
         "imagen": "assets/img/accesorios/hebillas-bronce.webp",
         "alt": "Hebillas para el Pelo Bronce",
         "material": "Bronce",
@@ -11,7 +10,6 @@
     {
         "nombre": "Jarroncitos Cerámica (cadena incluída)",
         "precio": 14200,
-        "precioAnterior": null,
         "imagen": "assets/img/accesorios/jarroncitos-cermica-cadenita-includa.webp",
         "alt": "Jarroncitos Cerámica",
         "material": "Bronce",
@@ -21,7 +19,6 @@
     {
         "nombre": "Pasa Pañuelos Bronce",
         "precio": 13950,
-        "precioAnterior": null,
         "imagen": "assets/img/accesorios/pasa-panuelos-bronce.webp",
         "alt": "Pasa Pañuelos Bronce",
         "material": "Bronce",
@@ -30,7 +27,6 @@
     {
         "nombre": "Bombilla",
         "precio": 22000,
-        "precioAnterior": null,
         "imagen": "assets/img/accesorios/bombilla-alpaca.webp",
         "alt": "Bombilla Alpaca",
         "material": "Alpaca",
@@ -39,7 +35,6 @@
     {
         "nombre": "Relicario Amatista Alpaca",
         "precio": 24180,
-        "precioAnterior": null,
         "imagen": "assets/img/accesorios/relicario-amatista-alpaca.webp",
         "alt": "Relicario Amatista Alpaca",
         "material": "Alpaca",

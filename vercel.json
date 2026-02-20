@@ -1,0 +1,13 @@
+{
+    "version": 2,
+    "rewrites": [
+        {
+            "source": "/api/(.*)",
+            "destination": "/admin-dashboard/server/server.js"
+        },
+        {
+            "source": "/admin/(.*)",
+            "destination": "/admin/index.html"
+        }
+    ]
+}
