@@ -5,7 +5,7 @@
     "rewrites": [
         {
             "source": "/api/(.*)",
-            "destination": "/admin-dashboard/server/server.js"
+            "destination": "/api/index.js"
         },
         {
             "source": "/admin/(.*)",
