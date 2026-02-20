@@ -69,11 +69,11 @@ input,
 select,
 textarea {
   font-family: inherit;
-  font-size: 0.95rem;
-  padding: 0.6rem 0.8rem;
+  font-size: 0.9rem;
+  padding: 0.5rem 0.75rem;
   border-radius: var(--border-radius-sm);
-  border: 1px solid #e5e7eb;
-  background-color: #ffffff;
+  border: 1px solid var(--secondary-color);
+  background-color: #f9fafb;
   color: var(--text-main);
   outline: none;
   transition: all 0.2s ease;
@@ -82,8 +82,9 @@ textarea {
 input:focus,
 select:focus,
 textarea:focus {
-  border-color: var(--sidebar-bg);
-  box-shadow: 0 0 0 2px rgba(28, 28, 28, 0.1);
+  border-color: var(--text-muted);
+  box-shadow: 0 0 0 2px rgba(107, 114, 128, 0.1);
+  background-color: #ffffff;
 }
 
 select {
@@ -97,7 +98,7 @@ select {
 }
 
 select:hover {
-  background-color: #f9fafb;
+  background-color: #ffffff;
 }
 
 /* Sidebar Styles */
