@@ -295,7 +295,6 @@ a {
     color: var(--color-blanco-beige);
     margin: 0;
     line-height: 1.1;
-    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
     text-align: center;
 }
 
@@ -310,7 +309,6 @@ a {
     font-weight: 300;
     color: var(--color-blanco-beige);
     margin: -10px 0 0 0;
-    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
     text-align: center;
     letter-spacing: 1px;
 }
