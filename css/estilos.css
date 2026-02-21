@@ -1,4 +1,6 @@
-﻿@font-face {
+﻿@import url('https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400..700;1,400..700&display=swap');
+
+@font-face {
     font-family: 'Segoe Ui';
     src: url("../assets/fonts/Segoe.woff2") format("woff2");
     font-weight: normal;
@@ -254,68 +256,87 @@ a {
 
 
 /* =========================================
-   4. Hero Section (.hero)
+   4. Hero Section (.new-hero)
    ========================================= */
 
-.hero__background {
-    position: absolute;
+.new-hero {
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    height: 100vh;
-    background: linear-gradient(rgba(255, 246, 240, 0.7), rgba(255, 246, 240, 0.7)), url(../assets/img/ui/background-hero-mobile.webp);
-    background-size: cover;
-    background-position: top center;
-    background-repeat: no-repeat;
-    z-index: -1000;
+    min-height: 100vh;
 }
 
-.hero__spacer {
-    min-height: 100vh;
+.new-hero__header {
+    position: relative;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    background-image: url('../assets/img/ui/hero-bg.webp');
+    background-size: cover;
+    background-position: center;
+    padding-bottom: 2vh;
+    min-height: 80vh;
+}
+
+.new-hero__title {
+    font-family: 'STIX Two Text', serif;
+    font-size: clamp(40px, 12vw, 150px);
+    font-weight: 400;
+    color: var(--color-blanco-beige);
+    margin: 0;
+    line-height: 1;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.new-hero__initial {
+    font-family: 'Silk Serif', 'S Serif', serif;
+    /* Falling back to existing serif if "Manstein" isn't explicitly defined, as it might be a local name for SilkSerif */
+    font-style: italic;
+    font-weight: 300;
+}
+
+.new-hero__subtitle {
+    font-family: 'STIX Two Text', serif;
+    font-size: clamp(14px, 3vw, 28px);
+    font-weight: 400;
+    color: var(--color-blanco-beige);
+    margin: 0;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.new-hero__banner {
+    background-color: var(--color-blanco-marfil);
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    border-bottom: 1px solid var(--borde-dorado-suave);
-    margin-bottom: 60px;
+    padding: 15px 5%;
+    gap: 10px;
 }
 
-.hero__title-box {
-    background-color: var(--bg-glass-blanco-beige-fuerte);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid var(--borde-dorado-suave);
-    padding: 20px;
-    width: 90%;
-    max-width: 600px;
-    text-align: center;
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
-    animation: fadeInUp 1s ease-out forwards;
-    opacity: 0;
+.new-hero__banner-icon {
+    width: clamp(50px, 15vw, 120px);
+    height: auto;
+    object-fit: contain;
 }
 
-.hero__title-border {
-    border: 1px var(--color-dorado-ocre) solid;
-    padding: 50px 15px;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.hero__title {
-    font-size: var(--font-size-hero);
-    font-family: 'S Serif', 'Times New Roman', Times, serif;
-    font-weight: 300;
-    color: var(--color-dorado-ocre);
-    margin: 0;
-}
-
-.hero__subtitle {
-    font-family: 'Segoe Ui', sans-serif;
+.new-hero__banner-text {
+    font-family: 'STIX Two Text', serif;
+    font-size: clamp(16px, 4vw, 42px);
+    font-weight: 400;
     color: var(--color-cafe-profundo);
-    font-size: clamp(10px, 2vw, 14px);
-    font-weight: normal;
-    padding: 7px 5px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin: 5px 0 0 0;
+    margin: 0;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.new-hero__banner-cursive {
+    font-style: italic;
+    font-weight: 300;
 }
 
 /* =========================================
@@ -833,13 +854,7 @@ a {
         gap: 30px;
     }
 
-    .hero__background {
-        background-color: var(--color-blanco-beige);
-        background-image: linear-gradient(rgba(255, 246, 240, 0.7), rgba(255, 246, 240, 0.7)), url('../assets/img/ui/background-hero-desktop.webp');
-        background-size: contain;
-        background-position: bottom center;
-        background-repeat: repeat;
-    }
+    /* Removed old .hero__background inside media query */
 
     /* Constraints */
     .navbar__container,
