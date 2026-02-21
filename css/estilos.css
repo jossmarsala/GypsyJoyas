@@ -289,6 +289,12 @@ a {
     min-height: 80vh;
 }
 
+.new-hero__title-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
 .new-hero__title {
     font-family: 'STIX Two Text', serif;
     font-size: clamp(60px, 15vw, 200px);
@@ -310,7 +316,7 @@ a {
     font-weight: 300;
     color: var(--color-hero-title);
     margin: -10px 0 0 0;
-    text-align: center;
+    text-align: right;
     letter-spacing: 1px;
 }
 
