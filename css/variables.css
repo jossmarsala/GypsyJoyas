@@ -1,5 +1,12 @@
 :root {
     /* Palette */
+    --color-beige-nuevo: #F2EDE4;
+    /* For body background */
+    --color-hero-title: #F4E7C6;
+    /* For Hero title */
+    --color-hero-banner: #4B3318;
+    /* For Hero banner text */
+
     --color-beige: #d9b9a0;
     --color-blanco-beige: #fffaf1;
     --color-blanco-marfil: #fffff1;

@@ -1,4 +1,5 @@
 ﻿@import url('https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400..700;1,400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400&display=swap');
 
 @font-face {
     font-family: 'Manstein';
@@ -97,7 +98,7 @@ body {
 }
 
 body {
-    background-color: var(--color-blanco-beige);
+    background-color: var(--color-beige-nuevo);
     font-family: 'S Serif', 'Times New Roman', Times, serif;
     font-weight: normal;
 }
@@ -292,7 +293,7 @@ a {
     font-family: 'STIX Two Text', serif;
     font-size: clamp(60px, 15vw, 200px);
     font-weight: 400;
-    color: var(--color-blanco-beige);
+    color: var(--color-hero-title);
     margin: 0;
     line-height: 1.1;
     text-align: center;
@@ -307,14 +308,14 @@ a {
     font-family: 'STIX Two Text', serif;
     font-size: clamp(20px, 4vw, 36px);
     font-weight: 300;
-    color: var(--color-blanco-beige);
+    color: var(--color-hero-title);
     margin: -10px 0 0 0;
     text-align: center;
     letter-spacing: 1px;
 }
 
 .new-hero__banner {
-    background-color: var(--color-blanco-marfil);
+    background-color: var(--color-beige-nuevo);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -328,13 +329,17 @@ a {
     object-fit: contain;
 }
 
+.new-hero__banner-icon--large {
+    width: clamp(100px, 25vw, 250px);
+}
+
 .new-hero__banner-text {
-    font-family: 'STIX Two Text', serif;
+    font-family: 'Raleway', sans-serif;
     font-size: clamp(24px, 5.5vw, 60px);
-    font-weight: 400;
-    color: var(--color-cafe-profundo);
-    margin: 0;
-    text-align: center;
+    font-weight: 300;
+    color: var(--color-hero-banner);
+    margin: 0 0 0 clamp(10px, 2vw, 30px);
+    text-align: left;
     line-height: 1.1;
     white-space: nowrap;
 }
