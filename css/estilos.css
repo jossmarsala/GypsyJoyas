@@ -1,6 +1,14 @@
 ﻿@import url('https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400..700;1,400..700&display=swap');
 
 @font-face {
+    font-family: 'Manstein';
+    src: url("../assets/fonts/Manstein.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
     font-family: 'Segoe Ui';
     src: url("../assets/fonts/Segoe.woff2") format("woff2");
     font-weight: normal;
@@ -282,29 +290,27 @@ a {
 
 .new-hero__title {
     font-family: 'STIX Two Text', serif;
-    font-size: clamp(40px, 12vw, 150px);
+    font-size: clamp(60px, 15vw, 200px);
     font-weight: 400;
     color: var(--color-blanco-beige);
     margin: 0;
-    line-height: 1;
-    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    line-height: 1.1;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
     text-align: center;
 }
 
 .new-hero__initial {
-    font-family: 'Silk Serif', 'S Serif', serif;
-    /* Falling back to existing serif if "Manstein" isn't explicitly defined, as it might be a local name for SilkSerif */
-    font-style: italic;
-    font-weight: 300;
+    font-family: 'Manstein', serif;
+    font-weight: normal;
 }
 
 .new-hero__subtitle {
     font-family: 'STIX Two Text', serif;
-    font-size: clamp(14px, 3vw, 28px);
-    font-weight: 400;
+    font-size: clamp(20px, 4vw, 36px);
+    font-weight: 300;
     color: var(--color-blanco-beige);
-    margin: 0;
-    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    margin: -10px 0 0 0;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
     text-align: center;
     letter-spacing: 1px;
 }
@@ -314,24 +320,25 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 15px 5%;
-    gap: 10px;
+    padding: 20px 5%;
+    gap: 15px;
 }
 
 .new-hero__banner-icon {
-    width: clamp(50px, 15vw, 120px);
+    width: clamp(70px, 18vw, 180px);
     height: auto;
     object-fit: contain;
 }
 
 .new-hero__banner-text {
     font-family: 'STIX Two Text', serif;
-    font-size: clamp(16px, 4vw, 42px);
+    font-size: clamp(24px, 5.5vw, 60px);
     font-weight: 400;
     color: var(--color-cafe-profundo);
     margin: 0;
     text-align: center;
-    line-height: 1.2;
+    line-height: 1.1;
+    white-space: nowrap;
 }
 
 .new-hero__banner-cursive {
