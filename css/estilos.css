@@ -356,8 +356,71 @@ a {
 }
 
 /* =========================================
-   5. Section Headers (.section-header)
+   5. Products Header (.products-header) & Section Headers
    ========================================= */
+
+.products-header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    padding: 60px 5% 20px 5%;
+    background-color: transparent;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.products-header__inner {
+    display: flex;
+    align-items: center;
+    gap: clamp(15px, 4vw, 40px);
+    width: 100%;
+}
+
+.products-header__icon {
+    width: clamp(80px, 20vw, 250px);
+    height: auto;
+    object-fit: contain;
+    margin-right: -10px;
+}
+
+.products-header__text-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.products-header__title {
+    font-family: 'STIX Two Text', serif;
+    font-size: clamp(40px, 10vw, 130px);
+    font-weight: 300;
+    color: var(--color-cafe-profundo);
+    margin: 0;
+    line-height: 1;
+    letter-spacing: -2px;
+}
+
+.products-header__initial {
+    font-family: 'Manstein', serif;
+    font-weight: normal;
+    font-size: 1.2em;
+    vertical-align: sub;
+    margin-right: -8px;
+}
+
+.products-header__subtitle {
+    font-family: 'Raleway', sans-serif;
+    font-size: clamp(14px, 2vw, 24px);
+    font-weight: 400;
+    color: var(--color-cafe-profundo);
+    margin: 0;
+    text-align: right;
+    /* Aligned right visually relative to its own block bounds depending on the image */
+    align-self: flex-end;
+    /* Force it to the right within the flex column */
+    letter-spacing: 0.5px;
+    opacity: 0.9;
+}
 
 .section-header {
     display: flex;
