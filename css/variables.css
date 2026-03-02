@@ -1,8 +1,8 @@
 :root {
     /* Palette */
-    --color-beige-nuevo: #F2EDE4;
+    --color-beige-nuevo: #fefcf7;
     /* For body background */
-    --color-hero-title: #F4E7C6;
+    --color-hero-title: #f3f4e9;
     /* For Hero title */
     --color-hero-banner: #4B3318;
     /* For Hero banner text */
@@ -34,4 +34,8 @@
     /* Typography Sizes */
     --font-size-hero: clamp(50px, 12vw, 160px);
     --font-size-title-main: clamp(1.2rem, 4vw, 1.8rem);
+
+    /* Typography Fonts */
+    --font-family-title-main: 'STIX Two Text', serif;
+    --font-family-title-secondary: 'Segoe Ui', sans-serif;
 }

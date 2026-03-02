@@ -49,7 +49,7 @@
     </section>
 
     <!-- Maintenance Overlay -->
-    <div id="maintenance-overlay" class="maintenance-overlay">
+    <!-- <div id="maintenance-overlay" class="maintenance-overlay">
         <div class="maintenance-content">
             <img src="assets/img/ui/icono.svg" alt="Gypsy Joyas Logo" class="maintenance-logo">
             <h1 class="maintenance-title">Estamos actualizando los productos</h1>
@@ -66,7 +66,7 @@
                 </a>
             </div>
         </div>
-    </div>
+    </div> -->
 
 
     <header class="header">
@@ -105,19 +105,18 @@
                     <h1 class="new-hero__title">
                         <span class="new-hero__initial">G</span>ypsy Joyas
                     </h1>
-                    <p class="new-hero__subtitle">Obras de arte para llevar puestas</p>
                 </div>
             </div>
             <div class="new-hero__banner">
-                <img src="assets/img/ui/text-asset.webp" alt="Decoración floral izquierda"
-                    class="new-hero__banner-icon">
                 <p class="new-hero__banner-text">
+                    <img src="assets/img/ui/text-asset.webp" alt="Decoración floral izquierda"
+                        class="new-hero__banner-icon">
                     <span class="new-hero__initial"
                         style="font-size: 1.25em; line-height: 0.8; vertical-align: middle; margin-right: 0px;">J</span>oyería
                     artesanal hecha en<br>bronce, cobre y alpaca
+                    <img src="assets/img/ui/text-asset2.webp" alt="Decoración floral derecha"
+                        class="new-hero__banner-icon new-hero__banner-icon">
                 </p>
-                <img src="assets/img/ui/text-asset2.webp" alt="Decoración floral derecha"
-                    class="new-hero__banner-icon new-hero__banner-icon--large">
             </div>
         </section>
 
@@ -136,18 +135,76 @@
             </div>
         </section>
 
+        <section class="category-nav">
+            <div class="category-nav__container">
+                <!-- Aros Card -->
+                <button class="category-card" id="btnseccionaros" aria-expanded="false" aria-controls="productos-aros">
+                    <div class="category-card__img-wrapper">
+                        <img src="assets/img/ui/aros_placeholder_1772464496746.png" alt="Colección Aros">
+                    </div>
+                    <div class="category-card__content">
+                        <span class="category-card__cta">VER COLECCIÓN →</span>
+                        <div class="category-card__divider"></div>
+                        <h3 class="category-card__title">Aros</h3>
+                    </div>
+                </button>
+
+                <!-- Collares Card -->
+                <button class="category-card" id="btnseccioncollares" aria-expanded="false"
+                    aria-controls="productos-collares">
+                    <div class="category-card__img-wrapper">
+                        <img src="assets/img/ui/collares_placeholder_1772464523152.png" alt="Colección Collares">
+                    </div>
+                    <div class="category-card__content">
+                        <span class="category-card__cta">VER COLECCIÓN →</span>
+                        <div class="category-card__divider"></div>
+                        <h3 class="category-card__title">Collares</h3>
+                    </div>
+                </button>
+
+                <!-- Anillos Card -->
+                <button class="category-card" id="btnseccionanillos" aria-expanded="false"
+                    aria-controls="productos-anillos">
+                    <div class="category-card__img-wrapper">
+                        <img src="assets/img/ui/anillos_placeholder_1772464538118.png" alt="Colección Anillos">
+                    </div>
+                    <div class="category-card__content">
+                        <span class="category-card__cta">VER COLECCIÓN →</span>
+                        <div class="category-card__divider"></div>
+                        <h3 class="category-card__title">Anillos</h3>
+                    </div>
+                </button>
+
+                <!-- Pulseras Card -->
+                <button class="category-card" id="btnseccionpulseras" aria-expanded="false"
+                    aria-controls="productos-pulseras">
+                    <div class="category-card__img-wrapper">
+                        <img src="assets/img/ui/pulseras_placeholder_1772464557408.png" alt="Colección Pulseras">
+                    </div>
+                    <div class="category-card__content">
+                        <span class="category-card__cta">VER COLECCIÓN →</span>
+                        <div class="category-card__divider"></div>
+                        <h3 class="category-card__title">Pulseras</h3>
+                    </div>
+                </button>
+
+                <!-- Accesorios Card -->
+                <button class="category-card" id="btnseccionaccesorios" aria-expanded="false"
+                    aria-controls="productos-accesorios">
+                    <div class="category-card__img-wrapper">
+                        <img src="assets/img/ui/accesorios_final.png" alt="Colección Accesorios">
+                    </div>
+                    <div class="category-card__content">
+                        <span class="category-card__cta">VER COLECCIÓN →</span>
+                        <div class="category-card__divider"></div>
+                        <h3 class="category-card__title">Piezas</h3>
+                    </div>
+                </button>
+            </div>
+        </section>
+
         <!-- Catalog Sections -->
         <section class="catalog" aria-labelledby="cat-aros">
-            <div class="catalog__header">
-                <h3 class="catalog__heading">
-                    <button class="catalog__toggle" id="btnseccionaros" aria-expanded="false"
-                        aria-controls="productos-aros">
-                        <span class="catalog__category-title" id="cat-aros">Aros</span>
-                        <span class="catalog__arrow" id="flechaaros" aria-hidden="true">ᐯ</span>
-                        <span class="catalog__line"></span>
-                    </button>
-                </h3>
-            </div>
 
             <p class="catalog__subtitle pseccionaros">Bronce</p>
             <div id="aros-bronce" class="catalog__grid productosaros"></div>
@@ -157,16 +214,6 @@
         </section>
 
         <section class="catalog" aria-labelledby="cat-collares">
-            <div class="catalog__header">
-                <h3 class="catalog__heading">
-                    <button class="catalog__toggle catalog__toggle--collares" id="btnseccioncollares"
-                        aria-expanded="false" aria-controls="productos-collares">
-                        <span class="catalog__category-title" id="cat-collares">Collares</span>
-                        <span class="catalog__arrow" id="flechacollares" aria-hidden="true">ᐯ</span>
-                        <span class="catalog__line"></span>
-                    </button>
-                </h3>
-            </div>
 
             <p class="catalog__subtitle pseccioncollares">Bronce</p>
             <div id="collares-bronce" class="catalog__grid productoscollares"></div>
@@ -176,16 +223,6 @@
         </section>
 
         <section class="catalog" aria-labelledby="cat-anillos">
-            <div class="catalog__header">
-                <h3 class="catalog__heading">
-                    <button class="catalog__toggle" id="btnseccionanillos" aria-expanded="false"
-                        aria-controls="productos-anillos">
-                        <span class="catalog__category-title" id="cat-anillos">Anillos</span>
-                        <span class="catalog__arrow" id="flechaanillos" aria-hidden="true">ᐯ</span>
-                        <span class="catalog__line"></span>
-                    </button>
-                </h3>
-            </div>
 
             <p class="catalog__subtitle pseccionanillos">Bronce</p>
             <div id="anillos-bronce" class="catalog__grid productosanillos"></div>
@@ -195,16 +232,6 @@
         </section>
 
         <section class="catalog" aria-labelledby="cat-pulseras">
-            <div class="catalog__header">
-                <h3 class="catalog__heading">
-                    <button class="catalog__toggle catalog__toggle--pulseras" id="btnseccionpulseras"
-                        aria-expanded="false" aria-controls="productos-pulseras">
-                        <span class="catalog__category-title" id="cat-pulseras">Brazaletes y Pulseras</span>
-                        <span class="catalog__arrow" id="flechapulseras" aria-hidden="true">ᐯ</span>
-                        <span class="catalog__line"></span>
-                    </button>
-                </h3>
-            </div>
 
             <p class="catalog__subtitle pseccionpulseras">Bronce</p>
             <div id="pulseras-bronce" class="catalog__grid productospulseras"></div>
@@ -214,16 +241,6 @@
         </section>
 
         <section class="catalog" aria-labelledby="cat-accesorios">
-            <div class="catalog__header">
-                <h3 class="catalog__heading">
-                    <button class="catalog__toggle" id="btnseccionaccesorios" aria-expanded="false"
-                        aria-controls="productos-accesorios">
-                        <span class="catalog__category-title" id="cat-accesorios">Accesorios</span>
-                        <span class="catalog__arrow" id="flechaaccesorios" aria-hidden="true">ᐯ</span>
-                        <span class="catalog__line"></span>
-                    </button>
-                </h3>
-            </div>
 
             <p class="catalog__subtitle pseccionaccesorios">Bronce</p>
             <div id="accesorios-bronce" class="catalog__grid productosaccesorios"></div>
@@ -233,19 +250,25 @@
         </section>
 
         <section id="margenproductos">
-            <div class="section-header">
-                <div class="section-header__inner">
-                    <h2 id="encargos" class="section-header__title">¿Cómo encargar?</h2>
+            <div class="products-header">
+                <div class="products-header__inner">
+                    <div class="products-header__text-wrapper">
+                        <h2 id="encargos" class="products-header__title">
+                            <span class="products-header__initial">E</span>ncargar
+                        </h2>
+                        <p class="products-header__subtitle products-header__subtitle--left">Elegí tus piezas favoritas
+                            y enviame un mensaje por
+                            Instagram<br><a href="https://www.instagram.com/gypsy.joyas/" target="_blank"
+                                rel="noopener noreferrer" class="text-underline">(@gypsy.joyas)</a> para encargarlas.
+                        </p>
+                    </div>
+                    <img src="assets/img/ui/encargos-asset.webp" alt="Decoración encargos"
+                        class="products-header__icon products-header__icon--right">
                 </div>
             </div>
         </section>
 
         <div class="encargos">
-            <div class="encargos__intro">
-                <p>Explora el catálogo y cuando encuentres lo que te gusta, enviame un mensaje por Instagram <a
-                        href="https://www.instagram.com/gypsy.joyas/" target="_blank" rel="noopener noreferrer"
-                        class="text-underline">(@gypsy.joyas)</a>.</p>
-            </div>
 
             <div class="encargos__grid">
 

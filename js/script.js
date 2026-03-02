@@ -67,7 +67,10 @@
 
     const ProductsAccordion = {
         init() {
-            CONFIG.categories.forEach(cat => this.setupCategory(cat));
+            this.categoryElements = {};
+            CONFIG.categories.forEach(cat => {
+                this.categoryElements[cat] = this.setupCategory(cat);
+            });
         },
 
         setupCategory(category) {
@@ -77,22 +80,44 @@
             const titles = Array.from(document.getElementsByClassName(`pseccion${category}`));
             const allElements = [...sections, ...titles];
 
-            if (!btn || !arrow) return;
+            if (!btn) return null;
 
             // Initial State: Ensure hidden elements are display:none
             this.updateDisplay(allElements, false);
 
+            const categoryData = { btn, arrow, allElements };
+
             btn.addEventListener('click', () => {
-                const isExpanding = !arrow.classList.contains('animar');
+                const isActive = btn.classList.contains('active');
 
-                // Toggle Arrow & Aria
-                arrow.classList.toggle('animar', isExpanding);
-                btn.setAttribute('aria-expanded', isExpanding);
-
-                if (isExpanding) {
+                if (!isActive) {
+                    // Close all others first
+                    this.closeAllExcept(category);
                     this.expand(allElements);
+                    btn.classList.add('active');
+                    if (arrow) arrow.classList.add('animar');
+                    btn.setAttribute('aria-expanded', 'true');
                 } else {
                     this.collapse(allElements);
+                    btn.classList.remove('active');
+                    if (arrow) arrow.classList.remove('animar');
+                    btn.setAttribute('aria-expanded', 'false');
+                }
+            });
+
+            return categoryData;
+        },
+
+        closeAllExcept(activeCategory) {
+            Object.keys(this.categoryElements).forEach(cat => {
+                if (cat !== activeCategory && this.categoryElements[cat]) {
+                    const { btn, arrow, allElements } = this.categoryElements[cat];
+                    if (btn.classList.contains('active')) {
+                        this.collapse(allElements);
+                        btn.classList.remove('active');
+                        if (arrow) arrow.classList.remove('animar');
+                        btn.setAttribute('aria-expanded', 'false');
+                    }
                 }
             });
         },
@@ -100,18 +125,15 @@
         expand(elements) {
             elements.forEach(el => {
                 el.classList.add('mostrar');
-                el.style.display = 'grid'; // Or block/flex based on CSS, but logic says grid/block
+                el.style.display = 'grid';
 
-                // Force Clean DOM Read for reflow
                 const height = el.scrollHeight;
-
                 el.style.maxHeight = `${height}px`;
                 el.style.opacity = '1';
 
-                // After transition, clear max-height so it can grow if content changes (responsiveness)
                 const onTransitionEnd = () => {
                     if (el.classList.contains('mostrar')) {
-                        el.style.maxHeight = 'none'; // Allow flexible height
+                        el.style.maxHeight = 'none';
                     }
                     el.removeEventListener('transitionend', onTransitionEnd);
                 };
@@ -121,11 +143,7 @@
 
         collapse(elements) {
             elements.forEach(el => {
-                // To animate TO 0, we must first set it back to a fixed pixel value
-                // because you can't transition from "none" or "auto" to 0.
                 el.style.maxHeight = `${el.scrollHeight}px`;
-
-                // Force reflow
                 void el.offsetWidth;
 
                 el.classList.remove('mostrar');
