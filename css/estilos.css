@@ -1286,9 +1286,9 @@ a {
     /* Force strict height constraints for mobile hero */
     section.new-hero .new-hero__header {
         position: relative;
-        min-height: 40vh !important;
-        height: 45vh !important;
-        max-height: 50vh !important;
+        min-height: 50vh !important;
+        height: 55vh !important;
+        max-height: 60vh !important;
         padding-top: 2vh !important;
         padding-bottom: 2vh !important;
         overflow: hidden;
