@@ -33,6 +33,9 @@
         content="Explorá el catálogo y descubrí piezas originales de joyería artesanal hechas en cobre, bronce y alpaca.">
     <meta property="twitter:image" content="https://gypsyjoyas.vercel.app/assets/img/ui/presentacion.png">
 
+    <!-- FontAwesome -->
+    <script src="https://kit.fontawesome.com/b66c474644.js" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
@@ -76,9 +79,7 @@
 
                 <button class="navbar__toggler" type="button" aria-controls="navbarNav" aria-expanded="false"
                     aria-label="Abrir navegación">
-                    <span class="navbar__toggler-line navbar__toggler-line--long"></span>
-                    <span id="lineacorta" class="navbar__toggler-line navbar__toggler-line--short"></span>
-                    <span class="navbar__toggler-line navbar__toggler-line--long"></span>
+                    <i class="fa-solid fa-bars"></i>
                 </button>
 
                 <div class="navbar__collapse mobile-menu-overlay" id="navbarNav">
@@ -217,7 +218,7 @@
                         <div class="category-card__content">
                             <span class="category-card__cta">VER <span class="hide-on-mobile">COLECCIÓN </span>→</span>
                             <div class="category-card__divider"></div>
-                            <h3 class="category-card__title">Piezas</h3>
+                            <h3 class="category-card__title">Accs.</h3>
                         </div>
                     </button>
                 </div>
@@ -281,7 +282,7 @@
                 <div class="products-header__inner">
                     <div class="products-header__text-wrapper">
                         <h2 id="encargos" class="products-header__title">
-                            <span class="products-header__initial">E</span>ncargar
+                            <span class="products-header__initial">C</span>ómo encargar?
                         </h2>
                         <p class="products-header__subtitle products-header__subtitle--left">Elegí tus piezas favoritas
                             y enviame un mensaje por
@@ -305,21 +306,21 @@
                         <div class="encargos__divider"></div>
                         <p class="encargos__description">Si te encontrás en la provincia de Mendoza, podés retirar tu
                             pedido en mi
-                            taller de Godoy Cruz o coordinar otro punto de encuentro.</p>
+                            taller de Godoy Cruz.</p>
                     </div>
                 </div>
 
 
                 <div class="encargos__card">
                     <div class="encargos__content">
-                        <p class="encargos__description">Para quienes están fuera de Mendoza, hago envíos por Correo
-                            Argentino a
-                            cualquier provincia. Puede ser a domicilio o a tu sucursal más cercana. Para cotizarlo,
-                            enviame tu código postal por mensaje privado de Instagram.</p>
-                        <div class="encargos__divider"></div>
                         <h3 class="encargos__title encargos__title--right">Soy de <br> <span
                                 class="encargos__highlight">OTRA PROVINCIA</span>
                         </h3>
+                        <div class="encargos__divider"></div>
+                        <p class="encargos__description">Hago envíos por Correo
+                            Argentino a
+                            todo el país. Puede ser a domicilio o a tu sucursal más cercana. Para cotizarlo,
+                            enviame tu código postal por mensaje privado de Instagram.</p>
                     </div>
                 </div>
             </div>
@@ -351,7 +352,7 @@
             </div>
         </footer>
 
-        <script src="https://kit.fontawesome.com/b66c474644.js" crossorigin="anonymous"></script>
+
         <script src="js/script.js"></script>
         <script src="js/productos.js"></script>
 </body>

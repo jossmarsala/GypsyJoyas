@@ -221,7 +221,17 @@ a {
     cursor: pointer;
     border: none;
     background: transparent;
-    padding: 5px;
+    padding: 8px;
+    color: var(--color-cafe-profundo);
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.navbar__toggler:hover {
+    opacity: 0.8;
 }
 
 .navbar__toggler:focus-visible {
@@ -229,38 +239,9 @@ a {
     outline-offset: 2px;
 }
 
+/* Hide old line animations as we use FontAwesome now */
 .navbar__toggler-line {
-    display: block;
-    background: var(--color-texto);
-    transition: ease 0.3s;
-    height: 2px;
-    margin: 6px 0;
-}
-
-.navbar__toggler-line--long {
-    width: 30px;
-}
-
-.navbar__toggler-line--short {
-    width: 20px;
-}
-
-/* Toggler Animations (Keep legacy support via aria check or specific class logic) */
-.navbar__toggler[aria-expanded="true"] .navbar__toggler-line:first-of-type {
-    transform: translateY(8px) rotate(45deg);
-}
-
-.navbar__toggler[aria-expanded="true"] .navbar__toggler-line:nth-of-type(2) {
-    opacity: 0;
-}
-
-.navbar__toggler[aria-expanded="true"] .navbar__toggler-line:last-of-type {
-    transform: translateY(-8px) rotate(-45deg);
-}
-
-.navbar__toggler[aria-expanded="false"] .navbar__toggler-line {
-    transform: none;
-    opacity: 1;
+    display: none;
 }
 
 
@@ -452,6 +433,20 @@ a {
     line-height: 1;
     letter-spacing: -2px;
 }
+
+#margenproductos {
+    margin-top: 150px;
+}
+
+/* Specific for Encargos Title to ensure single line */
+#encargos {
+    white-space: nowrap;
+    width: 100%;
+    padding: 0 5%;
+    /* Reset padding-top, spacing is now handled by #margenproductos */
+    box-sizing: border-box;
+}
+
 
 .products-header__initial {
     font-family: 'Manstein', serif;
@@ -1149,9 +1144,9 @@ a {
    ========================================= */
 
 @media (min-width: 992px) {
-    .navbar__toggler {
+    /* .navbar__toggler {
         display: none;
-    }
+    } */
 
     .navbar__collapse {
         position: static;
@@ -1201,6 +1196,10 @@ a {
         min-height: 45vh !important;
         /* Shorter than 80vh desktop */
     }
+
+    #encargos {
+        font-size: clamp(34px, 8vw, 54px) !important;
+    }
 }
 
 @media (max-width: 768px) {
@@ -1220,10 +1219,18 @@ a {
         justify-content: flex-end;
     }
 
+    .new-hero__banner {
+        padding: 40px 2%;
+    }
+
     .new-hero__banner-text {
-        font-size: clamp(18px, 5.5vw, 24px);
+        font-size: clamp(26px, 8.5vw, 36px);
+        /* Significantly larger for mobile presence */
+        padding: 0 1%;
+        /* Utilize lateral margin as requested */
         gap: 5px;
     }
+
 
     .encargos__content {
         flex-direction: column;
@@ -1330,6 +1337,15 @@ a {
     .products-header__title {
         font-size: clamp(32px, 10vw, 42px);
         /* Size adjustment */
+    }
+
+    /* Fix the gap above "Cómo encargar" that was lost due to products-header padding override */
+    #margenproductos {
+        margin-top: 80px;
+    }
+
+    #encargos {
+        font-size: clamp(26px, 8.5vw, 36px) !important;
     }
 
     .products-header__subtitle {
