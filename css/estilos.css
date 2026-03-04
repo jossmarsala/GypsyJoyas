@@ -1286,9 +1286,9 @@ a {
     /* Hero Section - Crop height for mobile */
     .new-hero__header {
         position: relative;
-        min-height: 45vh !important;
-        padding-top: 5vh;
-        padding-bottom: 5vh;
+        min-height: 25vh !important;
+        padding-top: 2vh;
+        padding-bottom: 2vh;
         overflow: hidden;
         margin-top: 10px;
         margin-bottom: 10px;
