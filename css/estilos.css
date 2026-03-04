@@ -1347,14 +1347,22 @@ a {
         line-height: 1.4;
     }
 
-    .catalog__grid {
-        padding: 0 15px;
-        grid-gap: 15px;
+    .catalog {
+        padding: 0 10px;
     }
 
-    .product-card__image {
-        aspect-ratio: 1.2 / 1;
+    .catalog__grid {
+        grid-gap: 15px;
+        overflow: visible !important;
+        max-height: none !important;
     }
+
+
+    .product-card__image {
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+    }
+
 
 
     /* =========================================
