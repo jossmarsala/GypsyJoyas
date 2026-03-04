@@ -1316,7 +1316,14 @@ a {
     .products-header__icon {
         width: clamp(60px, 15vw, 100px);
         margin-top: -1rem;
+        top: 20% !important;
+        transform: none !important;
     }
+
+    .products-header__initial {
+        margin-right: 0px !important;
+    }
+
 
     .products-header__title {
         font-size: clamp(32px, 10vw, 42px);
