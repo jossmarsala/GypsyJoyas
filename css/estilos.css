@@ -1286,16 +1286,14 @@ a {
     /* Hero Section - Crop height for mobile */
     .new-hero__header {
         position: relative;
-        min-height: 18vh !important;
-        /* Extremely short as requested */
-        max-height: 150px;
-        /* Ceiling for very tall screens */
+        min-height: 45vh !important;
         padding-top: 5vh;
         padding-bottom: 5vh;
         overflow: hidden;
         margin-top: 10px;
         margin-bottom: 10px;
     }
+
 
     .new-hero__header::before {
         height: 100%;
@@ -1304,7 +1302,12 @@ a {
         /* Better crop focus */
     }
 
+    .products-header {
+        padding-top: 40px;
+    }
+
     .products-header__inner {
+
         flex-direction: column;
         align-items: center;
     }
