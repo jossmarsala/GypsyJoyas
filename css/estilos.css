@@ -311,7 +311,7 @@ a {
 
 .new-hero__title {
     font-family: 'STIX Two Text', serif;
-    font-size: clamp(60px, 15vw, 200px);
+    font-size: clamp(80px, 15vw, 200px);
     font-weight: 400;
     color: var(--color-beige-nuevo);
     margin: 0 0 20px 0;
@@ -333,24 +333,64 @@ a {
     gap: 0;
 }
 
-.new-hero__banner-icon {
-    height: clamp(1vh, 5vh, 100px);
-    width: auto;
-    object-fit: contain;
-    display: inline-block;
-    vertical-align: middle;
-    margin: 0 10px;
-}
-
 .new-hero__banner-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    /* Adjust gap between the two lines */
+    padding: 0 5%;
     font-family: 'Raleway', sans-serif;
     font-size: clamp(24px, 5.5vw, 60px);
     font-weight: 300;
     color: var(--color-hero-banner);
-    margin: 0 0 0 clamp(10px, 2vw, 30px);
-    text-align: left;
+    margin: 0;
     line-height: 1.1;
     white-space: normal;
+}
+
+.new-hero__banner-line {
+    display: flex;
+    align-items: center;
+    /* Ensures vertical centering between image and text */
+    gap: clamp(10px, 3vw, 25px);
+    /* Responsive space between image and text */
+}
+
+.new-hero__banner-line--first {
+    align-self: flex-start;
+    /* Or center if the box spans full width */
+}
+
+.new-hero__banner-line--second {
+    align-self: flex-end;
+    /* Or center if the box spans full width */
+}
+
+.new-hero__banner-icon {
+    height: clamp(15px, 5vw, 50px);
+    width: auto;
+    object-fit: contain;
+    flex-shrink: 0;
+    position: static;
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+
+.new-hero__banner-icon {
+    height: clamp(15px, 5vw, 50px);
+    width: auto;
+    object-fit: contain;
+    flex-shrink: 0;
+    position: static;
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+
+.new-hero__banner-icon--second {
+    margin-left: 20px;
 }
 
 .new-hero__banner-cursive {
@@ -427,14 +467,11 @@ a {
     font-weight: 400;
     color: var(--color-cafe-profundo);
     margin: 0;
-    text-align: right;
+    text-align: center;
     width: 100%;
+    margin-top: 20px;
     letter-spacing: 0.5px;
     opacity: 0.9;
-}
-
-.products-header__subtitle--left {
-    text-align: left;
 }
 
 /* =========================================
@@ -452,7 +489,8 @@ a {
     justify-content: center;
     align-items: stretch;
     width: 100%;
-    min-height: 400px;
+    height: 400px;
+    /* Fixed height to avoid jumps during animations */
     border: 1px solid rgba(75, 51, 24, 0.15);
     background-color: var(--color-blanco-beige);
     overflow-x: auto;
@@ -480,20 +518,146 @@ a {
     border-right: none;
 }
 
+/* Default hover remains */
 .category-card:hover {
     background-color: rgba(255, 255, 255, 0.5);
 }
 
-.category-card.active {
-    flex: 1.6;
-    background-color: rgba(207, 163, 88, 0.05);
+/* =========================================
+   6.1. Category Navigation Deployed State
+   ========================================= */
+
+/* When any card is active, adjust flex ratios */
+.category-nav__container:has(.category-card.active) .category-card:not(.active) {
+    flex: 1.5;
+    /* Narrow tabs */
+    min-width: 90px;
+    background-color: transparent;
+}
+
+/* Hide images and dividers for inactive cards when deployed */
+.category-nav__container:has(.category-card.active) .category-card:not(.active) .category-card__img-wrapper,
+.category-nav__container:has(.category-card.active) .category-card:not(.active) .category-card__divider {
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Ensure inactive cards center their text */
+.category-nav__container:has(.category-card.active) .category-card:not(.active) .category-card__content {
+    justify-content: flex-start;
+    align-items: center;
+    padding: 30px 5px;
+    /* Added more top padding */
+}
+
+/* Inactive cards need a divider line visible under the CTA (like reference) */
+.category-nav__container:has(.category-card.active) .category-card:not(.active) .category-card__divider {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    width: 60%;
+    /* Narrow divider */
+    margin-bottom: 30px;
+    /* Space between divider and title */
+}
+
+/* Active card layout */
+.category-nav__container:has(.category-card.active) .category-card.active {
+    flex: 4;
+    /* Much wider (e.g. takes ~50-60% of the total flex space) */
+    min-width: 320px;
+    /* Force it to be wide enough for the row layout */
+    flex-direction: row;
+    /* Image on left, text on right */
+    background-color: var(--color-blanco-beige);
+    /* Blend with container */
+    cursor: default;
+}
+
+/* Active card image wrapper */
+.category-nav__container:has(.category-card.active) .category-card.active .category-card__img-wrapper {
+    display: flex;
+    width: 50%;
+    /* Adjusted ratio */
+    height: 100%;
+    aspect-ratio: auto;
+    padding: 20px 0 20px 20px;
+    /* Padding only around edges, not between image and text */
+}
+
+/* Active card image */
+.category-nav__container:has(.category-card.active) .category-card.active .category-card__img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    /* Ensures a vertical crop (flaquita) */
+    transform: none !important;
+    display: block;
+}
+
+/* Active card content */
+.category-nav__container:has(.category-card.active) .category-card.active .category-card__content {
+    width: 50%;
+    /* Adjusted ratio */
+    flex-direction: column;
+    justify-content: flex-start;
+    /* Align content to top */
+    align-items: flex-start;
+    /* Align text to left inside its box */
+    padding: 30px 10px 30px 20px;
+    /* Add space on the left to separate from image */
+}
+
+/* Hide divider in active card */
+.category-nav__container:has(.category-card.active) .category-card.active .category-card__divider {
+    display: none;
+}
+
+/* Override fade animation for active card elements to keep them solid */
+.category-nav__container:has(.category-card.active) .category-card.active .category-card__img-wrapper,
+.category-nav__container:has(.category-card.active) .category-card.active .category-card__content {
+    animation: none;
+}
+
+/* Adjust title placement in active card to stay at the bottom left */
+.category-nav__container:has(.category-card.active) .category-card.active .category-card__title {
+    margin: auto 0 10px 0;
+    align-self: flex-start;
+    /* Pull title to left */
+}
+
+/* Align CTA inside active card */
+.category-nav__container:has(.category-card.active) .category-card.active .category-card__cta {
+    margin-bottom: 20px;
+    /* Space under CTA */
+    text-align: left;
+    width: 100%;
+    /* Ensure it spans full width of content box */
+}
+
+@keyframes fadeCollapse {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
 .category-card__img-wrapper {
     width: 100%;
-    aspect-ratio: 1 / 1.1;
+    aspect-ratio: 16 / 10;
     overflow: hidden;
     padding: 15px;
+    animation: fadeCollapse 0.8s ease-out;
+    /* Forces an invisible state during the collapse jump */
 }
 
 .category-card__img-wrapper img {
@@ -501,11 +665,13 @@ a {
     height: 100%;
     object-fit: cover;
     filter: grayscale(0.2) contrast(0.9);
-    transition: transform 0.6s ease;
+    transition: filter 0.6s ease;
+    /* Removed transform to avoid jumpy animations */
 }
 
-.category-card:hover .category-card__img-wrapper img {
-    transform: scale(1.05);
+/* Solo aplicar hover scale si la tarjeta NO está activa o no está dentro de una nav activa */
+.category-nav__container:not(:has(.category-card.active)) .category-card:hover .category-card__img-wrapper img {
+    filter: grayscale(0) contrast(1);
 }
 
 .category-card__content {
@@ -515,6 +681,8 @@ a {
     flex-direction: column;
     align-items: flex-start;
     position: relative;
+    animation: fadeCollapse 0.8s ease-out;
+    /* Also fade the text cleanly on collapse */
 }
 
 .category-card__cta {
@@ -603,8 +771,9 @@ a {
 /* Grid Logic */
 .catalog__grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    grid-gap: 30px;
+
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
     padding: 0;
     overflow: hidden;
     transition: max-height 0.6s ease, opacity 0.4s ease, padding 0.6s ease;
@@ -612,6 +781,14 @@ a {
     /* Collapsed State */
     max-height: 0;
     opacity: 0;
+}
+
+/* Tablet & Desktop Grid */
+@media (min-width: 600px) {
+    .catalog__grid {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        grid-gap: 30px;
+    }
 }
 
 /* Active States */
@@ -639,48 +816,68 @@ a {
     justify-content: flex-start !important;
     align-items: center !important;
     text-align: center;
-    padding: 15px;
-    background: var(--bg-glass-claro);
-    border-radius: 8px;
-    transition: transform 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease;
+    padding: 10px;
+    /* Reduced padding inside the card for mobile */
+    background: var(--color-beige-nuevo);
+    /* Set background to blend with page or keep solid, e.g. white/beige */
+    border: 1px solid var(--color-cafe-profundo);
+    /* Solid thin border like reference */
+    border-radius: 0;
+    /* Remove rounded corners */
+    transition: border-color 0.4s ease, background-color 0.4s ease;
+    /* Remove jumpy transform */
+}
+
+@media (min-width: 600px) {
+    .product-card {
+        padding: 20px;
+        /* More padding on larger screens */
+    }
 }
 
 .product-card:hover {
-    background: rgba(255, 255, 255, 0.6);
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03);
+    background: var(--color-blanco-beige);
+    border-color: var(--color-dorado-ocre);
+    /* Subtle hover effect on border instead of lifting */
 }
 
 .product-card__image {
-    width: clamp(70px, 30vw, 180px);
-    height: clamp(70px, 37vw, 180px);
-    outline: 1.2px solid var(--color-blanco-beige);
-    outline-offset: -7px;
+    width: 100%;
+    /* Take full width of card minus padding */
+    aspect-ratio: 1 / 1;
+    /* Force square like reference */
     object-fit: cover;
-    transition: ease-in 0.2s;
+    outline: none;
+    /* Remove previous outline */
+    transition: opacity 0.3s ease;
+    margin-bottom: 5px;
+    /* Space between image and text */
 }
 
 .product-card__image:hover {
-    outline: 1.8px solid var(--color-blanco-beige);
-    outline-offset: -5px;
+    opacity: 0.9;
+    /* Subtle image hover */
 }
 
 .product-card__title {
-    font-family: 'S Serif', serif;
-    margin-top: 15px !important;
+    font-family: 'Raleway', sans-serif;
+    /* Refined typography */
+    margin-top: 10px !important;
     margin-bottom: 5px;
-    font-size: clamp(16px, 1.3rem, 20px) !important;
+    font-size: clamp(14px, 1.1rem, 18px) !important;
     text-align: center;
     color: var(--color-cafe-profundo);
-    font-weight: 300 !important;
-    line-height: 1.2;
+    font-weight: 500 !important;
+    line-height: 1.3;
 }
 
 .product-card__price {
     font-family: 'S Serif', serif;
-    font-size: clamp(16px, 1.2rem, 19px) !important;
-    margin: 0 0 10px 0 !important;
-    color: var(--color-dorado-ocre);
+    /* Keep serif for elegant pricing */
+    font-size: clamp(14px, 1rem, 16px) !important;
+    margin: 0 0 5px 0 !important;
+    color: var(--color-cafe-profundo);
+    /* Match reference solid color */
     font-weight: normal;
     letter-spacing: 0.5px;
 }
@@ -739,20 +936,17 @@ a {
     align-items: center;
     gap: 40px;
     padding: 40px;
-    background: var(--bg-glass-blanco-beige-suave);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-radius: 2px;
-    border: 1px solid rgba(207, 163, 88, 0.2);
-    box-shadow: 0 10px 40px -10px rgba(60, 36, 21, 0.05);
-    transition: transform 0.4s ease;
+    background: var(--color-blanco-beige);
+    border: 1px solid rgba(75, 51, 24, 0.15);
+    /* Match product cards */
+    transition: background-color 0.4s ease, border-color 0.4s ease;
     width: 100%;
 }
 
 .encargos__card:hover .encargos__content {
-    transform: translateY(-5px);
-    background: rgba(255, 250, 241, 0.6);
-    border-color: var(--borde-dorado-medio);
+    background: rgba(255, 255, 255, 0.5);
+    /* Subtle highlight */
+    border-color: var(--color-cafe-profundo);
 }
 
 .encargos__title {
@@ -804,26 +998,21 @@ a {
 .btn--primary {
     display: inline-block;
     padding: 15px 40px;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(5px);
-    border: 1px solid var(--color-dorado-ocre);
-    color: var(--color-dorado-ocre);
+    background: transparent;
+    border: 1px solid var(--color-cafe-profundo);
+    color: var(--color-cafe-profundo);
     font-family: 'S Serif', serif;
     text-transform: uppercase;
     letter-spacing: 2px;
-    font-size: 1.2rem;
+    font-size: 1rem;
     text-decoration: none;
-    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease;
     cursor: pointer;
-    box-shadow: 0 4px 15px var(--sombra-suave);
 }
 
 .btn--primary:hover {
-    background: var(--color-blanco-marfil);
-    color: var(--color-verde-bosque);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    border-color: var(--color-verde-bosque);
+    background: var(--color-cafe-profundo);
+    color: var(--color-blanco-beige);
 }
 
 /* =========================================
@@ -831,13 +1020,10 @@ a {
    ========================================= */
 
 .footer {
-    border-top: 1px solid var(--borde-dorado-suave);
+    border-top: 1px solid rgba(75, 51, 24, 0.15);
+    /* Match brand borders */
     padding: 100px 20px 40px;
     background-color: var(--color-blanco-beige);
-    background-image: linear-gradient(rgba(255, 246, 240, 0.7), rgba(255, 246, 240, 0.7)), url('../assets/img/ui/background-footer.webp');
-    background-size: contain;
-    background-position: bottom center;
-    background-repeat: repeat;
     margin-top: 150px;
 }
 
@@ -872,7 +1058,7 @@ a {
     display: flex;
     justify-content: center;
     gap: 20px;
-    margin: 10px 0;
+    margin: 20px 0;
 }
 
 .social-icons__link {
@@ -881,21 +1067,18 @@ a {
     justify-content: center;
     width: 42px;
     height: 42px;
-    border: 0.5px solid var(--borde-dorado-medio);
+    border: 1px solid var(--color-cafe-profundo);
     border-radius: 50%;
-    color: var(--color-dorado-ocre);
+    color: var(--color-cafe-profundo);
     font-size: 1.1rem;
-    transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease;
     text-decoration: none;
     background: transparent;
 }
 
 .social-icons__link:hover {
-    border-color: var(--color-dorado-ocre);
-    background: var(--bg-dorado-muy-suave);
-    color: var(--color-dorado-ocre);
-    transform: translateY(-3px);
-    box-shadow: 0 4px 10px rgba(207, 163, 88, 0.1);
+    background: var(--color-cafe-profundo);
+    color: var(--color-blanco-beige);
 }
 
 .footer__copyright {
@@ -996,7 +1179,52 @@ a {
     }
 }
 
+/* =========================================
+   Global Utility Classes
+   ========================================= */
+
+.mobile-only {
+    display: none !important;
+}
+
+.desktop-only {
+    display: inline !important;
+}
+
+.category-scroll-btn {
+    display: none;
+}
+
+/* Tablet Overrides */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .new-hero__header {
+        min-height: 45vh !important;
+        /* Shorter than 80vh desktop */
+    }
+}
+
 @media (max-width: 768px) {
+    .new-hero__title {
+        font-size: clamp(70px, 24vw, 140px) !important;
+    }
+
+    .new-hero__banner-line {
+        flex-wrap: wrap;
+    }
+
+    .new-hero__banner-line--first {
+        justify-content: flex-start;
+    }
+
+    .new-hero__banner-line--second {
+        justify-content: flex-end;
+    }
+
+    .new-hero__banner-text {
+        font-size: clamp(18px, 5.5vw, 24px);
+        gap: 5px;
+    }
+
     .encargos__content {
         flex-direction: column;
         text-align: center;
@@ -1036,6 +1264,211 @@ a {
 
     .section-header__title::after {
         margin-top: 10px;
+    }
+
+    /* =========================================
+       11. Responsive Overrides (from User Request)
+       ========================================= */
+
+    /* Hero Section - Hide 'Joyas' text and original texts */
+    .hide-on-mobile {
+        display: none !important;
+    }
+
+    .desktop-only {
+        display: none !important;
+    }
+
+    .mobile-only {
+        display: inline !important;
+    }
+
+    /* Hero Section - Crop height for mobile */
+    .new-hero__header {
+        position: relative;
+        min-height: 18vh !important;
+        /* Extremely short as requested */
+        max-height: 150px;
+        /* Ceiling for very tall screens */
+        padding-top: 5vh;
+        padding-bottom: 5vh;
+        overflow: hidden;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .new-hero__header::before {
+        height: 100%;
+        top: 0;
+        background-position: center 40%;
+        /* Better crop focus */
+    }
+
+    .products-header__inner {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Keep the icon absolutely positioned but shrink it for mobile */
+    .products-header__icon {
+        width: clamp(60px, 15vw, 100px);
+        margin-top: -1rem;
+    }
+
+    .products-header__title {
+        font-size: clamp(32px, 10vw, 42px);
+        /* Size adjustment */
+    }
+
+    .products-header__subtitle {
+        text-align: center;
+        margin-top: 0;
+        width: 100%;
+    }
+
+    /* Specifically target the "Encargar" subtitle to force two lines */
+    .products-header__subtitle--left {
+        max-width: 85%;
+        /* Squeeze the sides to force a wrap */
+        font-size: clamp(12px, 3vw, 16px);
+        /* Slightly smaller font */
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.4;
+    }
+
+    /* =========================================
+       12. Mobile Category Scroll Layout Override
+       ========================================= */
+
+    /* Ensure container allows horizontal scrolling and snapping */
+    .category-nav__container {
+        justify-content: flex-start;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+        border: none;
+        height: auto;
+        /* Remove the 400px fixed height to fit content */
+        padding-bottom: 20px;
+        /* Space for scrollbar */
+    }
+
+    /* Hide the scrollbar for a cleaner look */
+    .category-nav__container::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* Force cards to take up exactly 33.333% of the viewport (3 items on screen) */
+    .category-card {
+        flex: 0 0 calc(100% / 3) !important;
+        min-width: unset !important;
+        scroll-snap-align: start;
+        border: none !important;
+        /* Remove accordion height/flex transitions for mobile */
+        transition: none !important;
+    }
+
+    /* Override ALL accordion "active" state CSS changes so they never break the grid */
+    .category-nav__container:has(.category-card.active) .category-card:not(.active) {
+        flex: 0 0 calc(100% / 3) !important;
+        min-width: unset !important;
+    }
+
+    .category-nav__container:has(.category-card.active) .category-card.active {
+        flex: 0 0 calc(100% / 3) !important;
+        min-width: unset !important;
+        flex-direction: column !important;
+        /* Force column layout always */
+        background-color: transparent !important;
+    }
+
+    /* Keep images shown at all times */
+    .category-nav__container:has(.category-card.active) .category-card:not(.active) .category-card__img-wrapper,
+    .category-nav__container:has(.category-card.active) .category-card:not(.active) .category-card__divider,
+    .category-card__img-wrapper,
+    .category-card__divider {
+        display: flex !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        animation: none !important;
+        /* Disable jump animations */
+    }
+
+    /* Clean up internal spacing and borders to match the reference image */
+    .category-card__img-wrapper {
+        padding: 10px !important;
+        /* Less padding to fit 3 easily */
+        aspect-ratio: 1 / 1 !important;
+        /* Square images */
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    .category-nav__container:has(.category-card.active) .category-card.active .category-card__img-wrapper {
+        width: 100% !important;
+        padding: 10px !important;
+    }
+
+    .category-card__content,
+    .category-nav__container:has(.category-card.active) .category-card.active .category-card__content,
+    .category-nav__container:has(.category-card.active) .category-card:not(.active) .category-card__content {
+        justify-content: center !important;
+        align-items: center !important;
+        width: 100% !important;
+        padding: 10px !important;
+        text-align: center !important;
+    }
+
+    /* Rotate Text to be vertical */
+    .category-card__title,
+    .category-nav__container:has(.category-card.active) .category-card.active .category-card__title {
+        writing-mode: vertical-rl;
+        text-orientation: mixed;
+        transform: rotate(180deg);
+        margin: 20px auto 0 auto !important;
+        align-self: center !important;
+        font-size: clamp(24px, 6vw, 36px) !important;
+        /* Make it large enough like reference */
+        letter-spacing: 2px;
+    }
+
+    .category-card__cta,
+    .category-nav__container:has(.category-card.active) .category-card.active .category-card__cta {
+        margin: 0 !important;
+        text-align: center !important;
+        width: auto !important;
+        font-size: 10px !important;
+    }
+
+    .category-card__divider {
+        width: 100% !important;
+        margin-top: 5px !important;
+        margin-bottom: 5px !important;
+        display: block !important;
+    }
+
+    /* Slider Container wrapper to hold arrows + container */
+    .category-nav__wrapper {
+        position: relative;
+        display: flex;
+        align-items: center;
+        width: 100%;
+    }
+
+    /* Slider Arrows */
+    .category-scroll-btn {
+        background: transparent;
+        border: none;
+        color: var(--color-cafe-profundo);
+        font-size: 24px;
+        cursor: pointer;
+        padding: 5px;
+        z-index: 5;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }
 

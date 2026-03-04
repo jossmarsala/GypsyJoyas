@@ -32,13 +32,8 @@ const Inventory = ({ products, refetch, loading }) => {
 
     return (
         <div
-            className="bento-card"
+            className="bento-card inventory-card"
             style={{
-                flex: 1,
-                minHeight: 0,
-                display: 'flex',
-                flexDirection: 'column',
-                minWidth: 0,
                 maxWidth: '1600px',
                 width: '96%',
                 margin: '0 auto'

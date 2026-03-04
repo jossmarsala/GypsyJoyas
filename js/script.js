@@ -89,19 +89,54 @@
 
             btn.addEventListener('click', () => {
                 const isActive = btn.classList.contains('active');
+                const isMobile = window.innerWidth <= 768; // Check if mobile view
 
-                if (!isActive) {
-                    // Close all others first
+                if (isMobile) {
+                    // ON MOBILE: Do not trigger accordion folds.
+                    // Just show the products grid instantly and scroll down to them.
                     this.closeAllExcept(category);
-                    this.expand(allElements);
-                    btn.classList.add('active');
-                    if (arrow) arrow.classList.add('animar');
-                    btn.setAttribute('aria-expanded', 'true');
+
+                    if (!isActive) {
+                        btn.classList.add('active');
+                        // Show products without height animation
+                        allElements.forEach(el => {
+                            el.classList.add('mostrar');
+                            el.style.display = 'grid';
+                            el.style.maxHeight = 'none'; // Prevent max-height animation capping
+                            el.style.opacity = '1';
+                        });
+
+                        // Scroll slightly down to make products visible
+                        setTimeout(() => {
+                            const firstProductSection = sections[0];
+                            if (firstProductSection) {
+                                firstProductSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            }
+                        }, 50);
+
+                    } else {
+                        btn.classList.remove('active');
+                        allElements.forEach(el => {
+                            el.classList.remove('mostrar');
+                            el.style.display = 'none';
+                        });
+                    }
+
                 } else {
-                    this.collapse(allElements);
-                    btn.classList.remove('active');
-                    if (arrow) arrow.classList.remove('animar');
-                    btn.setAttribute('aria-expanded', 'false');
+                    // ON DESKTOP: Run standard accordion JS
+                    if (!isActive) {
+                        // Close all others first
+                        this.closeAllExcept(category);
+                        this.expand(allElements);
+                        btn.classList.add('active');
+                        if (arrow) arrow.classList.add('animar');
+                        btn.setAttribute('aria-expanded', 'true');
+                    } else {
+                        this.collapse(allElements);
+                        btn.classList.remove('active');
+                        if (arrow) arrow.classList.remove('animar');
+                        btn.setAttribute('aria-expanded', 'false');
+                    }
                 }
             });
 
@@ -253,3 +288,22 @@
     }
 
 })();
+
+// =========================================
+// Mobile Horizontal Scrolling function
+// =========================================
+window.scrollCategories = function (direction) {
+    const container = document.getElementById('categoryContainer');
+    if (!container) return;
+
+    // Scroll by roughly the width of one card + gap
+    const cardOptions = container.querySelectorAll('.category-card');
+    if (cardOptions.length === 0) return;
+
+    // Calculate one scroll move
+    const scrollAmount = cardOptions[0].clientWidth;
+    container.scrollBy({
+        left: direction * scrollAmount,
+        behavior: 'smooth'
+    });
+};

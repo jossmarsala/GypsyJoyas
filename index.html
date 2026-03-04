@@ -103,20 +103,32 @@
             <div class="new-hero__header">
                 <div class="new-hero__title-wrapper">
                     <h1 class="new-hero__title">
-                        <span class="new-hero__initial">G</span>ypsy Joyas
+                        <span class="new-hero__initial">G</span>ypsy<span class="hide-on-mobile"> Joyas</span>
                     </h1>
                 </div>
             </div>
             <div class="new-hero__banner">
-                <p class="new-hero__banner-text">
-                    <img src="assets/img/ui/text-asset.webp" alt="Decoración floral izquierda"
-                        class="new-hero__banner-icon">
-                    <span class="new-hero__initial"
-                        style="font-size: 1.25em; line-height: 0.8; vertical-align: middle; margin-right: 0px;">J</span>oyería
-                    artesanal hecha en<br>bronce, cobre y alpaca
-                    <img src="assets/img/ui/text-asset2.webp" alt="Decoración floral derecha"
-                        class="new-hero__banner-icon new-hero__banner-icon">
-                </p>
+                <div class="new-hero__banner-text">
+                    <div class="new-hero__banner-line new-hero__banner-line--first">
+                        <picture>
+                            <source media="(max-width: 768px)" srcset="assets/img/ui/text-asset-responsive.webp">
+                            <img src="assets/img/ui/text-asset.webp" alt="Decoración floral izquierda"
+                                class="new-hero__banner-icon">
+                        </picture>
+                        <span><span class="new-hero__initial"
+                                style="font-size: 1.25em; line-height: 0.8; vertical-align: middle; margin-right: 0px;">J</span>oyería
+                            artesanal <span class="hide-on-mobile">hecha </span>en</span>
+                    </div>
+                    <div class="new-hero__banner-line new-hero__banner-line--second">
+                        <span class="mobile-only" style="display: none;">cobre, bronce y alpaca</span>
+                        <span class="desktop-only">bronce, cobre y alpaca</span>
+                        <picture>
+                            <source media="(max-width: 768px)" srcset="assets/img/ui/text-asset-responsive2.webp">
+                            <img src="assets/img/ui/text-asset2.webp" alt="Decoración floral derecha"
+                                class="new-hero__banner-icon new-hero__banner-icon--second">
+                        </picture>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -136,69 +148,84 @@
         </section>
 
         <section class="category-nav">
-            <div class="category-nav__container">
-                <!-- Aros Card -->
-                <button class="category-card" id="btnseccionaros" aria-expanded="false" aria-controls="productos-aros">
-                    <div class="category-card__img-wrapper">
-                        <img src="assets/img/ui/aros_placeholder_1772464496746.png" alt="Colección Aros">
-                    </div>
-                    <div class="category-card__content">
-                        <span class="category-card__cta">VER COLECCIÓN →</span>
-                        <div class="category-card__divider"></div>
-                        <h3 class="category-card__title">Aros</h3>
-                    </div>
+            <div class="category-nav__wrapper">
+                <button class="category-scroll-btn category-scroll-btn--prev mobile-only"
+                    aria-label="Anterior categoría" onclick="scrollCategories(-1)">
+                    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none">
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
                 </button>
+                <div class="category-nav__container" id="categoryContainer">
+                    <!-- Aros Card -->
+                    <button class="category-card" id="btnseccionaros" aria-expanded="false"
+                        aria-controls="productos-aros">
+                        <div class="category-card__img-wrapper">
+                            <img src="assets/img/ui/aros-portada.webp" alt="Colección Aros">
+                        </div>
+                        <div class="category-card__content">
+                            <span class="category-card__cta">VER COLECCIÓN →</span>
+                            <div class="category-card__divider"></div>
+                            <h3 class="category-card__title">Aros</h3>
+                        </div>
+                    </button>
 
-                <!-- Collares Card -->
-                <button class="category-card" id="btnseccioncollares" aria-expanded="false"
-                    aria-controls="productos-collares">
-                    <div class="category-card__img-wrapper">
-                        <img src="assets/img/ui/collares_placeholder_1772464523152.png" alt="Colección Collares">
-                    </div>
-                    <div class="category-card__content">
-                        <span class="category-card__cta">VER COLECCIÓN →</span>
-                        <div class="category-card__divider"></div>
-                        <h3 class="category-card__title">Collares</h3>
-                    </div>
-                </button>
+                    <!-- Collares Card -->
+                    <button class="category-card" id="btnseccioncollares" aria-expanded="false"
+                        aria-controls="productos-collares">
+                        <div class="category-card__img-wrapper">
+                            <img src="assets/img/ui/collares-portada.webp" alt="Colección Collares">
+                        </div>
+                        <div class="category-card__content">
+                            <span class="category-card__cta">VER COLECCIÓN →</span>
+                            <div class="category-card__divider"></div>
+                            <h3 class="category-card__title">Collares</h3>
+                        </div>
+                    </button>
 
-                <!-- Anillos Card -->
-                <button class="category-card" id="btnseccionanillos" aria-expanded="false"
-                    aria-controls="productos-anillos">
-                    <div class="category-card__img-wrapper">
-                        <img src="assets/img/ui/anillos_placeholder_1772464538118.png" alt="Colección Anillos">
-                    </div>
-                    <div class="category-card__content">
-                        <span class="category-card__cta">VER COLECCIÓN →</span>
-                        <div class="category-card__divider"></div>
-                        <h3 class="category-card__title">Anillos</h3>
-                    </div>
-                </button>
+                    <!-- Anillos Card -->
+                    <button class="category-card" id="btnseccionanillos" aria-expanded="false"
+                        aria-controls="productos-anillos">
+                        <div class="category-card__img-wrapper">
+                            <img src="assets/img/ui/anillos-portada.webp" alt="Colección Anillos">
+                        </div>
+                        <div class="category-card__content">
+                            <span class="category-card__cta">VER COLECCIÓN →</span>
+                            <div class="category-card__divider"></div>
+                            <h3 class="category-card__title">Anillos</h3>
+                        </div>
+                    </button>
 
-                <!-- Pulseras Card -->
-                <button class="category-card" id="btnseccionpulseras" aria-expanded="false"
-                    aria-controls="productos-pulseras">
-                    <div class="category-card__img-wrapper">
-                        <img src="assets/img/ui/pulseras_placeholder_1772464557408.png" alt="Colección Pulseras">
-                    </div>
-                    <div class="category-card__content">
-                        <span class="category-card__cta">VER COLECCIÓN →</span>
-                        <div class="category-card__divider"></div>
-                        <h3 class="category-card__title">Pulseras</h3>
-                    </div>
-                </button>
+                    <!-- Pulseras Card -->
+                    <button class="category-card" id="btnseccionpulseras" aria-expanded="false"
+                        aria-controls="productos-pulseras">
+                        <div class="category-card__img-wrapper">
+                            <img src="assets/img/ui/pulseras-portada.webp" alt="Colección Pulseras">
+                        </div>
+                        <div class="category-card__content">
+                            <span class="category-card__cta">VER COLECCIÓN →</span>
+                            <div class="category-card__divider"></div>
+                            <h3 class="category-card__title">Pulseras</h3>
+                        </div>
+                    </button>
 
-                <!-- Accesorios Card -->
-                <button class="category-card" id="btnseccionaccesorios" aria-expanded="false"
-                    aria-controls="productos-accesorios">
-                    <div class="category-card__img-wrapper">
-                        <img src="assets/img/ui/accesorios_final.png" alt="Colección Accesorios">
-                    </div>
-                    <div class="category-card__content">
-                        <span class="category-card__cta">VER COLECCIÓN →</span>
-                        <div class="category-card__divider"></div>
-                        <h3 class="category-card__title">Piezas</h3>
-                    </div>
+                    <!-- Accesorios Card -->
+                    <button class="category-card" id="btnseccionaccesorios" aria-expanded="false"
+                        aria-controls="productos-accesorios">
+                        <div class="category-card__img-wrapper">
+                            <img src="assets/img/ui/acc-portada.webp" alt="Colección Accesorios">
+                        </div>
+                        <div class="category-card__content">
+                            <span class="category-card__cta">VER COLECCIÓN →</span>
+                            <div class="category-card__divider"></div>
+                            <h3 class="category-card__title">Piezas</h3>
+                        </div>
+                    </button>
+                </div>
+                <button class="category-scroll-btn category-scroll-btn--next mobile-only"
+                    aria-label="Siguiente categoría" onclick="scrollCategories(1)">
+                    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
                 </button>
             </div>
         </section>
@@ -274,7 +301,7 @@
 
                 <div class="encargos__card">
                     <div class="encargos__content">
-                        <h3 class="encargos__title">Soy de <br> <span class="encargos__highlight">Mendoza</span></h3>
+                        <h3 class="encargos__title">Soy de <br> <span class="encargos__highlight">MENDOZA</span></h3>
                         <div class="encargos__divider"></div>
                         <p class="encargos__description">Si te encontrás en la provincia de Mendoza, podés retirar tu
                             pedido en mi
@@ -291,7 +318,7 @@
                             enviame tu código postal por mensaje privado de Instagram.</p>
                         <div class="encargos__divider"></div>
                         <h3 class="encargos__title encargos__title--right">Soy de <br> <span
-                                class="encargos__highlight">otra provincia</span>
+                                class="encargos__highlight">OTRA PROVINCIA</span>
                         </h3>
                     </div>
                 </div>

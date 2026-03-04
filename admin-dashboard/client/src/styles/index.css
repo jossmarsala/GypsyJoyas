@@ -199,7 +199,19 @@ select:hover {
   flex-direction: column;
   transition: transform 0.2s ease;
   overflow: hidden;
+  min-height: 0;
 }
+
+.dashboard-main-card {
+  height: 480px;
+}
+
+.inventory-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
 
 .metric-card {
   position: relative;
@@ -687,12 +699,19 @@ select:focus {
 
   .dashboard-main-card {
     grid-column: span 1;
+    height: 900px;
+  }
+
+  .inventory-card {
+    height: 900px;
+    flex: none;
   }
 
   .inventory-main-container {
-    min-height: 700px;
+    min-height: 800px;
   }
 }
+
 
 @media (max-width: 768px) {
   .top-bar {

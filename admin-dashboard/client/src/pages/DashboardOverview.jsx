@@ -80,7 +80,7 @@ const DashboardOverview = ({ products, loading, refetch, maintenanceMode, setMai
             </div>
 
             <div className="bento-grid dashboard-bottom-grid">
-                <div className="bento-card dashboard-main-card" style={{ height: '480px', display: 'flex', flexDirection: 'column' }}>
+                <div className="bento-card dashboard-main-card">
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', flexWrap: 'wrap', gap: '1rem', flexShrink: 0 }}>
                         <h2 className="card-title" style={{ marginBottom: 0 }}>Inventario de Joyas</h2>
                         <button className="btn btn-primary" onClick={handleAdd}>
