@@ -1283,12 +1283,14 @@ a {
         display: inline !important;
     }
 
-    /* Hero Section - Crop height for mobile */
-    .new-hero__header {
+    /* Force strict height constraints for mobile hero */
+    section.new-hero .new-hero__header {
         position: relative;
-        min-height: 25vh !important;
-        padding-top: 2vh;
-        padding-bottom: 2vh;
+        min-height: 20vh !important;
+        height: 25vh !important;
+        max-height: 30vh !important;
+        padding-top: 2vh !important;
+        padding-bottom: 2vh !important;
         overflow: hidden;
         margin-top: 10px;
         margin-bottom: 10px;
