@@ -1360,9 +1360,12 @@ a {
     }
 
 
-    .product-card__image {
-        aspect-ratio: 3 / 2;
-        object-fit: cover;
+    /* FORZAR imagen súper baja */
+    .catalog__grid .product-card .product-card__image {
+        aspect-ratio: 2 / 1 !important;
+        width: 100% !important;
+        height: auto !important;
+        object-fit: cover !important;
     }
 
 
