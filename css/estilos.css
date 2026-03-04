@@ -1347,6 +1347,16 @@ a {
         line-height: 1.4;
     }
 
+    .catalog__grid {
+        padding: 0 15px;
+        grid-gap: 15px;
+    }
+
+    .product-card__image {
+        aspect-ratio: 1.2 / 1;
+    }
+
+
     /* =========================================
        12. Mobile Category Scroll Layout Override
        ========================================= */
