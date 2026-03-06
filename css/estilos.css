@@ -215,7 +215,6 @@ a {
     transform: translateY(-2px);
 }
 
-/* Hamburger Menu (.navbar__toggler) */
 .navbar__toggler {
     z-index: 1050;
     cursor: pointer;
@@ -812,46 +811,34 @@ a {
     align-items: center !important;
     text-align: center;
     padding: 10px;
-    /* Reduced padding inside the card for mobile */
     background: var(--color-beige-nuevo);
-    /* Set background to blend with page or keep solid, e.g. white/beige */
     border: 1px solid var(--color-cafe-profundo);
-    /* Solid thin border like reference */
     border-radius: 0;
-    /* Remove rounded corners */
     transition: border-color 0.4s ease, background-color 0.4s ease;
-    /* Remove jumpy transform */
 }
 
 @media (min-width: 600px) {
     .product-card {
         padding: 20px;
-        /* More padding on larger screens */
     }
 }
 
 .product-card:hover {
     background: var(--color-blanco-beige);
     border-color: var(--color-dorado-ocre);
-    /* Subtle hover effect on border instead of lifting */
 }
 
 .product-card__image {
     width: 100%;
-    /* Take full width of card minus padding */
     aspect-ratio: 1 / 1;
-    /* Force square like reference */
     object-fit: cover;
     outline: none;
-    /* Remove previous outline */
     transition: opacity 0.3s ease;
     margin-bottom: 5px;
-    /* Space between image and text */
 }
 
 .product-card__image:hover {
     opacity: 0.9;
-    /* Subtle image hover */
 }
 
 .product-card__title {
@@ -933,14 +920,12 @@ a {
     padding: 40px;
     background: var(--color-blanco-beige);
     border: 1px solid rgba(75, 51, 24, 0.15);
-    /* Match product cards */
     transition: background-color 0.4s ease, border-color 0.4s ease;
     width: 100%;
 }
 
 .encargos__card:hover .encargos__content {
     background: rgba(255, 255, 255, 0.5);
-    /* Subtle highlight */
     border-color: var(--color-cafe-profundo);
 }
 
@@ -983,6 +968,7 @@ a {
     background: linear-gradient(to bottom, transparent, var(--color-dorado-ocre), transparent);
     opacity: 0.5;
     flex-shrink: 0;
+    margin: 0 20px;
 }
 
 .encargos__action {
@@ -1010,78 +996,253 @@ a {
     color: var(--color-blanco-beige);
 }
 
+
 /* =========================================
    9. Footer (.footer)
    ========================================= */
 
 .footer {
-    border-top: 1px solid rgba(75, 51, 24, 0.15);
-    /* Match brand borders */
-    padding: 100px 20px 40px;
     background-color: var(--color-blanco-beige);
+    padding: 120px 0 40px;
     margin-top: 150px;
+    border-top: 1px solid rgba(75, 51, 24, 0.1);
+    position: relative;
+    overflow: hidden;
 }
 
 .footer__container {
     max-width: 1200px;
     margin: 0 auto;
-    text-align: center;
+    padding: 0 5%;
+}
+
+.footer__grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 80px;
+}
+
+/* Brand Column */
+.footer__col--brand {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 20px;
+    align-items: flex-start;
 }
 
-.footer__brand {
-    font-family: 'S Serif', serif;
-    font-size: 3rem;
+.footer__brand-name {
+    font-family: 'Manstein', serif;
+    font-size: clamp(3rem, 5vw, 4.5rem);
     color: var(--color-cafe-profundo);
     margin: 0;
-    letter-spacing: 2px;
+    line-height: 0.9;
+    letter-spacing: -2px;
 }
 
-.footer__tagline {
-    font-family: 'Segoe Ui', sans-serif;
-    font-size: clamp(10px, 2vw, 14px);
+.footer__brand-tagline {
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
     text-transform: uppercase;
+    letter-spacing: 4px;
+    color: var(--color-dorado-ocre);
+    margin: 10px 0 25px 0;
+    font-weight: 400;
+}
+
+.footer__about {
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
     color: var(--color-cafe-profundo);
-    margin: -10px 0 10px 0;
+    max-width: 320px;
+    margin: 0;
     opacity: 0.8;
 }
 
-.social-icons {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin: 20px 0;
+/* Links & Titles */
+.footer__title {
+    font-family: 'STIX Two Text', serif;
+    font-size: 20px;
+    color: var(--color-cafe-profundo);
+    margin: 0 0 30px 0;
+    font-weight: 500;
+    position: relative;
 }
 
-.social-icons__link {
+.footer__title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 30px;
+    height: 1px;
+    background-color: var(--color-dorado-ocre);
+}
+
+.footer__links-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer__links-list li {
+    margin-bottom: 15px;
+}
+
+.footer__link {
+    font-family: 'Raleway', sans-serif;
+    font-size: 15px;
+    color: var(--color-cafe-profundo);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    opacity: 0.7;
+    display: inline-block;
+}
+
+.footer__link:hover {
+    color: var(--color-dorado-ocre);
+    opacity: 1;
+    transform: translateX(5px);
+}
+
+/* Contact Column */
+.footer__email {
+    font-family: 'Raleway', sans-serif;
+    font-size: 15px;
+    color: var(--color-cafe-profundo);
+    text-decoration: none;
+    margin-bottom: 25px;
+    display: block;
+    opacity: 0.8;
+    transition: color 0.3s ease;
+}
+
+.footer__email:hover {
+    color: var(--color-dorado-ocre);
+}
+
+.footer__social {
+    display: flex;
+    gap: 15px;
+}
+
+.footer__social-link {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 42px;
-    height: 42px;
-    border: 1px solid var(--color-cafe-profundo);
+    width: 45px;
+    height: 45px;
+    border: 1px solid rgba(75, 51, 24, 0.2);
     border-radius: 50%;
     color: var(--color-cafe-profundo);
-    font-size: 1.1rem;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    text-decoration: none;
+    font-size: 18px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     background: transparent;
 }
 
-.social-icons__link:hover {
+.footer__social-link:hover {
     background: var(--color-cafe-profundo);
     color: var(--color-blanco-beige);
+    border-color: var(--color-cafe-profundo);
+    transform: translateY(-5px);
 }
 
-.footer__copyright {
-    font-family: 'Segoe Ui', sans-serif;
-    font-size: 0.8rem;
+/* Bottom Bar */
+.footer__bottom {
+    position: relative;
+    padding-top: 40px;
+}
+
+.footer__divider {
+    width: 100%;
+    height: 1px;
+    background-color: rgba(75, 51, 24, 0.1);
+    margin-bottom: 30px;
+}
+
+.footer__meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer__copyright,
+.footer__location {
+    font-family: 'Raleway', sans-serif;
+    font-size: 13px;
     color: var(--color-cafe-profundo);
     opacity: 0.6;
+    margin: 0;
+}
+
+.footer__location i {
+    margin-right: 5px;
+    color: var(--color-dorado-ocre);
+}
+
+.footer__decoration-desktop {
+    width: 180px;
+    height: auto;
+    position: absolute;
+    right: 0;
+    top: -60px;
+    opacity: 0.15;
+    pointer-events: none;
+    filter: sepia(1) saturate(0.5);
+}
+
+.footer__decoration {
+    width: 120px;
     margin-top: 30px;
+    opacity: 0.2;
+    align-self: center;
+}
+
+/* Responsive Footer */
+@media (max-width: 992px) {
+    .footer__grid {
+        grid-template-columns: 1.5fr 1fr;
+        gap: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer {
+        padding: 80px 0 40px;
+    }
+
+    .footer__grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+        text-align: center;
+        justify-items: center;
+    }
+
+    .footer__col--brand {
+        align-items: center;
+    }
+
+    .footer__title::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .footer__about {
+        max-width: 100%;
+    }
+
+    .footer__social {
+        justify-content: center;
+    }
+
+    .footer__meta {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .footer__brand-name {
+        font-size: 3.5rem;
+    }
 }
 
 /* =========================================
@@ -1194,7 +1355,6 @@ a {
 @media (min-width: 769px) and (max-width: 1024px) {
     .new-hero__header {
         min-height: 45vh !important;
-        /* Shorter than 80vh desktop */
     }
 
     #encargos {
@@ -1225,9 +1385,7 @@ a {
 
     .new-hero__banner-text {
         font-size: clamp(26px, 8.5vw, 36px);
-        /* Significantly larger for mobile presence */
         padding: 0 1%;
-        /* Utilize lateral margin as requested */
         gap: 5px;
     }
 
@@ -1404,12 +1562,10 @@ a {
         /* Space for scrollbar */
     }
 
-    /* Hide the scrollbar for a cleaner look */
     .category-nav__container::-webkit-scrollbar {
         display: none;
     }
 
-    /* Force cards to take up exactly 33.333% of the viewport (3 items on screen) */
     .category-card {
         flex: 0 0 calc(100% / 3) !important;
         min-width: unset !important;

@@ -52,7 +52,7 @@
     </section>
 
     <!-- Maintenance Overlay -->
-    <!-- <div id="maintenance-overlay" class="maintenance-overlay">
+    <div id="maintenance-overlay" class="maintenance-overlay">
         <div class="maintenance-content">
             <img src="assets/img/ui/icono.svg" alt="Gypsy Joyas Logo" class="maintenance-logo">
             <h1 class="maintenance-title">Estamos actualizando los productos</h1>
@@ -69,7 +69,7 @@
                 </a>
             </div>
         </div>
-    </div> -->
+    </div>
 
 
     <header class="header">
@@ -77,8 +77,8 @@
             <div id="nav" class="navbar__container">
                 <img src="assets/img/ui/icono.svg" alt="Logo de Gypsy Joyas" id="icono" class="navbar__logo">
 
-                <button class="navbar__toggler" type="button" aria-controls="navbarNav" aria-expanded="false"
-                    aria-label="Abrir navegación">
+                <button class="navbar__toggler mobile-only" type="button" aria-controls="navbarNav"
+                    aria-expanded="false" aria-label="Abrir navegación">
                     <i class="fa-solid fa-bars"></i>
                 </button>
 
@@ -333,22 +333,53 @@
 
         <footer id="contacto" class="footer">
             <div class="footer__container">
-                <p class="footer__brand">Gypsy Joyas</p>
-                <p class="footer__tagline">Joyería hecha a mano</p>
+                <div class="footer__grid">
+                    <!-- Column 1: Brand & About -->
+                    <div class="footer__col footer__col--brand">
+                        <p class="footer__brand-name">Gypsy Joyas</p>
+                        <p class="footer__brand-tagline">Joyería hecha a mano</p>
+                        <p class="footer__about">Obras de arte únicas diseñadas y creadas artesanalmente en Mendoza,
+                            Argentina.</p>
+                        <img src="assets/img/ui/text-asset-responsive.webp" alt="Decoración footer"
+                            class="footer__decoration mobile-only">
+                    </div>
 
-                <div class="social-icons">
-                    <a href="https://www.instagram.com/gypsy.joyas/" target="_blank" rel="noopener noreferrer"
-                        aria-label="Instagram de Gypsy Joyas" class="social-icons__link">
-                        <i class="fa-brands fa-instagram"></i>
-                    </a>
-                    <a href="mailto:gypsyaccmendoza@gmail.com?subject=%C2%A1Tengo%20una%20consulta!&body=Hola%20%E2%9C%A8%2C%20quisiera%20hacer%20una%20consulta%20sobre%20tus%20productos"
-                        aria-label="Email de Gypsy Joyas" class="social-icons__link">
-                        <i class="fa-solid fa-envelope"></i>
-                    </a>
+                    <!-- Column 2: Quick Links -->
+                    <div class="footer__col footer__col--links">
+                        <h4 class="footer__title">Explorar</h4>
+                        <ul class="footer__links-list">
+                            <li><a href="#productos" class="footer__link scroll-link">Productos</a></li>
+                            <li><a href="#encargos" class="footer__link scroll-link">¿Cómo encargar?</a></li>
+                            <li><a href="#" class="footer__link scroll-link">Volver arriba</a></li>
+                        </ul>
+                    </div>
 
+                    <!-- Column 3: Contact & Social -->
+                    <div class="footer__col footer__col--contact">
+                        <h4 class="footer__title">Contacto</h4>
+                        <a href="mailto:gypsyaccmendoza@gmail.com" class="footer__email">gypsyaccmendoza@gmail.com</a>
+                        <div class="footer__social">
+                            <a href="https://www.instagram.com/gypsy.joyas/" target="_blank" rel="noopener noreferrer"
+                                aria-label="Instagram de Gypsy Joyas" class="footer__social-link">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                            <a href="mailto:gypsyaccmendoza@gmail.com?subject=%C2%A1Tengo%20una%20consulta!&body=Hola%20%E2%9C%A8%2C%20quisiera%20hacer%20una%20consulta%20sobre%20tus%20productos"
+                                aria-label="Email de Gypsy Joyas" class="footer__social-link">
+                                <i class="fa-solid fa-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
                 </div>
 
-                <p class="footer__copyright">© 2026 Gypsy Joyas. Todos los derechos reservados.</p>
+                <div class="footer__bottom">
+                    <img src="assets/img/ui/text-asset.webp" alt="Decoración footer"
+                        class="footer__decoration-desktop desktop-only">
+                    <div class="footer__divider"></div>
+                    <div class="footer__meta">
+                        <p class="footer__copyright">© 2026 Gypsy Joyas. Todos los derechos reservados.</p>
+                        <p class="footer__location"><i class="fa-solid fa-location-dot"></i> Mendoza, Argentina</p>
+                    </div>
+                </div>
             </div>
         </footer>
 
