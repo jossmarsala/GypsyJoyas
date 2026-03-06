@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { createProduct, updateProduct, BASE_URL } from '../services/api';
+import { createProduct, updateProduct, getImageUrl } from '../services/api';
 
 const ProductForm = ({ product, onClose, onSave }) => {
     const [formData, setFormData] = useState({
@@ -12,6 +12,7 @@ const ProductForm = ({ product, onClose, onSave }) => {
     });
     const [imageFile, setImageFile] = useState(null);
     const [preview, setPreview] = useState(null);
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     useEffect(() => {
         if (product) {
@@ -23,7 +24,7 @@ const ProductForm = ({ product, onClose, onSave }) => {
                 alt: product.alt,
                 claseImagen: product.claseImagen || ''
             });
-            setPreview(`${BASE_URL}/${product.imagen}`);
+            setPreview(getImageUrl(product.imagen));
         }
     }, [product]);
 
@@ -55,6 +56,7 @@ const ProductForm = ({ product, onClose, onSave }) => {
         }
 
         try {
+            setIsSubmitting(true);
             if (product) {
                 await updateProduct(product.id, data);
             } else {
@@ -65,6 +67,8 @@ const ProductForm = ({ product, onClose, onSave }) => {
             console.error("Error al guardar producto:", error);
             const message = error.response?.data?.error || error.message || "Error al procesar la solicitud.";
             alert(`Error: ${message}`);
+        } finally {
+            setIsSubmitting(false);
         }
     };
 
@@ -139,8 +143,12 @@ const ProductForm = ({ product, onClose, onSave }) => {
                     </label>
 
                     <div style={{ display: 'flex', gap: '1rem', marginTop: '1rem' }}>
-                        <button type="submit" className="btn btn-primary" style={{ flex: 1 }}>Guardar</button>
-                        <button type="button" className="btn btn-secondary" onClick={onClose} style={{ flex: 1 }}>Cancelar</button>
+                        <button type="submit" className="btn btn-primary" style={{ flex: 1 }} disabled={isSubmitting}>
+                            {isSubmitting ? 'Guardando...' : 'Guardar'}
+                        </button>
+                        <button type="button" className="btn btn-secondary" onClick={onClose} style={{ flex: 1 }} disabled={isSubmitting}>
+                            Cancelar
+                        </button>
                     </div>
                 </form>
             </div>

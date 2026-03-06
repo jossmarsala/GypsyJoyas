@@ -4,6 +4,14 @@ const isLocal = window.location.hostname === 'localhost' || window.location.host
 export const BASE_URL = isLocal ? 'http://localhost:3001' : '';
 const API_URL = isLocal ? 'http://localhost:3001/api' : '/api';
 
+export const getImageUrl = (path) => {
+    if (!path) return 'https://via.placeholder.com/300';
+    if (path.startsWith('http')) return path;
+    if (path.startsWith('uploads/')) return `${BASE_URL}/${path}`;
+    if (path.startsWith('assets/')) return `${BASE_URL}/${path}`;
+    return `${BASE_URL}/${path}`;
+};
+
 const api = axios.create({
     baseURL: API_URL,
     headers: {

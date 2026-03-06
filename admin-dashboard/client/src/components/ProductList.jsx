@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { deleteProduct, BASE_URL } from '../services/api';
+import { deleteProduct, getImageUrl } from '../services/api';
 import { FiEdit2, FiTrash2 } from 'react-icons/fi';
 
 const ProductList = ({ products, onEdit, onDelete, onAdd, viewMode = 'grid', sortBy = 'recent', setSortBy, isCompact = false }) => {
@@ -86,7 +86,7 @@ const ProductList = ({ products, onEdit, onDelete, onAdd, viewMode = 'grid', sor
                             <div key={product.id} className="product-card">
                                 <div className="product-card-img-container">
                                     <img
-                                        src={`${BASE_URL}/${product.imagen}`}
+                                        src={getImageUrl(product.imagen)}
                                         alt={product.nombre}
                                         className="product-card-img"
                                         onError={(e) => { e.target.src = 'https://via.placeholder.com/300'; }}
@@ -135,7 +135,7 @@ const ProductList = ({ products, onEdit, onDelete, onAdd, viewMode = 'grid', sor
                                     <tr key={product.id}>
                                         <td>
                                             <img
-                                                src={`${BASE_URL}/${product.imagen}`}
+                                                src={getImageUrl(product.imagen)}
                                                 alt={product.nombre}
                                                 style={{ width: '40px', height: '40px', objectFit: 'cover', borderRadius: '8px' }}
                                                 onError={(e) => { e.target.src = 'https://via.placeholder.com/40'; }}
