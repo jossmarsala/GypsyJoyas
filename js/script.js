@@ -20,6 +20,9 @@
             navLinks: '.navbar__link',
             modal: 'imageModal',
             modalImg: 'fullImage',
+            modalInfo: 'modalInfo',
+            prevBtn: 'modalPrev',
+            nextBtn: 'modalNext',
             closeBtn: '.close'
         }
     };
@@ -206,8 +209,9 @@
         init() {
             this.createModal();
             document.addEventListener('click', (e) => {
-                if (e.target.classList.contains('product-card__image')) {
-                    this.open(e.target.src, e.target.alt);
+                const img = e.target.closest('.product-card__image');
+                if (img) {
+                    this.open(img);
                 }
             });
         },
@@ -218,31 +222,86 @@
             modal.className = 'modal';
             modal.innerHTML = `
                 <button class="close" aria-label="Cerrar imagen">&times;</button>
-                <img class="modal-content" id="${CONFIG.selectors.modalImg}" alt="Zoom producto">
+                <button id="${CONFIG.selectors.prevBtn}" class="modal-nav modal-nav--prev" aria-label="Anterior">&lsaquo;</button>
+                <div class="modal-container">
+                    <img class="modal-content" id="${CONFIG.selectors.modalImg}" alt="Zoom producto">
+                    <div id="${CONFIG.selectors.modalInfo}" class="modal-info"></div>
+                </div>
+                <button id="${CONFIG.selectors.nextBtn}" class="modal-nav modal-nav--next" aria-label="Siguiente">&rsaquo;</button>
             `;
 
-            // Close logic
+            // Elements
+            this.modalImg = modal.querySelector(`#${CONFIG.selectors.modalImg}`);
+            this.modalInfo = modal.querySelector(`#${CONFIG.selectors.modalInfo}`);
+            this.prevBtn = modal.querySelector(`#${CONFIG.selectors.prevBtn}`);
+            this.nextBtn = modal.querySelector(`#${CONFIG.selectors.nextBtn}`);
+
+            // Events
             modal.querySelector('.close').addEventListener('click', () => this.close());
+            this.prevBtn.addEventListener('click', (e) => { e.stopPropagation(); this.prev(); });
+            this.nextBtn.addEventListener('click', (e) => { e.stopPropagation(); this.next(); });
+
             modal.addEventListener('click', (e) => {
-                if (e.target === modal) this.close();
+                if (e.target === modal || e.target.classList.contains('modal-container')) this.close();
             });
 
             document.body.appendChild(modal);
             this.modal = modal;
-            this.modalImg = modal.querySelector(`#${CONFIG.selectors.modalImg}`);
         },
 
-        open(src, alt) {
-            this.modalImg.src = src;
-            this.modalImg.alt = alt || '';
+        open(clickedImg) {
+            // Find all images in the same catalog grid
+            const grid = clickedImg.closest('.catalog__grid');
+            if (!grid) return;
+
+            this.currentGallery = Array.from(grid.querySelectorAll('.product-card__image'));
+            this.currentIndex = this.currentGallery.indexOf(clickedImg);
+
+            this.showProduct(this.currentIndex);
+
             this.modal.style.visibility = 'visible';
             requestAnimationFrame(() => this.modal.style.opacity = '1');
 
-            // Bind Escape key
-            this.escapeHandler = (e) => {
+            // Bind Keys
+            this.keyHandler = (e) => {
                 if (e.key === 'Escape') this.close();
+                if (e.key === 'ArrowLeft') this.prev();
+                if (e.key === 'ArrowRight') this.next();
             };
-            document.addEventListener('keydown', this.escapeHandler);
+            document.addEventListener('keydown', this.keyHandler);
+        },
+
+        showProduct(index) {
+            const img = this.currentGallery[index];
+            if (!img) return;
+
+            this.modalImg.src = img.src;
+            this.modalImg.alt = img.alt || '';
+
+            // Get info from card
+            const card = img.closest('.product-card');
+            const title = card.querySelector('.product-card__title')?.innerText || '';
+            const price = card.querySelector('.product-card__price')?.innerText || '';
+
+            this.modalInfo.innerHTML = `
+                <h3>${title}</h3>
+                <p>${price}</p>
+            `;
+
+            // Update index tracking
+            this.currentIndex = index;
+        },
+
+        next() {
+            let nextIndex = this.currentIndex + 1;
+            if (nextIndex >= this.currentGallery.length) nextIndex = 0;
+            this.showProduct(nextIndex);
+        },
+
+        prev() {
+            let prevIndex = this.currentIndex - 1;
+            if (prevIndex < 0) prevIndex = this.currentGallery.length - 1;
+            this.showProduct(prevIndex);
         },
 
         close() {
@@ -252,8 +311,8 @@
                 this.modalImg.src = ''; // Clear memory
             }, { once: true });
 
-            if (this.escapeHandler) {
-                document.removeEventListener('keydown', this.escapeHandler);
+            if (this.keyHandler) {
+                document.removeEventListener('keydown', this.keyHandler);
             }
         }
     };
