@@ -9,7 +9,7 @@ function formatearPrecio(precio) {
 
 // Helper para URLs de imagen
 function obtenerUrlImagen(path) {
-    if (!path) return 'assets/img/placeholder.webp'; // Fallback
+    if (!path || path === '') return 'assets/img/ui/placeholder-producto.png'; // New premium fallback
     if (path.startsWith('http')) return path; // Handles Vercel Blob URLs (https://...)
     if (path.startsWith('uploads/')) return `${API_BASE_URL}/${path}`; // Legacy local uploads
     return path; // Es un asset local relativo
@@ -31,10 +31,12 @@ async function cargarProductos(categoria) {
         // La API devuelve todo lo de la categoría. Filtramos por material en cliente para reutilizar lógica.
         const productosBronce = productos.filter(p => p.material.toLowerCase() === 'bronce');
         const productosAlpaca = productos.filter(p => p.material.toLowerCase() === 'alpaca');
+        const productosCobre = productos.filter(p => p.material.toLowerCase() === 'cobre');
 
         // Renderizar en sus contenedores respectivos
         renderizarProductos(productosBronce, `${categoria}-bronce`);
         renderizarProductos(productosAlpaca, `${categoria}-alpaca`);
+        renderizarProductos(productosCobre, `${categoria}-cobre`);
 
     } catch (error) {
         console.error(`Error al cargar productos de ${categoria}:`, error);

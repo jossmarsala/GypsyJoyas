@@ -5,7 +5,7 @@ export const BASE_URL = isLocal ? 'http://localhost:3001' : '';
 const API_URL = isLocal ? 'http://localhost:3001/api' : '/api';
 
 export const getImageUrl = (path) => {
-    if (!path) return 'https://via.placeholder.com/300';
+    if (!path || path === '') return '/assets/img/ui/placeholder-producto.png';
     if (path.startsWith('http')) return path;
     if (path.startsWith('uploads/')) return `${BASE_URL}/${path}`;
     if (path.startsWith('assets/')) return `${BASE_URL}/${path}`;
