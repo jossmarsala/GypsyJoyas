@@ -1039,13 +1039,17 @@ a {
     letter-spacing: -2px;
 }
 
+.footer__brand-name--serif {
+    font-family: 'S Serif', serif;
+}
+
 .footer__brand-tagline {
     font-family: 'Raleway', sans-serif;
     font-size: 14px;
     text-transform: uppercase;
     letter-spacing: 4px;
     color: var(--color-dorado-ocre);
-    margin: 10px 0 25px 0;
+    margin: 35px 0 25px 0;
     font-weight: 400;
 }
 
