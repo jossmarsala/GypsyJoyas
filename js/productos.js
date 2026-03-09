@@ -95,14 +95,31 @@ async function verificarMantenimiento() {
         const response = await fetch(`${API_URL}/settings/maintenance`);
         const data = await response.json();
 
-        const overlay = document.getElementById('maintenance-overlay');
-        if (overlay) {
-            if (data.maintenanceMode) {
+        const container = document.getElementById('maintenance-container');
+        let overlay = document.getElementById('maintenance-overlay');
+
+        if (data.maintenanceMode) {
+            // Si el mantenimiento está activo y el overlay no está en el DOM, "descomentarlo"
+            if (!overlay && container) {
+                // Buscamos el primer nodo de tipo comentario dentro del contenedor
+                const comment = Array.from(container.childNodes).find(node => node.nodeType === 8); // 8 = COMMENT_NODE
+                if (comment) {
+                    // Extraemos el contenido del comentario y lo inyectamos en el contenedor (como HTML vivo)
+                    // Eliminamos el texto descriptivo si existe dentro del comentario para una inyección limpia
+                    const content = comment.nodeValue.replace('Maintenance Overlay', '').trim();
+                    container.innerHTML = content;
+                    overlay = document.getElementById('maintenance-overlay');
+                }
+            }
+
+            if (overlay) {
                 overlay.style.display = 'flex';
                 document.body.style.overflow = 'hidden'; // Bloquear scroll
-            } else {
+            }
+        } else {
+            if (overlay) {
                 overlay.style.display = 'none';
-                document.body.style.overflow = 'auto';
+                document.body.style.overflow = 'auto'; // Restaurar scroll
             }
         }
     } catch (error) {
