@@ -48,6 +48,24 @@ function renderizarProductos(listaProductos, contenedorId) {
     const contenedor = document.getElementById(contenedorId);
     if (!contenedor) return;
 
+    // Buscar el subtítulo (label de material) que precede al contenedor
+    // En el HTML actual, el label es el hermano anterior (p.catalog__subtitle)
+    const labelMaterial = contenedor.previousElementSibling;
+
+    if (listaProductos.length === 0) {
+        contenedor.classList.add('u-hidden');
+        if (labelMaterial && labelMaterial.classList.contains('catalog__subtitle')) {
+            labelMaterial.classList.add('u-hidden');
+        }
+        return;
+    }
+
+    // Si hay productos, asegurar que sean visibles
+    contenedor.classList.remove('u-hidden');
+    if (labelMaterial && labelMaterial.classList.contains('catalog__subtitle')) {
+        labelMaterial.classList.remove('u-hidden');
+    }
+
     contenedor.innerHTML = '';
     const fragment = document.createDocumentFragment();
 
