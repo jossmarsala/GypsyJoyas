@@ -571,11 +571,8 @@ a {
 /* Active card layout */
 .category-nav__container:has(.category-card.active) .category-card.active {
     flex: 4;
-    /* Much wider (e.g. takes ~50-60% of the total flex space) */
     min-width: 320px;
-    /* Force it to be wide enough for the row layout */
     flex-direction: row;
-    /* Image on left, text on right */
     background-color: var(--color-blanco-beige);
     /* Blend with container */
     cursor: default;
@@ -585,7 +582,6 @@ a {
 .category-nav__container:has(.category-card.active) .category-card.active .category-card__img-wrapper {
     display: flex;
     width: 50%;
-    /* Adjusted ratio */
     height: 100%;
     aspect-ratio: auto;
     padding: 20px 0 20px 20px;
@@ -698,7 +694,7 @@ a {
     color: var(--color-cafe-profundo);
     text-transform: uppercase;
     opacity: 0.6;
-    margin-bottom: 8px;
+    margin: 0 0 8px 10px;
     transition: opacity 0.3s ease;
 }
 
