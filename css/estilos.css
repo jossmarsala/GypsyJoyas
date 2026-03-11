@@ -277,7 +277,7 @@ a {
     background-image: url('../assets/img/ui/hero-bg.webp');
     background-size: cover;
     background-position: center;
-    filter: blur(7px) brightness(0.92);
+    filter: blur(5.5px) brightness(0.92);
     z-index: 0;
 }
 
