@@ -1,27 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
-  /* Colors inspired by reference image */
-  --bg-color: #F2EDE4; /* Off-white/Beige */
-  --sidebar-bg: #4E3C2E; /* Brown */
-  --sidebar-text: #B8C2BC; /* Light Blue */
-  --sidebar-text-active: #F2EDE4; /* Beige */
+  
+  --bg-color: #F2EDE4; 
+  --sidebar-bg: #4E3C2E; 
+  --sidebar-text: #B8C2BC; 
+  --sidebar-text-active: #F2EDE4; 
 
   --card-bg: #ffffff;
-  --text-main: #4E3C2E; /* Brown text for main readability */
-  --text-muted: #856E58; /* Muted brown */
+  --text-main: #4E3C2E; 
+  --text-muted: #856E58; 
 
-  /* Pastel Bento Colors derived from design system */
-  --bento-yellow: #E8D8A3; /* Derived from #AA8B35 Ocre */
-  --bento-pink: #D5B9A6; /* Derived from #4E3C2E Brown */
-  --bento-green: #B8C2BC; /* Light Blue from design system */
-  --bento-blue: #D6DBD9; /* Derived from #B8C2BC */
+  --bento-yellow: #E8D8A3; 
+  --bento-pink: #D5B9A6; 
+  --bento-green: #B8C2BC; 
+  --bento-blue: #D6DBD9; 
 
-  /* Primary Action Colors */
-  --primary-color: #AA8B35; /* Ocre */
-  --primary-hover: #8F742C; /* Darker Ocre */
-  --secondary-color: #B8C2BC; /* Light Blue */
-  --secondary-hover: #9DA9A2; /* Darker Light Blue */
+  --primary-color: #AA8B35; 
+  --primary-hover: #8F742C; 
+  --secondary-color: #B8C2BC; 
+  --secondary-hover: #9DA9A2; 
 
   --border-radius-lg: 24px;
   --border-radius-md: 16px;
@@ -29,7 +27,6 @@
   --shadow-sm: 0 4px 6px -1px rgba(78, 60, 46, 0.1);
   --shadow-md: 0 10px 15px -3px rgba(78, 60, 46, 0.1);
 
-  /* Accent colors from GypsyJoyas */
   --ocre: #AA8B35;
 }
 
@@ -43,7 +40,6 @@ body {
   width: 100%;
 }
 
-/* Base Layout */
 .app-container {
   display: flex;
   height: 100vh;
@@ -66,7 +62,6 @@ body {
   max-width: 100%;
 }
 
-/* Form Controls and Inputs */
 input,
 select,
 textarea {
@@ -103,7 +98,6 @@ select:hover {
   background-color: #ffffff;
 }
 
-/* Sidebar Styles */
 .sidebar {
   width: 260px;
   background-color: var(--sidebar-bg);
@@ -150,7 +144,6 @@ select:hover {
   color: var(--sidebar-text-active);
 }
 
-/* Top Bar */
 .top-bar {
   display: flex;
   justify-content: space-between;
@@ -178,7 +171,6 @@ select:hover {
   white-space: normal;
 }
 
-/* Bento Grid */
 .bento-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -206,7 +198,6 @@ select:hover {
   display: flex;
   flex-direction: column;
 }
-
 
 .metric-card {
   position: relative;
@@ -236,7 +227,6 @@ select:hover {
   margin: 0;
 }
 
-/* Card titles */
 .card-title {
   margin-top: 0;
   margin-bottom: 1.25rem;
@@ -245,7 +235,6 @@ select:hover {
   color: var(--text-main);
 }
 
-/* Utilities */
 .btn {
   padding: 0.6rem 1.2rem;
   border: none;
@@ -320,7 +309,6 @@ select:focus {
   background-color: #fff;
 }
 
-/* Product List Structure Phase 1 & 2 */
 .inventory-main-container {
   width: 100%;
   max-width: 100%;
@@ -345,13 +333,12 @@ select:focus {
   width: 100%;
   max-width: 100%;
   padding-bottom: 15px;
-  /* Extra padding so the scrollbar doesn't eat content */
+  
   -webkit-overflow-scrolling: touch;
   scrollbar-gutter: stable;
-  /* Phase 5 UX */
+  
 }
 
-/* Table Styles Phase 3 */
 .data-table {
   width: 100%;
   min-width: 850px;
@@ -404,7 +391,6 @@ select:focus {
   display: inline-block;
 }
 
-/* Dropdown Menus */
 .dropdown-container {
   position: relative;
 }
@@ -542,12 +528,10 @@ select:focus {
   background-color: #f59e0b;
 }
 
-/* Responsive Utilities */
 .dashboard-bottom-grid {
   grid-template-columns: repeat(3, 1fr);
 }
 
-/* Product Grid View */
 .products-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -665,8 +649,7 @@ select:focus {
     flex-direction: row;
     overflow-x: auto;
     padding-bottom: 0.5rem;
-    /* For scrollbar breathing room */
-    /* Hide scrollbar for a cleaner look */
+
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
@@ -707,7 +690,6 @@ select:focus {
   }
 }
 
-
 @media (max-width: 768px) {
   .top-bar {
     flex-direction: column;
@@ -735,18 +717,18 @@ select:focus {
   .metrics-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
-    /* slightly less gap for mobile */
+    
   }
 
   .metric-card {
     padding: 1rem;
-    /* slightly less padding for mobile */
+    
     min-height: 120px;
   }
 
   .metric-value {
     font-size: 2rem;
-    /* smaller font for mobile */
+    
   }
 
   .sidebar {
@@ -777,7 +759,6 @@ select:focus {
   }
 }
 
-/* Loader Styles */
 .spinner {
   width: 40px;
   height: 40px;
@@ -793,7 +774,6 @@ select:focus {
   }
 }
 
-/* Accessibility */
 .sr-only {
   position: absolute;
   width: 1px;

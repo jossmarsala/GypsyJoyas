@@ -3,7 +3,6 @@ const router = express.Router();
 const productController = require('../controllers/productController');
 const multer = require('multer');
 
-// Multer Storage Config (Memory for Vercel Blob)
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 

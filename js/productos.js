@@ -1,24 +1,17 @@
 const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-const API_BASE_URL = isLocal ? 'http://localhost:3001' : ''; // Relative for prod
+const API_BASE_URL = isLocal ? 'http://localhost:3001' : '';
 const API_URL = `${API_BASE_URL}/api`;
-
-// Función para formatear precio como moneda (AR)
 function formatearPrecio(precio) {
     return `$${precio.toLocaleString("es-AR")}`;
 }
-
-// Helper para URLs de imagen
 function obtenerUrlImagen(path) {
-    if (!path || path === '') return 'assets/img/ui/placeholder-producto.png'; // New premium fallback
-    if (path.startsWith('http')) return path; // Handles Vercel Blob URLs (https://...)
-    if (path.startsWith('uploads/')) return `${API_BASE_URL}/${path}`; // Legacy local uploads
-    return path; // Es un asset local relativo
+    if (!path || path === '') return 'assets/img/ui/placeholder-producto.png';
+    if (path.startsWith('http')) return path;
+    if (path.startsWith('uploads/')) return `${API_BASE_URL}/${path}`;
+    return path;
 }
-
-// Función principal para cargar productos desde la API
 async function cargarProductos(categoria) {
     try {
-        // Fetch a la API con filtro de categoría
         const response = await fetch(`${API_URL}/products?category=${categoria}`);
 
         if (!response.ok) {
@@ -26,14 +19,9 @@ async function cargarProductos(categoria) {
         }
 
         const productos = await response.json();
-
-        // Filtrar por material (la API ya podría filtrar, pero por compatibilidad lo hacemos aquí o allá)
-        // La API devuelve todo lo de la categoría. Filtramos por material en cliente para reutilizar lógica.
         const productosBronce = productos.filter(p => p.material.toLowerCase() === 'bronce');
         const productosAlpaca = productos.filter(p => p.material.toLowerCase() === 'alpaca');
         const productosCobre = productos.filter(p => p.material.toLowerCase() === 'cobre');
-
-        // Renderizar en sus contenedores respectivos
         renderizarProductos(productosBronce, `${categoria}-bronce`);
         renderizarProductos(productosAlpaca, `${categoria}-alpaca`);
         renderizarProductos(productosCobre, `${categoria}-cobre`);
@@ -42,14 +30,9 @@ async function cargarProductos(categoria) {
         console.error(`Error al cargar productos de ${categoria}:`, error);
     }
 }
-
-// Función para generar el HTML y renderizar
 function renderizarProductos(listaProductos, contenedorId) {
     const contenedor = document.getElementById(contenedorId);
     if (!contenedor) return;
-
-    // Buscar el subtítulo (label de material) que precede al contenedor
-    // En el HTML actual, el label es el hermano anterior (p.catalog__subtitle)
     const labelMaterial = contenedor.previousElementSibling;
 
     if (listaProductos.length === 0) {
@@ -59,8 +42,6 @@ function renderizarProductos(listaProductos, contenedorId) {
         }
         return;
     }
-
-    // Si hay productos, asegurar que sean visibles
     contenedor.classList.remove('u-hidden');
     if (labelMaterial && labelMaterial.classList.contains('catalog__subtitle')) {
         labelMaterial.classList.remove('u-hidden');
@@ -88,8 +69,6 @@ function renderizarProductos(listaProductos, contenedorId) {
 
     contenedor.appendChild(fragment);
 }
-
-// Verificar modo mantenimiento
 async function verificarMantenimiento() {
     try {
         const response = await fetch(`${API_URL}/settings/maintenance`);
@@ -99,13 +78,9 @@ async function verificarMantenimiento() {
         let overlay = document.getElementById('maintenance-overlay');
 
         if (data.maintenanceMode) {
-            // Si el mantenimiento está activo y el overlay no está en el DOM, "descomentarlo"
             if (!overlay && container) {
-                // Buscamos el primer nodo de tipo comentario dentro del contenedor
-                const comment = Array.from(container.childNodes).find(node => node.nodeType === 8); // 8 = COMMENT_NODE
+                const comment = Array.from(container.childNodes).find(node => node.nodeType === 8);
                 if (comment) {
-                    // Extraemos el contenido del comentario y lo inyectamos en el contenedor (como HTML vivo)
-                    // Eliminamos el texto descriptivo si existe dentro del comentario para una inyección limpia
                     const content = comment.nodeValue.replace('Maintenance Overlay', '').trim();
                     container.innerHTML = content;
                     overlay = document.getElementById('maintenance-overlay');
@@ -114,26 +89,20 @@ async function verificarMantenimiento() {
 
             if (overlay) {
                 overlay.style.display = 'flex';
-                document.body.style.overflow = 'hidden'; // Bloquear scroll
+                document.body.style.overflow = 'hidden';
             }
         } else {
             if (overlay) {
                 overlay.style.display = 'none';
-                document.body.style.overflow = 'auto'; // Restaurar scroll
+                document.body.style.overflow = 'auto';
             }
         }
     } catch (error) {
         console.error("Error verificando mantenimiento:", error);
     }
 }
-
-// Inicializar
 document.addEventListener("DOMContentLoaded", () => {
     const categorias = ['aros', 'collares', 'anillos', 'pulseras', 'accesorios'];
-
-    // 1. Cargar productos
     categorias.forEach(cat => cargarProductos(cat));
-
-    // 2. Verificar mantenimiento
     verificarMantenimiento();
 });

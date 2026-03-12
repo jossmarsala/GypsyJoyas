@@ -27,7 +27,7 @@ const ProductList = ({ products, onEdit, onDelete, onAdd, viewMode = 'grid', sor
         if (window.confirm('¿Seguro que deseas eliminar este producto?')) {
             try {
                 await deleteProduct(id);
-                onDelete(); // Refresh list
+                onDelete();
             } catch (error) {
                 console.error("Error al eliminar producto:", error);
             }
@@ -36,7 +36,7 @@ const ProductList = ({ products, onEdit, onDelete, onAdd, viewMode = 'grid', sor
 
     return (
         <div className="inventory-main-container">
-            {/* Filter and Sort Row */}
+            {}
             {!isCompact && (
                 <div style={{ display: 'flex', gap: '1rem', marginBottom: '1.5rem', flexShrink: 0, flexWrap: 'wrap', alignItems: 'center' }}>
                     <input
@@ -178,7 +178,7 @@ const ProductList = ({ products, onEdit, onDelete, onAdd, viewMode = 'grid', sor
                 )}
             </div>
 
-            {/* Floating Action Button */}
+            {}
             {onAdd && (
                 <button
                     className="btn btn-primary"

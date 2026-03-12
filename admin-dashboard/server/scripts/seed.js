@@ -4,7 +4,7 @@ const path = require('path');
 
 const prisma = new PrismaClient();
 
-const DATA_DIR = path.resolve(__dirname, '../../../data'); // Adjust based on location
+const DATA_DIR = path.resolve(__dirname, '../../../data'); 
 
 async function seed() {
     console.log(`Scanning data directory: ${DATA_DIR}`);
@@ -25,10 +25,10 @@ async function seed() {
         const products = JSON.parse(rawData);
 
         for (const p of products) {
-            // Check if exists to avoid duplicates (based on name + category distinctness ideally)
-            // But for simplicity, we just create. Since DB is fresh, it's fine.
-            // Or we can use upsert if we had a unique constraint on name. 
-            // We'll just use create for now since it's a one-time migration.
+            
+            
+            
+            
 
             await prisma.product.create({
                 data: {
@@ -37,7 +37,7 @@ async function seed() {
                     imagen: p.imagen,
                     alt: p.alt,
                     material: p.material,
-                    categoria: p.categoria || categoryName, // Fallback if missing in JSON
+                    categoria: p.categoria || categoryName, 
                     claseImagen: p.claseImagen || null
                 }
             });

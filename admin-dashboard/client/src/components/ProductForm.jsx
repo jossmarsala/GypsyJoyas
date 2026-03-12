@@ -31,8 +31,6 @@ const ProductForm = ({ product, onClose, onSave }) => {
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData(prev => ({ ...prev, [name]: value }));
-
-        // Auto-generate alt from name if empty
         if (name === 'nombre' && !formData.alt) {
             setFormData(prev => ({ ...prev, alt: value }));
         }

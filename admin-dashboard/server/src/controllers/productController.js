@@ -2,7 +2,6 @@ const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 const { put } = require('@vercel/blob');
 
-// Get all products
 exports.getProducts = async (req, res) => {
     try {
         const { category, material } = req.query;
@@ -20,7 +19,6 @@ exports.getProducts = async (req, res) => {
     }
 };
 
-// Get single product
 exports.getProduct = async (req, res) => {
     try {
         const { id } = req.params;
@@ -34,14 +32,13 @@ exports.getProduct = async (req, res) => {
     }
 };
 
-// Create product
 exports.createProduct = async (req, res) => {
     try {
         const { nombre, precio, category, material, alt, claseImagen } = req.body;
 
         let imagenPath = '';
         if (req.file) {
-            // Upload to Vercel Blob
+            
             const blob = await put(req.file.originalname, req.file.buffer, { access: 'public', addRandomSuffix: true });
             imagenPath = blob.url;
         }
@@ -63,7 +60,6 @@ exports.createProduct = async (req, res) => {
     }
 };
 
-// Update product
 exports.updateProduct = async (req, res) => {
     try {
         const { id } = req.params;
@@ -93,7 +89,6 @@ exports.updateProduct = async (req, res) => {
     }
 };
 
-// Delete product
 exports.deleteProduct = async (req, res) => {
     try {
         const { id } = req.params;
@@ -106,18 +101,17 @@ exports.deleteProduct = async (req, res) => {
     }
 };
 
-// Bulk Price Update
 exports.bulkUpdatePrice = async (req, res) => {
     try {
         const { percentage, category, material } = req.body;
-        // 1. Fetch eligible products
+        
         let where = {};
         if (category) where.categoria = category;
         if (material) where.material = material;
 
         const products = await prisma.product.findMany({ where });
 
-        // 2. Calculate and Update 
+        
         const updates = products.map(p => {
             const newPrice = Math.round(p.precio * (1 + (percentage / 100)));
             return prisma.product.update({

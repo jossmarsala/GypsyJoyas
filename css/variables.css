@@ -1,11 +1,10 @@
 :root {
-    /* Palette */
+    
     --color-beige-nuevo: #fefcf7;
-    /* For body background */
+    
     --color-hero-title: #f3f4e9;
-    /* For Hero title */
+    
     --color-hero-banner: #4B3318;
-    /* For Hero banner text */
 
     --color-beige: #d9b9a0;
     --color-blanco-beige: #fffaf1;
@@ -18,7 +17,6 @@
     --color-verde-bosque: #327140;
     --color-bordo: #7a1f2b;
 
-    /* Transparencies */
     --bg-glass-blanco-beige: rgba(255, 250, 241, 0.75);
     --bg-glass-blanco-beige-fuerte: rgba(255, 250, 241, 0.85);
     --bg-glass-blanco-beige-suave: rgba(255, 250, 241, 0.4);
@@ -26,16 +24,13 @@
     --bg-glass-beige-neutro: rgba(229, 226, 204, 0.7);
     --bg-dorado-muy-suave: rgba(207, 163, 88, 0.05);
 
-    /* Borders & Shadows */
     --borde-dorado-suave: rgba(207, 163, 88, 0.3);
     --borde-dorado-medio: rgba(207, 163, 88, 0.4);
     --sombra-suave: rgba(0, 0, 0, 0.05);
 
-    /* Typography Sizes */
     --font-size-hero: clamp(50px, 12vw, 160px);
     --font-size-title-main: clamp(1.2rem, 4vw, 1.8rem);
 
-    /* Typography Fonts */
     --font-family-title-main: 'STIX Two Text', serif;
     --font-family-title-secondary: 'Segoe Ui', sans-serif;
 }

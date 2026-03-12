@@ -1,18 +1,11 @@
-/**
- * Gypsy Joyas Main Script
- * Refactored for performance, maintainability, and accessibility.
- * @version 2.0.0
- */
+
 
 'use strict';
 
 (function () {
-    // =========================================
-    // Constants & Config
-    // =========================================
     const CONFIG = {
         categories: ['aros', 'collares', 'anillos', 'pulseras', 'accesorios'],
-        animationDuration: 600, // Fallback, we prefer transitionend
+        animationDuration: 600,
         selectors: {
             loader: 'loader',
             navbar: 'navbarNav',
@@ -27,17 +20,13 @@
         }
     };
 
-    // =========================================
-    // Core Modules
-    // =========================================
-
     const Loader = {
         init() {
             window.addEventListener('load', () => {
                 const loader = document.getElementById(CONFIG.selectors.loader);
                 if (loader) {
                     loader.style.opacity = '0';
-                    setTimeout(() => loader.style.display = 'none', 300); // Smooth fade out
+                    setTimeout(() => loader.style.display = 'none', 300);
                 }
             });
         }
@@ -84,32 +73,25 @@
             const allElements = [...sections, ...titles];
 
             if (!btn) return null;
-
-            // Initial State: Ensure hidden elements are display:none
             this.updateDisplay(allElements, false);
 
             const categoryData = { btn, arrow, allElements };
 
             btn.addEventListener('click', () => {
                 const isActive = btn.classList.contains('active');
-                const isMobile = window.innerWidth <= 768; // Check if mobile view
+                const isMobile = window.innerWidth <= 768;
 
                 if (isMobile) {
-                    // ON MOBILE: Do not trigger accordion folds.
-                    // Just show the products grid instantly and scroll down to them.
                     this.closeAllExcept(category);
 
                     if (!isActive) {
                         btn.classList.add('active');
-                        // Show products without height animation
                         allElements.forEach(el => {
                             el.classList.add('mostrar');
                             el.style.display = 'grid';
-                            el.style.maxHeight = 'none'; // Prevent max-height animation capping
+                            el.style.maxHeight = 'none';
                             el.style.opacity = '1';
                         });
-
-                        // Scroll slightly down to make products visible
                         setTimeout(() => {
                             const firstProductSection = sections[0];
                             if (firstProductSection) {
@@ -126,9 +108,7 @@
                     }
 
                 } else {
-                    // ON DESKTOP: Run standard accordion JS
                     if (!isActive) {
-                        // Close all others first
                         this.closeAllExcept(category);
                         this.expand(allElements);
                         btn.classList.add('active');
@@ -229,14 +209,10 @@
                 </div>
                 <button id="${CONFIG.selectors.nextBtn}" class="modal-nav modal-nav--next" aria-label="Siguiente">&rsaquo;</button>
             `;
-
-            // Elements
             this.modalImg = modal.querySelector(`#${CONFIG.selectors.modalImg}`);
             this.modalInfo = modal.querySelector(`#${CONFIG.selectors.modalInfo}`);
             this.prevBtn = modal.querySelector(`#${CONFIG.selectors.prevBtn}`);
             this.nextBtn = modal.querySelector(`#${CONFIG.selectors.nextBtn}`);
-
-            // Events
             modal.querySelector('.close').addEventListener('click', () => this.close());
             this.prevBtn.addEventListener('click', (e) => { e.stopPropagation(); this.prev(); });
             this.nextBtn.addEventListener('click', (e) => { e.stopPropagation(); this.next(); });
@@ -250,7 +226,6 @@
         },
 
         open(clickedImg) {
-            // Find all images in the same catalog grid
             const grid = clickedImg.closest('.catalog__grid');
             if (!grid) return;
 
@@ -261,8 +236,6 @@
 
             this.modal.style.visibility = 'visible';
             requestAnimationFrame(() => this.modal.style.opacity = '1');
-
-            // Bind Keys
             this.keyHandler = (e) => {
                 if (e.key === 'Escape') this.close();
                 if (e.key === 'ArrowLeft') this.prev();
@@ -277,8 +250,6 @@
 
             this.modalImg.src = img.src;
             this.modalImg.alt = img.alt || '';
-
-            // Get info from card
             const card = img.closest('.product-card');
             const title = card.querySelector('.product-card__title')?.innerText || '';
             const price = card.querySelector('.product-card__price')?.innerText || '';
@@ -287,8 +258,6 @@
                 <h3>${title}</h3>
                 <p>${price}</p>
             `;
-
-            // Update index tracking
             this.currentIndex = index;
         },
 
@@ -308,7 +277,7 @@
             this.modal.style.opacity = '0';
             this.modal.addEventListener('transitionend', () => {
                 this.modal.style.visibility = 'hidden';
-                this.modalImg.src = ''; // Clear memory
+                this.modalImg.src = '';
             }, { once: true });
 
             if (this.keyHandler) {
@@ -328,10 +297,6 @@
         }
     };
 
-    // =========================================
-    // Initialization
-    // =========================================
-
     function initApp() {
         Loader.init();
         Navbar.init();
@@ -347,19 +312,11 @@
     }
 
 })();
-
-// =========================================
-// Mobile Horizontal Scrolling function
-// =========================================
 window.scrollCategories = function (direction) {
     const container = document.getElementById('categoryContainer');
     if (!container) return;
-
-    // Scroll by roughly the width of one card + gap
     const cardOptions = container.querySelectorAll('.category-card');
     if (cardOptions.length === 0) return;
-
-    // Calculate one scroll move
     const scrollAmount = cardOptions[0].clientWidth;
     container.scrollBy({
         left: direction * scrollAmount,

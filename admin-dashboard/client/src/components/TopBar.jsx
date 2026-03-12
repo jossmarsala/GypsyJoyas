@@ -5,8 +5,6 @@ import { Link } from 'react-router-dom';
 const TopBar = ({ notifications = [] }) => {
     const [openDropdown, setOpenDropdown] = useState(null);
     const dropdownRef = useRef(null);
-
-    // Close dropdown when clicking outside
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {

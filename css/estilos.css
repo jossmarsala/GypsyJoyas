@@ -70,10 +70,6 @@
     font-display: swap;
 }
 
-/* =========================================
-   1. Global Reset & Base Styles
-   ========================================= */
-
 * {
     box-sizing: border-box;
 }
@@ -83,7 +79,6 @@ html {
     overflow-x: hidden;
 }
 
-/* Scroll Offset for Fixed Header */
 #productos,
 #encargos,
 #contacto {
@@ -108,10 +103,6 @@ a {
     color: var(--color-dorado-ocre);
 }
 
-/* =========================================
-   2. Utility Classes
-   ========================================= */
-
 .u-hidden {
     display: none !important;
 }
@@ -129,10 +120,6 @@ a {
     text-decoration-thickness: 1px;
     text-underline-offset: 2px;
 }
-
-/* =========================================
-   3. Header & Navigation (.header, .navbar)
-   ========================================= */
 
 .header {
     position: fixed;
@@ -168,7 +155,6 @@ a {
     z-index: 1050;
 }
 
-/* Mobile Menu Overlay */
 .navbar__collapse {
     position: fixed;
     top: 0;
@@ -238,15 +224,9 @@ a {
     outline-offset: 2px;
 }
 
-/* Hide old line animations as we use FontAwesome now */
 .navbar__toggler-line {
     display: none;
 }
-
-
-/* =========================================
-   4. Hero Section (.new-hero)
-   ========================================= */
 
 .new-hero {
     display: flex;
@@ -277,7 +257,7 @@ a {
     background-image: url('../assets/img/ui/hero-bg.webp');
     background-size: cover;
     background-position: center;
-    filter: blur(5.5px) brightness(0.92) saturate(1.5);
+    filter: blur(5.5px) brightness(0.92) saturate(1.2);
     z-index: 0;
 }
 
@@ -330,7 +310,7 @@ a {
     flex-direction: column;
     align-items: center;
     gap: 15px;
-    /* Adjust gap between the two lines */
+    
     padding: 0 5%;
     font-family: 'Raleway', sans-serif;
     font-size: clamp(24px, 5.5vw, 60px);
@@ -344,19 +324,19 @@ a {
 .new-hero__banner-line {
     display: flex;
     align-items: center;
-    /* Ensures vertical centering between image and text */
+    
     gap: clamp(10px, 3vw, 25px);
-    /* Responsive space between image and text */
+    
 }
 
 .new-hero__banner-line--first {
     align-self: flex-start;
-    /* Or center if the box spans full width */
+    
 }
 
 .new-hero__banner-line--second {
     align-self: flex-end;
-    /* Or center if the box spans full width */
+    
 }
 
 .new-hero__banner-icon {
@@ -368,7 +348,7 @@ a {
     margin: 0;
     padding: 0;
     display: block;
-    filter: saturate(2);
+    filter: saturate(1.2);
 }
 
 .new-hero__banner-icon {
@@ -390,10 +370,6 @@ a {
     font-style: italic;
     font-weight: 300;
 }
-
-/* =========================================
-   5. Products Header (.products-header) & Section Headers
-   ========================================= */
 
 .products-header {
     display: flex;
@@ -422,7 +398,7 @@ a {
     left: 0;
     top: 50%;
     transform: translateY(-50%);
-    filter: saturate(2);
+    filter: saturate(1.2);
 }
 
 .products-header__icon--right {
@@ -451,15 +427,13 @@ a {
     margin-top: 150px;
 }
 
-/* Specific for Encargos Title to ensure single line */
 #encargos {
     white-space: nowrap;
     width: 100%;
     padding: 0 5%;
-    /* Reset padding-top, spacing is now handled by #margenproductos */
+    
     box-sizing: border-box;
 }
-
 
 .products-header__initial {
     font-family: 'Manstein', serif;
@@ -482,10 +456,6 @@ a {
     opacity: 0.9;
 }
 
-/* =========================================
-   6. Category Navigation & Cards (.category-nav)
-   ========================================= */
-
 .category-nav {
     width: 100%;
     padding: 40px 5%;
@@ -498,7 +468,7 @@ a {
     align-items: stretch;
     width: 100%;
     height: 400px;
-    /* Fixed height to avoid jumps during animations */
+    
     border: 1px solid rgba(75, 51, 24, 0.15);
     background-color: var(--color-blanco-beige);
     overflow-x: auto;
@@ -526,24 +496,17 @@ a {
     border-right: none;
 }
 
-/* Default hover remains */
 .category-card:hover {
     background-color: rgba(255, 255, 255, 0.5);
 }
 
-/* =========================================
-   6.1. Category Navigation Deployed State
-   ========================================= */
-
-/* When any card is active, adjust flex ratios */
 .category-nav__container:has(.category-card.active) .category-card:not(.active) {
     flex: 1.5;
-    /* Narrow tabs */
+    
     min-width: 90px;
     background-color: transparent;
 }
 
-/* Hide images and dividers for inactive cards when deployed */
 .category-nav__container:has(.category-card.active) .category-card:not(.active) .category-card__img-wrapper,
 .category-nav__container:has(.category-card.active) .category-card:not(.active) .category-card__divider {
     display: none;
@@ -551,94 +514,84 @@ a {
     visibility: hidden;
 }
 
-/* Ensure inactive cards center their text */
 .category-nav__container:has(.category-card.active) .category-card:not(.active) .category-card__content {
     justify-content: flex-start;
     align-items: center;
     padding: 30px 5px;
-    /* Added more top padding */
+    
 }
 
-/* Inactive cards need a divider line visible under the CTA (like reference) */
 .category-nav__container:has(.category-card.active) .category-card:not(.active) .category-card__divider {
     display: block;
     opacity: 1;
     visibility: visible;
     width: 60%;
-    /* Narrow divider */
+    
     margin-bottom: 30px;
-    /* Space between divider and title */
+    
 }
 
-/* Active card layout */
 .category-nav__container:has(.category-card.active) .category-card.active {
     flex: 4;
     min-width: 320px;
     flex-direction: row;
     background-color: var(--color-blanco-beige);
-    /* Blend with container */
+    
     cursor: default;
 }
 
-/* Active card image wrapper */
 .category-nav__container:has(.category-card.active) .category-card.active .category-card__img-wrapper {
     display: flex;
     width: 50%;
     height: 100%;
     aspect-ratio: auto;
     padding: 20px 0 20px 20px;
-    /* Padding only around edges, not between image and text */
+    
 }
 
-/* Active card image */
 .category-nav__container:has(.category-card.active) .category-card.active .category-card__img-wrapper img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
-    /* Ensures a vertical crop (flaquita) */
+    
     transform: none !important;
     display: block;
 }
 
-/* Active card content */
 .category-nav__container:has(.category-card.active) .category-card.active .category-card__content {
     width: 50%;
-    /* Adjusted ratio */
+    
     flex-direction: column;
     justify-content: flex-start;
-    /* Align content to top */
+    
     align-items: flex-start;
-    /* Align text to left inside its box */
+    
     padding: 30px 10px 30px 20px;
-    /* Add space on the left to separate from image */
+    
 }
 
-/* Hide divider in active card */
 .category-nav__container:has(.category-card.active) .category-card.active .category-card__divider {
     display: none;
 }
 
-/* Override fade animation for active card elements to keep them solid */
 .category-nav__container:has(.category-card.active) .category-card.active .category-card__img-wrapper,
 .category-nav__container:has(.category-card.active) .category-card.active .category-card__content {
     animation: none;
 }
 
-/* Adjust title placement in active card to stay at the bottom left */
 .category-nav__container:has(.category-card.active) .category-card.active .category-card__title {
     margin: auto 0 10px 0;
     align-self: flex-start;
-    /* Pull title to left */
+    
 }
 
-/* Align CTA inside active card */
 .category-nav__container:has(.category-card.active) .category-card.active .category-card__cta {
     margin-bottom: 20px;
-    /* Space under CTA */
+    
     text-align: left;
     width: 100%;
-    /* Ensure it spans full width of content box */
+    
 }
 
 @keyframes fadeCollapse {
@@ -661,7 +614,7 @@ a {
     overflow: hidden;
     padding: 15px;
     animation: fadeCollapse 0.8s ease-out;
-    /* Forces an invisible state during the collapse jump */
+    
 }
 
 .category-card__img-wrapper img {
@@ -670,10 +623,9 @@ a {
     object-fit: cover;
     filter: grayscale(0.2) contrast(0.9);
     transition: filter 0.6s ease;
-    /* Removed transform to avoid jumpy animations */
+    
 }
 
-/* Solo aplicar hover scale si la tarjeta NO está activa o no está dentro de una nav activa */
 .category-nav__container:not(:has(.category-card.active)) .category-card:hover .category-card__img-wrapper img {
     filter: grayscale(0) contrast(1);
 }
@@ -686,7 +638,7 @@ a {
     align-items: flex-start;
     position: relative;
     animation: fadeCollapse 0.8s ease-out;
-    /* Also fade the text cleanly on collapse */
+    
 }
 
 .category-card__cta {
@@ -724,14 +676,9 @@ a {
     text-transform: uppercase;
 }
 
-/* Hide legacy toggle headers */
 .catalog__header {
     display: none;
 }
-
-/* =========================================
-   7. Catalog / Category (.catalog)
-   ========================================= */
 
 .catalog__subtitle {
     color: var(--color-cafe-profundo);
@@ -744,7 +691,6 @@ a {
     overflow: hidden;
     transition: max-height 0.6s ease, opacity 0.4s ease, margin 0.6s ease;
 
-    /* Collapsed State */
     max-height: 0;
     opacity: 0;
     margin: 0;
@@ -762,17 +708,14 @@ a {
     transition: transform 0.3s ease-in-out !important;
 }
 
-/* Arrow Rotation (Left Aligned) */
 .catalog__arrow.animar {
     transform: rotate(-90deg) !important;
 }
 
-/* Arrow Rotation (Right Aligned) */
 .catalog:nth-of-type(odd) .catalog__arrow.animar {
     transform: rotate(90deg) !important;
 }
 
-/* Grid Logic */
 .catalog__grid {
     display: grid;
 
@@ -782,12 +725,10 @@ a {
     overflow: hidden;
     transition: max-height 0.6s ease, opacity 0.4s ease, padding 0.6s ease;
 
-    /* Collapsed State */
     max-height: 0;
     opacity: 0;
 }
 
-/* Tablet & Desktop Grid */
 @media (min-width: 600px) {
     .catalog__grid {
         grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -795,7 +736,6 @@ a {
     }
 }
 
-/* Active States */
 .catalog__grid.mostrar,
 .catalog__subtitle.mostrar {
     max-height: 1000px;
@@ -809,10 +749,6 @@ a {
 .catalog__subtitle.mostrar {
     margin: 15px 0 5px 0;
 }
-
-/* =========================================
-   7. Product Card (.product-card)
-   ========================================= */
 
 .product-card {
     display: flex;
@@ -853,7 +789,7 @@ a {
 
 .product-card__title {
     font-family: 'Raleway', sans-serif;
-    /* Refined typography */
+    
     margin-top: 10px !important;
     margin-bottom: 5px;
     font-size: clamp(14px, 1.1rem, 18px) !important;
@@ -865,11 +801,11 @@ a {
 
 .product-card__price {
     font-family: 'S Serif', serif;
-    /* Keep serif for elegant pricing */
+    
     font-size: clamp(14px, 1rem, 16px) !important;
     margin: 0 0 5px 0 !important;
     color: var(--color-cafe-profundo);
-    /* Match reference solid color */
+    
     font-weight: normal;
     letter-spacing: 0.5px;
 }
@@ -883,10 +819,6 @@ a {
     text-underline-offset: -2px;
     opacity: 0.8;
 }
-
-/* =========================================
-   8. Order Section (.encargos)
-   ========================================= */
 
 .encargos {
     padding: 20px;
@@ -1006,11 +938,6 @@ a {
     color: var(--color-blanco-beige);
 }
 
-
-/* =========================================
-   9. Footer (.footer)
-   ========================================= */
-
 .footer {
     background-color: var(--color-blanco-beige);
     padding: 120px 0 40px;
@@ -1033,7 +960,6 @@ a {
     margin-bottom: 80px;
 }
 
-/* Brand Column */
 .footer__col--brand {
     display: flex;
     flex-direction: column;
@@ -1073,7 +999,6 @@ a {
     opacity: 0.8;
 }
 
-/* Links & Titles */
 .footer__title {
     font-family: 'STIX Two Text', serif;
     font-size: 20px;
@@ -1119,7 +1044,6 @@ a {
     transform: translateX(5px);
 }
 
-/* Contact Column */
 .footer__email {
     font-family: 'Raleway', sans-serif;
     font-size: 15px;
@@ -1161,7 +1085,6 @@ a {
     transform: translateY(-5px);
 }
 
-/* Bottom Bar */
 .footer__bottom {
     position: relative;
     padding-top: 40px;
@@ -1210,10 +1133,9 @@ a {
     margin-top: 30px;
     opacity: 0.2;
     align-self: center;
-    filter: saturate(2);
+    filter: saturate(1.2);
 }
 
-/* Responsive Footer */
 @media (max-width: 992px) {
     .footer__grid {
         grid-template-columns: 1.5fr 1fr;
@@ -1259,10 +1181,6 @@ a {
         font-size: 3.5rem;
     }
 }
-
-/* =========================================
-   10. Modals & Overlays
-   ========================================= */
 
 .modal {
     visibility: hidden;
@@ -1411,10 +1329,6 @@ a {
     }
 }
 
-/* =========================================
-   11. Animations
-   ========================================= */
-
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -1427,14 +1341,7 @@ a {
     }
 }
 
-/* =========================================
-   12. Media Queries
-   ========================================= */
-
 @media (min-width: 992px) {
-    /* .navbar__toggler {
-        display: none;
-    } */
 
     .navbar__collapse {
         position: static;
@@ -1450,9 +1357,6 @@ a {
         gap: 30px;
     }
 
-    /* Removed old .hero__background inside media query */
-
-    /* Constraints */
     .navbar__container,
     .catalog,
     .section-header {
@@ -1461,10 +1365,6 @@ a {
         margin-right: auto;
     }
 }
-
-/* =========================================
-   Global Utility Classes
-   ========================================= */
 
 .mobile-only {
     display: none !important;
@@ -1478,7 +1378,6 @@ a {
     display: none;
 }
 
-/* Tablet Overrides */
 @media (min-width: 769px) and (max-width: 1024px) {
     .new-hero__header {
         min-height: 45vh !important;
@@ -1515,7 +1414,6 @@ a {
         padding: 0 1%;
         gap: 5px;
     }
-
 
     .encargos__content {
         flex-direction: column;
@@ -1558,11 +1456,6 @@ a {
         margin-top: 10px;
     }
 
-    /* =========================================
-       11. Responsive Overrides (from User Request)
-       ========================================= */
-
-    /* Hero Section - Hide 'Joyas' text and original texts */
     .hide-on-mobile {
         display: none !important;
     }
@@ -1575,7 +1468,6 @@ a {
         display: inline !important;
     }
 
-    /* Force strict height constraints for mobile hero */
     section.new-hero .new-hero__header {
         position: relative;
         min-height: 50vh !important;
@@ -1588,12 +1480,11 @@ a {
         margin-bottom: 0 !important;
     }
 
-
     .new-hero__header::before {
         height: 100%;
         top: 0;
         background-position: center 40%;
-        /* Better crop focus */
+        
     }
 
     .products-header {
@@ -1606,7 +1497,6 @@ a {
         align-items: center;
     }
 
-    /* Keep the icon absolutely positioned but shrink it for mobile */
     .products-header__icon {
         width: clamp(60px, 15vw, 100px);
         margin-top: -1rem;
@@ -1618,13 +1508,11 @@ a {
         margin-right: 0px !important;
     }
 
-
     .products-header__title {
         font-size: clamp(32px, 10vw, 42px);
-        /* Size adjustment */
+        
     }
 
-    /* Fix the gap above "Cómo encargar" that was lost due to products-header padding override */
     #margenproductos {
         margin-top: 80px;
     }
@@ -1639,12 +1527,11 @@ a {
         width: 100%;
     }
 
-    /* Specifically target the "Encargar" subtitle to force two lines */
     .products-header__subtitle--left {
         max-width: 85%;
-        /* Squeeze the sides to force a wrap */
+        
         font-size: clamp(12px, 3vw, 16px);
-        /* Slightly smaller font */
+        
         margin-left: auto;
         margin-right: auto;
         line-height: 1.4;
@@ -1660,8 +1547,6 @@ a {
         max-height: none !important;
     }
 
-
-    /* FORZAR imagen súper baja */
     .catalog__grid .product-card .product-card__image {
         aspect-ratio: 3 / 4 !important;
         width: 100% !important;
@@ -1669,13 +1554,6 @@ a {
         object-fit: cover !important;
     }
 
-
-
-    /* =========================================
-       12. Mobile Category Scroll Layout Override
-       ========================================= */
-
-    /* Ensure container allows horizontal scrolling and snapping */
     .category-nav__container {
         justify-content: flex-start;
         overflow-x: auto;
@@ -1684,9 +1562,9 @@ a {
         -webkit-overflow-scrolling: touch;
         border: none;
         height: auto;
-        /* Remove the 400px fixed height to fit content */
+        
         padding-bottom: 20px;
-        /* Space for scrollbar */
+        
     }
 
     .category-nav__container::-webkit-scrollbar {
@@ -1698,11 +1576,10 @@ a {
         min-width: unset !important;
         scroll-snap-align: start;
         border: none !important;
-        /* Remove accordion height/flex transitions for mobile */
+        
         transition: none !important;
     }
 
-    /* Override ALL accordion "active" state CSS changes so they never break the grid */
     .category-nav__container:has(.category-card.active) .category-card:not(.active) {
         flex: 0 0 calc(100% / 3) !important;
         min-width: unset !important;
@@ -1712,11 +1589,10 @@ a {
         flex: 0 0 calc(100% / 3) !important;
         min-width: unset !important;
         flex-direction: column !important;
-        /* Force column layout always */
+        
         background-color: transparent !important;
     }
 
-    /* Keep images shown at all times */
     .category-nav__container:has(.category-card.active) .category-card:not(.active) .category-card__img-wrapper,
     .category-nav__container:has(.category-card.active) .category-card:not(.active) .category-card__divider,
     .category-card__img-wrapper,
@@ -1725,15 +1601,14 @@ a {
         opacity: 1 !important;
         visibility: visible !important;
         animation: none !important;
-        /* Disable jump animations */
+        
     }
 
-    /* Clean up internal spacing and borders to match the reference image */
     .category-card__img-wrapper {
         padding: 10px !important;
-        /* Less padding to fit 3 easily */
+        
         aspect-ratio: 1 / 1 !important;
-        /* Square images */
+        
         width: 100% !important;
         height: auto !important;
     }
@@ -1753,7 +1628,6 @@ a {
         text-align: center !important;
     }
 
-    /* Rotate Text to be vertical */
     .category-card__title,
     .category-nav__container:has(.category-card.active) .category-card.active .category-card__title {
         writing-mode: vertical-rl;
@@ -1762,7 +1636,7 @@ a {
         margin: 20px auto 0 auto !important;
         align-self: center !important;
         font-size: clamp(24px, 6vw, 36px) !important;
-        /* Make it large enough like reference */
+        
         letter-spacing: 2px;
     }
 
@@ -1781,7 +1655,6 @@ a {
         display: block !important;
     }
 
-    /* Slider Container wrapper to hold arrows + container */
     .category-nav__wrapper {
         position: relative;
         display: flex;
@@ -1789,7 +1662,6 @@ a {
         width: 100%;
     }
 
-    /* Slider Arrows */
     .category-scroll-btn {
         background: transparent;
         border: none;
@@ -1803,10 +1675,6 @@ a {
         justify-content: center;
     }
 }
-
-/* =========================================
-   10. Maintenance Overlay
-   ========================================= */
 
 .maintenance-overlay {
     position: fixed;

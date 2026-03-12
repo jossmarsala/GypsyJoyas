@@ -31,15 +31,13 @@ const DashboardOverview = ({ products, loading, refetch, maintenanceMode, setMai
     const handleCloseForm = () => {
         setIsFormOpen(false);
         setSelectedProduct(null);
-        refetch(); // Refresh list after edit/add
+        refetch();
     };
 
     const handleToggleMaintenance = async () => {
         try {
             const res = await toggleMaintenanceMode();
             setMaintenanceMode(res.maintenanceMode);
-
-            // Trigger Notification
             const statusText = res.maintenanceMode ? 'Mantenimiento activado' : 'Mantenimiento desactivado';
             const statusType = res.maintenanceMode ? 'warning' : 'success';
             addNotification(statusType, statusText);

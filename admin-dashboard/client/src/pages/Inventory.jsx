@@ -7,8 +7,6 @@ import { FiGrid, FiList } from 'react-icons/fi';
 const Inventory = ({ products, refetch, loading }) => {
     const [selectedProduct, setSelectedProduct] = useState(null);
     const [isFormOpen, setIsFormOpen] = useState(false);
-
-    // View controls
     const [viewMode, setViewMode] = useState('grid');
     const [sortBy, setSortBy] = useState('recent');
 
@@ -27,7 +25,7 @@ const Inventory = ({ products, refetch, loading }) => {
     const handleCloseForm = () => {
         setIsFormOpen(false);
         setSelectedProduct(null);
-        refetch(); // Refresh list after edit/add
+        refetch();
     };
 
     return (
