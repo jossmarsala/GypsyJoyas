@@ -1,4 +1,4 @@
-﻿@import url('https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400..700;1,400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400..700;1,400..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400&display=swap');
 
 @font-face {
@@ -277,7 +277,7 @@ a {
     background-image: url('../assets/img/ui/hero-bg.webp');
     background-size: cover;
     background-position: center;
-    filter: blur(5.5px) brightness(0.92);
+    filter: blur(5.5px) brightness(0.92) saturate(1.5);
     z-index: 0;
 }
 
@@ -368,6 +368,7 @@ a {
     margin: 0;
     padding: 0;
     display: block;
+    filter: saturate(2);
 }
 
 .new-hero__banner-icon {
@@ -421,6 +422,7 @@ a {
     left: 0;
     top: 50%;
     transform: translateY(-50%);
+    filter: saturate(2);
 }
 
 .products-header__icon--right {
@@ -1200,7 +1202,7 @@ a {
     top: -60px;
     opacity: 0.15;
     pointer-events: none;
-    filter: sepia(1) saturate(0.5);
+    filter: sepia(1) saturate(1.2);
 }
 
 .footer__decoration {
@@ -1208,6 +1210,7 @@ a {
     margin-top: 30px;
     opacity: 0.2;
     align-self: center;
+    filter: saturate(2);
 }
 
 /* Responsive Footer */
