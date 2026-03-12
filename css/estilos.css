@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400..700;1,400..700&display=swap');
+﻿@import url('https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400..700;1,400..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400&display=swap');
 
 @font-face {
@@ -150,6 +150,7 @@ a {
 
 .navbar__logo {
     width: clamp(20px, 5vw, 40px);
+    margin: 40px 0;
     height: auto;
     position: relative;
     z-index: 1050;
@@ -310,7 +311,7 @@ a {
     flex-direction: column;
     align-items: center;
     gap: 15px;
-    
+
     padding: 0 5%;
     font-family: 'Raleway', sans-serif;
     font-size: clamp(24px, 5.5vw, 60px);
@@ -324,19 +325,19 @@ a {
 .new-hero__banner-line {
     display: flex;
     align-items: center;
-    
+
     gap: clamp(10px, 3vw, 25px);
-    
+
 }
 
 .new-hero__banner-line--first {
     align-self: flex-start;
-    
+
 }
 
 .new-hero__banner-line--second {
     align-self: flex-end;
-    
+
 }
 
 .new-hero__banner-icon {
@@ -431,7 +432,7 @@ a {
     white-space: nowrap;
     width: 100%;
     padding: 0 5%;
-    
+
     box-sizing: border-box;
 }
 
@@ -468,7 +469,7 @@ a {
     align-items: stretch;
     width: 100%;
     height: 400px;
-    
+
     border: 1px solid rgba(75, 51, 24, 0.15);
     background-color: var(--color-blanco-beige);
     overflow-x: auto;
@@ -502,7 +503,7 @@ a {
 
 .category-nav__container:has(.category-card.active) .category-card:not(.active) {
     flex: 1.5;
-    
+
     min-width: 90px;
     background-color: transparent;
 }
@@ -518,7 +519,7 @@ a {
     justify-content: flex-start;
     align-items: center;
     padding: 30px 5px;
-    
+
 }
 
 .category-nav__container:has(.category-card.active) .category-card:not(.active) .category-card__divider {
@@ -526,9 +527,9 @@ a {
     opacity: 1;
     visibility: visible;
     width: 60%;
-    
+
     margin-bottom: 30px;
-    
+
 }
 
 .category-nav__container:has(.category-card.active) .category-card.active {
@@ -536,7 +537,7 @@ a {
     min-width: 320px;
     flex-direction: row;
     background-color: var(--color-blanco-beige);
-    
+
     cursor: default;
 }
 
@@ -546,7 +547,7 @@ a {
     height: 100%;
     aspect-ratio: auto;
     padding: 20px 0 20px 20px;
-    
+
 }
 
 .category-nav__container:has(.category-card.active) .category-card.active .category-card__img-wrapper img {
@@ -554,21 +555,21 @@ a {
     height: 100%;
     object-fit: cover;
     object-position: center;
-    
+
     transform: none !important;
     display: block;
 }
 
 .category-nav__container:has(.category-card.active) .category-card.active .category-card__content {
     width: 50%;
-    
+
     flex-direction: column;
     justify-content: flex-start;
-    
+
     align-items: flex-start;
-    
+
     padding: 30px 10px 30px 20px;
-    
+
 }
 
 .category-nav__container:has(.category-card.active) .category-card.active .category-card__divider {
@@ -583,15 +584,15 @@ a {
 .category-nav__container:has(.category-card.active) .category-card.active .category-card__title {
     margin: auto 0 10px 0;
     align-self: flex-start;
-    
+
 }
 
 .category-nav__container:has(.category-card.active) .category-card.active .category-card__cta {
     margin-bottom: 20px;
-    
+
     text-align: left;
     width: 100%;
-    
+
 }
 
 @keyframes fadeCollapse {
@@ -614,7 +615,7 @@ a {
     overflow: hidden;
     padding: 15px;
     animation: fadeCollapse 0.8s ease-out;
-    
+
 }
 
 .category-card__img-wrapper img {
@@ -623,7 +624,7 @@ a {
     object-fit: cover;
     filter: grayscale(0.2) contrast(0.9);
     transition: filter 0.6s ease;
-    
+
 }
 
 .category-nav__container:not(:has(.category-card.active)) .category-card:hover .category-card__img-wrapper img {
@@ -638,7 +639,7 @@ a {
     align-items: flex-start;
     position: relative;
     animation: fadeCollapse 0.8s ease-out;
-    
+
 }
 
 .category-card__cta {
@@ -789,7 +790,7 @@ a {
 
 .product-card__title {
     font-family: 'Raleway', sans-serif;
-    
+
     margin-top: 10px !important;
     margin-bottom: 5px;
     font-size: clamp(14px, 1.1rem, 18px) !important;
@@ -801,11 +802,11 @@ a {
 
 .product-card__price {
     font-family: 'S Serif', serif;
-    
+
     font-size: clamp(14px, 1rem, 16px) !important;
     margin: 0 0 5px 0 !important;
     color: var(--color-cafe-profundo);
-    
+
     font-weight: normal;
     letter-spacing: 0.5px;
 }
@@ -1484,7 +1485,7 @@ a {
         height: 100%;
         top: 0;
         background-position: center 40%;
-        
+
     }
 
     .products-header {
@@ -1510,7 +1511,7 @@ a {
 
     .products-header__title {
         font-size: clamp(32px, 10vw, 42px);
-        
+
     }
 
     #margenproductos {
@@ -1529,9 +1530,9 @@ a {
 
     .products-header__subtitle--left {
         max-width: 85%;
-        
+
         font-size: clamp(12px, 3vw, 16px);
-        
+
         margin-left: auto;
         margin-right: auto;
         line-height: 1.4;
@@ -1562,9 +1563,9 @@ a {
         -webkit-overflow-scrolling: touch;
         border: none;
         height: auto;
-        
+
         padding-bottom: 20px;
-        
+
     }
 
     .category-nav__container::-webkit-scrollbar {
@@ -1576,7 +1577,7 @@ a {
         min-width: unset !important;
         scroll-snap-align: start;
         border: none !important;
-        
+
         transition: none !important;
     }
 
@@ -1589,7 +1590,7 @@ a {
         flex: 0 0 calc(100% / 3) !important;
         min-width: unset !important;
         flex-direction: column !important;
-        
+
         background-color: transparent !important;
     }
 
@@ -1601,14 +1602,14 @@ a {
         opacity: 1 !important;
         visibility: visible !important;
         animation: none !important;
-        
+
     }
 
     .category-card__img-wrapper {
         padding: 10px !important;
-        
+
         aspect-ratio: 1 / 1 !important;
-        
+
         width: 100% !important;
         height: auto !important;
     }
@@ -1636,7 +1637,7 @@ a {
         margin: 20px auto 0 auto !important;
         align-self: center !important;
         font-size: clamp(24px, 6vw, 36px) !important;
-        
+
         letter-spacing: 2px;
     }
 
