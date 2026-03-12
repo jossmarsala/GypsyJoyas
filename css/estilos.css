@@ -1,4 +1,4 @@
-﻿@import url('https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400..700;1,400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400..700;1,400..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400&display=swap');
 
 @font-face {
@@ -405,6 +405,7 @@ a {
 .products-header__icon--right {
     left: auto;
     right: 0;
+    width: clamp(60px, 15vw, 180px);
 }
 
 .products-header__text-wrapper {
