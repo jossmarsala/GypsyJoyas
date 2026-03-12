@@ -149,7 +149,7 @@ a {
 }
 
 .navbar__logo {
-    width: clamp(25px, 10vw, 70px);
+    width: clamp(20px, 5vw, 40px);
     height: auto;
     position: relative;
     z-index: 1050;
