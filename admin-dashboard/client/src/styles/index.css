@@ -2,40 +2,35 @@
 
 :root {
   /* Colors inspired by reference image */
-  --bg-color: #f7f3eb;
-  /* Soft cream background */
-  --sidebar-bg: #1c1c1c;
-  /* Dark charcoal */
-  --sidebar-text: #a1a1aa;
-  /* Muted gray for unintuitive links */
-  --sidebar-text-active: #ffffff;
+  --bg-color: #F2EDE4; /* Off-white/Beige */
+  --sidebar-bg: #4E3C2E; /* Brown */
+  --sidebar-text: #B8C2BC; /* Light Blue */
+  --sidebar-text-active: #F2EDE4; /* Beige */
 
   --card-bg: #ffffff;
-  --text-main: #1f2937;
-  --text-muted: #6b7280;
+  --text-main: #4E3C2E; /* Brown text for main readability */
+  --text-muted: #856E58; /* Muted brown */
 
-  /* Pastel Bento Colors */
-  --bento-yellow: #fde68a;
-  --bento-pink: #fbcfe8;
-  --bento-green: #bbf7d0;
-  --bento-blue: #bfdbfe;
+  /* Pastel Bento Colors derived from design system */
+  --bento-yellow: #E8D8A3; /* Derived from #AA8B35 Ocre */
+  --bento-pink: #D5B9A6; /* Derived from #4E3C2E Brown */
+  --bento-green: #B8C2BC; /* Light Blue from design system */
+  --bento-blue: #D6DBD9; /* Derived from #B8C2BC */
 
   /* Primary Action Colors */
-  --primary-color: #111827;
-  /* Near black for main buttons */
-  --primary-hover: #374151;
-  --secondary-color: #e5e7eb;
-  /* Light gray for secondary actions */
-  --secondary-hover: #d1d5db;
+  --primary-color: #AA8B35; /* Ocre */
+  --primary-hover: #8F742C; /* Darker Ocre */
+  --secondary-color: #B8C2BC; /* Light Blue */
+  --secondary-hover: #9DA9A2; /* Darker Light Blue */
 
   --border-radius-lg: 24px;
   --border-radius-md: 16px;
   --border-radius-sm: 8px;
-  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 4px 6px -1px rgba(78, 60, 46, 0.1);
+  --shadow-md: 0 10px 15px -3px rgba(78, 60, 46, 0.1);
 
   /* Accent colors from GypsyJoyas */
-  --ocre: #b48600;
+  --ocre: #AA8B35;
 }
 
 body {
