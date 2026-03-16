@@ -16,8 +16,19 @@ app.get('/api/health', (req, res) => {
     res.json({ status: 'ok' });
 });
 
+const authRoutes = require('./src/routes/authRoutes');
 const productRoutes = require('./src/routes/productRoutes');
 const settingsRoutes = require('./src/routes/settingsRoutes');
+const authMiddleware = require('./src/middleware/authMiddleware');
+
+app.use('/api/auth', authRoutes);
+
+// Public routes (GET) vs Protected routes (POST, PUT, DELETE)
+// However, since this is an admin dashboard server, we might want to 
+// protect everything or use specific middleware inside the routes files.
+// For now, let's keep it simple: auth routes are public, products/settings are protected 
+// if they are not GET. But actually, in your case, the public site fetches GET /api/products.
+// So let's handle protection INSIDE the route files for more granularity.
 
 app.use('/api/products', productRoutes);
 app.use('/api/settings', settingsRoutes);

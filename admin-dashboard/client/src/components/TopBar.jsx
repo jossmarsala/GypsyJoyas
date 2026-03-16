@@ -5,6 +5,14 @@ import { Link } from 'react-router-dom';
 const TopBar = ({ notifications = [] }) => {
     const [openDropdown, setOpenDropdown] = useState(null);
     const dropdownRef = useRef(null);
+    const user = JSON.parse(localStorage.getItem('admin_user') || '{"name": "Admin"}');
+
+    const handleLogout = () => {
+        localStorage.removeItem('admin_token');
+        localStorage.removeItem('admin_user');
+        window.location.reload();
+    };
+
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -22,7 +30,7 @@ const TopBar = ({ notifications = [] }) => {
     return (
         <div className="top-bar">
             <div className="greeting">
-                <h1>¡Hola, Fran!</h1>
+                <h1>¡Hola, {user.name.split(' ')[0]}!</h1>
                 <p>Aquí podrás ver el resumen de tu inventario actual y las opciones de gestión.</p>
             </div>
 
@@ -39,12 +47,12 @@ const TopBar = ({ notifications = [] }) => {
                     {openDropdown === 'profile' && (
                         <div className="dropdown-menu">
                             <div className="dropdown-header">
-                                <strong>Fran Manager</strong>
+                                <strong>{user.name}</strong>
                                 <span>Administrador</span>
                             </div>
                             <div className="dropdown-divider"></div>
-                            <Link to="/ajustes" className="dropdown-item disabled-link" onClick={(e) => e.preventDefault()}>Mi Perfil</Link>
-                            <button className="dropdown-item text-danger disabled-link">Cerrar sesión</button>
+                            <Link to="/ajustes" className="dropdown-item">Ajustes</Link>
+                            <button className="dropdown-item text-danger" onClick={handleLogout}>Cerrar sesión</button>
                         </div>
                     )}
                 </div>

@@ -1,8 +1,9 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import DashboardOverview from './pages/DashboardOverview';
 import Inventory from './pages/Inventory';
 import Settings from './pages/Settings';
+import Login from './pages/Login';
 import Sidebar from './components/Sidebar';
 import TopBar from './components/TopBar';
 import { useDashboardData } from './hooks/useDashboardData';
@@ -20,6 +21,7 @@ function DashboardLayout() {
           <Route path="/" element={<DashboardOverview products={products} loading={loading} refetch={refetch} maintenanceMode={maintenanceMode} setMaintenanceMode={setMaintenanceMode} addNotification={addNotification} />} />
           <Route path="/inventario" element={<Inventory products={products} refetch={refetch} loading={loading} />} />
           <Route path="/ajustes" element={<Settings maintenanceMode={maintenanceMode} setMaintenanceMode={setMaintenanceMode} refetch={refetch} loading={loading} />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
     </div>
@@ -27,9 +29,20 @@ function DashboardLayout() {
 }
 
 function App() {
+  const [isAuthenticated, setIsAuthenticated] = React.useState(!!localStorage.getItem('admin_token'));
+
   return (
     <Router basename="/admin">
-      <DashboardLayout />
+      <Routes>
+        {!isAuthenticated ? (
+          <>
+            <Route path="/login" element={<Login />} />
+            <Route path="*" element={<Navigate to="/login" replace />} />
+          </>
+        ) : (
+          <Route path="/*" element={<DashboardLayout />} />
+        )}
+      </Routes>
     </Router>
   );
 }

@@ -19,6 +19,25 @@ const api = axios.create({
     },
 });
 
+// Add interceptor to include token
+api.interceptors.request.use((config) => {
+    const token = localStorage.getItem('admin_token');
+    if (token) {
+        config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+});
+
+export const login = async (credentials) => {
+    const response = await api.post('/auth/login', credentials);
+    return response.data;
+};
+
+export const getCurrentUser = async () => {
+    const response = await api.get('/auth/me');
+    return response.data;
+};
+
 export const getProducts = async (params) => {
     const response = await api.get('/products', { params });
     return response.data;
