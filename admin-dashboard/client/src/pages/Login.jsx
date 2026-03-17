@@ -9,6 +9,16 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
+  const dashboardTips = [
+    "Tip: Podés actualizar los precios de toda una categoría junta desde 'Ajustes'.",
+    "Recordá que las imágenes de buena calidad hacen que tus piezas resalten más.",
+    "El modo mantenimiento te permite ocultar el catálogo mientras hacés cambios grandes.",
+    "Si un producto es único e irrepetible, podés aclararlo en la categoría para darle exclusividad.",
+    "Mantener el inventario organizado por materiales ayuda a tus clientes a elegir mejor."
+  ];
+
+  const [currentTip] = useState(() => dashboardTips[Math.floor(Math.random() * dashboardTips.length)]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
@@ -43,7 +53,7 @@ const Login = () => {
               <div className="logo-box">
                 <img src="/assets/img/ui/logo-svg.svg" alt="Gypsy Joyas" />
               </div>
-              <h1>Bienvenido</h1>
+              <h1>¡Hola de nuevo!</h1>
               <p>Por favor ingresa tus datos.</p>
             </div>
 
@@ -100,8 +110,8 @@ const Login = () => {
           <div className="visual-media">
             <div className="visual-overlay"></div>
             <div className="visual-glass-card">
-              <h3>Arte Atemporal</h3>
-              <p>Obras de arte para llevar puestas</p>
+              <h3>Tips del Dashboard</h3>
+              <p>{currentTip}</p>
             </div>
           </div>
         </div>
@@ -259,7 +269,7 @@ const Login = () => {
           color: #856E58;
           cursor: pointer;
           user-select: none;
-          gap: 8px;
+          gap: 14px;
         }
 
         .checkbox-container input {
@@ -327,7 +337,7 @@ const Login = () => {
           overflow: hidden;
           display: flex;
           align-items: flex-end;
-          padding: 40px;
+          padding: 30px;
         }
 
         .visual-overlay {
@@ -347,6 +357,7 @@ const Login = () => {
           border: 1px solid rgba(255, 255, 255, 0.3);
           border-radius: 20px;
           color: white;
+          margin-bottom: 10px;
         }
 
         .visual-glass-card h3 {
