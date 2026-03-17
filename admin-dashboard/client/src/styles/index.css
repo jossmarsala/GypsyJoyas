@@ -634,6 +634,11 @@ select:focus {
 }
 
 @media (max-width: 1024px) {
+  .products-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 1rem;
+  }
+
   .app-container {
     flex-direction: column;
     padding: 1rem;
@@ -716,6 +721,23 @@ select:focus {
 }
 
 @media (max-width: 640px) {
+  .products-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 0.75rem;
+  }
+
+  .product-card-content {
+    padding: 0.75rem;
+  }
+
+  .product-card-title {
+    font-size: 0.85rem;
+  }
+
+  .product-card-price {
+    font-size: 0.95rem;
+  }
+
   .bento-grid:not(.metrics-grid) {
     grid-template-columns: 1fr;
   }
