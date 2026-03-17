@@ -28,310 +28,384 @@ const Login = () => {
   };
 
   return (
-    <div className="login-scene">
-      <div className="login-bg-decoration">
-        <div className="blur-circle circle-1"></div>
-        <div className="blur-circle circle-2"></div>
+    <div className="login-page">
+      <div className="login-bg-shapes">
+        <div className="shape shape-1"></div>
+        <div className="shape shape-2"></div>
       </div>
-
-      <div className="login-container">
-        <div className="login-card">
-          <div className="login-header">
-            <div className="logo-wrapper">
-              <img src="/assets/img/ui/logo-svg.svg" alt="Gypsy Joyas" className="login-logo" />
+      
+      <div className="login-card-container">
+        
+        {/* Left Side: Form */}
+        <div className="login-form-side">
+          <div className="login-form-inner">
+            <div className="login-header">
+              <div className="logo-box">
+                <img src="/assets/img/ui/logo-svg.svg" alt="Gypsy Joyas" />
+              </div>
+              <h1>Bienvenido</h1>
+              <p>Por favor ingresa tus datos.</p>
             </div>
-            <h1>
-              <span className="serif-initial">G</span>ypsy
-              <span className="serif-subtitle">Dashboard</span>
-            </h1>
-            <div className="header-divider"></div>
-            <p>Piezas de arte para llevar puestas</p>
+
+            <form onSubmit={handleSubmit} className="login-form">
+              {error && <div className="login-error">{error}</div>}
+              
+              <div className="form-group">
+                <label htmlFor="email">Email</label>
+                <div className="input-wrapper">
+                  <input
+                    type="email"
+                    id="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                    placeholder="fran@gypsyjoyas.com"
+                    autoComplete="email"
+                  />
+                </div>
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="password">Contraseña</label>
+                <div className="input-wrapper">
+                  <input
+                    type="password"
+                    id="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                    placeholder="••••••••"
+                    autoComplete="current-password"
+                  />
+                </div>
+              </div>
+
+              <div className="form-options">
+                <label className="checkbox-container">
+                  <input type="checkbox" />
+                  <span className="checkmark"></span>
+                  Recordarme por 30 días
+                </label>
+              </div>
+
+              <button type="submit" className="login-button" disabled={loading}>
+                {loading ? 'Verificando...' : 'Ingresar'}
+              </button>
+            </form>
           </div>
+        </div>
 
-          <form onSubmit={handleSubmit} className="login-form">
-            {error && <div className="login-error">{error}</div>}
-            
-            <div className="form-group">
-              <label htmlFor="email">Usuario</label>
-              <input
-                type="email"
-                id="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                placeholder="fran@gypsyjoyas.com"
-                autoComplete="email"
-              />
+        {/* Right Side: Visual/Aesthetic */}
+        <div className="login-visual-side">
+          <div className="visual-media">
+            <div className="visual-overlay"></div>
+            <div className="visual-glass-card">
+              <h3>Arte Atemporal</h3>
+              <p>Obras de arte para llevar puestas</p>
             </div>
-
-            <div className="form-group">
-              <label htmlFor="password">Contraseña</label>
-              <input
-                type="password"
-                id="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-                placeholder="••••••••"
-                autoComplete="current-password"
-              />
-            </div>
-
-            <button type="submit" className="login-button" disabled={loading}>
-              <span className="button-text">{loading ? 'Verificando...' : 'Ingresar'}</span>
-              <span className="button-arrow">→</span>
-            </button>
-          </form>
-
-          <div className="login-footer">
-            <p>© 2026 Gypsy Joyas • Mendoza</p>
           </div>
         </div>
       </div>
 
-      <style jsx>{`
-        .login-scene {
-          position: relative;
+      <style>{`
+        .login-page {
+          min-height: 100vh;
+          width: 100vw;
           display: flex;
           justify-content: center;
           align-items: center;
-          min-height: 100vh;
           background-color: var(--color-beige-nuevo, #fefcf7);
+          position: relative;
           overflow: hidden;
-          font-family: 'Raleway', sans-serif;
+          padding: 20px;
+          box-sizing: border-box;
+          font-family: 'Inter', 'Raleway', sans-serif;
         }
 
-        /* Abstract geometric/organic background elements */
-        .login-bg-decoration {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          z-index: 0;
-          pointer-events: none;
-        }
-
-        .blur-circle {
+        .login-bg-shapes .shape {
           position: absolute;
           border-radius: 50%;
           filter: blur(80px);
-          opacity: 0.4;
+          opacity: 0.3;
+          z-index: 0;
         }
-
-        .circle-1 {
-          width: 400px;
-          height: 400px;
+        .shape-1 {
+          width: 600px;
+          height: 600px;
           background: var(--color-dorado-ocre, #cfa358);
-          top: -100px;
-          right: -100px;
+          top: -200px;
+          left: -200px;
         }
-
-        .circle-2 {
-          width: 300px;
-          height: 300px;
+        .shape-2 {
+          width: 500px;
+          height: 500px;
           background: var(--color-cafe-profundo, #3c2415);
-          bottom: -50px;
-          left: -50px;
-          opacity: 0.2;
+          bottom: -150px;
+          right: -100px;
+          opacity: 0.12;
         }
 
-        .login-container {
+        .login-card-container {
           position: relative;
           z-index: 10;
+          display: flex;
           width: 100%;
-          max-width: 420px;
-          padding: 20px;
+          max-width: 1000px;
+          min-height: 600px;
+          background-color: #ffffff;
+          border-radius: 36px;
+          box-shadow: 0 25px 50px -12px rgba(60, 36, 21, 0.15);
+          overflow: hidden;
         }
 
-        .login-card {
-          background: rgba(255, 255, 255, 0.7);
-          backdrop-filter: blur(15px);
-          -webkit-backdrop-filter: blur(15px);
-          padding: 50px 40px;
-          border-radius: 2px; /* Brutalist minimal corner */
-          border: 1px solid rgba(60, 36, 21, 0.1);
-          box-shadow: 0 30px 60px rgba(0,0,0,0.03);
+        .login-form-side {
+          flex: 1;
           display: flex;
           flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          padding: 40px 20px;
+        }
+
+        .login-form-inner {
+          width: 100%;
+          max-width: 320px;
         }
 
         .login-header {
           text-align: center;
-          margin-bottom: 40px;
+          margin-bottom: 35px;
         }
 
-        .logo-wrapper {
-          margin-bottom: 24px;
+        .logo-box {
+          margin-bottom: 25px;
           display: inline-block;
         }
 
-        .login-logo {
-          width: 50px;
-          filter: saturate(0.8);
-          transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .login-card:hover .login-logo {
-          transform: rotate(10deg);
+        .logo-box img {
+          width: 45px;
+          filter: sepia(10%) hue-rotate(0deg) saturate(1.2) contrast(1.1) drop-shadow(0 2px 4px rgba(60,36,21,0.1));
         }
 
         .login-header h1 {
           font-family: 'STIX Two Text', serif;
-          margin: 0;
           font-size: 32px;
-          font-weight: 400;
           color: var(--color-cafe-profundo, #3c2415);
+          margin: 0 0 8px 0;
+          font-weight: 400;
           letter-spacing: -0.5px;
         }
 
-        .serif-initial {
-          font-family: 'Manstein', serif;
-          font-size: 1.25em;
-          vertical-align: sub;
-        }
-
-        .serif-subtitle {
-          font-size: 0.5em;
-          display: block;
-          text-transform: uppercase;
-          letter-spacing: 4px;
-          margin-top: -5px;
-          opacity: 0.7;
-          font-family: 'Raleway', sans-serif;
-        }
-
-        .header-divider {
-          width: 40px;
-          height: 1px;
-          background: var(--color-dorado-ocre, #cfa358);
-          margin: 15px auto;
-        }
-
         .login-header p {
-          font-family: 'Raleway', sans-serif;
-          color: #888;
-          font-size: 13px;
-          text-transform: uppercase;
-          letter-spacing: 1.5px;
+          font-family: 'Inter', sans-serif;
+          font-size: 14px;
+          color: #856E58;
           margin: 0;
         }
 
         .login-form .form-group {
-          margin-bottom: 25px;
-          position: relative;
+          margin-bottom: 22px;
         }
 
         .login-form label {
           display: block;
-          margin-bottom: 8px;
-          font-weight: 400;
+          font-size: 13px;
           color: var(--color-cafe-profundo, #3c2415);
-          font-size: 12px;
-          text-transform: uppercase;
-          letter-spacing: 1px;
+          margin-bottom: 8px;
+          font-weight: 500;
+        }
+
+        .input-wrapper {
+          position: relative;
         }
 
         .login-form input {
           width: 100%;
-          padding: 14px 0;
-          background: transparent;
-          border: none;
-          border-bottom: 1px solid rgba(60, 36, 21, 0.2);
-          font-size: 16px;
-          font-family: 'Raleway', sans-serif;
+          padding: 14px 18px;
+          font-size: 14px;
           color: var(--color-cafe-profundo, #3c2415);
-          transition: all 0.3s;
-          border-radius: 0;
+          background-color: #fcfbfa; /* subtle off-white */
+          border: 1px solid #efeae4;
+          border-radius: 16px;
+          box-sizing: border-box;
+          transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+          font-family: 'Inter', sans-serif;
         }
 
         .login-form input:focus {
           outline: none;
-          border-bottom-color: var(--color-dorado-ocre, #cfa358);
-          padding-left: 8px;
+          background-color: #ffffff;
+          border-color: var(--color-dorado-ocre, #cfa358);
+          box-shadow: 0 0 0 4px rgba(207, 163, 88, 0.1);
+          transform: translateY(-1px);
         }
 
         .login-form input::placeholder {
-          color: #ccc;
-          font-size: 14px;
+          color: #c4b9b0;
+          font-weight: 400;
         }
 
-        .login-error {
-          background-color: #fff5f5;
-          color: #c53030;
-          padding: 12px;
-          font-size: 14px;
-          text-align: center;
-          border-left: 3px solid #fc8181;
-          margin-bottom: 25px;
+        .form-options {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 30px;
+        }
+
+        .checkbox-container {
+          display: flex;
+          align-items: center;
+          font-size: 13px;
+          color: #856E58;
+          cursor: pointer;
+          user-select: none;
+          gap: 8px;
+        }
+
+        .checkbox-container input {
+          margin: 0;
+          cursor: pointer;
+          accent-color: var(--color-dorado-ocre, #cfa358);
+          width: 16px;
+          height: 16px;
+          border-radius: 4px;
         }
 
         .login-button {
           width: 100%;
-          height: 55px;
-          margin-top: 15px;
+          padding: 16px;
           background-color: var(--color-cafe-profundo, #3c2415);
-          color: var(--color-beige-nuevo, #fefcf7);
+          color: #ffffff;
           border: none;
-          font-size: 14px;
-          font-weight: 400;
-          text-transform: uppercase;
-          letter-spacing: 2px;
+          border-radius: 16px;
+          font-size: 15px;
+          font-weight: 500;
           cursor: pointer;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          padding: 0 30px;
-          transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+          transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+          font-family: 'Inter', sans-serif;
+          letter-spacing: 0.5px;
         }
 
         .login-button:hover:not(:disabled) {
           background-color: var(--color-dorado-ocre, #cfa358);
-          padding-right: 20px;
-        }
-
-        .button-arrow {
-          font-size: 20px;
-          transform: translateX(-10px);
-          opacity: 0;
-          transition: all 0.4s;
-        }
-
-        .login-button:hover .button-arrow {
-          transform: translateX(0);
-          opacity: 1;
+          transform: translateY(-2px);
+          box-shadow: 0 10px 20px rgba(207, 163, 88, 0.25);
         }
 
         .login-button:disabled {
-          background-color: #ddd;
-          color: #aaa;
+          background-color: #dfd8d0;
+          color: #999;
           cursor: not-allowed;
         }
 
-        .login-footer {
-          margin-top: 40px;
+        .login-error {
+          background-color: #fdf2f2;
+          color: #dc2626;
+          padding: 12px;
+          border-radius: 12px;
+          font-size: 13px;
+          margin-bottom: 22px;
           text-align: center;
+          border: 1px solid #fecaca;
         }
 
-        .login-footer p {
-          font-size: 10px;
-          color: #bbb;
-          text-transform: uppercase;
-          letter-spacing: 2px;
+        /* Right Side: Visual */
+        .login-visual-side {
+          flex: 1.1;
+          padding: 16px;
+          display: flex;
         }
 
-        /* Mobile specific adjustments */
-        @media (max-width: 480px) {
-          .login-card {
-            padding: 40px 30px;
+        .visual-media {
+          width: 100%;
+          height: 100%;
+          border-radius: 24px;
+          background-image: url('/assets/img/ui/hero-bg.webp');
+          background-size: cover;
+          background-position: center;
+          position: relative;
+          overflow: hidden;
+          display: flex;
+          align-items: flex-end;
+          padding: 40px;
+        }
+
+        .visual-overlay {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(180deg, rgba(60,36,21,0) 0%, rgba(60,36,21,0.6) 100%);
+        }
+
+        .visual-glass-card {
+          position: relative;
+          z-index: 2;
+          width: 100%;
+          padding: 25px 30px;
+          background: rgba(255, 255, 255, 0.15);
+          backdrop-filter: blur(12px);
+          -webkit-backdrop-filter: blur(12px);
+          border: 1px solid rgba(255, 255, 255, 0.3);
+          border-radius: 20px;
+          color: white;
+        }
+
+        .visual-glass-card h3 {
+          font-family: 'STIX Two Text', serif;
+          font-size: 26px;
+          margin: 0 0 6px 0;
+          font-weight: 400;
+        }
+
+        .visual-glass-card p {
+          font-family: 'Inter', sans-serif;
+          font-size: 14px;
+          margin: 0;
+          opacity: 0.95;
+          font-weight: 300;
+          letter-spacing: 0.5px;
+        }
+
+        /* Responsive */
+        @media (max-width: 850px) {
+          .login-card-container {
+            flex-direction: column;
+            border-radius: 28px;
+            max-width: 420px;
+            min-height: auto;
           }
           
-          .login-header h1 {
-            font-size: 28px;
+          .login-visual-side {
+            padding: 12px 12px 0 12px;
+            flex: none;
+            height: 240px;
+          }
+          
+          .visual-media {
+            border-radius: 20px;
+            padding: 20px;
+            align-items: flex-end;
+          }
+          
+          .visual-glass-card {
+            padding: 15px 20px;
+            border-radius: 16px;
+          }
+          
+          .visual-glass-card h3 {
+            font-size: 20px;
           }
 
-          .circle-1 { width: 250px; height: 250px; }
-          .circle-2 { width: 150px; height: 150px; }
+          .visual-glass-card p {
+            font-size: 12px;
+          }
+          
+          .login-form-side {
+            padding: 40px 30px;
+          }
+
+          .login-form-inner {
+            max-width: 100%;
+          }
         }
       `}</style>
     </div>
