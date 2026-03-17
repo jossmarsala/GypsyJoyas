@@ -273,7 +273,7 @@ const Login = () => {
         }
 
         .checkbox-container input {
-          margin: 0;
+          margin: 0 10px 0 0;
           cursor: pointer;
           accent-color: var(--color-dorado-ocre, #cfa358);
           width: 16px;
@@ -324,12 +324,13 @@ const Login = () => {
           flex: 1.1;
           padding: 16px;
           display: flex;
+          box-sizing: border-box;
         }
 
         .visual-media {
           width: 100%;
           height: 100%;
-          border-radius: 24px;
+          border-radius: 20px;
           background-image: url('/assets/img/ui/hero-bg.webp');
           background-size: cover;
           background-position: center;
@@ -338,6 +339,7 @@ const Login = () => {
           display: flex;
           align-items: flex-end;
           padding: 30px;
+          box-sizing: border-box;
         }
 
         .visual-overlay {
